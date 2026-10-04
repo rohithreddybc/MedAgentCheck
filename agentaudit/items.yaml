@@ -1,0 +1,273 @@
+version: '1.0'
+sources:
+  rubric:
+    file: rubric/rubric-v1.md
+    sha256: b5a0e4c5ddfae173b76689dd6e2dc727518bc4021d0adf6246618ef2e51590e1
+  manual:
+    file: rubric/coding-manual-v1.0.md
+    sha256: 24adfb145d169b4548e306bc72df2ddfaa2621c903313f9cc1d72ed9a9be34e1
+scale: 0 = not reported, 1 = partially reported, 2 = fully reported, NA = not applicable (reason required).
+global_rules: '**G1 What is scored.** Each item scores what the benchmark *reports* on public surfaces S1 (paper and appendix), S2 (README and docs) and S3 (release notes), at the pinned version.
+
+  **G2 Contradiction flag.** If code (S4) or an agent-visible surface (S5) shows the opposite of a reported property, keep the reported score and set `contradicted = y` with both quotes. A flag is a candidate finding only. It is verified against the benchmark''s own documentation and offered for right of reply before it is reported. Exception: under A4, a model identifier that differs between S1 and S4 counts as absent.
+
+  **G3 Recording.** A score of 1 or 2 carries a quote of 25 words or fewer and its location. A score of 0 or NA carries `searched:` followed by the S1-S5 places checked. A-items record `element_flags` as `n/3`.
+
+  **G4 Anchors for element items.** 2 = all elements present; 1 = at least one element present; 0 = none. Item-specific anchors below override this.
+
+  **G5 Disclosed weakness.** A benchmark that reports evidence showing a property is weak (e.g., "chance success is high") scores as reporting it (1), and the note records the weakness.
+
+  **G6 Pinning.** Pin the arXiv version, the repo commit or tag (GitHub API) and the access date. If the repo moved after the paper, score the paper version and the commit nearest to it, and record both.
+
+  **G7 NA.** NA is allowed only where an item''s NA clause applies. "Not mentioned" is 0, never NA.'
+items:
+- id: C1
+  module: core
+  source: MedCheck 13
+  construct: h provenance
+  title: Traceability
+  item_text: Original data sources stated with traceability (time frame, platform).
+  manual_title: Traceability
+  anchors: 2 = dataset name, version or snapshot date, platform, and a route from a task to its source record. 1 = source named without version or route. 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C2
+  module: core
+  source: BetterBench J.3-11
+  construct: h provenance
+  title: Provenance and licence
+  item_text: Data origin, collection, provenance, licence compliance and consent documented.
+  manual_title: Provenance and licence
+  anchors: 2 = origin, collection method and licence or terms, plus consent or IRB status or an explicit "not required". 1 = origin plus any one of the others. 0 = origin not stated. A repo licence that conflicts with the source licence is recorded in the note; the score is not lowered.
+  na_clause: null
+  n_elements: 0
+- id: C3
+  module: core
+  source: MedCheck 16
+  construct: g subgroup
+  title: Representativeness
+  item_text: Representativeness of key patient features analysed against the target population.
+  manual_title: Representativeness
+  anchors: 2 = comparison against a named target population. 1 = descriptive statistics or a stated sampling design. 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C4
+  module: core
+  source: MedCheck 12
+  construct: d safety
+  title: Safety and bias tests
+  item_text: Dedicated tests for unsafe output and bias.
+  manual_title: Safety and bias tests
+  anchors: 2 = both an unsafe-output test and a bias test. 1 = one of them. 0 = neither.
+  na_clause: null
+  n_elements: 0
+- id: C5
+  module: core
+  source: MedCheck 23
+  construct: f contamination
+  title: Contamination controls
+  item_text: Developer-side contamination controls (gated access, canary, overlap checks).
+  manual_title: Contamination controls
+  anchors: 2 = a developer-side control (gating, canary, encryption, held-out set) plus a measured check. 1 = any control or any indirect empirical check. 0 = a limitation sentence only, or nothing.
+  na_clause: null
+  n_elements: 0
+- id: C6
+  module: core
+  source: ABC T.5
+  construct: f contamination
+  title: Agent isolated from gold
+  item_text: Agent isolated from ground-truth results.
+  manual_title: Agent isolated from gold
+  anchors: 2 = the paper or docs state that the agent cannot reach ground truth at run time AND name the mechanism (no mount, no credential, no network path, labels not public). 1 = isolation stated without a mechanism. 0 = not addressed.
+  na_clause: null
+  n_elements: 0
+- id: C7
+  module: core
+  source: ABC T.6
+  construct: b/h environment
+  title: Frozen environment
+  item_text: Environment reproducible and frozen at release; no dynamic external dependence.
+  manual_title: Frozen environment
+  anchors: 2 = data, software and any simulator or judge model pinned, with no live external call at evaluation time other than the model under test. 1 = data pinned while some evaluator, simulator or service is live or unpinned. 0 = nothing pinned.
+  na_clause: null
+  n_elements: 0
+- id: C8
+  module: core
+  source: ABC T.9
+  construct: c grader
+  title: Oracle solver
+  item_text: Oracle solver shows task configuration is solvable and correct.
+  manual_title: Oracle solver
+  anchors: 2 = a scripted reference solution is run through the grader and the result is reported. 1 = manual or agent-based solvability evidence. 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C9
+  module: core
+  source: ABC O.g.2
+  construct: c grader
+  title: Out-of-scope side effects detectable
+  item_text: State space includes irrelevant states, so out-of-scope side effects are detectable.
+  manual_title: Out-of-scope side effects detectable
+  anchors: NA when no task changes environment state. 2 = the grader checks unchanged as well as changed state. 1 = partial (some tasks). 0 = not checked.
+  na_clause: NA when no task changes environment state.
+  n_elements: 0
+- id: C10
+  module: core
+  source: ABC O.g.3
+  construct: c grader
+  title: Trivial success unlikely
+  item_text: Random or trivial changes are unlikely to be graded correct.
+  manual_title: Trivial success unlikely
+  anchors: 2 = an empirical random or trivial-agent rate, or an explicit chance rate per metric. 1 = a stated design argument, or a disclosed chance rate that is large (G5). 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C11
+  module: core
+  source: ABC R.13
+  construct: c grader
+  title: Trivial-agent result
+  item_text: Results of a trivial (do-nothing) agent reported.
+  manual_title: Trivial-agent result
+  anchors: 2 = a do-nothing or random agent's score is reported for all tasks. 1 = for some tasks. 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C12
+  module: core
+  source: BetterBench J.1-13
+  construct: c grader
+  title: Evaluator validated
+  item_text: Automatic evaluator's quality validated, results reported.
+  manual_title: Evaluator validated
+  anchors: 2 = the benchmark's own validation on its own outputs, with agreement or error figures. 1 = cited external validation, or validation without figures. 0 = none. Deterministic verifiers count as validated only with tests or reference-solution evidence.
+  na_clause: null
+  n_elements: 0
+- id: C13
+  module: core
+  source: ABC O.f.2
+  construct: a reliability
+  title: Non-determinism safeguards
+  item_text: Safeguards against non-determinism in the harness.
+  manual_title: Non-determinism safeguards
+  anchors: 2 = seeds or temperature 0 plus a repeated-run policy stated in S1-S3. 1 = safeguards visible only in code, or covering only part of the harness. 0 = none.
+  na_clause: null
+  n_elements: 0
+- id: C14
+  module: core
+  source: MedCheck 37 / ABC R.10
+  construct: e CI
+  title: Statistical comparison
+  item_text: Statistical significance or CIs for model comparisons.
+  manual_title: Statistical comparison
+  anchors: 2 = a CI or a test for the headline model comparison. 1 = SD, range or a CI without any comparison claim tested. 0 = none. "Significant" with no test = 1 at most, noted.
+  na_clause: null
+  n_elements: 0
+- id: A1
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Run count per reported number (e).
+  item_text: 'Elements: (i) number of runs per task behind each headline score; (ii) seed or sampling policy; (iii) whether runs are independent.'
+  manual_title: Run count
+  anchors: (i) a number of runs per task behind headline scores ("multiple runs" without a number = absent); (ii) a seed, the decoding controls used, or an explicit statement that the API exposes none; (iii) independence of runs stated.
+  na_clause: null
+  n_elements: 3
+- id: A2
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Uncertainty with stated resampling unit (e).
+  item_text: 'Elements: (i) CI or SE on headline scores; (ii) the resampling or variance unit stated (task, patient, run); (iii) clustering of tasks within patients or templates addressed.'
+  manual_title: Uncertainty with unit
+  anchors: (i) a CI or SE on headline scores; (ii) the resampling or variance unit named ("pooled trials" counts as unit = trial); (iii) clustering of tasks within patients, templates or task groups addressed.
+  na_clause: null
+  n_elements: 3
+- id: A3
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Action-level repeat-run reliability (a).
+  item_text: 'Elements: (i) agreement of tool actions or action sequences across identical reruns, or (ii) agreement of final environment state across reruns, or (iii) a pass^k-type all-runs metric. 2 = any metric at action or state level with its run count; 1 = score-level variance only; 0 = neither. (Score-level SD alone is C13/C14 territory, not A3.)'
+  manual_title: Repeat-run reliability
+  anchors: 0 = no rerun information beyond a single-run CI. 1 = score-level variation across identical reruns, or per-task repeat outcomes (k of n). 2 = an all-runs metric (pass^k or equivalent) or action- or state-level agreement across reruns, with the run count.
+  na_clause: null
+  n_elements: 3
+- id: A4
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Model and harness pinning (a/e).
+  item_text: 'Elements: (i) exact model identifiers with version or date; (ii) decoding parameters; (iii) harness version or commit for reported results.'
+  manual_title: Pinning
+  anchors: (i) a provider snapshot ID or a release date (family name alone = absent; an S1/S4 mismatch = absent); (ii) decoding parameters, including reasoning effort where applicable; (iii) a harness tag or commit stated as matching the reported numbers (a dependency pin alone = partial, recorded in the note).
+  na_clause: null
+  n_elements: 3
+- id: A5
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Tool contract specified (b).
+  item_text: 'Elements: (i) machine-readable schema for every tool; (ii) documented side effects per tool (reads vs writes); (iii) documented return semantics including error and failure returns. Record whether (ii) reaches S5.'
+  manual_title: Tool contract specified
+  anchors: NA when the benchmark defines no tool interface and the agent uses only its own harness tools (shell, file edit). Text-command protocols are not NA. (i) a schema or an enforced grammar; (ii) side effects per tool (read or write); (iii) return semantics, including errors. Record whether (ii) reaches S5.
+  na_clause: NA when the benchmark defines no tool interface and the agent uses only its own harness tools (shell, file edit). Text-command protocols are not NA.
+  n_elements: 3
+- id: A6
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Tool contract verified (b).
+  item_text: 'Elements: (i) tests or conformance checks that tools behave as documented; (ii) any simulated, stubbed or no-op tool behaviour disclosed; (iii) that disclosure reaches the agent-visible surface (S5). 2 needs (iii) when any simulation exists.'
+  manual_title: Tool contract verified
+  anchors: NA as for A5. (i) tests or conformance checks of tools; (ii) disclosure of any simulated, stubbed or no-op behaviour (if nothing is simulated and S1 says so, (ii) and (iii) count as present); (iii) that disclosure reaches S5.
+  na_clause: NA as for A5.
+  n_elements: 3
+- id: A7
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Write-action disclosure (d).
+  item_text: 'Elements: (i) which actions mutate state or are irreversible in the clinical frame (orders, prescriptions, notes, messages); (ii) whether writes are executed, simulated or sandboxed; (iii) whether unsafe or unnecessary writes are scored or penalised. Record S5 reach for (ii).'
+  manual_title: Write-action disclosure
+  anchors: NA unless some action changes environment state or represents a clinical order, prescription, note or message, whether executed or simulated. (i) which actions write or are irreversible; (ii) executed, simulated or sandboxed (record S5 reach); (iii) whether unsafe or unnecessary writes are scored.
+  na_clause: NA unless some action changes environment state or represents a clinical order, prescription, note or message, whether executed or simulated.
+  n_elements: 3
+- id: A8
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Grader reads state, or justifies transcript grading (c).
+  item_text: 'Elements: (i) grader input stated (end state, action log, transcript, or LLM judgement); (ii) if not end state, rationale given; (iii) grader validated against known state changes (injected correct and incorrect outcomes, with error rates). 2 needs (iii).'
+  manual_title: Grader input and validation
+  anchors: (i) grader input named (end state, action log, transcript, answer string, or LLM judge); (ii) the rationale for a non-state grader; (iii) validation on labelled correct and incorrect outcomes (injected, or human labels on at least 100 outputs) with per-class error rates. 2 needs (iii).
+  na_clause: null
+  n_elements: 3
+- id: A9
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Agent-channel contamination (f).
+  item_text: 'Elements: (i) controls on answer leakage through tools, retrieval or web access during runs; (ii) held-out or private split; (iii) canary or provenance marker on released tasks.'
+  manual_title: Agent-channel contamination
+  anchors: (i) controls on leakage through tools, retrieval, web access, cross-task memory, and agent-visible prompts or examples; (ii) held-out labels absent from every public surface (hidden at run time but public in the repo = partial, recorded); (iii) a canary or provenance marker.
+  na_clause: null
+  n_elements: 3
+- id: A10
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Slice reporting (g).
+  item_text: 'Elements: (i) results per task family; (ii) results per patient subgroup where demographic fields exist; (iii) slice sizes reported with the slice results. NA for (ii) only when no demographic fields exist, stated.'
+  manual_title: Slice reporting
+  anchors: (i) results per task partition that the paper names as a benchmark axis; (ii) results per patient subgroup, applicable whenever the source data hold demographic fields; (iii) n per reported slice.
+  na_clause: null
+  n_elements: 3
+- id: A11
+  module: agent
+  source: agent module (new)
+  construct: null
+  title: Environment-state provenance (h).
+  item_text: 'Elements: (i) source of patient records or seed state stated as real de-identified, synthetic (with generator), or mixed; (ii) governance for real data (IRB, DUA, de-identification method); (iii) redistribution terms for environment data separate from code licence. Never infer "synthetic"; score only what the benchmark states.'
+  manual_title: Environment-state provenance
+  anchors: '(i) the source of records stated as real de-identified, synthetic (generator named) or mixed; never inferred; (ii) any one of: an IRB determination, a DUA or credentialing requirement, or the de-identification method; (iii) data terms stated separately from the code licence.'
+  na_clause: null
+  n_elements: 3

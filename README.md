@@ -1,0 +1,61 @@
+# agentaudit
+
+`agentaudit` scores a benchmark against a 25-item documentary checklist (14 reused core items, 11 agent-specific items; rubric v1 and coding manual v1.0 in `rubric/`) using only evidence that can be quoted. Every score of 1 or 2 must carry a verbatim quote that the tool checks against the evidence packet; coders from different model families score the same packet, and a level is accepted only when coders from at least two families agree on it with verified quotes. The tool is the method behind the study in `protocol/protocol-v1.md` (clinical agent benchmarks, 45 benchmarks listed in `eligibility/frozen_list_v1.csv`).
+
+Authors: Rohith Reddy Bellibatlu (rohithreddybc@gmail.com) and Manpreet Singh.
+
+## Status of this repository
+
+`FREEZE_MANIFEST.json` lists the SHA-256 of every file that defines the method: the protocol, the rubric and coding manual, the item definitions, the prompts, the perturbation and decoy texts, the seeded samples (perturbation sample, ABC and BetterBench item lists, gold version pins), the frozen benchmark list, and the code of packet building, scoring, quote verification, resolution, perturbation and gold validation. Check a checkout with
+
+    agentaudit freeze --verify .
+
+The manifest also lists, by hash only, the inputs that are used but not redistributed here: the ABC and BetterBench item texts and the published gold scores. ABC's repository has no licence and MedCheck has no rubric licence, so their texts are referenced by id and paraphrased, never reproduced. Pilot transcripts, benchmark data and run outputs are not part of this repository.
+
+## Install
+
+Python 3.10 or later.
+
+    pip install .            # from a clone of this repository
+    pip install ".[test]" && pytest
+
+## Use
+
+The backends are your own: the Claude CLI (`claude auth login`), the Codex CLI (`codex login`), a Gemini API key (`GEMINI_API_KEY`), optionally a Mistral key (`MISTRAL_API_KEY`). `agentaudit doctor` reports which are live. Model identifiers are recorded in every result file.
+
+    agentaudit packet manifest.yaml --out runs/x          # evidence packet at a pinned paper version and repo commit
+    agentaudit score-packet --out runs/x --coder sonnet --coder codex --coder gemini
+    agentaudit resolve --out runs/x                       # two-family resolution rule
+    agentaudit agree   --out runs/x                       # Krippendorff alpha, per item and overall
+    agentaudit report  --out runs/x                       # score cards
+
+A manifest names the benchmark, its arXiv id and version, and the repository commit:
+
+    name: agentclinic
+    arxiv: {id: "2405.07960", version: v5}
+    repo: {url: https://github.com/SamuelSchmidgall/AgentClinic, commit: b6fbe22300e99a267a7ac94eaa465ab552eef741}
+
+### Validation
+
+    agentaudit perturb --out runs/x --frozen-list eligibility/frozen_list_v1.csv --plan-only
+    agentaudit perturb --out runs/x --frozen-list eligibility/frozen_list_v1.csv --coder sonnet --coder codex --coder gemini
+    agentaudit perturb --out runs/x --summarise
+
+The perturbation suite builds five variants per item (inject, buried, paraphrase, deletion, decoy), eight per item per type, drawn with seed 20261004 across the 45 listed benchmarks. Each variant is a full packet copy scored for the target item only. Labels are fixed by construction; the summary gives sensitivity and specificity with Wilson 95% intervals per item, per variant type, per coder and for the resolved score. It measures validity under perturbation, not agreement with ground truth.
+
+    agentaudit gold --set betterbench --out runs/x --research-dir <dir with gold/ and instruments/> --coder sonnet --coder codex --coder gemini
+    agentaudit gold --set abc ...
+
+The gold mode scores the benchmarks that ABC (10 benchmarks) and BetterBench (23 benchmarks) had experts assess, with each source's own item texts and scale, and reports agreement with the published scores (Cohen's kappa for ABC, weighted kappa for BetterBench, raw agreement), per coder and resolved. The gold data are not part of this repository; obtain them from the sources and pass `--research-dir`. Outputs for ABC contain statistics only.
+
+`agentaudit --help` lists every stage. The BM25 retrieval and tagging stages (`retrieve`, `tag`, `code`) are kept as an ablation of the retired retrieval design.
+
+## Licences
+
+Code: MIT (`LICENSE`), copyright Rohith Reddy Bellibatlu and Manpreet Singh. Checklist text (the files in `rubric/`, and the item and anchor text in `agentaudit/items.yaml`): CC BY 4.0 (`LICENSE-checklist`). The protocol and eligibility files carry no separate licence statement yet.
+
+## How to cite
+
+Placeholder, to be filled when a DOI exists. No DOI has been issued.
+
+    Bellibatlu, R. R., and Singh, M. agentaudit: a quote-verified, cross-family scorer for agentic benchmark documentation. Version 0.1.0. [DOI to be added]

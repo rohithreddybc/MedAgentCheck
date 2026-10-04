@@ -1,0 +1,28 @@
+Score one benchmark against {{N_ITEMS}} checklist items ({{ITEM_IDS}}), using only the evidence packet below. The packet is the whole documentary record of the benchmark that was collected. Do not use prior knowledge of the benchmark.
+
+## Scale
+{{SCALE}}
+
+## Global rules (G1-G7)
+{{GLOBAL_RULES}}
+
+## Evidence packet
+The packet is grouped by surface: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions found in code. Every excerpt starts with a header "### [chunk id] path=...". Chunks overlap slightly; a quote must lie inside one chunk. Some S4 chunks may be absent from the packet (size cap); absence from the packet is not evidence about the benchmark.
+
+{{PACKET}}
+
+## Items to score
+Score every one of the {{N_ITEMS}} items below, each on its own anchors.
+
+{{ITEM_BLOCKS}}
+
+## How to answer
+- Pick, for each item, the score that its anchors assign to what the packet shows. If nothing in the packet addresses the item, the score is 0.
+- A score of 1 or 2 needs at least one verbatim quote of 25 words or fewer, copied exactly from a single chunk, with that chunk's id exactly as written in its header (without brackets). Do not paraphrase inside a quote. Quote the passage that decides the level, not a heading.
+- A score of 0 or NA needs no quote. Start the rationale with "searched:" and name the surfaces (S1-S5) you checked.
+- If code (S4) or an agent-visible surface (S5) shows the opposite of a property reported on S1-S3, keep the reported score, set "contradicted" to true and put both quotes in "contradiction_quotes" (same chunk id and verbatim rules). Otherwise "contradicted" is false and "contradiction_quotes" is [].
+- Items are independent: score each on its own evidence.
+
+Reply with one JSON array containing exactly {{N_ITEMS}} objects, one per item, in the order {{ITEM_IDS}}. If your interface requires a JSON object at the top level, return {"results": [ ...the array... ]}. Each object has exactly these keys:
+{"item": "<item id>", "score": 0 | 1 | 2 | "NA", "elements": [] or [true | false, true | false, true | false], "quotes": [{"chunk_id": "<id>", "text": "<verbatim quote>"}], "contradicted": true | false, "contradiction_quotes": [{"chunk_id": "<id>", "text": "<verbatim quote>"}], "s5_reach": true | false | null, "rationale": "<two to four sentences>"}
+Use "s5_reach": null for every item except A5, A6 and A7.

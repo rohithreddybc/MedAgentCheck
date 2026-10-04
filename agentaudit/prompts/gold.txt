@@ -1,0 +1,28 @@
+Score one benchmark against {{N_ITEMS}} criteria ({{ITEM_IDS}}) of a published assessment instrument, {{INSTRUMENT}}, using only the evidence packet below. The packet is the documentary record of the benchmark that was collected, at a version pinned near the date the instrument's own assessors scored it. Do not use prior knowledge of the benchmark.
+
+## Scale
+{{SCALE}}
+
+## Rules
+- Judge each criterion by its own wording, read literally. Do not substitute a stricter or a looser reading.
+- Every surface of the packet counts as evidence: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code and configuration, S5 agent-visible prompts and tool descriptions found in code. Use whichever surface the criterion's wording asks about.
+- Judge time-dependent criteria (for example, how recently the code was updated) as of {{AS_OF}}, the date of the published assessment.
+- If the packet does not show what a criterion asks for, give the lowest level. A missing document is not evidence that the criterion is met.
+
+## Evidence packet
+The packet is grouped by surface. Every excerpt starts with a header "### [chunk id] path=...". Chunks overlap slightly; a quote must lie inside one chunk. Some S4 chunks may be absent from the packet (size cap); absence from the packet is not evidence about the benchmark.
+
+{{PACKET}}
+
+## Criteria to score
+Score every one of the {{N_ITEMS}} criteria below, each on its own evidence and wording.
+
+{{ITEM_BLOCKS}}
+
+## How to answer
+- A score above the lowest level needs at least one verbatim quote of 25 words or fewer, copied exactly from a single chunk, with that chunk's id exactly as written in its header (without brackets). Do not paraphrase inside a quote. Quote the passage that decides the score, not a heading.
+- A score at the lowest level (or NA) needs no quote. Start the rationale with "searched:" and name the surfaces (S1-S5) you checked.
+- Criteria are independent: score each on its own evidence.
+
+Reply with one JSON array containing exactly {{N_ITEMS}} objects, one per criterion, in the order {{ITEM_IDS}}. If your interface requires a JSON object at the top level, return {"results": [ ...the array... ]}. Each object has exactly these keys:
+{"item": "<criterion id>", "score": {{LEVELS}}, "quotes": [{"chunk_id": "<id>", "text": "<verbatim quote>"}], "rationale": "<one to three sentences>"}

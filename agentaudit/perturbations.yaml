@@ -1,0 +1,247 @@
+# Perturbation texts for `agentaudit perturb`. Hash-frozen with the protocol.
+# inject: canonical sentence(s) that meet the level-2 anchor on their own (all elements present).
+# paraphrase: meaning-preserving rewrite of inject.
+# decoy: looks relevant but fails the anchor (expected: no rise above the base level).
+# Texts are benchmark-neutral and contain no benchmark names.
+items:
+  C1:
+    inject: >-
+      The tasks are drawn from the clinical database MIMIC-IV version 2.2 (snapshot released in January 2023, hosted
+      on PhysioNet), and every task record stores the identifier of its source patient record, so any task can be
+      traced back to its origin.
+    paraphrase: >-
+      Task content comes from MIMIC-IV, version 2.2, a PhysioNet snapshot dated January 2023; each task keeps the ID
+      of the patient record it was built from, which lets a reader follow any task to its source.
+    decoy: >-
+      Task content was derived from clinical records of the kind found in hospital databases.
+  C2:
+    inject: >-
+      All patient records originate from a de-identified hospital database collected during routine care between 2008
+      and 2019. The data are released under a credentialed-access data use agreement, and the source institution's
+      review board determined that the study qualified for a waiver of consent.
+    paraphrase: >-
+      The records were collected in routine hospital care from 2008 to 2019 and de-identified. Access requires a
+      credentialed data use agreement, and the originating institution's review board waived the consent requirement.
+    decoy: >-
+      The data come from clinical sources and are intended for research use.
+  C3:
+    inject: >-
+      To assess representativeness, we compared the age, sex and race distribution of the benchmark patients against
+      the U.S. adult inpatient population reported in a national hospital discharge survey, and found differences of
+      under five percentage points in every category.
+    paraphrase: >-
+      We checked how representative the patients are by comparing their age, sex and race mix with the U.S. adult
+      inpatient population from a national hospital discharge survey; no category differed by five percentage points
+      or more.
+    decoy: >-
+      The patient cases were chosen to cover a diverse range of conditions.
+  C4:
+    inject: >-
+      The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication
+      orders, and a separate bias test that compares agent accuracy across patient demographic groups.
+    paraphrase: >-
+      Two dedicated tests are included: one counts unsafe outputs, for example orders for contraindicated
+      medications, and one compares agent accuracy between demographic groups of patients to test for bias.
+    decoy: >-
+      We hope the benchmark will encourage the development of safe and fair clinical agents.
+  C5:
+    inject: >-
+      To limit contamination, the test split is held out and distributed only through gated access, and we measured
+      verbatim overlap between the test tasks and a public web corpus, finding no exact matches.
+    paraphrase: >-
+      As a contamination control, the test split is withheld and available only through gated access; a measured
+      check of verbatim overlap with a public web corpus found no exact matches with the test tasks.
+    decoy: >-
+      Data contamination is a potential concern for all benchmarks of this kind.
+  C6:
+    inject: >-
+      The agent cannot reach ground-truth answers at run time: the answer labels are stored in a separate evaluation
+      service that has no network path from the agent sandbox, and they are not published in the repository.
+    paraphrase: >-
+      At run time the agent has no way to obtain the ground truth. The labels sit in an independent evaluation service
+      with no network route from the agent sandbox, and the repository does not publish them.
+    decoy: >-
+      Ground-truth answers are used by the evaluator to compute scores after each episode.
+  C7:
+    inject: >-
+      The environment is frozen at release: the database snapshot, the software image and the simulated-patient
+      language model are all pinned to fixed versions, and no external service is called at evaluation time other than
+      the model under test.
+    paraphrase: >-
+      At release the environment is fixed. Data snapshot, software image and the language model that simulates
+      patients are each pinned to a specific version, and evaluation calls no outside service apart from the model
+      being tested.
+    decoy: >-
+      The environment code and task files are publicly available in the project repository.
+  C8:
+    inject: >-
+      To confirm that every task is solvable, we ran a scripted reference solution for each task through the grader;
+      all 120 reference solutions were graded correct.
+    paraphrase: >-
+      We checked solvability by passing a scripted reference solution for every task through the grader, and all 120
+      of these solutions were graded as correct.
+    decoy: >-
+      Tasks were written by the authors on the basis of published clinical guidelines.
+  C9:
+    inject: >-
+      The grader checks both the intended state changes and that all other records remain unchanged, so out-of-scope
+      modifications are detected and counted as failures.
+    paraphrase: >-
+      Grading looks at the intended changes to state and also verifies that every other record is untouched, which
+      means unintended modifications are caught and scored as failures.
+    decoy: >-
+      The grader checks whether the final answer matches the expected value.
+  C10:
+    inject: >-
+      A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the
+      appendix.
+    paraphrase: >-
+      An agent that acts at random solves 3.1% of the tasks; the appendix gives the chance-level success rate for
+      every metric.
+    decoy: >-
+      Models are compared on accuracy.
+  C11:
+    inject: >-
+      A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the
+      same tasks.
+    paraphrase: >-
+      Across all 120 tasks, an agent that takes no action scores 0.0%, and an agent that acts randomly scores 2.5%.
+    decoy: >-
+      We also report a baseline in which the same language model answers without access to any tools.
+  C12:
+    inject: >-
+      We validated the automatic evaluator on 200 outputs labelled by two physicians; agreement was 94%, with a
+      false-positive rate of 3% and a false-negative rate of 8%.
+    paraphrase: >-
+      The automatic evaluator was checked against 200 outputs that two physicians had labelled. It agreed with them
+      94% of the time, with 3% false positives and 8% false negatives.
+    decoy: >-
+      The evaluator uses a language model to compare each answer with the reference.
+  C13:
+    inject: >-
+      All runs use temperature 0 and a fixed random seed, and each task is run three times; this repeated-run policy
+      is described in the main text.
+    paraphrase: >-
+      The main text states that every run uses temperature 0 with a fixed seed, and that each task is executed three
+      times.
+    decoy: >-
+      Results may vary slightly between runs because language model outputs are not fully deterministic.
+  C14:
+    inject: >-
+      We report 95% bootstrap confidence intervals for all model scores and test the difference between the two best
+      models with a paired permutation test (p = 0.02).
+    paraphrase: >-
+      Every model score comes with a 95% bootstrap confidence interval, and a paired permutation test on the two best
+      models gives p = 0.02.
+    decoy: >-
+      Model A scored 61.2% and model B scored 58.9%.
+  A1:
+    inject: >-
+      Each task was run five times per model with independent random seeds; the temperature was set to 0.7, and the
+      reported scores are means over the five independent runs.
+    paraphrase: >-
+      For every model, each task was executed five times using separate random seeds at temperature 0.7, and each
+      reported score is the average of those five independent runs.
+    decoy: >-
+      Experiments were repeated multiple times.
+  A2:
+    inject: >-
+      We report 95% confidence intervals computed by bootstrapping over tasks, so the resampling unit is the task;
+      where several tasks share a patient, we resample patients instead to account for clustering.
+    paraphrase: >-
+      Headline scores carry 95% bootstrap confidence intervals with the task as the resampling unit, and when tasks
+      are clustered within a patient the bootstrap draws patients to handle that dependence.
+    decoy: >-
+      Results show small variance across settings.
+  A3:
+    inject: >-
+      To measure reliability, we ran each task eight times and report pass^8, the fraction of tasks solved in all
+      eight runs, together with the agreement of the final environment state across the eight runs.
+    paraphrase: >-
+      Reliability was measured by running every task eight times; we report pass^8, the share of tasks solved in all
+      eight runs, and how often the final environment state matched across those eight runs.
+    decoy: >-
+      Our results were obtained from a single run of each model.
+  A4:
+    inject: >-
+      Models were queried through their APIs using the snapshot identifiers gpt-4o-2024-08-06 and
+      claude-3-5-sonnet-20241022, with temperature 0 and a maximum of 2,048 output tokens; all reported numbers
+      correspond to harness release v1.2.0.
+    paraphrase: >-
+      The API snapshots used were gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022, called with temperature 0 and a
+      2,048-token output limit, and every number reported here was produced by harness release v1.2.0.
+    decoy: >-
+      We evaluated GPT-4 and Claude as agents.
+  A5:
+    inject: >-
+      Each tool is defined by a JSON schema listing its name, arguments and argument types. The documentation states
+      for every tool whether it only reads or also writes state, and describes what each tool returns, including the
+      error message returned for invalid arguments. These tool descriptions are included in the agent prompt.
+    paraphrase: >-
+      Tools are specified with JSON schemas giving name, arguments and types. For each tool the documentation says
+      whether it merely reads or also modifies state and what it returns, error messages for invalid arguments
+      included, and the agent's prompt contains these descriptions.
+    decoy: >-
+      The agent can use tools to interact with the environment.
+  A6:
+    inject: >-
+      We ran conformance tests confirming that each tool behaves as documented. Two tools are simulated stubs that
+      return fixed placeholder responses; this is disclosed in the paper and also stated in the tool descriptions
+      shown to the agent.
+    paraphrase: >-
+      Conformance tests verify that every tool behaves as its documentation says. Two of the tools are simulated
+      stubs returning fixed placeholder responses, which the paper discloses and the tool descriptions in the agent's
+      prompt also state.
+    decoy: >-
+      The tools were implemented by the authors.
+  A7:
+    inject: >-
+      The write actions that change patient state (medication orders, notes and messages) are listed in a table.
+      Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in
+      the score. The agent prompt states that writes are sandboxed.
+    paraphrase: >-
+      A table lists the actions that write to patient state: medication orders, notes and messages. They run against
+      a sandboxed copy of the record, the score penalises unsafe or unnecessary writes, and the agent's prompt tells
+      it that writes are sandboxed.
+    decoy: >-
+      The agent interacts with a simulated hospital environment.
+  A8:
+    inject: >-
+      The grader takes the final environment state as its input. We validated the grader on 150 injected correct and
+      incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.
+    paraphrase: >-
+      Grading is based on the final environment state. To validate the grader we injected 150 correct and incorrect
+      outcomes; it wrongly accepted 1% and wrongly rejected 2%.
+    decoy: >-
+      Scores are reported as percentages.
+  A9:
+    inject: >-
+      Agents have no web access during runs and retrieval tools are restricted to the task environment, so answers
+      cannot leak through external search. A private held-out split with hidden labels is kept off all public
+      surfaces, and every released task carries a canary string.
+    paraphrase: >-
+      During runs the agent cannot browse the web, and retrieval is limited to the task environment, which prevents
+      leakage through search. Labels of a private held-out split are not on any public surface, and released tasks
+      include a canary string.
+    decoy: >-
+      We acknowledge that leakage of benchmark data into training sets is possible.
+  A10:
+    inject: >-
+      We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex
+      and race, and each table lists the number of cases in every slice.
+    paraphrase: >-
+      Accuracy is broken down by task family (diagnosis, ordering, documentation) and by patient subgroup (sex and
+      race), with the case count given for each slice in the tables.
+    decoy: >-
+      We report overall accuracy over all tasks.
+  A11:
+    inject: >-
+      The patient records are real de-identified records from a hospital database. Their use was approved under a data
+      use agreement requiring credentialed access and de-identification by the safe harbour method, and the data are
+      released under terms separate from the MIT code licence.
+    paraphrase: >-
+      Real hospital records, de-identified, make up the patient data. A data use agreement with credentialed access
+      and safe harbour de-identification governs their use, and the data terms are stated apart from the MIT licence
+      on the code.
+    decoy: >-
+      The environment contains patient records.

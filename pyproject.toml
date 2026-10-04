@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentaudit"
+version = "0.1.0"
+description = "Evidence-anchored, multi-coder scoring of agentic clinical benchmarks against a documentary checklist"
+readme = "README.md"
+authors = [
+    { name = "Rohith Reddy Bellibatlu", email = "rohithreddybc@gmail.com" },
+    { name = "Manpreet Singh" },
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "requests",
+    "PyMuPDF",
+    "beautifulsoup4",
+    "rank-bm25",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "krippendorff"]
+
+[project.scripts]
+agentaudit = "agentaudit.cli:main"
+
+[tool.setuptools]
+packages = ["agentaudit"]
+
+[tool.setuptools.package-data]
+agentaudit = ["items.yaml", "queries.yaml", "perturbations.yaml", "prompts/*.txt", "samples/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,32 @@
+Score one benchmark against one checklist item, using only the evidence excerpts at the end of this message. The excerpts are the only evidence you may use. Do not use prior knowledge of the benchmark.
+
+## Scale
+{{SCALE}}
+
+## Global rules (G1-G7)
+{{GLOBAL_RULES}}
+
+## Item {{ITEM_ID}}: {{ITEM_TITLE}}
+{{ITEM_TEXT}}
+
+## Anchors (coding manual v1.0)
+{{ANCHORS}}
+
+## NA clause
+{{NA_CLAUSE}}
+
+## Evidence excerpts
+Each excerpt header gives the chunk id, the evidence surface (S1 paper and appendix, S2 README and docs, S3 release notes, S4 code) and the path. A header marked agent_visible is a system prompt or tool schema in code (S5).
+
+{{CHUNKS}}
+
+## How to answer
+- Pick the score that the anchors assign to what the excerpts show. If no excerpt addresses the item, the score is 0.
+- A score of 1 or 2 needs at least one verbatim quote of 25 words or fewer, copied exactly from a single excerpt, with that excerpt's chunk id exactly as written in its header. Do not paraphrase inside a quote.
+- A score of 0 or NA needs no quote. Start the rationale with "searched:" and name the surfaces (S1-S5) you checked.
+- {{ELEMENTS_RULE}}
+- If code (S4) or an agent-visible surface (S5) shows the opposite of a property reported on S1-S3, keep the reported score, set "contradicted" to true and put both quotes in "contradiction_quotes" (same chunk id and verbatim rules). Otherwise "contradicted" is false and "contradiction_quotes" is [].
+- {{NA_RULE}}
+{{S5_RULE}}
+Reply with exactly this JSON object:
+{"score": 0 | 1 | 2 | "NA", "elements": {{ELEMENTS_SHAPE}}, "quotes": [{"chunk_id": "<id>", "text": "<verbatim quote>"}], "contradicted": true | false, "contradiction_quotes": [{"chunk_id": "<id>", "text": "<verbatim quote>"}], "rationale": "<two to four sentences>"{{S5_FIELD}}}

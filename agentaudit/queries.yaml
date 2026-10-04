@@ -1,0 +1,59 @@
+# Fixed per-item BM25 queries and always-include rules. Hash-frozen with the protocol.
+params:
+  k: 12                 # at most this many chunks per item
+  token_cap: 5000       # hard cap on total chunk tokens per item (4 characters per token)
+  always_fraction: 0.5  # always-include chunks may use at most this share of the cap
+items:
+  C1:
+    query: dataset source data collected from clinical database version snapshot date platform time frame records cases original source identifier case id trace
+  C2:
+    query: data origin collection provenance license licence consent IRB ethics approval terms of use credentialed access permission de-identified copyright
+  C3:
+    query: representative demographics distribution patients age sex gender race ethnicity population statistics sampled selected selection compared target population prevalence
+  C4:
+    query: safety unsafe harmful output toxic bias biases fairness demographic evaluation harm risk patient safety red team adversarial
+  C5:
+    query: contamination leakage memorization memorisation training data overlap canary held-out private test set encrypted gated access decontamination benchmark leakage
+  C6:
+    query: ground truth answers hidden agent cannot access labels gold reference isolated leakage held out evaluation answer key not visible to the agent sandbox
+  C7:
+    query: reproducible frozen fixed version pinned docker container simulator model version snapshot environment external API live dependency deterministic release
+  C8:
+    query: oracle solver reference solution scripted solvable verified feasible gold trajectory human solved tasks solvability check ground truth solution runs through grader
+  C9:
+    query: side effects state unchanged irrelevant records unintended modifications database state diff changed resources out of scope collateral grader checks state
+  C10:
+    query: random baseline chance level trivial agent guess success rate random policy do nothing majority class chance accuracy baseline
+  C11:
+    query: do-nothing agent null agent random agent baseline score trivial baseline no action empty response baseline reported results
+  C12:
+    query: evaluator validated judge LLM judge agreement human agreement accuracy of grader validation precision recall error rate Cohen kappa metric validation unit tests
+  C13:
+    query: temperature 0 seed random seed deterministic non-determinism repeated runs multiple runs variance sampling decoding greedy reproducibility
+  C14:
+    query: confidence interval statistical significance p-value bootstrap standard deviation standard error t-test McNemar significant difference comparison between models error bars
+  A1:
+    query: runs per task number of runs repeated trials seeds averaged over runs independent runs trials temperature sampling random seed repeated times each
+  A2:
+    query: confidence interval standard error bootstrap resampling unit clustered patients tasks templates variance trials error bars 95% CI standard deviation
+  A3:
+    query: pass^k pass@k consistency across reruns identical reruns action sequence agreement final state agreement repeat runs reliability trajectory variance k of n
+  A4:
+    query: model version snapshot date model name model identifier API version temperature top_p max tokens decoding parameters reasoning effort commit tag release version harness
+  A5:
+    query: tool tools function calling schema JSON schema arguments parameters returns error output API endpoint action space commands available actions description read write
+    always_include: {s5: true}
+  A6:
+    query: tools tested unit tests conformance simulated stub mock no-op simulated environment tool behaviour disclosed returns placeholder fake tool response validated
+    always_include: {s5: true}
+  A7:
+    query: write actions order prescription note message medication irreversible state change mutate POST create update delete executed simulated sandboxed unsafe unnecessary writes penalised penalty
+    always_include: {s5: true}
+  A8:
+    query: grader evaluation end state action log transcript LLM judge answer string compares final state checker validated injected correct incorrect outcomes error rate human labels false positive false negative
+  A9:
+    query: leakage tools retrieval web access internet search memory across tasks held-out private test split canary string provenance marker hidden labels contamination agent visible
+  A10:
+    query: results per category subgroup breakdown task family by specialty demographic race gender age slice number of cases per group n per subgroup performance by type
+  A11:
+    query: synthetic patient records real de-identified generated generator IRB DUA data use agreement credentialed de-identification license data redistribution terms environment data seed state

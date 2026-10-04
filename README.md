@@ -41,7 +41,7 @@ A manifest names the benchmark, its arXiv id and version, and the repository com
     agentaudit perturb --out runs/x --frozen-list eligibility/frozen_list_v1.csv --coder sonnet --coder codex --coder gemini
     agentaudit perturb --out runs/x --summarise
 
-The perturbation suite builds five variants per item (inject, buried, paraphrase, deletion, decoy), eight per item per type, drawn with seed 20261004 across the 45 listed benchmarks. Each variant is a full packet copy scored for the target item only. Labels are fixed by construction; the summary gives sensitivity and specificity with Wilson 95% intervals per item, per variant type, per coder and for the resolved score. It measures validity under perturbation, not agreement with ground truth.
+The perturbation suite uses 40 variant packets drawn with seed 20261004 from the 45 listed benchmarks. In each variant every item receives exactly one perturbation (inject, buried, paraphrase, deletion or decoy), assigned so that each item and type occurs exactly 8 times, which gives 1,000 labelled cells; a variant is scored once with the normal 25-item call, so a coder needs 40 calls. Cells that the base audit makes uninformative are dropped and counted. Labels are fixed by construction; the summary gives sensitivity and specificity with Wilson 95% intervals per item, per variant type, per coder and for the resolved score. Perturbation texts for different items share a packet, so a cell's label holds for its target item only (for example, the text injected for A1 mentions temperature, which C13 and A4 also read); scores of the unlabelled items are stored for every variant so that this interference can be measured. It measures validity under perturbation, not agreement with ground truth.
 
     agentaudit gold --set betterbench --out runs/x --research-dir <dir with gold/ and instruments/> --coder sonnet --coder codex --coder gemini
     agentaudit gold --set abc ...
@@ -52,7 +52,7 @@ The gold mode scores the benchmarks that ABC (10 benchmarks) and BetterBench (23
 
 ## Licences
 
-Code: MIT (`LICENSE`), copyright Rohith Reddy Bellibatlu and Manpreet Singh. Checklist text (the files in `rubric/`, and the item and anchor text in `agentaudit/items.yaml`): CC BY 4.0 (`LICENSE-checklist`). The protocol and eligibility files carry no separate licence statement yet.
+Code: MIT (`LICENSE`), copyright Rohith Reddy Bellibatlu and Manpreet Singh. Checklist text (the files in `rubric/`, and the item and anchor text in `agentaudit/items.yaml`): CC BY 4.0 (`LICENSE-checklist`). The protocol and eligibility files (`protocol/`, `eligibility/`) are also CC BY 4.0 (`LICENSE-checklist`).
 
 ## How to cite
 

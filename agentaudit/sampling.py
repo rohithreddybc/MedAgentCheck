@@ -4,9 +4,10 @@ frozen input lists, so a sample can be regenerated and checked against the file 
 Ordering uses SHA-256 of ``"<seed>|<purpose>|<parts...>"`` and not ``random``, so the result does not depend on
 the Python version.
 
-Perturbation sample (protocol-v1 section 5): for every (item, variant type) the 45 frozen benchmarks are put in
-a seeded order. A run takes the first ``N_PER_CELL`` (8) benchmarks in that order that are eligible
-(see ``select_cells``), so every (item, type) cell has up to 8 variants drawn across the 45 benchmarks.
+Perturbation design (protocol-v1 section 5, multiplexed): 40 variant packets drawn from the 45 frozen benchmarks.
+In every variant each of the 25 items receives exactly one perturbation type, dealt so that each (item, type) pair
+occurs exactly 8 times: 25 x 5 x 8 = 1,000 labelled cells. A variant is scored once with the normal 25-item
+whole-packet call. Cells that fail the eligibility rule (``eligible``) at run time are dropped and counted.
 
 BetterBench sample: 20 of the 46 criteria, the 20 with the smallest hash.
 
@@ -22,7 +23,8 @@ from pathlib import Path
 from .items import ITEM_ORDER
 
 SEED = 20261004
-N_PER_CELL = 8
+N_VARIANTS = 40  # variant packets; each item gets one perturbation type per variant
+N_PER_PAIR = 8  # occurrences of every (item, type) pair across the variants
 VARIANT_TYPES = ("inject", "buried", "paraphrase", "deletion", "decoy")
 BB_SAMPLE_SIZE = 20
 ABC_MIN_BENCHMARKS_O = 5
@@ -45,18 +47,45 @@ def load_frozen_list(path: Path | str) -> list[dict]:
     return rows
 
 
-# ---------------------------------------------------------------- perturbation sample
-def perturbation_order(seed: int, item: str, vtype: str, bench_ids: list[str]) -> list[str]:
-    return sorted(bench_ids, key=lambda b: rank_hash(seed, "perturb", item, vtype, b))
+# ---------------------------------------------------------------- perturbation design (multiplexed)
+def draw_variant_benchmarks(bench_ids: list[str], n_variants: int = N_VARIANTS, seed: int = SEED) -> list[str]:
+    """Benchmarks of the variant packets: the first ``n_variants`` of the seeded order. Only when fewer
+    benchmarks exist than variants does the order repeat (replacement, used only if needed)."""
+    order = sorted(bench_ids, key=lambda b: rank_hash(seed, "variant-benchmark", b))
+    return [order[i % len(order)] for i in range(n_variants)]
 
 
-def build_perturbation_sample(bench_ids: list[str], items: list[str] | None = None,
-                              types: tuple = VARIANT_TYPES, seed: int = SEED) -> list[dict]:
+def build_perturbation_design(bench_ids: list[str], items: list[str] | None = None, types: tuple = VARIANT_TYPES,
+                              n_variants: int = N_VARIANTS, seed: int = SEED) -> list[dict]:
+    """Balanced multiplexed design. Variant packet j (j = 1..n_variants) is one benchmark's packet in which every
+    item receives exactly one perturbation type. Per item, the multiset {each type x n_variants / len(types)} is
+    dealt to the variants in seeded order, so each (item, type) pair occurs exactly n_variants / len(types) times
+    (8 for 40 variants and 5 types: 25 x 5 x 8 = 1,000 labelled cells). Each row: variant, benchmark, item, vtype,
+    slot (position slot 0..24 of inline insertions in S1, a seeded permutation of the items per variant) and
+    s4_comment (buried only: the 4 of the item's 8 buried variants with the smallest hash also carry the sentence
+    in a synthetic S4 code comment)."""
+    items = list(items or ITEM_ORDER)
+    if n_variants % len(types):
+        raise ValueError("n_variants must be a multiple of the number of types")
+    reps = n_variants // len(types)
+    benches = draw_variant_benchmarks(bench_ids, n_variants, seed)
+    vid = [f"v{j:02d}" for j in range(1, n_variants + 1)]
+    assign: dict[str, list[str]] = {}
+    for it in items:
+        deal = sorted(((t, k) for t in types for k in range(reps)),
+                      key=lambda tk: rank_hash(seed, "assign", it, tk[0], str(tk[1])))
+        assign[it] = [t for t, _ in deal]
+    s4: set[tuple[str, str]] = set()
+    for it in items:
+        bur = [vid[j] for j in range(n_variants) if assign[it][j] == "buried"]
+        for v in sorted(bur, key=lambda v: rank_hash(seed, "s4comment", it, v))[: len(bur) // 2]:
+            s4.add((v, it))
     rows = []
-    for it in items or ITEM_ORDER:
-        for vt in types:
-            for rank, b in enumerate(perturbation_order(seed, it, vt, bench_ids), 1):
-                rows.append({"item": it, "vtype": vt, "rank": rank, "benchmark": b})
+    for j, v in enumerate(vid):
+        slots = {it: n for n, it in enumerate(sorted(items, key=lambda it: rank_hash(seed, "slot", v, it)))}
+        for it in items:
+            rows.append({"variant": v, "benchmark": benches[j], "item": it, "vtype": assign[it][j], "slot": slots[it],
+                         "s4_comment": "yes" if (v, it) in s4 else "no"})
     return rows
 
 
@@ -73,14 +102,18 @@ def read_rows(path: Path | str) -> list[dict]:
         return list(csv.DictReader(f))
 
 
-def write_perturbation_sample(path: Path | str, rows: list[dict]) -> None:
-    write_rows(path, rows, ["item", "vtype", "rank", "benchmark"])
+DESIGN_FIELDS = ["variant", "benchmark", "item", "vtype", "slot", "s4_comment"]
 
 
-def read_perturbation_sample(path: Path | str) -> list[dict]:
+def write_perturbation_design(path: Path | str, rows: list[dict]) -> None:
+    write_rows(path, rows, DESIGN_FIELDS)
+
+
+def read_perturbation_design(path: Path | str) -> list[dict]:
     rows = read_rows(path)
     for r in rows:
-        r["rank"] = int(r["rank"])
+        r["slot"] = int(r["slot"])
+        r["s4_comment"] = r["s4_comment"] == "yes"
     return rows
 
 
@@ -101,37 +134,6 @@ def eligible(vtype: str, base: dict | None) -> bool:
     if vtype == "deletion":
         return int(lv) >= 1 and bool(base.get("evidence"))
     return int(lv) <= 1
-
-
-def select_cells(sample: list[dict], base_of, available: set[str] | None = None, n: int = N_PER_CELL,
-                 items: list[str] | None = None, types: tuple = VARIANT_TYPES, seed: int = SEED) -> list[dict]:
-    """Take the first ``n`` eligible, available benchmarks per (item, type) in sample order.
-
-    base_of(bench_id, item) -> base dict or None. available: benchmark ids whose packet exists (None = all).
-    Returns cell dicts {item, vtype, benchmark, rank, s4_comment}. For ``buried``, half of the selected variants
-    (floor(n_selected / 2), those with the smallest hash) also carry an S4 code-comment chunk."""
-    by_cell: dict[tuple[str, str], list[dict]] = {}
-    for r in sample:
-        by_cell.setdefault((r["item"], r["vtype"]), []).append(r)
-    out: list[dict] = []
-    for it in items or ITEM_ORDER:
-        for vt in types:
-            chosen = []
-            for r in sorted(by_cell.get((it, vt), []), key=lambda r: r["rank"]):
-                if len(chosen) >= n:
-                    break
-                if available is not None and r["benchmark"] not in available:
-                    continue
-                if not eligible(vt, base_of(r["benchmark"], it)):
-                    continue
-                chosen.append({"item": it, "vtype": vt, "benchmark": r["benchmark"], "rank": r["rank"],
-                               "s4_comment": False})
-            if vt == "buried" and chosen:
-                order = sorted(chosen, key=lambda c: rank_hash(seed, "s4comment", it, c["benchmark"]))
-                for c in order[: len(chosen) // 2]:
-                    c["s4_comment"] = True
-            out.extend(chosen)
-    return out
 
 
 # ---------------------------------------------------------------- gold samples

@@ -3,9 +3,9 @@ from pathlib import Path
 import pytest
 
 from agentaudit.items import ITEM_ORDER, PKG
-from agentaudit.sampling import (ABC_EXCLUDED, N_PER_CELL, SEED, VARIANT_TYPES, abc_item_list, betterbench_sample,
-                                 build_perturbation_sample, eligible, load_frozen_list, perturbation_order,
-                                 rank_hash, read_perturbation_sample, select_cells, write_perturbation_sample)
+from agentaudit.sampling import (ABC_EXCLUDED, N_PER_PAIR, N_VARIANTS, SEED, VARIANT_TYPES, abc_item_list,
+                                 betterbench_sample, build_perturbation_design, draw_variant_benchmarks, eligible,
+                                 load_frozen_list, rank_hash, read_perturbation_design, write_perturbation_design)
 
 HERE = Path(__file__).resolve()
 FROZEN = next((p for p in [HERE.parents[2] / "research" / "eligibility" / "frozen_list_v1.csv",
@@ -13,36 +13,53 @@ FROZEN = next((p for p in [HERE.parents[2] / "research" / "eligibility" / "froze
 IDS = [f"arxiv:{i:04d}" for i in range(45)]
 
 
-def test_seed_and_hash_order_are_stable():
-    assert SEED == 20261004 and N_PER_CELL == 8
-    # fixed value: the sample must not change with the Python version or platform
-    assert rank_hash(SEED, "perturb", "A1", "inject", "arxiv:0000") == \
-        "3a30ac8a2a7bf94d1b5d4a1bd6c3a5d8d7a0d9a5e9e0d7cb5ee1b5a0b49e8d0f" or True
-    a = perturbation_order(SEED, "A1", "inject", IDS)
-    assert a == perturbation_order(SEED, "A1", "inject", list(reversed(IDS)))  # input order does not matter
-    assert sorted(a) == sorted(IDS) and a != perturbation_order(SEED, "A1", "decoy", IDS)
-    assert a != perturbation_order(SEED + 1, "A1", "inject", IDS)
+def test_seed_and_hash_are_stable():
+    assert SEED == 20261004 and N_VARIANTS == 40 and N_PER_PAIR == 8
+    # fixed value: the design must not change with the Python version or platform
+    assert rank_hash(SEED, "perturb", "A1", "inject", "arxiv:0000") ==         "4a939b49305156bdd0f26dfef9083bc71de1b3ae5859d3d637273dbcf45e4c4b"
+    a = draw_variant_benchmarks(IDS)
+    assert a == draw_variant_benchmarks(list(reversed(IDS))) and len(set(a)) == 40  # no replacement with 45 available
+    assert a != draw_variant_benchmarks(IDS, seed=SEED + 1)
+    few = draw_variant_benchmarks(IDS[:3])  # replacement only when fewer benchmarks than variants
+    assert len(few) == 40 and set(few) == set(IDS[:3])
 
 
-def test_sample_shape_and_file_roundtrip(tmp_path):
-    rows = build_perturbation_sample(IDS)
-    assert len(rows) == 25 * 5 * 45
-    for it in ("C1", "A11"):
-        for vt in VARIANT_TYPES:
-            r = [x for x in rows if x["item"] == it and x["vtype"] == vt]
-            assert [x["rank"] for x in r] == list(range(1, 46)) and len({x["benchmark"] for x in r}) == 45
-    p = tmp_path / "s.csv"
-    write_perturbation_sample(p, rows)
-    assert read_perturbation_sample(p) == rows
+def test_design_is_balanced_one_type_per_item_per_variant(tmp_path):
+    rows = build_perturbation_design(IDS)
+    assert len(rows) == 25 * 40 == 1000
+    from collections import Counter
+
+    pair = Counter((r["item"], r["vtype"]) for r in rows)
+    assert len(pair) == 25 * 5 and set(pair.values()) == {8}  # every item x type pair exactly 8 times
+    per_variant = Counter((r["variant"], r["item"]) for r in rows)
+    assert set(per_variant.values()) == {1} and len({r["variant"] for r in rows}) == 40  # one type per item per variant
+    assert len({r["benchmark"] for r in rows}) == 40 and {r["benchmark"] for r in rows} <= set(IDS)
+    for v in ("v01", "v40"):
+        assert sorted(r["slot"] for r in rows if r["variant"] == v) == list(range(25))  # distinct S1 positions
+        assert len({r["benchmark"] for r in rows if r["variant"] == v}) == 1
+    for it in ("A1", "C13"):  # half of each item's 8 buried variants also carry the S4 comment
+        bur = [r for r in rows if r["item"] == it and r["vtype"] == "buried"]
+        assert len(bur) == 8 and sum(r["s4_comment"] == "yes" for r in bur) == 4
+    assert all(r["s4_comment"] == "no" for r in rows if r["vtype"] != "buried")
+    assert rows == build_perturbation_design(IDS) != build_perturbation_design(IDS, seed=1)
+    p = tmp_path / "d.csv"
+    write_perturbation_design(p, rows)
+    back = read_perturbation_design(p)
+    assert [(r["variant"], r["item"], r["vtype"], r["slot"]) for r in back] == [(r["variant"], r["item"], r["vtype"], r["slot"]) for r in rows]
+    assert back[0]["s4_comment"] in (True, False)
+    with pytest.raises(ValueError):
+        build_perturbation_design(IDS, n_variants=42)
 
 
 @pytest.mark.skipif(FROZEN is None, reason="frozen list not alongside the package")
-def test_frozen_sample_file_matches_regeneration_from_frozen_list():
+def test_frozen_design_file_matches_regeneration_from_frozen_list():
     ids = [r["id"] for r in load_frozen_list(FROZEN)]
     assert len(ids) == 45
-    on_disk = read_perturbation_sample(PKG / "samples" / "perturbation_sample_v1.csv")
-    assert on_disk == build_perturbation_sample(ids)
-    assert {r["benchmark"] for r in on_disk} == set(ids)
+    on_disk = read_perturbation_design(PKG / "samples" / "perturbation_design_v1.csv")
+    regen = read_perturbation_design  # noqa: F841
+    fresh = build_perturbation_design(ids)
+    assert [(r["variant"], r["benchmark"], r["item"], r["vtype"], r["slot"], r["s4_comment"] == "yes") for r in fresh] ==         [(r["variant"], r["benchmark"], r["item"], r["vtype"], r["slot"], r["s4_comment"]) for r in on_disk]
+    assert {r["benchmark"] for r in on_disk} <= set(ids) and len({r["benchmark"] for r in on_disk}) == 40
 
 
 def test_eligibility_rules():
@@ -52,37 +69,6 @@ def test_eligibility_rules():
         assert not eligible(vt, {"level": "NA"}) and not eligible(vt, {"level": None})
     assert eligible("deletion", {"level": 1, "evidence": ["S1:p:1-2"]})
     assert not eligible("deletion", {"level": 1, "evidence": []}) and not eligible("deletion", {"level": 0, "evidence": ["x"]})
-
-
-def test_select_cells_takes_first_eligible_in_sample_order_and_halves_buried():
-    sample = build_perturbation_sample(IDS, items=["A1"])
-    base = {b: {"level": 2 if i % 2 else 0, "evidence": ["S1:p:1-2"]} for i, b in enumerate(IDS)}  # odd benchmarks: base 2
-    cells = select_cells(sample, lambda b, it: base[b], items=["A1"])
-    inj = [c for c in cells if c["vtype"] == "inject"]
-    assert len(inj) == 8 and all(base[c["benchmark"]]["level"] == 0 for c in inj)
-    order = [r["benchmark"] for r in sample if r["vtype"] == "inject" and base[r["benchmark"]]["level"] == 0]
-    assert [c["benchmark"] for c in inj] == order[:8]  # the seeded order, filtered
-    dele = [c for c in cells if c["vtype"] == "deletion"]
-    assert len(dele) == 8 and all(base[c["benchmark"]]["level"] == 2 for c in dele)
-    bur = [c for c in cells if c["vtype"] == "buried"]
-    assert sum(c["s4_comment"] for c in bur) == 4 and not any(c["s4_comment"] for c in inj)
-    # which half carries the comment is fixed by the seed
-    again = select_cells(sample, lambda b, it: base[b], items=["A1"])
-    assert [c["s4_comment"] for c in again] == [c["s4_comment"] for c in cells]
-    # unavailable packets are skipped and the draw moves on down the order
-    avail = set(IDS[:10])
-    small = select_cells(sample, lambda b, it: base[b], available=avail, items=["A1"], types=("inject",))
-    assert {c["benchmark"] for c in small} <= avail and len(small) == 5
-
-
-def test_all_cells_over_25_items_five_types():
-    sample = build_perturbation_sample(IDS)
-    cells = select_cells(sample, lambda b, it: {"level": 0, "evidence": ["S1:p:1-2"]})
-    assert len([c for c in cells if c["vtype"] != "deletion"]) == 25 * 4 * 8
-    # base 0 everywhere: no deletion cells; with base 1 and evidence everywhere: all 5 types x 25 items x 8
-    cells1 = select_cells(sample, lambda b, it: {"level": 1, "evidence": ["S1:p:1-2"]})
-    assert len(cells1) == 25 * 5 * 8 == 1000
-    assert {c["item"] for c in cells1} == set(ITEM_ORDER)
 
 
 def test_betterbench_sample_and_abc_list():

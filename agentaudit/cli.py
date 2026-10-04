@@ -160,9 +160,9 @@ def _coder_caps(coders: dict, names: list[str]) -> dict:
 
 def cmd_perturb(a) -> int:
     from .coders import load_coders, make_backend
-    from .perturb import (VARIANT_TYPES, estimate_cells, plan, plan_packet_cells, run_perturb, run_perturb_packet,
+    from .perturb import (VARIANT_TYPES, estimate_variants, plan, plan_variants, run_perturb, run_perturb_variants,
                           summarise)
-    from .sampling import N_PER_CELL, load_frozen_list, read_perturbation_sample
+    from .sampling import load_frozen_list, read_perturbation_design
 
     run = Path(a.out)
     types = tuple(a.variants.split(",")) if a.variants else VARIANT_TYPES
@@ -187,46 +187,44 @@ def cmd_perturb(a) -> int:
         summarise(run, benches)
         return 0
     if a.summarise:
-        pdir = run / "perturb"
-        names = sorted(p.name for p in pdir.iterdir() if p.is_dir()) if pdir.exists() else []
-        s = summarise(run, names)
+        s = summarise(run, a.variant)
         print(json.dumps({k: v for k, v in s.items() if k != "rows"}, indent=2))
         return 0
-    sample = read_perturbation_sample(a.sample or PKG / "samples" / "perturbation_sample_v1.csv")
+    design = read_perturbation_design(a.design or PKG / "samples" / "perturbation_design_v1.csv")
     frozen = load_frozen_list(a.frozen_list)
-    cells = plan_packet_cells(run, sample, frozen, items, types, a.n_per_cell or N_PER_CELL,
-                              use_base=not a.no_base, only_bench=a.bench)
+    plan_ = plan_variants(run, design, frozen, use_base=not a.no_base, only_variants=a.variant)
     coders = load_coders(a.coders_file)
     names = a.coder or ["sonnet", "codex", "gemini"]
     if a.plan_only or a.dry_run:
         by: dict[str, int] = {}
-        for c in cells:
-            by[c["vtype"]] = by.get(c["vtype"], 0) + 1
-        est = estimate_cells(run, cells, _coder_caps(coders, names)) if cells else {}
-        print(json.dumps({"cells": len(cells), "by_type": by, "estimate_per_coder": est}, indent=2))
+        for v in plan_["variants"]:
+            for c in v["cells"]:
+                by[c["vtype"]] = by.get(c["vtype"], 0) + 1
+        est = estimate_variants(run, plan_, coders, names) if plan_["variants"] else {}
+        print(json.dumps({"variants": len(plan_["variants"]), "variants_skipped_no_packet": len(plan_["skipped_variants"]),
+                          "cells": plan_["n_cells"], "cells_dropped": plan_["n_dropped"], "cells_by_type": by,
+                          "estimate_per_coder": est}, indent=2))
         if a.plan_only:
-            for c in cells:
-                print(json.dumps(c))
             return 0
     cb = {c: (coders[c], None if a.dry_run else make_backend(coders[c], state_dir=run / "state",
                                                             throttle_state=a.throttle_state, base_url=a.base_url))
           for c in names}
-    s = run_perturb_packet(run, cells, cb, force=a.force, dry_run=a.dry_run)
+    s = run_perturb_variants(run, plan_, cb, force=a.force, dry_run=a.dry_run)
     print(json.dumps(s))
     if not a.dry_run:
-        summarise(run, sorted({c["bench"] for c in cells}))
+        summarise(run, [v["variant"] for v in plan_["variants"]])
     return 2 if (s["blocked"] or s["failed"]) else 0
 
 
 def cmd_sample(a) -> int:
     from .gold import find_research_dir, write_gold_item_lists
-    from .sampling import SEED, build_perturbation_sample, load_frozen_list, write_perturbation_sample
+    from .sampling import SEED, build_perturbation_design, load_frozen_list, write_perturbation_design
 
     ids = [r["id"] for r in load_frozen_list(a.frozen_list)]
-    rows = build_perturbation_sample(ids, seed=a.seed or SEED)
+    rows = build_perturbation_design(ids, seed=a.seed or SEED)
     out = Path(a.out_dir) if a.out_dir else PKG / "samples"
-    write_perturbation_sample(out / "perturbation_sample_v1.csv", rows)
-    info = {"benchmarks": len(ids), "perturbation_rows": len(rows)}
+    write_perturbation_design(out / "perturbation_design_v1.csv", rows)
+    info = {"benchmarks": len(ids), "design_rows": len(rows), "variants": len({r["variant"] for r in rows})}
     if not a.no_gold_lists:
         info.update(write_gold_item_lists(find_research_dir(a.research_dir)))
     print(json.dumps(info))
@@ -409,10 +407,11 @@ def main(argv: list[str] | None = None) -> int:
     sp.add_argument("--n-boot", type=int, default=2000)
     sp.set_defaults(fn=cmd_agree)
 
-    sp = sub.add_parser("perturb", help="perturbation validation (v3: whole-packet variants, single-item prompts)")
+    sp = sub.add_parser("perturb", help="perturbation validation (v3: 40 multiplexed variant packets, one call each)")
     sp.add_argument("--out", required=True, help="run directory (needs the packets and the base audit results)")
-    sp.add_argument("--bench", action="append", help="packet directory name or frozen id (repeatable)")
-    sp.add_argument("--items", help="comma list, e.g. A1,C6 (default: all 25)")
+    sp.add_argument("--bench", action="append", help="packet directory name (retrieval mode only)")
+    sp.add_argument("--variant", action="append", help="variant id, e.g. v01 (repeatable; default all 40)")
+    sp.add_argument("--items", help="comma list, e.g. A1,C6 (retrieval mode only)")
     sp.add_argument("--coder", action="append", help="default sonnet, codex, gemini")
     sp.add_argument("--coders-file")
     sp.add_argument("--base-url")
@@ -420,18 +419,17 @@ def main(argv: list[str] | None = None) -> int:
     sp.add_argument("--variants", help="comma list of inject,buried,paraphrase,deletion,decoy")
     sp.add_argument("--mode", choices=["packet", "retrieval"], default="packet",
                     help="packet = v3 (default); retrieval = the retired retrieval design (ablation)")
-    sp.add_argument("--sample", help="perturbation sample file (default: the frozen agentaudit/samples file)")
+    sp.add_argument("--design", help="perturbation design file (default: the frozen agentaudit/samples file)")
     sp.add_argument("--frozen-list", help="frozen benchmark list CSV (required in packet mode)")
-    sp.add_argument("--n-per-cell", type=int, help="variants per item per type (default 8)")
     sp.add_argument("--no-base", action="store_true",
-                    help="plain seeded draw without base-result eligibility (no deletion cells)")
-    sp.add_argument("--plan-only", action="store_true", help="print the selected cells and the call and token estimate")
-    sp.add_argument("--dry-run", action="store_true", help="build every variant packet and prompt; no backend call")
+                    help="no base-result eligibility filter (deletion cells are dropped)")
+    sp.add_argument("--plan-only", action="store_true", help="print the cell counts and the call and token estimate")
+    sp.add_argument("--dry-run", action="store_true", help="build every variant packet; no backend call")
     sp.add_argument("--summarise", action="store_true")
     sp.add_argument("--force", action="store_true")
     sp.set_defaults(fn=cmd_perturb)
 
-    sp = sub.add_parser("sample", help="write the seeded samples (perturbation sample, gold item lists)")
+    sp = sub.add_parser("sample", help="write the seeded samples (perturbation design, gold item lists)")
     sp.add_argument("--frozen-list", required=True)
     sp.add_argument("--out-dir", help="default: agentaudit/samples")
     sp.add_argument("--seed", type=int)

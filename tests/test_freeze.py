@@ -30,7 +30,7 @@ def test_manifest_covers_every_required_file(staged):
     files = set(man["files"])
     required = {"agentaudit/perturbations.yaml", "agentaudit/items.yaml", "agentaudit/queries.yaml",
                 "agentaudit/prompts/packet.txt", "agentaudit/prompts/packet_system.txt", "agentaudit/prompts/gold.txt",
-                "agentaudit/samples/perturbation_sample_v1.csv", "agentaudit/samples/gold_abc_items_v1.csv",
+                "agentaudit/samples/perturbation_design_v1.csv", "agentaudit/samples/gold_abc_items_v1.csv",
                 "agentaudit/samples/gold_betterbench_criteria_v1.csv", "agentaudit/samples/gold_pins_v1.json",
                 "agentaudit/perturb.py", "agentaudit/gold.py", "agentaudit/sampling.py", "agentaudit/resolve.py",
                 "agentaudit/verify.py", "protocol/protocol-v1.md", "protocol/eligibility.md",

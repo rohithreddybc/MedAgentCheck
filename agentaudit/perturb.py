@@ -9,12 +9,13 @@ Variants per item, with labels fixed by construction:
               conservative specificity test
   decoy       near-miss text that fails the anchor, placed like inject     expected = base level (at most)
 
-Architecture v3 (``run_perturb_packet``): each variant is a full copy of the packet, re-scored for the target
-item only (single-item prompt mode with the whole packet, no retrieval). ``buried`` puts the sentence in a late
-appendix block at the end of S1 and, for half of the variants (chosen by seed, see ``sampling.select_cells``), also in
-a synthetic S4 code-comment chunk. The label stays 2 because the appendix copy sits on S1 (G1 scores S1-S3); the S4
-copy tests whether a second, code-side copy disturbs the coder. Cells are drawn by ``sampling`` (8 per item per
-type, seed 20261004, across the 45 frozen benchmarks).
+Architecture v3 (``run_perturb_variants``, multiplexed): 40 variant packets, each a full copy of one benchmark's
+packet in which EVERY item receives exactly one perturbation type (balanced design, ``sampling``: each item x type
+pair occurs 8 times, 1,000 labelled cells). A variant is scored once with the normal 25-item whole-packet call, so a
+coder needs 40 calls, not 1,000. Inject, paraphrase and decoy texts of different items go to different S1 positions
+(slots); every buried text goes to one late appendix block and, for half of them by seed, also to a synthetic S4
+code comment (the appendix copy keeps the label at 2, G1 scores S1-S3). Cells that fail the eligibility rule are
+dropped and counted. Cross-item interference is a known limit (see IMPLEMENTATION_NOTES).
 
 The retrieval path (``run_perturb``, one chunk set per item) is kept as the ablation path of the retired
 retrieval design.
@@ -214,7 +215,10 @@ def run_perturb(run: Path, bench: str, item_ids: list[str], coders: dict[str, tu
     return summary
 
 
-# ---------------------------------------------------------------- architecture v3: whole-packet variants
+# ---------------------------------------------------------------- architecture v3: multiplexed variant packets
+SLOTS = len(ITEM_ORDER)
+
+
 def bench_dir_candidates(row: dict) -> list[str]:
     from .util import safe_name
 
@@ -235,36 +239,66 @@ def map_bench_dirs(run: Path, frozen_rows: list[dict]) -> dict[str, str]:
     return out
 
 
-def plan_packet_cells(run: Path, sample: list[dict], frozen_rows: list[dict], items: list[str] | None = None,
-                      types=VARIANT_TYPES, n: int = 8, use_base: bool = True, only_bench: list[str] | None = None) -> list[dict]:
-    """Select the perturbation cells for a run. Each cell: item, vtype, benchmark (frozen id), bench (packet dir),
-    s4_comment, base_level, evidence (deletion). With ``use_base`` a benchmark needs base results (resolved and
-    verified quotes from the v3 audit run) to be eligible; without it the draw is the plain seeded one and deletion
-    cells are not built."""
-    from .sampling import select_cells
+def _drop_reason(vtype: str, base: dict | None) -> str:
+    if base is None:
+        return "no base results (deletion needs them)"
+    lv = base.get("level")
+    if lv is None:
+        return "no base result for this benchmark"
+    if lv == "NA":
+        return "base level NA"
+    if vtype == "deletion":
+        return "base level 0" if int(lv) < 1 else "no verified evidence chunk to remove"
+    return "base level 2 (label would pass trivially)"
+
+
+def plan_variants(run: Path, design: list[dict], frozen_rows: list[dict], use_base: bool = True,
+                  only_variants: list[str] | None = None) -> dict:
+    """Turn the design into a run plan. A cell that fails the eligibility rule is dropped and counted, never
+    replaced; a variant whose benchmark has no packet in the run is skipped. With ``use_base`` every benchmark needs base
+    results (resolved and verified quotes from the v3 audit run); without it the draw is plain and deletion
+    cells are dropped."""
+    from .sampling import eligible
 
     dirs = map_bench_dirs(run, frozen_rows)
-    if only_bench:
-        dirs = {k: v for k, v in dirs.items() if v in only_bench or k in only_bench}
+    by_v: dict[str, list[dict]] = {}
+    for r in design:
+        by_v.setdefault(r["variant"], []).append(r)
     cache: dict[tuple[str, str], dict | None] = {}
 
     def base_of(bid: str, item: str):
-        key = (bid, item)
-        if key not in cache:
-            lvl, known, ev = base_info(run, dirs[bid], item)
-            if use_base:
-                cache[key] = {"level": lvl, "evidence": ev} if known else {"level": None, "evidence": []}
+        k = (bid, item)
+        if k not in cache:
+            if not use_base:
+                cache[k] = None
             else:
-                cache[key] = None
-        return cache[key]
+                lvl, known, ev = base_info(run, dirs[bid], item)
+                cache[k] = {"level": lvl, "evidence": ev} if known else {"level": None, "evidence": []}
+        return cache[k]
 
-    cells = select_cells(sample, base_of, set(dirs), n=n, items=items, types=types)
-    for c in cells:
-        c["bench"] = dirs[c["benchmark"]]
-        b = base_of(c["benchmark"], c["item"])
-        c["base_level"] = (b or {}).get("level")
-        c["evidence"] = (b or {}).get("evidence", []) if c["vtype"] == "deletion" else []
-    return cells
+    plan: dict = {"variants": [], "dropped": [], "skipped_variants": []}
+    for vid in sorted(by_v):
+        if only_variants and vid not in only_variants:
+            continue
+        rows = by_v[vid]
+        bid = rows[0]["benchmark"]
+        if bid not in dirs:
+            plan["skipped_variants"].append({"variant": vid, "benchmark": bid, "reason": "no packet in the run"})
+            continue
+        cells = []
+        for r in sorted(rows, key=lambda r: ITEM_ORDER.index(r["item"])):
+            b = base_of(bid, r["item"])
+            if not eligible(r["vtype"], b):
+                plan["dropped"].append({"variant": vid, "benchmark": bid, "item": r["item"], "vtype": r["vtype"],
+                                        "reason": _drop_reason(r["vtype"], b)})
+                continue
+            cells.append({"item": r["item"], "vtype": r["vtype"], "slot": r["slot"], "s4_comment": r["s4_comment"] in (True, "yes"),
+                          "base_level": (b or {}).get("level"),
+                          "evidence": (b or {}).get("evidence", []) if r["vtype"] == "deletion" else []})
+        plan["variants"].append({"variant": vid, "benchmark": bid, "bench": dirs[bid], "cells": cells})
+    plan["n_cells"] = sum(len(v["cells"]) for v in plan["variants"])
+    plan["n_dropped"] = len(plan["dropped"])
+    return plan
 
 
 def cell_variant(cell: dict) -> Variant:
@@ -278,60 +312,128 @@ def cell_variant(cell: dict) -> Variant:
     return vs[0]
 
 
-def variant_packet(sources: list[Source], v: Variant, cap_tokens: int) -> dict:
-    """Variant sources -> chunks -> capped packet. Returns {sel, text, kept_texts, hit, s4_hit}."""
+def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> list[Source]:
+    """All perturbations of one variant packet, applied to a copy of the sources. Pure function.
+
+    cells: (Variant, slot). Order: deletions first (line numbers of the cited chunks refer to the original text),
+    then inline insertions of inject, paraphrase and decoy texts into the first S1 source at spread positions
+    (slot k of 25 at line (k + 0.5) / 25 of the text), then one late appendix block at the end of the last S1
+    source holding every buried text, plus one synthetic S4 file with a code comment for each buried text whose
+    s4_comment flag is set."""
+    new = [copy.copy(s) for s in sources]
+    drop: dict[tuple[str, str], set[int]] = {}
+    for v, _ in cells:
+        if v.vtype == "deletion":
+            for cid in v.removed_chunk_ids or []:
+                p = parse_chunk_id(cid)
+                if p:
+                    drop.setdefault((p[0], p[1]), set()).update(range(p[2], p[3] + 1))
+    for s in new:
+        rm = drop.get((s.surface, s.path))
+        if rm:
+            s.text = "\n".join(l for n, l in enumerate(s.text.split("\n"), 1) if n not in rm)
+    inline = [(slot, v) for v, slot in cells if v.vtype in ("inject", "paraphrase", "decoy")]
+    if inline:
+        i = _host_index(new, last=False)
+        lines = new[i].text.split("\n")
+        n = len(lines)
+        for pos, _slot, text in sorted(((int((slot + 0.5) / SLOTS * n), slot, v.text) for slot, v in inline), reverse=True):
+            lines.insert(pos, text)
+        new[i].text = "\n".join(lines)
+    bur = sorted((v for v, _ in cells if v.vtype == "buried"), key=lambda v: ITEM_ORDER.index(v.item))
+    if bur:
+        i = _host_index(new, last=True)
+        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + "\n".join(v.text for v in bur)
+        s4 = [v for v in bur if v.s4_comment]
+        if s4:
+            new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "\n".join("# " + v.text for v in s4) + "\n"))
+    return new
+
+
+def variant_packet(sources: list[Source], cells: list[tuple[Variant, int]], cap_tokens: int) -> dict:
+    """Variant sources -> chunks -> capped packet. Returns {sel, text, kept_texts, hits, s4_hits}; hits and s4_hits
+    map item -> whether the inserted text (or its S4 comment copy) is in the packet that is sent."""
     from .packet_score import render_packet, select_packet
 
-    chunks = build_chunks(apply_variant(sources, v), is_s5)
+    chunks = build_chunks(apply_variants(sources, cells), is_s5)
     sel = select_packet(chunks, cap_tokens)
     kept_texts = {c.id: c.text for c in sel["kept"]}
-    hit = None
-    s4_hit = None
-    if v.text:
-        needle = loose_normalise(v.text)
-        norm = {i: loose_normalise(t) for i, t in kept_texts.items()}
-        hit = any(needle in t for t in norm.values())
-        if v.s4_comment:
-            s4_hit = any(needle in norm[c.id] for c in sel["kept"] if c.surface == "S4")
-    return {"sel": sel, "text": render_packet(sel["kept"]), "kept_texts": kept_texts, "hit": hit, "s4_hit": s4_hit}
+    norm = {i: loose_normalise(t) for i, t in kept_texts.items()}
+    s4_ids = [c.id for c in sel["kept"] if c.surface == "S4"]
+    hits, s4_hits = {}, {}
+    for v, _ in cells:
+        if v.text:
+            nd = loose_normalise(v.text)
+            hits[v.item] = any(nd in t for t in norm.values())
+            if v.s4_comment:
+                s4_hits[v.item] = any(nd in norm[i] for i in s4_ids)
+    return {"sel": sel, "text": render_packet(sel["kept"]), "kept_texts": kept_texts, "hits": hits,
+            "s4_hits": s4_hits, "lnorm": norm}
 
 
-def estimate_cells(run: Path, cells: list[dict], caps: dict[str, int | None]) -> dict:
-    """Calls and estimated input tokens per coder (packet token count from each packet manifest, capped)."""
-    from .packet_score import CAP_TOKENS
+def _prompt_overhead(coders: dict, names: list[str]) -> dict[str, int]:
+    """Estimated tokens of a prompt without packet text, per coder (system text, scale, G1-G7, 25 item blocks)."""
+    from .packet_score import GROUP_PLANS, packet_system_prompt, render_packet_prompt
 
-    tok: dict[str, int] = {}
+    items = load_items()
+    system = packet_system_prompt()
     out = {}
-    for c in cells:
-        if c["bench"] not in tok:
-            tok[c["bench"]] = int(read_json(Path(run) / "packets" / c["bench"] / "manifest.json")["total_chunk_tokens"])
-    overhead = 2000  # system text, scale, G1-G7 and one item block
-    for coder, cap in caps.items():
-        cap = cap or CAP_TOKENS
-        total = sum(min(tok[c["bench"]], cap) + overhead for c in cells)
-        out[coder] = {"calls": len(cells), "input_tokens_est": total}
+    for n in names:
+        plan = GROUP_PLANS[int(coders[n].get("groups", 1))]
+        out[n] = sum(est_tokens(system) + est_tokens(render_packet_prompt("", g, items)) for g in plan)
     return out
 
 
-def run_perturb_packet(run: Path, cells: list[dict], coders: dict[str, tuple[dict, object]], force: bool = False,
-                       log=print, dry_run: bool = False) -> dict:
-    """Score every cell with every coder: one call per (cell, coder), whole packet, target item only.
+def estimate_variants(run: Path, plan: dict, coders: dict, names: list[str]) -> dict:
+    """Calls and estimated input tokens per coder (packet tokens from each packet manifest, capped, plus the
+    prompt without packet). One call per variant and item group."""
+    from .packet_score import CAP_TOKENS, GROUP_PLANS
 
-    coders: name -> (spec, backend). Records go to ``perturb/<bench>/<item>/<vtype>/<coder>.json``."""
-    from .packet_score import CAP_TOKENS, packet_system_prompt, parse_packet_response, render_packet_prompt
+    over = _prompt_overhead(coders, names)
+    out = {}
+    for n in names:
+        cap = coders[n].get("max_packet_tokens") or CAP_TOKENS
+        g = len(GROUP_PLANS[int(coders[n].get("groups", 1))])
+        tot = 0
+        for v in plan["variants"]:
+            tok = int(read_json(Path(run) / "packets" / v["bench"] / "manifest.json")["total_chunk_tokens"])
+            tot += g * min(tok, cap) + over[n]
+        out[n] = {"calls": len(plan["variants"]) * g, "input_tokens_est": tot}
+    return out
+
+
+def perturb_variant_path(run: Path, variant: str, coder: str) -> Path:
+    return Path(run) / "perturb" / variant / f"{coder}.json"
+
+
+def run_perturb_variants(run: Path, plan: dict, coders: dict[str, tuple[dict, object]], force: bool = False,
+                         log=print, dry_run: bool = False) -> dict:
+    """Score every variant packet with every coder: one whole-packet call over all 25 items (or the coder's fixed
+    item groups). Records go to ``perturb/<variant>/<coder>.json``; the plan (with dropped cells) to
+    ``perturb/plan.json``.
+
+    coders: name -> (spec, backend)."""
+    from .packet_score import CAP_TOKENS, GROUP_PLANS, packet_system_prompt, parse_packet_response, render_packet_prompt
     from .prompts import prompt_hash
+    from .util import normalise
     from .verify import verify_result
 
     items = load_items()
     system = packet_system_prompt()
-    summary = {"done": 0, "skipped": 0, "failed": [], "blocked": None, "cells": len(cells)}
-    src_cache: dict[str, list[Source]] = {}
-    for cell in cells:
-        v = cell_variant(cell)
-        bench, it = cell["bench"], cell["item"]
-        todo = {}
+    summary = {"done": 0, "skipped": 0, "failed": [], "blocked": None, "variants": len(plan["variants"]),
+               "cells": plan["n_cells"], "cells_dropped": plan["n_dropped"],
+               "variants_skipped": len(plan["skipped_variants"])}
+    if not dry_run:
+        write_json(Path(run) / "perturb" / "plan.json", {k: v for k, v in plan.items() if k != "variants"} | {
+            "variants": [{"variant": v["variant"], "benchmark": v["benchmark"], "n_cells": len(v["cells"])}
+                         for v in plan["variants"]]})
+    for pv in plan["variants"]:
+        cells = [(cell_variant(c), c["slot"]) for c in pv["cells"]]
+        meta = {c["item"]: c for c in pv["cells"]}
+        srcs = load_sources(run, pv["bench"])
+        by_cap: dict[int, dict] = {}
         for cname, (spec, backend) in coders.items():
-            p = perturb_path(run, bench, it, v.vtype, cname)
+            p = perturb_variant_path(run, pv["variant"], cname)
             if p.exists() and not force:
                 try:
                     if read_json(p).get("status") == "ok":
@@ -339,70 +441,78 @@ def run_perturb_packet(run: Path, cells: list[dict], coders: dict[str, tuple[dic
                         continue
                 except ValueError:
                     pass
-            todo[cname] = (spec, backend, p)
-        if not todo:
-            continue
-        if bench not in src_cache:
-            src_cache[bench] = load_sources(run, bench)
-        by_cap: dict[int, dict] = {}
-        for cname, (spec, backend, p) in todo.items():
             cap = int(spec.get("max_packet_tokens") or CAP_TOKENS)
             if cap not in by_cap:
-                by_cap[cap] = variant_packet(src_cache[bench], v, cap)
+                by_cap[cap] = variant_packet(srcs, cells, cap)
             vp = by_cap[cap]
-            prompt = render_packet_prompt(vp["text"], [it], items)
+            plan_g = GROUP_PLANS[int(spec.get("groups", 1))]
             if dry_run:
                 summary["done"] += 1
                 continue
-            rec = {"bench": bench, "benchmark": cell.get("benchmark"), "item": it, "coder": cname,
-                   "family": spec.get("family"), "variant": asdict(v), "expected": v.expected,
-                   "expectation": v.expectation, "base_level": v.base_level, "mode": "packet_v3_single_item",
-                   "prompt_sha256": prompt_hash(prompt), "prompt_tokens_est": est_tokens(prompt),
-                   "rendered_packet_sha256": sha256_text(vp["text"]), "cap_tokens": cap,
-                   "n_dropped": len(vp["sel"]["dropped"]), "over_cap": vp["sel"]["over_cap"],
-                   "variant_text_in_packet": vp["hit"], "s4_comment_in_packet": vp["s4_hit"],
-                   "attempts": [], "parsed": None, "verification": None, "status": "parse_error"}
-            where = f"{bench}/{it}/{v.vtype}"
+            rec = {"variant": pv["variant"], "benchmark": pv["benchmark"], "bench": pv["bench"], "coder": cname,
+                   "family": spec.get("family"), "mode": "packet_v3_multiplexed", "cap_tokens": cap,
+                   "rendered_packet_sha256": sha256_text(vp["text"]), "n_dropped_chunks": len(vp["sel"]["dropped"]),
+                   "over_cap": vp["sel"]["over_cap"], "groups": plan_g, "attempts": [], "items": {}, "cells": {},
+                   "status": "parse_error"}
+            best_ok: dict[str, dict] = {}
+            best_err: dict[str, str] = {}
             try:
-                for _ in range(2):
-                    resp = backend.complete(system, prompt)
-                    att = {"timestamp": utcnow(), "model_id": resp.model_id, "usage": resp.usage, "meta": resp.meta,
-                           "raw_response": resp.text}
-                    rec["attempts"].append(att)
-                    rec["model_id"] = resp.model_id
-                    try:
-                        ok, err = parse_packet_response(resp.text, [it], items)
-                    except ParseError as e:
-                        att["parse_error"] = str(e)
-                        continue
-                    if it in ok:
-                        rec["parsed"], rec["status"] = ok[it], "ok"
-                        break
-                    att["item_errors"] = err
+                for gi, group in enumerate(plan_g, 1):
+                    prompt = render_packet_prompt(vp["text"], group, items)
+                    rec.setdefault("prompt_sha256", {})[str(gi)] = prompt_hash(prompt)
+                    g_ok: dict[str, dict] = {}
+                    g_err: dict[str, str] = {i: "missing from response" for i in group}
+                    for _ in range(2):
+                        resp = backend.complete(system, prompt)
+                        att = {"group": gi, "timestamp": utcnow(), "model_id": resp.model_id, "usage": resp.usage,
+                               "meta": resp.meta, "raw_response": resp.text}
+                        rec["attempts"].append(att)
+                        rec["model_id"] = resp.model_id
+                        try:
+                            ok, err = parse_packet_response(resp.text, group, items)
+                        except ParseError as e:
+                            att["parse_error"] = str(e)
+                            continue
+                        if len(ok) >= len(g_ok):
+                            g_ok, g_err = ok, err
+                        if not err:
+                            break
+                    best_ok.update(g_ok)
+                    best_err.update({i: e for i, e in g_err.items() if i not in g_ok})
             except DailyLimitReached as e:
-                summary["blocked"] = {"cell": where, "coder": cname, "reason": str(e),
+                summary["blocked"] = {"variant": pv["variant"], "coder": cname, "reason": str(e),
                                       "next_available_unix": e.next_available}
-                log(f"[{cname}] daily limit reached at {where}; rerun to resume")
+                log(f"[{cname}] daily limit reached at {pv['variant']}; rerun to resume")
                 return summary
             except BackendAuthError as e:
-                summary["blocked"] = {"cell": where, "coder": cname, "reason": f"authentication: {e}"}
+                summary["blocked"] = {"variant": pv["variant"], "coder": cname, "reason": f"authentication: {e}"}
                 log(f"[{cname}] backend authentication failed: {e}")
                 return summary
             except BackendError as e:
-                summary["failed"].append({"cell": where, "coder": cname, "error": str(e)})
-                log(f"[{cname}] {where} backend error: {e}")
+                summary["failed"].append({"variant": pv["variant"], "coder": cname, "error": str(e)})
+                log(f"[{cname}] {pv['variant']} backend error: {e}")
                 continue
-            if rec["attempts"]:
-                rec["timestamp"] = rec["attempts"][-1]["timestamp"]
-            if rec["parsed"]:
-                rec["verification"] = verify_result(rec["parsed"], items[it], vp["kept_texts"])
+            for iid, parsed in best_ok.items():
+                if "strict" not in vp:
+                    vp["strict"] = {k: normalise(t) for k, t in vp["kept_texts"].items()}
+                rec["items"][iid] = {"parsed": parsed, "verification": verify_result(
+                    parsed, items[iid], vp["kept_texts"], (vp["strict"], vp["lnorm"]))}
+            for v, slot in cells:
+                c = meta[v.item]
+                rec["cells"][v.item] = {"variant": asdict(v), "slot": slot, "expected": v.expected,
+                                        "expectation": v.expectation, "base_level": v.base_level,
+                                        "variant_text_in_packet": vp["hits"].get(v.item),
+                                        "s4_comment_in_packet": vp["s4_hits"].get(v.item) if c["s4_comment"] else None}
+            rec["item_errors"] = best_err
+            rec["status"] = "ok" if not best_err else "partial" if best_ok else "parse_error"
+            rec["timestamp"] = rec["attempts"][-1]["timestamp"] if rec["attempts"] else utcnow()
             write_json(p, rec)
             if rec["status"] == "ok":
                 summary["done"] += 1
-                log(f"[{cname}] {where}: level={rec['verification']['effective']} "
-                    f"expected={v.expectation} {v.expected}")
             else:
-                summary["failed"].append({"cell": where, "coder": cname, "error": "parse_error"})
+                summary["failed"].append({"variant": pv["variant"], "coder": cname, "error": rec["status"]})
+            log(f"[{cname}] {pv['variant']} ({pv['benchmark']}): {rec['status']} "
+                f"({len(best_ok)}/{sum(len(g) for g in plan_g)} items)")
     return summary
 
 
@@ -438,35 +548,51 @@ def _metric(sel: list[dict]) -> dict:
             "specificity": m(sn, len(neg)), "deletion_level_dropped": m(sd, len(dele))}
 
 
-def summarise(run: Path, benches: list[str]) -> dict:
+def _records(run: Path, names: list[str] | None):
+    """Normalised (unit, item, coder, family, variant dict, verification, in_packet) from both record layouts:
+    perturb/<variant>/<coder>.json (multiplexed) and perturb/<bench>/<item>/<type>/<coder>.json (retrieval ablation)."""
+    base = Path(run) / "perturb"
+    if not base.exists():
+        return
+    for d in sorted(p for p in base.iterdir() if p.is_dir()):
+        if names is not None and d.name not in names:
+            continue
+        for f in sorted(d.glob("*.json")):
+            rec = read_json(f)
+            if rec.get("status") not in ("ok", "partial"):
+                continue
+            for it, c in rec.get("cells", {}).items():
+                ver = (rec["items"].get(it) or {}).get("verification")
+                if ver:
+                    yield (d.name, it, rec["coder"], rec.get("family"), c["variant"], ver, c.get("variant_text_in_packet"))
+        for f in sorted(d.glob("*/*/*.json")):
+            rec = read_json(f)
+            if rec.get("status") == "ok" and rec.get("verification"):
+                yield (d.name, rec["item"], rec["coder"], rec.get("family"), rec["variant"], rec["verification"],
+                       rec.get("variant_text_in_retrieval"))
+
+
+def summarise(run: Path, names: list[str] | None = None) -> dict:
     """Sensitivity (inject, buried, paraphrase: coder reaches level 2) and specificity (deletion: level 0;
     decoy: not above the base level) with Wilson 95% intervals, per coder and RESOLVED (two-family rule applied to
-    the coders' votes on the same variant); overall, per variant type, per item, per item and type."""
+    the coders' votes on the same cell); overall, per variant type, per item, per item and type. ``names``:
+    variant ids (or packet directories for the retrieval ablation); default all."""
     rows: list[dict] = []
     votes_by: dict[tuple, dict] = {}
-    for b in benches:
-        base = Path(run) / "perturb" / b
-        if not base.exists():
-            continue
-        for f in sorted(base.glob("*/*/*.json")):
-            rec = read_json(f)
-            if rec.get("status") != "ok" or not rec.get("verification"):
-                continue
-            lv = _level(rec["verification"]["effective"])
-            var = rec["variant"]
-            rows.append({"bench": b, "item": rec["item"], "vtype": var["vtype"], "coder": rec["coder"],
-                         "level": lv, "expected": var["expected"], "expectation": var["expectation"],
-                         "base_level": var.get("base_level"), "ok": _ok(var, lv), "ok_drop": _ok_drop(var, lv),
-                         "retrieved": rec.get("variant_text_in_packet", rec.get("variant_text_in_retrieval"))})
-            slot = votes_by.setdefault((b, rec["item"], var["vtype"]), {"var": var, "votes": {}})
-            slot["votes"][rec["coder"]] = {"raw": rec["verification"]["score_raw"],
-                                           "effective": rec["verification"]["effective"], "family": rec.get("family")}
-    for (b, it, vt), d in sorted(votes_by.items()):
+    for unit, it, coder, fam, var, ver, ins in _records(run, names):
+        lv = _level(ver["effective"])
+        rows.append({"variant_id": unit, "item": it, "vtype": var["vtype"], "coder": coder, "level": lv,
+                     "expected": var["expected"], "expectation": var["expectation"],
+                     "base_level": var.get("base_level"), "ok": _ok(var, lv), "ok_drop": _ok_drop(var, lv),
+                     "retrieved": ins})
+        slot = votes_by.setdefault((unit, it, var["vtype"]), {"var": var, "votes": {}})
+        slot["votes"][coder] = {"raw": ver["score_raw"], "effective": ver["effective"], "family": fam}
+    for (unit, it, vt), d in sorted(votes_by.items()):
         if len(d["votes"]) < 2:
             continue
         var = d["var"]
         lv = _level(resolve_cell(d["votes"])["final"])
-        rows.append({"bench": b, "item": it, "vtype": vt, "coder": "RESOLVED", "level": lv,
+        rows.append({"variant_id": unit, "item": it, "vtype": vt, "coder": "RESOLVED", "level": lv,
                      "expected": var["expected"], "expectation": var["expectation"],
                      "base_level": var.get("base_level"), "ok": _ok(var, lv), "ok_drop": _ok_drop(var, lv),
                      "retrieved": None})
@@ -476,6 +602,17 @@ def summarise(run: Path, benches: list[str]) -> dict:
                             "deletion": "specificity = level 0 (secondary: level below the base level)",
                             "decoy": "specificity = level not above the base level"},
                  "by_coder": {}}
+    pj = Path(run) / "perturb" / "plan.json"
+    if pj.exists():
+        pl = read_json(pj)
+        by_reason: dict[str, int] = {}
+        by_type: dict[str, int] = {}
+        for d in pl.get("dropped", []):
+            by_reason[d["reason"]] = by_reason.get(d["reason"], 0) + 1
+            by_type[d["vtype"]] = by_type.get(d["vtype"], 0) + 1
+        out["design"] = {"variants_run": len(pl.get("variants", [])), "variants_skipped": pl.get("skipped_variants", []),
+                         "cells_scored_planned": pl.get("n_cells"), "cells_dropped": pl.get("n_dropped"),
+                         "dropped_by_reason": by_reason, "dropped_by_type": by_type}
     flat: list[dict] = []
 
     def add_flat(scope, coder, item, vtype, met):

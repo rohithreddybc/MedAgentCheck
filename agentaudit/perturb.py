@@ -2,19 +2,21 @@
 
 Variants per item, with labels fixed by construction:
   inject      canonical level-2 sentence inserted mid-paper in S1          expected 2 (exact)
-  buried      the same sentence in ONE late location: S1 appendix or S4 comment  expected 2 (exact)
+  buried      the same sentence in a late appendix block at the end of S1  expected 2 (exact)
   paraphrase  meaning-preserving rewrite, placed like inject               expected 2 (exact)
   deletion    every chunk cited by a verified quote in the base coding     expected 0 (at most)
               is removed; residual evidence in uncited chunks makes this a
               conservative specificity test
-  decoy       near-miss text that fails the anchor, placed like inject     expected = base level (at most)
+  decoy       near-miss text that fails the anchor, placed like inject     expected = base level (at most);
+              half of the decoys: the full level-2 text only in a non-S5 S4 code comment (G1a)
 
 Architecture v3 (``run_perturb_variants``, multiplexed): 40 variant packets, each a full copy of one benchmark's
 packet in which EVERY item receives exactly one perturbation type (balanced design, ``sampling``: each item x type
 pair occurs 8 times, 1,000 labelled cells). A variant is scored once with the normal 25-item whole-packet call, so a
 coder needs 40 calls, not 1,000. Inject, paraphrase and decoy texts of different items go to different S1 positions
-(slots); every buried text goes to exactly one location: a late S1 appendix block for half of the buried cells and
-a synthetic S4 code comment for the other half (by seed, never both). Cells that fail the eligibility rule are
+(slots); every buried text goes to one late S1 appendix block; half of the decoys (by seed) are the full level-2
+inject text placed only in a non-S5 S4 code comment (G1a: code never counts as reporting, so the expected level
+stays the base level) and the other half are the near-miss text in S1. Cells that fail the eligibility rule are
 dropped and counted. Cross-item interference is a known limit (see IMPLEMENTATION_NOTES).
 
 The retrieval path (``run_perturb``, one chunk set per item) is kept as the ablation path of the retired
@@ -50,7 +52,7 @@ class Variant:
     expectation: str  # "exact" | "at_most"
     text: str | None = None
     removed_chunk_ids: list[str] | None = None
-    s4_comment: bool = False  # buried only: place the text in a synthetic S4 code comment instead of the S1 appendix
+    s4_comment: bool = False  # decoy only: the full inject text in a non-S5 S4 code comment instead of the S1 near-miss
     base_level: int | None = None  # base resolved level when known (deletion's secondary label)
 
     @property
@@ -67,12 +69,15 @@ def build_variants(item_id: str, spec: dict | None = None, base_level: int = 0,
         if t == "inject":
             out.append(Variant(item_id, t, 2, "exact", text=spec["inject"].strip()))
         elif t == "buried":
-            out.append(Variant(item_id, t, 2, "exact", text=spec["inject"].strip(), s4_comment=bool(s4_comment)))
+            out.append(Variant(item_id, t, 2, "exact", text=spec["inject"].strip()))
         elif t == "paraphrase":
             out.append(Variant(item_id, t, 2, "exact", text=spec["paraphrase"].strip()))
         elif t == "decoy":
-            out.append(Variant(item_id, t, int(base_level), "at_most", text=spec["decoy"].strip(),
-                               base_level=int(base_level)))
+            # s4_comment: the full level-2 inject text, placed only in a non-S5 S4 code comment (G1a: code never
+            # counts as reporting, so the expected level stays the base level)
+            out.append(Variant(item_id, t, int(base_level), "at_most",
+                               text=(spec["inject"] if s4_comment else spec["decoy"]).strip(),
+                               s4_comment=bool(s4_comment), base_level=int(base_level)))
         elif t == "deletion":
             if evidence_ids:
                 out.append(Variant(item_id, t, 0, "at_most", removed_chunk_ids=sorted(set(evidence_ids)),
@@ -105,17 +110,16 @@ def _host_index(sources: list[Source], last: bool) -> int:
 def apply_variant(sources: list[Source], v: Variant) -> list[Source]:
     """Return a modified copy of the sources. Pure function."""
     new = [copy.copy(s) for s in sources]
-    if v.vtype in ("inject", "paraphrase", "decoy"):
+    if v.vtype == "decoy" and v.s4_comment:
+        new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "# " + v.text + "\n"))
+    elif v.vtype in ("inject", "paraphrase", "decoy"):
         i = _host_index(new, last=False)
         lines = new[i].text.split("\n")
         lines.insert(len(lines) // 2, v.text)
         new[i].text = "\n".join(lines)
     elif v.vtype == "buried":
-        if v.s4_comment:  # exactly one location: S4 code comment, or the late S1 appendix
-            new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "# " + v.text + "\n"))
-        else:
-            i = _host_index(new, last=True)
-            new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + v.text
+        i = _host_index(new, last=True)
+        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + v.text
     elif v.vtype == "deletion":
         drop: dict[tuple[str, str], set[int]] = {}
         for cid in v.removed_chunk_ids or []:
@@ -253,6 +257,10 @@ def _drop_reason(vtype: str, base: dict | None) -> str:
     return "base level 2 (label would pass trivially)"
 
 
+def _inject_text(item: str) -> str:
+    return load_perturbation_specs()[item]["inject"].strip()
+
+
 def plan_variants(run: Path, design: list[dict], frozen_rows: list[dict], use_base: bool = True,
                   only_variants: list[str] | None = None) -> dict:
     """Turn the design into a run plan. A cell that fails the eligibility rule is dropped and counted, never
@@ -289,6 +297,11 @@ def plan_variants(run: Path, design: list[dict], frozen_rows: list[dict], use_ba
         cells = []
         for r in sorted(rows, key=lambda r: ITEM_ORDER.index(r["item"])):
             b = base_of(bid, r["item"])
+            if r["vtype"] == "decoy" and r["s4_comment"] in (True, "yes") and is_s5("# " + _inject_text(r["item"])):
+                # the comment would be tagged as an agent-visible (S5) chunk and then legitimately count
+                plan["dropped"].append({"variant": vid, "benchmark": bid, "item": r["item"], "vtype": r["vtype"],
+                                        "reason": "S4-comment text matches an S5 pattern (would be tagged agent-visible)"})
+                continue
             if not eligible(r["vtype"], b):
                 plan["dropped"].append({"variant": vid, "benchmark": bid, "item": r["item"], "vtype": r["vtype"],
                                         "reason": _drop_reason(r["vtype"], b)})
@@ -319,8 +332,9 @@ def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> l
     cells: (Variant, slot). Order: deletions first (line numbers of the cited chunks refer to the original text),
     then inline insertions of inject, paraphrase and decoy texts into the first S1 source at spread positions
     (slot k of 25 at line (k + 0.5) / 25 of the text), then one late appendix block at the end of the last S1
-    source holding the buried texts whose s4_comment flag is not set, and one synthetic S4 file with a code comment
-    for each buried text whose flag is set. A buried text is placed in exactly one of the two locations."""
+    source holding every buried text (always S1: code never counts as reporting, G1a), and one synthetic S4 file with
+    a code comment for each decoy whose s4_comment flag is set (that decoy carries the full level-2 inject text, in
+    S4 only, and is not inserted inline)."""
     new = [copy.copy(s) for s in sources]
     drop: dict[tuple[str, str], set[int]] = {}
     for v, _ in cells:
@@ -333,7 +347,7 @@ def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> l
         rm = drop.get((s.surface, s.path))
         if rm:
             s.text = "\n".join(l for n, l in enumerate(s.text.split("\n"), 1) if n not in rm)
-    inline = [(slot, v) for v, slot in cells if v.vtype in ("inject", "paraphrase", "decoy")]
+    inline = [(slot, v) for v, slot in cells if v.vtype in ("inject", "paraphrase", "decoy") and not v.s4_comment]
     if inline:
         i = _host_index(new, last=False)
         lines = new[i].text.split("\n")
@@ -342,11 +356,10 @@ def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> l
             lines.insert(pos, text)
         new[i].text = "\n".join(lines)
     bur = sorted((v for v, _ in cells if v.vtype == "buried"), key=lambda v: ITEM_ORDER.index(v.item))
-    app = [v for v in bur if not v.s4_comment]
-    s4 = [v for v in bur if v.s4_comment]
-    if app:
+    s4 = sorted((v for v, _ in cells if v.vtype == "decoy" and v.s4_comment), key=lambda v: ITEM_ORDER.index(v.item))
+    if bur:
         i = _host_index(new, last=True)
-        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + "\n".join(v.text for v in app)
+        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + "\n".join(v.text for v in bur)
     if s4:
         new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "\n".join("# " + v.text for v in s4) + "\n"))
     return new
@@ -361,14 +374,15 @@ def variant_packet(sources: list[Source], cells: list[tuple[Variant, int]], cap_
     sel = select_packet(chunks, cap_tokens)
     kept_texts = {c.id: c.text for c in sel["kept"]}
     norm = {i: loose_normalise(t) for i, t in kept_texts.items()}
-    s4_ids = [c.id for c in sel["kept"] if c.surface == "S4"]
+    s4_ids = [c.id for c in sel["kept"] if c.surface == "S4" and not c.s5]
+    s5_ids = [c.id for c in sel["kept"] if c.s5]
     hits, s4_hits = {}, {}
     for v, _ in cells:
         if v.text:
             nd = loose_normalise(v.text)
             hits[v.item] = any(nd in t for t in norm.values())
-            if v.s4_comment:
-                s4_hits[v.item] = any(nd in norm[i] for i in s4_ids)
+            if v.s4_comment:  # present in a non-S5 S4 chunk, and in no S5 chunk
+                s4_hits[v.item] = any(nd in norm[i] for i in s4_ids) and not any(nd in norm[i] for i in s5_ids)
     return {"sel": sel, "text": render_packet(sel["kept"]), "kept_texts": kept_texts, "hits": hits,
             "s4_hits": s4_hits, "lnorm": norm}
 
@@ -586,7 +600,7 @@ def summarise(run: Path, names: list[str] | None = None) -> dict:
         rows.append({"variant_id": unit, "item": it, "vtype": var["vtype"], "coder": coder, "level": lv,
                      "expected": var["expected"], "expectation": var["expectation"],
                      "base_level": var.get("base_level"), "ok": _ok(var, lv), "ok_drop": _ok_drop(var, lv),
-                     "retrieved": ins})
+                     "retrieved": ins, "s4": bool(var.get("s4_comment"))})
         slot = votes_by.setdefault((unit, it, var["vtype"]), {"var": var, "votes": {}})
         slot["votes"][coder] = {"raw": ver["score_raw"], "effective": ver["effective"], "family": fam}
     for (unit, it, vt), d in sorted(votes_by.items()):
@@ -597,7 +611,7 @@ def summarise(run: Path, names: list[str] | None = None) -> dict:
         rows.append({"variant_id": unit, "item": it, "vtype": vt, "coder": "RESOLVED", "level": lv,
                      "expected": var["expected"], "expectation": var["expectation"],
                      "base_level": var.get("base_level"), "ok": _ok(var, lv), "ok_drop": _ok_drop(var, lv),
-                     "retrieved": None})
+                     "retrieved": None, "s4": bool(var.get("s4_comment"))})
 
     out: dict = {"n_rows": len(rows), "note": "validity under perturbation, not ground truth",
                  "labels": {"inject/buried/paraphrase": "sensitivity = level 2 reached (any level >= 1 also reported)",
@@ -648,6 +662,9 @@ def summarise(run: Path, names: list[str] | None = None) -> dict:
                 if s3:
                     c["by_item_variant"][f"{it}/{vt}"] = _metric(s3)
                     add_flat("item_variant", coder, it, vt, c["by_item_variant"][f"{it}/{vt}"])
+        dec = {"decoy_s1": [r for r in sel if r["vtype"] == "decoy" and not r["s4"]],
+               "decoy_s4_comment": [r for r in sel if r["vtype"] == "decoy" and r["s4"]]}
+        c["decoy_by_surface"] = {k: _metric(v)["specificity"] for k, v in dec.items() if v}
         out["by_coder"][coder] = c
     srows = [r for r in rows if r["coder"] != "RESOLVED" and r["vtype"] != "decoy" and r.get("retrieved") is not None]
     out["variant_text_in_packet"] = {"hits": sum(1 for r in srows if r["retrieved"]), "n": len(srows)}

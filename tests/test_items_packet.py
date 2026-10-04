@@ -18,7 +18,7 @@ def test_25_items_and_na_clauses():
     assert {i for i in it if it[i].na_allowed} == {"C9", "A5", "A6", "A7"}
     assert "NA as for A5" in na_clause_text("A6", it) and "no tool interface" in na_clause_text("A6", it)
     assert it["C1"].n_elements == 0 and it["A1"].n_elements == 3
-    assert global_rules().count("**G") == 7
+    assert global_rules().count("**G") == 8 and "**G1a" in global_rules()
 
 
 @pytest.mark.skipif(not (RUBRIC.exists() and MANUAL.exists()), reason="rubric docs not alongside the package")

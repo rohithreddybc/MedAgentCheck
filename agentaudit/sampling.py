@@ -62,8 +62,9 @@ def build_perturbation_design(bench_ids: list[str], items: list[str] | None = No
     dealt to the variants in seeded order, so each (item, type) pair occurs exactly n_variants / len(types) times
     (8 for 40 variants and 5 types: 25 x 5 x 8 = 1,000 labelled cells). Each row: variant, benchmark, item, vtype,
     slot (position slot 0..24 of inline insertions in S1, a seeded permutation of the items per variant) and
-    s4_comment (buried only: the 4 of the item's 8 buried variants with the smallest hash carry the sentence in a
-    synthetic S4 code comment and not in the S1 appendix; the other 4 carry it in the appendix and not in S4)."""
+    s4_comment (decoy only: the 4 of the item's 8 decoy variants with the smallest hash carry the full level-2
+    inject text ONLY in a synthetic non-S5 S4 code comment, which tests surface discipline (G1a); the other 4 carry
+    the near-miss decoy text in S1). Buried cells always go to the late S1 appendix."""
     items = list(items or ITEM_ORDER)
     if n_variants % len(types):
         raise ValueError("n_variants must be a multiple of the number of types")
@@ -77,8 +78,8 @@ def build_perturbation_design(bench_ids: list[str], items: list[str] | None = No
         assign[it] = [t for t, _ in deal]
     s4: set[tuple[str, str]] = set()
     for it in items:
-        bur = [vid[j] for j in range(n_variants) if assign[it][j] == "buried"]
-        for v in sorted(bur, key=lambda v: rank_hash(seed, "s4comment", it, v))[: len(bur) // 2]:
+        dec = [vid[j] for j in range(n_variants) if assign[it][j] == "decoy"]
+        for v in sorted(dec, key=lambda v: rank_hash(seed, "s4decoy", it, v))[: len(dec) // 2]:
             s4.add((v, it))
     rows = []
     for j, v in enumerate(vid):

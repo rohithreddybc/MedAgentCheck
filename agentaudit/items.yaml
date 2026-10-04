@@ -5,9 +5,11 @@ sources:
     sha256: b5a0e4c5ddfae173b76689dd6e2dc727518bc4021d0adf6246618ef2e51590e1
   manual:
     file: rubric/coding-manual-v1.0.md
-    sha256: 24adfb145d169b4548e306bc72df2ddfaa2621c903313f9cc1d72ed9a9be34e1
+    sha256: 4acb901c7893dedb7290a8d4c3a7dd4c08148f530cefb2bf8c96789af86586e8
 scale: 0 = not reported, 1 = partially reported, 2 = fully reported, NA = not applicable (reason required).
 global_rules: '**G1 What is scored.** Each item scores what the benchmark *reports* on public surfaces S1 (paper and appendix), S2 (README and docs) and S3 (release notes), at the pinned version.
+
+  **G1a Surfaces that count as reporting.** S1-S3 count. Agent-visible prompts and tool descriptions (S5) also count, but only for A5, A6(iii) and A7(ii), because those elements are about what the agent is told. Other code (S4 that is not S5), including code comments, never counts as reporting; it can only raise a contradiction flag (G2).
 
   **G2 Contradiction flag.** If code (S4) or an agent-visible surface (S5) shows the opposite of a reported property, keep the reported score and set `contradicted = y` with both quotes. A flag is a candidate finding only. It is verified against the benchmark''s own documentation and offered for right of reply before it is reported. Exception: under A4, a model identifier that differs between S1 and S4 counts as absent.
 

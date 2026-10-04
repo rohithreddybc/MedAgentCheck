@@ -35,8 +35,8 @@ class PerturbMock:
     base A1 sentence) is in the packet it was sent, otherwise 0. ``fabricate``: quotes that are not in the packet.
     ``always``: a fixed score with a real quote."""
 
-    def __init__(self, model, fabricate=False, always=None):
-        self.model, self.calls, self.fabricate, self.always = model, [], fabricate, always
+    def __init__(self, model, fabricate=False, always=None, g1a=True):
+        self.model, self.calls, self.fabricate, self.always, self.g1a = model, [], fabricate, always, g1a
 
     def complete(self, system, prompt, **kw):
         self.calls.append(prompt)
@@ -52,6 +52,8 @@ class PerturbMock:
                 cid0, t0 = next(iter(chunks.items()))
                 o.update(score=self.always, quotes=[{"chunk_id": cid0, "text": t0[:80]}])
             for cid, t in chunks.items():
+                if self.g1a and cid.startswith('S4:') and t.lstrip().startswith('# '):
+                    continue  # G1a: a code comment never counts as reporting
                 hit = next((c for c in cands if c[:60] in t), None)
                 if hit:
                     q = "completely different sentence that is nowhere in this packet at all" if self.fabricate else hit[:110]
@@ -91,16 +93,17 @@ def test_plan_drops_ineligible_cells_and_counts_them(run3):
     # A1 has base 2 everywhere: only its 8 deletion cells survive. Every other item has base 0: no deletion, rest survive
     a1 = [c for v in plan["variants"] for c in v["cells"] if c["item"] == "A1"]
     assert Counter(c["vtype"] for c in a1) == {"deletion": 8} and all(c["evidence"] for c in a1)
-    assert plan["n_cells"] == 8 + 24 * 32 and plan["n_dropped"] == 1000 - plan["n_cells"] == 224
+    assert plan["n_cells"] == 8 + 24 * 32 - 8 and plan["n_dropped"] == 1000 - plan["n_cells"] == 232
     assert Counter(d["reason"] for d in plan["dropped"]) == {"base level 2 (label would pass trivially)": 32,
-                                                          "base level 0": 192}
+                                                          "base level 0": 192,
+                                                          "S4-comment text matches an S5 pattern (would be tagged agent-visible)": 8}
     assert all(not any(c["vtype"] == "deletion" for c in v["cells"] if c["item"] != "A1") for v in plan["variants"])
     # dropped cells are not replaced: the cells kept are a subset of the design
     design_keys = {(r["variant"], r["item"], r["vtype"]) for r in DESIGN}
     assert {(v["variant"], c["item"], c["vtype"]) for v in plan["variants"] for c in v["cells"]} <= design_keys
     # without base results: plain draw, deletion cells dropped
     nb = plan_variants(run3, DESIGN, FROZEN, use_base=False)
-    assert nb["n_cells"] == 1000 - 200 and all(d["vtype"] == "deletion" for d in nb["dropped"])
+    assert nb["n_cells"] == 1000 - 200 - 8 and {d["vtype"] for d in nb["dropped"]} == {"deletion", "decoy"}
     # a benchmark without a packet skips its variants
     part = plan_variants(run3, [r for r in DESIGN], [FROZEN[0]])
     assert part["skipped_variants"] and all(v["benchmark"] == FROZEN[0]["id"] for v in part["variants"])
@@ -127,7 +130,7 @@ def cells_for(types_by_item, s4=()):
 def test_apply_variants_spreads_inline_texts_and_builds_one_appendix_and_s4_file():
     src = make_sources()
     before = [s.text for s in src]
-    cs = cells_for([("C1", "inject"), ("C2", "paraphrase"), ("C3", "decoy"), ("C4", "buried"), ("C5", "buried"), ("C6", "buried")],
+    cs = cells_for([("C1", "inject"), ("C2", "paraphrase"), ("C3", "decoy"), ("C4", "buried"), ("C5", "decoy"), ("C6", "buried")],
                    s4=("C5",))
     out = apply_variants(src, cs)
     assert [s.text for s in src] == before  # input untouched
@@ -136,15 +139,18 @@ def test_apply_variants_spreads_inline_texts_and_builds_one_appendix_and_s4_file
     pos = [lines.index(v.text) for v, _ in cs[:3]]
     assert pos == sorted(pos) and len(set(pos)) == 3 and pos[0] < pos[1] < pos[2]  # different locations, in slot order
     appendix = s1.split("Appendix Z. Additional notes\n", 1)[1]
-    assert appendix == "\n".join(v.text for v, _ in (cs[3], cs[5]))  # one late appendix block, items in order
-    assert cs[4][0].text not in s1  # an S4-flagged buried text is never also in S1: exactly one location
-    texts_everywhere = "".join(s.text for s in out)
-    assert all(texts_everywhere.count(v.text) == 1 for v, _ in cs[3:])
+    assert appendix == "\n".join(v.text for v, _ in (cs[3], cs[5]))  # buried: always the late S1 appendix, items in order
+    c5 = cs[4][0]
+    assert c5.s4_comment and c5.text == load_perturbation_specs()["C5"]["inject"].strip()  # S4 decoy = full level-2 text
+    assert c5.expected == 0 and c5.expectation == "at_most"  # still a decoy: code never counts as reporting (G1a)
+    assert c5.text not in s1  # ... and it is in S4 only
+    assert "".join(s.text for s in out).count(c5.text) == 1
     s4 = [s for s in out if s.path == "agent_eval/notes.py"]
-    assert len(s4) == 1 and s4[0].surface == "S4" and s4[0].text == "# " + cs[4][0].text + "\n"  # only the flagged one
+    assert len(s4) == 1 and s4[0].surface == "S4" and s4[0].text == "# " + c5.text + "\n"  # only the flagged decoy
     assert len(out) == len(src) + 1
-    none_s4 = apply_variants(src, cells_for([("C4", "buried")]))
-    assert len(none_s4) == len(src)
+    # a buried cell is never placed in S4, even if flagged
+    assert len(apply_variants(src, cells_for([("C4", "buried")], s4=("C4",)))) == len(src)
+    assert build_variants("C4", types=("buried",), s4_comment=True)[0].s4_comment is False
 
 
 def test_deletion_runs_before_inline_insertion_and_removes_cited_lines():
@@ -163,7 +169,7 @@ def test_deletion_runs_before_inline_insertion_and_removes_cited_lines():
 
 def test_variant_packet_hits_s4_flag_and_cap():
     src = make_sources()
-    cs = cells_for([("C1", "inject"), ("C4", "buried"), ("C5", "buried"), ("C3", "decoy")], s4=("C5",))
+    cs = cells_for([("C1", "inject"), ("C4", "buried"), ("C5", "decoy"), ("C3", "decoy")], s4=("C5",))
     vp = variant_packet(src, cs, 150000)
     assert vp["hits"] == {"C1": True, "C4": True, "C5": True, "C3": True} and vp["s4_hits"] == {"C5": True}
     assert "agent_eval/notes.py" in vp["text"]
@@ -213,18 +219,19 @@ def test_run_end_to_end_three_families(run3):
         assert son["deletion_level_dropped"]["hits"] == len(dele)
 
 
-def test_buried_s4_half_recorded_in_run(run3):
-    plan = plan_variants(run3, DESIGN, FROZEN, only_variants=["v%02d" % i for i in range(1, 41)])
+def test_buried_cells_are_always_s1_appendix(run3):
+    plan = plan_variants(run3, DESIGN, FROZEN, only_variants=FEW)
     run_perturb_variants(run3, plan, {"sonnet": (COD["sonnet"], PerturbMock("m"))}, log=lambda *a: None)
-    flagged = {(r["variant"], r["item"]): r["s4_comment"] for r in DESIGN if r["vtype"] == "buried" and r["item"] != "A1"}  # A1: base 2, dropped
-    seen = {}
+    n = 0
     for v in plan["variants"]:
         rec = read_json(perturb_variant_path(run3, v["variant"], "sonnet"))
         for it, c in rec["cells"].items():
             if c["variant"]["vtype"] == "buried":
-                seen[(v["variant"], it)] = c["s4_comment_in_packet"]
-    assert len(seen) == len(flagged) and all(seen[k] is True for k, f in flagged.items() if f == "yes")
-    assert all(seen[k] is None for k, f in flagged.items() if f == "no")
+                n += 1
+                assert c["variant"]["s4_comment"] is False and c["s4_comment_in_packet"] is None
+                assert c["variant_text_in_packet"] is True and rec["items"][it]["verification"]["effective"] == 2
+    assert n > 0
+    assert not any(r["s4_comment"] == "yes" for r in DESIGN if r["vtype"] != "decoy")  # the S4 flag exists for decoys only
 
 
 def test_resume_dry_run_and_estimate(run3):
@@ -294,7 +301,10 @@ def test_cell_variant_labels():
     d = cell_variant({"item": "A1", "vtype": "deletion", "base_level": 2, "evidence": ["S1:p:1-3"]})
     assert d.expected == 0 and d.removed_chunk_ids == ["S1:p:1-3"] and d.base_level == 2
     b = cell_variant({"item": "A1", "vtype": "buried", "s4_comment": True})
-    assert b.expected == 2 and b.s4_comment is True
+    assert b.expected == 2 and b.s4_comment is False  # buried is always S1
+    s4d = cell_variant({"item": "C5", "vtype": "decoy", "base_level": 0, "s4_comment": True})
+    assert s4d.s4_comment and s4d.expectation == "at_most" and s4d.expected == 0
+    assert s4d.text == load_perturbation_specs()["C5"]["inject"].strip()
 
 
 def test_summary_counts_decoy_rise_as_specificity_miss(run3):
@@ -303,3 +313,23 @@ def test_summary_counts_decoy_rise_as_specificity_miss(run3):
     out = summarise(run3, FEW)
     decoy = out["by_coder"]["sonnet"]["by_variant"]["decoy"]["specificity"]
     assert decoy["n"] > 0 and decoy["hits"] == 0  # level 1 > base 0 on every decoy cell
+
+
+def test_s4_comment_decoys_test_surface_discipline(run3):
+    plan = plan_variants(run3, DESIGN, FROZEN, only_variants=["v%02d" % i for i in range(1, 41)])
+    s4 = {(v["variant"], c["item"]) for v in plan["variants"] for c in v["cells"] if c["vtype"] == "decoy" and c["s4_comment"]}
+    assert s4 and not any(it in ("A5", "A6") for _, it in s4)  # those texts would be tagged S5, so the cells are dropped
+    run_perturb_variants(run3, plan, {"sonnet": (COD["sonnet"], PerturbMock("a")), "codex": (COD["codex"], PerturbMock("b", g1a=False))},
+                         log=lambda *a: None)
+    out = summarise(run3, [v["variant"] for v in plan["variants"]])
+    ok, blind = out["by_coder"]["sonnet"]["by_variant"]["decoy"], out["by_coder"]["codex"]["by_variant"]["decoy"]
+    assert ok["specificity"]["hits"] == ok["specificity"]["n"]  # surface-disciplined coder keeps every decoy at base
+    assert blind["specificity"]["n"] - blind["specificity"]["hits"] == len(s4)  # a coder crediting S4 comments misses each one
+    bs = out["by_coder"]["codex"]["decoy_by_surface"]
+    assert bs["decoy_s4_comment"]["hits"] == 0 and bs["decoy_s4_comment"]["n"] == len(s4)
+    assert bs["decoy_s1"]["hits"] == bs["decoy_s1"]["n"] > 0
+    rec = read_json(perturb_variant_path(run3, plan["variants"][0]["variant"], "sonnet"))
+    for it, c in rec["cells"].items():
+        if c["variant"]["vtype"] == "decoy":
+            assert c["variant"]["s4_comment"] == ((plan["variants"][0]["variant"], it) in s4)
+            assert c["s4_comment_in_packet"] is (True if c["variant"]["s4_comment"] else None)

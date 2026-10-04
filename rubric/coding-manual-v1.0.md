@@ -4,6 +4,7 @@ Supersedes the anchors in `rubric-v1.md`, whose item list is unchanged: 14 core 
 
 ## G. Global rules
 - **G1 What is scored.** Each item scores what the benchmark *reports* on public surfaces S1 (paper and appendix), S2 (README and docs) and S3 (release notes), at the pinned version.
+- **G1a Surfaces that count as reporting.** S1-S3 count. Agent-visible prompts and tool descriptions (S5) also count, but only for A5, A6(iii) and A7(ii), because those elements are about what the agent is told. Other code (S4 that is not S5), including code comments, never counts as reporting; it can only raise a contradiction flag (G2).
 - **G2 Contradiction flag.** If code (S4) or an agent-visible surface (S5) shows the opposite of a reported property, keep the reported score and set `contradicted = y` with both quotes. A flag is a candidate finding only. It is verified against the benchmark's own documentation and offered for right of reply before it is reported. Exception: under A4, a model identifier that differs between S1 and S4 counts as absent.
 - **G3 Recording.** A score of 1 or 2 carries a quote of 25 words or fewer and its location. A score of 0 or NA carries `searched:` followed by the S1-S5 places checked. A-items record `element_flags` as `n/3`.
 - **G4 Anchors for element items.** 2 = all elements present; 1 = at least one element present; 0 = none. Item-specific anchors below override this.

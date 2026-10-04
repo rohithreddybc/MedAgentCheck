@@ -37,10 +37,10 @@ def test_design_is_balanced_one_type_per_item_per_variant(tmp_path):
     for v in ("v01", "v40"):
         assert sorted(r["slot"] for r in rows if r["variant"] == v) == list(range(25))  # distinct S1 positions
         assert len({r["benchmark"] for r in rows if r["variant"] == v}) == 1
-    for it in ("A1", "C13"):  # half of each item's 8 buried variants also carry the S4 comment
-        bur = [r for r in rows if r["item"] == it and r["vtype"] == "buried"]
+    for it in ("A1", "C13"):  # half of each item's 8 decoys are S4-comment decoys (full level-2 text, S4 only)
+        bur = [r for r in rows if r["item"] == it and r["vtype"] == "decoy"]
         assert len(bur) == 8 and sum(r["s4_comment"] == "yes" for r in bur) == 4
-    assert all(r["s4_comment"] == "no" for r in rows if r["vtype"] != "buried")
+    assert all(r["s4_comment"] == "no" for r in rows if r["vtype"] != "decoy")
     assert rows == build_perturbation_design(IDS) != build_perturbation_design(IDS, seed=1)
     p = tmp_path / "d.csv"
     write_perturbation_design(p, rows)

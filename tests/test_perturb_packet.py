@@ -136,7 +136,10 @@ def test_apply_variants_spreads_inline_texts_and_builds_one_appendix_and_s4_file
     pos = [lines.index(v.text) for v, _ in cs[:3]]
     assert pos == sorted(pos) and len(set(pos)) == 3 and pos[0] < pos[1] < pos[2]  # different locations, in slot order
     appendix = s1.split("Appendix Z. Additional notes\n", 1)[1]
-    assert appendix == "\n".join(v.text for v, _ in cs[3:])  # one late appendix block, items in order
+    assert appendix == "\n".join(v.text for v, _ in (cs[3], cs[5]))  # one late appendix block, items in order
+    assert cs[4][0].text not in s1  # an S4-flagged buried text is never also in S1: exactly one location
+    texts_everywhere = "".join(s.text for s in out)
+    assert all(texts_everywhere.count(v.text) == 1 for v, _ in cs[3:])
     s4 = [s for s in out if s.path == "agent_eval/notes.py"]
     assert len(s4) == 1 and s4[0].surface == "S4" and s4[0].text == "# " + cs[4][0].text + "\n"  # only the flagged one
     assert len(out) == len(src) + 1

@@ -62,8 +62,8 @@ def build_perturbation_design(bench_ids: list[str], items: list[str] | None = No
     dealt to the variants in seeded order, so each (item, type) pair occurs exactly n_variants / len(types) times
     (8 for 40 variants and 5 types: 25 x 5 x 8 = 1,000 labelled cells). Each row: variant, benchmark, item, vtype,
     slot (position slot 0..24 of inline insertions in S1, a seeded permutation of the items per variant) and
-    s4_comment (buried only: the 4 of the item's 8 buried variants with the smallest hash also carry the sentence
-    in a synthetic S4 code comment)."""
+    s4_comment (buried only: the 4 of the item's 8 buried variants with the smallest hash carry the sentence in a
+    synthetic S4 code comment and not in the S1 appendix; the other 4 carry it in the appendix and not in S4)."""
     items = list(items or ITEM_ORDER)
     if n_variants % len(types):
         raise ValueError("n_variants must be a multiple of the number of types")

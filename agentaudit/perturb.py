@@ -2,7 +2,7 @@
 
 Variants per item, with labels fixed by construction:
   inject      canonical level-2 sentence inserted mid-paper in S1          expected 2 (exact)
-  buried      the same sentence in a late appendix block at the end of S1  expected 2 (exact)
+  buried      the same sentence in ONE late location: S1 appendix or S4 comment  expected 2 (exact)
   paraphrase  meaning-preserving rewrite, placed like inject               expected 2 (exact)
   deletion    every chunk cited by a verified quote in the base coding     expected 0 (at most)
               is removed; residual evidence in uncited chunks makes this a
@@ -13,8 +13,8 @@ Architecture v3 (``run_perturb_variants``, multiplexed): 40 variant packets, eac
 packet in which EVERY item receives exactly one perturbation type (balanced design, ``sampling``: each item x type
 pair occurs 8 times, 1,000 labelled cells). A variant is scored once with the normal 25-item whole-packet call, so a
 coder needs 40 calls, not 1,000. Inject, paraphrase and decoy texts of different items go to different S1 positions
-(slots); every buried text goes to one late appendix block and, for half of them by seed, also to a synthetic S4
-code comment (the appendix copy keeps the label at 2, G1 scores S1-S3). Cells that fail the eligibility rule are
+(slots); every buried text goes to exactly one location: a late S1 appendix block for half of the buried cells and
+a synthetic S4 code comment for the other half (by seed, never both). Cells that fail the eligibility rule are
 dropped and counted. Cross-item interference is a known limit (see IMPLEMENTATION_NOTES).
 
 The retrieval path (``run_perturb``, one chunk set per item) is kept as the ablation path of the retired
@@ -50,7 +50,7 @@ class Variant:
     expectation: str  # "exact" | "at_most"
     text: str | None = None
     removed_chunk_ids: list[str] | None = None
-    s4_comment: bool = False  # buried only: also place the text in a synthetic S4 code-comment chunk
+    s4_comment: bool = False  # buried only: place the text in a synthetic S4 code comment instead of the S1 appendix
     base_level: int | None = None  # base resolved level when known (deletion's secondary label)
 
     @property
@@ -111,10 +111,11 @@ def apply_variant(sources: list[Source], v: Variant) -> list[Source]:
         lines.insert(len(lines) // 2, v.text)
         new[i].text = "\n".join(lines)
     elif v.vtype == "buried":
-        i = _host_index(new, last=True)
-        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + v.text
-        if v.s4_comment:
+        if v.s4_comment:  # exactly one location: S4 code comment, or the late S1 appendix
             new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "# " + v.text + "\n"))
+        else:
+            i = _host_index(new, last=True)
+            new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + v.text
     elif v.vtype == "deletion":
         drop: dict[tuple[str, str], set[int]] = {}
         for cid in v.removed_chunk_ids or []:
@@ -318,8 +319,8 @@ def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> l
     cells: (Variant, slot). Order: deletions first (line numbers of the cited chunks refer to the original text),
     then inline insertions of inject, paraphrase and decoy texts into the first S1 source at spread positions
     (slot k of 25 at line (k + 0.5) / 25 of the text), then one late appendix block at the end of the last S1
-    source holding every buried text, plus one synthetic S4 file with a code comment for each buried text whose
-    s4_comment flag is set."""
+    source holding the buried texts whose s4_comment flag is not set, and one synthetic S4 file with a code comment
+    for each buried text whose flag is set. A buried text is placed in exactly one of the two locations."""
     new = [copy.copy(s) for s in sources]
     drop: dict[tuple[str, str], set[int]] = {}
     for v, _ in cells:
@@ -341,12 +342,13 @@ def apply_variants(sources: list[Source], cells: list[tuple[Variant, int]]) -> l
             lines.insert(pos, text)
         new[i].text = "\n".join(lines)
     bur = sorted((v for v, _ in cells if v.vtype == "buried"), key=lambda v: ITEM_ORDER.index(v.item))
-    if bur:
+    app = [v for v in bur if not v.s4_comment]
+    s4 = [v for v in bur if v.s4_comment]
+    if app:
         i = _host_index(new, last=True)
-        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + "\n".join(v.text for v in bur)
-        s4 = [v for v in bur if v.s4_comment]
-        if s4:
-            new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "\n".join("# " + v.text for v in s4) + "\n"))
+        new[i].text = new[i].text.rstrip("\n") + "\n\nAppendix Z. Additional notes\n" + "\n".join(v.text for v in app)
+    if s4:
+        new.append(Source("S4", _free_path(new, S4_NOTE_PATH), "\n".join("# " + v.text for v in s4) + "\n"))
     return new
 
 

@@ -1,6 +1,8 @@
-# Coding manual v1.0 (candidate freeze; Opus, 2026-10-04)
+# Coding manual v1.0 (candidate freeze; Opus, 2026-10-04; automated-coder procedure updated 2026-10-05)
 
-Supersedes the anchors in `rubric-v1.md`, whose item list is unchanged: 14 core items and 11 agent items. The changes come from pilot round 1, in which two independent coders scored AgentClinic, FHIR-AgentBench and HealthAgentBench and agreed on 63 of 75 cells (`rubric/pilot/`). Pilot scores are never reused.
+Supersedes the anchors in `rubric-v1.md`, whose item list is unchanged: 14 core items and 11 agent items. The changes come from pilot round 1, in which two independent Claude Sonnet coders (language models, same family; no person coded) scored AgentClinic, FHIR-AgentBench and HealthAgentBench and agreed on 63 of 75 cells (`rubric/pilot/`). That is a same-family development figure, not cross-family agreement. Pilot scores are never reused.
+
+**Who applies this manual.** Benchmark items are scored by language-model coders from three families (Claude Sonnet, Codex, Gemini; Mistral optional) reading a frozen evidence packet, and never by a person (Rohith ruling, 2026-10-04). Wherever this manual says "the coder", it means such a model. Claude Opus is not a coder.
 
 ## G. Global rules
 - **G1 What is scored.** Each item scores what the benchmark *reports* on public surfaces S1 (paper and appendix), S2 (README and docs) and S3 (release notes), at the pinned version.
@@ -41,5 +43,5 @@ Supersedes the anchors in `rubric-v1.md`, whose item list is unchanged: 14 core 
 - **A10 Slice reporting.** (i) results per task partition that the paper names as a benchmark axis; (ii) results per patient subgroup, applicable whenever the source data hold demographic fields; (iii) n per reported slice.
 - **A11 Environment-state provenance.** (i) the source of records stated as real de-identified, synthetic (generator named) or mixed; never inferred; (ii) any one of: an IRB determination, a DUA or credentialing requirement, or the de-identification method; (iii) data terms stated separately from the code licence.
 
-## Procedure per benchmark
-1. Pin the version (G6). 2. Read the LLM evidence sheet if one exists, but score from the sources themselves. 3. Score all 25 items in the order C1..C14, A1..A11. 4. Record the time taken. 5. Do not discuss scores with the other coder until both sheets are submitted.
+## Procedure per benchmark (automated coders)
+1. The packet is built at the pinned version (G6) and frozen; every coder receives the identical packet, capped at 150,000 tokens by the deterministic S4 truncation rule. 2. There is no LLM evidence sheet and no retrieval step: the coder reads the whole packet, grouped by surface S1 to S5, and scores from it alone. 3. The coder scores all 25 items in one call, in the order C1..C14, A1..A11, and returns for each item a score (0, 1, 2 or NA), element flags, quotes with chunk ids, a contradiction flag with quotes, the S5-reach field and a rationale (G3). 4. Quotes are verified against the chunks that were sent; a 1 or 2 without a verified quote is unsupported. 5. Coders do not see each other's output: each call is independent, and the Codex coder runs from an empty directory in a read-only sandbox. Cells are then resolved by the frozen rule (at least two distinct families at the level, each with a verified quote). 6. Each call logs the model id that answered, a timestamp, the prompt hash and the raw response, instead of any time record. 7. Each coder re-scores a seeded 10 of the 45 packets (coder test-retest) to measure its stability under repetition.

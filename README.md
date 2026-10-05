@@ -6,6 +6,8 @@ Authors: Rohith Reddy Bellibatlu (rohithreddybc@gmail.com) and Manpreet Singh.
 
 ## Status of this repository
 
+Status: protocol frozen at this commit; audit not yet run.
+
 `FREEZE_MANIFEST.json` lists the SHA-256 of every file that defines the method: the protocol, the rubric and coding manual, the item definitions, the prompts, the perturbation and decoy texts, the seeded samples (perturbation sample, ABC and BetterBench item lists, gold version pins), the frozen benchmark list, and the code of packet building, scoring, quote verification, resolution, perturbation and gold validation. Check a checkout with
 
     agentaudit freeze --verify .

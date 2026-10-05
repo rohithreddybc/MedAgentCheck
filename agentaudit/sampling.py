@@ -9,6 +9,8 @@ In every variant each of the 25 items receives exactly one perturbation type, de
 occurs exactly 8 times: 25 x 5 x 8 = 1,000 labelled cells. A variant is scored once with the normal 25-item
 whole-packet call. Cells that fail the eligibility rule (``eligible``) at run time are dropped and counted.
 
+Coder test-retest sample: 10 of the 45 frozen benchmarks, the 10 with the smallest hash (``draw_retest_benchmarks``).
+
 BetterBench sample: 20 of the 46 criteria, the 20 with the smallest hash.
 
 ABC item list: every T.* and R.* item, plus any O.* item that the published assessment scores for at least
@@ -27,6 +29,7 @@ N_VARIANTS = 40  # variant packets; each item gets one perturbation type per var
 N_PER_PAIR = 8  # occurrences of every (item, type) pair across the variants
 VARIANT_TYPES = ("inject", "buried", "paraphrase", "deletion", "decoy")
 BB_SAMPLE_SIZE = 20
+RETEST_N = 10  # coder test-retest: benchmarks (of the 45) whose packets every coder re-scores
 ABC_MIN_BENCHMARKS_O = 5
 # ABC T.10: the instrument CSV (Sec. 4.1 prose) and the published assessment (App. D) define different constructs.
 ABC_EXCLUDED = {"T.10": "construct mismatch: instrument CSV text (outlier inspection) differs from the "
@@ -45,6 +48,15 @@ def load_frozen_list(path: Path | str) -> list[dict]:
     if len(set(ids)) != len(ids):
         raise ValueError("duplicate ids in the frozen list")
     return rows
+
+
+# ---------------------------------------------------------------- coder test-retest sample
+def draw_retest_benchmarks(bench_ids: list[str], n: int = RETEST_N, seed: int = SEED) -> list[str]:
+    """The ``n`` benchmarks with the smallest hash of ``"<seed>|retest|<id>"``, in hash order. A pure function of the
+    frozen list and the seed; the sample is independent of the perturbation draw."""
+    if n > len(bench_ids):
+        raise ValueError("fewer benchmarks than the retest sample size")
+    return sorted(bench_ids, key=lambda b: rank_hash(seed, "retest", b))[:n]
 
 
 # ---------------------------------------------------------------- perturbation design (multiplexed)

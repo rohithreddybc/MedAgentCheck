@@ -216,6 +216,44 @@ def cmd_perturb(a) -> int:
     return 2 if (s["blocked"] or s["failed"]) else 0
 
 
+def cmd_retest(a) -> int:
+    from .coders import load_coders, make_backend
+    from .resolve import run_resolve
+    from .retest import compare_retest, plan_retest, retest_dir, run_retest
+    from .sampling import load_frozen_list
+
+    run = Path(a.out)
+    frozen = load_frozen_list(a.frozen_list)
+    coders = load_coders(a.coders_file)
+    names = a.coder or ["sonnet", "codex", "gemini"]
+    if a.plan_only:
+        print(json.dumps(plan_retest(run, frozen, a.n, a.seed), indent=2))
+        return 0
+    rc = 0
+    if not a.compare_only:
+        s = run_retest(run, frozen, names, coders,
+                       lambda spec: make_backend(spec, state_dir=run / "state", throttle_state=a.throttle_state),
+                       n=a.n, seed=a.seed, force=a.force, dry_run=a.dry_run)
+        print(json.dumps({"scored": len(s["scored"]), "skipped": s["skipped"], "failed": s["failed"],
+                          "blocked": s["blocked"]}))
+        if s["blocked"] or s["failed"]:
+            rc = 2
+        if a.dry_run:
+            return rc
+    benches = [d["packet_dir"] for d in plan_retest(run, frozen, a.n, a.seed)["drawn"] if d["packet_dir"]]
+    benches = [b for b in benches if (retest_dir(run) / "coding" / b).exists()]
+    if benches:
+        run_resolve(retest_dir(run), benches)
+    r = compare_retest(run, frozen, a.n, a.seed, n_boot=a.n_boot)
+    for c, st in r["coders"].items():
+        print(json.dumps({"coder": c, **{k: st[k] for k in ("n_cells", "n_benchmarks", "raw_agreement", "alpha_ordinal",
+                                                            "alpha_ci95", "weighted_kappa_quadratic",
+                                                            "same_model_id")}}))
+    if r["resolved"]:
+        print(json.dumps({"resolved": r["resolved"]}))
+    return rc
+
+
 def cmd_sample(a) -> int:
     from .gold import find_research_dir, write_gold_item_lists
     from .sampling import SEED, build_perturbation_design, load_frozen_list, write_perturbation_design
@@ -428,6 +466,22 @@ def main(argv: list[str] | None = None) -> int:
     sp.add_argument("--summarise", action="store_true")
     sp.add_argument("--force", action="store_true")
     sp.set_defaults(fn=cmd_perturb)
+
+    sp = sub.add_parser("retest", help="coder test-retest: every coder re-scores a seeded 10 of the 45 packets; "
+                                       "intra-coder alpha and agreement")
+    sp.add_argument("--out", required=True, help="audit run directory (packets/, scoring/, coding/); results go to <out>/retest/")
+    sp.add_argument("--frozen-list", required=True, help="frozen benchmark list CSV (the 45)")
+    sp.add_argument("--coder", action="append", help="default sonnet, codex, gemini")
+    sp.add_argument("--coders-file")
+    sp.add_argument("--throttle-state")
+    sp.add_argument("--n", type=int, default=10, help="benchmarks drawn (default 10)")
+    sp.add_argument("--seed", type=int, default=20261004)
+    sp.add_argument("--n-boot", type=int, default=2000)
+    sp.add_argument("--plan-only", action="store_true", help="print the drawn benchmarks and exit")
+    sp.add_argument("--dry-run", action="store_true", help="list the (benchmark, coder) calls; no backend call, no copy")
+    sp.add_argument("--compare-only", action="store_true", help="skip scoring; compute the agreement from existing retest files")
+    sp.add_argument("--force", action="store_true")
+    sp.set_defaults(fn=cmd_retest)
 
     sp = sub.add_parser("sample", help="write the seeded samples (perturbation design, gold item lists)")
     sp.add_argument("--frozen-list", required=True)

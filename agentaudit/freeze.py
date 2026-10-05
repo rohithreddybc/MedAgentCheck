@@ -30,7 +30,7 @@ FROZEN_CODE = ["packet_score.py", "chunking.py", "retrieve.py", "tag.py", "resol
                "util.py", "packet.py", "perturb.py", "sampling.py", "gold.py", "items.py", "stats.py", "agree.py",
                "coding.py"]
 FROZEN_DATA = ["items.yaml", "queries.yaml", "perturbations.yaml"]
-FROZEN_GLOBS = ["prompts/*.txt", "samples/*"]
+FROZEN_GLOBS = ["*.py", "prompts/*.txt", "samples/*"]  # every package module is frozen (cli, retest, ...)
 
 # (source path relative to the project root, path inside the release repository)
 STUDY_FILES = [("protocol/protocol-v1.md", "protocol/protocol-v1.md"),
@@ -67,7 +67,7 @@ def package_files(pkg: Path = PKG) -> list[Path]:
 def frozen_package_files(pkg: Path = PKG) -> list[Path]:
     out = [pkg / f for f in FROZEN_CODE + FROZEN_DATA]
     for g in FROZEN_GLOBS:
-        out += sorted(p for p in pkg.glob(g) if p.is_file())
+        out += sorted(p for p in pkg.glob(g) if p.is_file() and p not in out)
     missing = [p for p in out if not p.exists()]
     if missing:
         raise FileNotFoundError(f"frozen files missing: {[str(m) for m in missing]}")

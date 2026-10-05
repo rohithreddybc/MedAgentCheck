@@ -1,4 +1,8 @@
-# agentaudit
+# MedAgentCheck
+
+An agent-specific validity and reliability checklist for benchmarks of action-taking medical and clinical AI agents, plus `agentaudit`, a quote-verified automated scorer. MedAgentCheck extends MedCheck (Ma et al., arXiv 2508.04325) to agentic benchmarks; it is an independent project, not affiliated with the MedCheck authors.
+
+## agentaudit
 
 `agentaudit` scores a benchmark against a 25-item documentary checklist (14 reused core items, 11 agent-specific items; rubric v1 and coding manual v1.0 in `rubric/`) using only evidence that can be quoted. Every score of 1 or 2 must carry a verbatim quote that the tool checks against the evidence packet; coders from different model families score the same packet, and a level is accepted only when coders from at least two families agree on it with verified quotes. The tool is the method behind the study in `protocol/protocol-v1.md` (clinical agent benchmarks, 45 benchmarks listed in `eligibility/frozen_list_v1.csv`).
 

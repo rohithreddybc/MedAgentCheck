@@ -1,6 +1,6 @@
 # MedAgentCheck
 
-An agent-specific validity and reliability checklist for benchmarks of action-taking medical and clinical AI agents, plus `agentaudit`, a quote-verified automated scorer. MedAgentCheck extends MedCheck (Ma et al., arXiv 2508.04325) to agentic benchmarks; it is an independent project, not affiliated with the MedCheck authors.
+An agent-specific validity and reliability checklist for benchmarks of action-taking medical and clinical AI agents, plus `agentaudit`, a quote-verified automated scorer. MedAgentCheck extends MedCheck ("Beyond the Leaderboard: Rethinking Medical Benchmarks for Large Language Models", ACL 2026; arXiv 2508.04325) to agentic benchmarks; it is an independent project, not affiliated with the MedCheck authors.
 
 ## agentaudit
 

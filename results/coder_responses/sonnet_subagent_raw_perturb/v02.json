@@ -1,0 +1,465 @@
+[
+{
+"item": "C1",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:34-44",
+"text": "MIMIC-IV version 2.2 (snapshot released in January 2023, hosted on PhysioNet)"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:34-44",
+"text": "every task record stores the identifier of its source patient record, so any task can be traced back to its origin"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper names the database, version, snapshot date and platform, and states that each task record stores its source patient identifier, which is a route from task to source. All four anchor components for 2 are present. Section 5.1 separately names DiagnosisArena as the case source; this is recorded but does not lower the score."
+},
+{
+"item": "C2",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:44-58",
+"text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019."
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:44-58",
+"text": "released under a credentialed-access data use agreement"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:44-58",
+"text": "review board determined that the study qualified for a waiver of consent"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Origin and collection context are stated, the terms are a credentialed-access data use agreement, and an IRB determination of a consent waiver is reported. This meets origin, collection, terms and consent or IRB status for a 2."
+},
+{
+"item": "C3",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:231-240",
+"text": "comparing the benchmark population's age, sex, and racial composition to the U.S. adult hospitalized population as reported by a national discharge survey"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper compares the benchmark population with a named target population, the U.S. adult hospitalized population from a national discharge survey, on age, sex and race. This is a comparison against a named target population, so 2."
+},
+{
+"item": "C4",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:177-187",
+"text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics."
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:177-187",
+"text": "Both test suites are built into the benchmark."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The appendix reports both an unsafe-output test and a bias test, and says both suites are built into the benchmark. Both components are present, so 2."
+},
+{
+"item": "C5",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 (paper and appendix), S2 (README), S3 (no chunks), S4 and S5. The only statement is that data contamination is a potential concern for all benchmarks of this kind, which is a limitation sentence. The credentialed-access terms govern patient privacy and are not described as a contamination control. No canary, held-out set or overlap check is reported."
+},
+{
+"item": "C6",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:29-33",
+"text": "The agent observes only the information returned by the environment in response to its actions."
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:29-33",
+"text": "hides the case file behind two environment components that we implement as constrained agents"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper states that the hidden case file is the full state and the agent sees only environment responses. The mechanism is mediated access: the file sits behind the Patient and Examination agents, which are described as information gatekeepers. The Patient agent may generate details consistent with the diagnosis; this is disclosed and does not give the Actor direct access."
+},
+{
+"item": "C7",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "the database snapshot, the software image and the simulated-patient language model are all pinned to fixed versions"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "no external service is called at evaluation time other than the model under test"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Appendix Z states that data snapshot, software image and the simulator model are pinned, with no external call at evaluation time other than the model under test. This matches the anchor for 2. The judge model is not named separately; the statement is scored as written."
+},
+{
+"item": "C8",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 (paper and appendix), S2 (README), S3 (no chunks), S4 and S5. No scripted reference solution, oracle run or solvability check is reported."
+},
+{
+"item": "C9",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:88-102",
+"text": "that all other records remain unchanged, so out-of-scope modifications are detected and counted as failures"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper states that the grader checks intended state changes and that all other records remain unchanged, with out-of-scope modifications counted as failures. That is a check of unchanged as well as changed state. The Judge code only grades the submitted diagnosis; this sentence sits oddly with that design and is noted, but code is not a reporting surface and the reported score stands."
+},
+{
+"item": "C10",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:116-122",
+"text": "A random-action agent succeeds on 3.1% of tasks"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:116-122",
+"text": "the chance success rate for each metric is reported in the appendix"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "An empirical random-agent success rate of 3.1% is reported, and a per-metric chance rate is said to be in the appendix. This meets the anchor for 2. A code file (S4) gives a different random-agent figure on 120 tasks; code does not count as reporting and this is only noted."
+},
+{
+"item": "C11",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:116-122",
+"text": "A random-action agent succeeds on 3.1% of tasks"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "A random-action agent's success rate is reported over tasks in the paper, with no restriction to a subset. A do-nothing agent is not reported on S1-S3. The S4 notes file gives different figures (0.0% and 2.5% on 120 tasks), which cannot count as reporting."
+},
+{
+"item": "C12",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:23-24",
+"text": "The evaluator was validated against 200 physician-labeled outputs. Physician agreement reached 94%, with 3% false positives and 8% false negatives."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports validation of the evaluator against 200 physician-labeled outputs with agreement and false-positive and false-negative rates. This is the benchmark's own validation with figures, so 2."
+},
+{
+"item": "C13",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Appendix Z states temperature 0, a fixed seed and a repeated-run policy on S1. This meets the anchor for 2. Section 5.5 states eight runs per task while this sentence states three; the inconsistency is noted but does not change the level."
+},
+{
+"item": "C14",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:156-161",
+"text": "We report 95% bootstrap confidence intervals for all model scores and test the difference between the two best models with a paired permutation test (p ...",
+"truncated": true,
+"full_words": 27,
+"full_sha256": "bb0eef6278929c9a9062f0038c60b10fadec63488e029e83cd93a5304c8fdb0c"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports bootstrap confidence intervals and a paired permutation test on the difference between the two best models. A CI and a test for the headline comparison are both present, so 2."
+},
+{
+"item": "A1",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:80-83",
+"text": "we ran each task eight times and report pass^8"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "A run count per task is given and a seed and temperature policy is stated. The two statements disagree (eight versus three runs), which is noted. Independence of runs is not stated, so element (iii) is absent."
+},
+{
+"item": "A2",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:156-161",
+"text": "We report 95% bootstrap confidence intervals for all model scores"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:63-67",
+"text": "computed from the first t cases."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Confidence intervals are reported on model scores, and the Figure 2 caption names the case as the unit for the running standard error. The bootstrap resampling unit is not stated. Clustering of tasks within patients or groups is not addressed."
+},
+{
+"item": "A3",
+"score": 2,
+"elements": [
+false,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:80-83",
+"text": "we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports pass^8, an all-runs metric, together with final-state agreement across the eight runs, with the run count. This meets the anchor for 2. Action-sequence agreement is not reported."
+},
+{
+"item": "A4",
+"score": 1,
+"elements": [
+false,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "All runs use temperature 0 and a fixed random seed"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Models are named only by family or short name (gemini-3-pro, gpt-5.1, gpt-4o-mini, MedGemma-27b) with no snapshot ID or release date, so element (i) is absent. Temperature 0 and a seed are stated. A pinned software image is mentioned but no harness tag or commit is tied to the reported numbers."
+},
+{
+"item": "A5",
+"score": 1,
+"elements": [
+true,
+false,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:168-176",
+"text": "One simple option is JSON with two fields: action_type and action_text."
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:177-187",
+"text": "If it is not recorded, it returns NOT AVAILABLE and does not invent results."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "The tools are a text-command protocol (AskQuestion, OrderTest, SubmitDiagnosis) with a JSON action format, so NA does not apply. Return semantics are given, including NOT AVAILABLE for missing tests and parse-failure handling. Read versus write side effects per tool are not documented, so (ii) is absent and does not reach S5."
+},
+{
+"item": "A6",
+"score": 1,
+"elements": [
+false,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:29-33",
+"text": "it generates a medically reasonable patient-style answer that is consistent with the ground-truth diagnosis"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "The paper discloses that the Patient agent generates plausible answers when the case file lacks a detail. No tests or conformance checks of the tools are reported. The Actor's agent-visible prompt does not tell it that responses may be generated, so the disclosure does not reach S5."
+},
+{
+"item": "A7",
+"score": 1,
+"elements": [
+false,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:106-108",
+"text": "Med-Inquire is a simulation in which the Patient agent may generate plausible but unverified details when case reports omit information"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:104-104",
+"text": "Yield-only grading keeps accuracy close to the full system but increases cost"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "OrderTest represents a clinical order, so NA does not apply. The paper states the environment is a simulation and that cost-aware grading penalises unnecessary tests. It does not identify which actions are irreversible. The Actor prompt does not state that orders are simulated."
+},
+{
+"item": "A8",
+"score": 1,
+"elements": [
+true,
+false,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:187-197",
+"text": "The Judge compares the submission to the ground truth after simple normalization"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:23-24",
+"text": "The evaluator was validated against 200 physician-labeled outputs. Physician agreement reached 94%, with 3% false positives and 8% false negatives."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The grader input is the submitted diagnosis and transcript, judged by an LLM, and validation is reported on 200 physician-labelled outputs with false-positive and false-negative rates. No rationale is given for using a non-state grader, so (ii) is absent and the item is scored 1."
+},
+{
+"item": "A9",
+"score": 0,
+"elements": [
+false,
+false,
+false
+],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 (paper and appendix), S2 (README), S3 (no chunks), S4 and S5. No controls on answer leakage through tools, retrieval or web access are described. The released data includes ground-truth diagnoses in the repository and no held-out split is reported. No canary or provenance marker is reported."
+},
+{
+"item": "A10",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race"
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "each table lists the number of cases in every slice"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Appendix Z states results are reported per task family and per patient subgroup by sex and race, with the number of cases in every slice. All three elements are present as stated. The main results tables show no such slices; this is noted."
+},
+{
+"item": "A11",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "The patient records are real de-identified records from a hospital database."
+},
+{
+"chunk_id": "S1:arxiv/2601.22964v1.html:241-247",
+"text": "the data are released under terms separate from the MIT code licence"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The records are stated to be real and de-identified. Governance is given as a credentialed-access data use agreement and safe harbour de-identification. Data terms are stated separately from the MIT code licence."
+}
+]

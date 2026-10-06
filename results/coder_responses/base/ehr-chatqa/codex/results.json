@@ -1,0 +1,371 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "we use two publicly available EHR databases with distinct schemas and data recording practices: MIMIC-IV"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The sources are named as MIMIC-IV and eICU, but the packet does not report version or snapshot date and does not provide a route from a benchmark task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:90-92",
+    "text": "EHR-ChatQA utilizes publicly available, de-identified EHR datasets (MIMIC-IV-demo and eICU-demo)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states data origin and de-identification. It does not document licence or terms plus consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not analyse representativeness of patient features against a target population or report descriptive patient statistics."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The ethics statement mentions bias concerns in source data, but no dedicated unsafe-output or bias tests are reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:52-54",
+    "text": "we rename all table and column names"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a developer-side control against schema memorization by renaming tables and columns. It does not report a measured contamination or overlap check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports that the simulated user is isolated from ground truth, but it does not state that the agent cannot reach ground truth at run time with a mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-53",
+    "text": "Two environments are included:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The data environments and tasks are included or downloadable, but simulator and validator models are live API models, and web_search is a dynamic external dependency during evaluation."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:202-204",
+    "text": "we manually verify that the SQL execution produces the intended result"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports manual verification of gold SQL execution and intended results, which is manual solvability evidence. It does not report a scripted oracle solver run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. NA applies because the reported tasks are database question answering and SQL execution, with no task changing environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:180-184",
+    "text": "We compare the resulting output to the ground truth (GT) SQL output"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The evaluation design uses exact comparison against ground-truth SQL output or annotated answers, making trivial success unlikely. No empirical random or trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. No do-nothing or random-agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:169-174",
+    "text": "False rejection (10%)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports its own validation of the simulation validator on sampled trajectories with error figures. This satisfies validation of an automatic evaluator component on benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:61-65",
+    "text": "The temperature for all agent LLMs is set to 0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports temperature 0 for agent LLMs and repeated runs over five trials, with user stochasticity explicitly identified. This covers deterministic decoding for the agent plus a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports percentages and gaps, but no confidence intervals, standard deviations, ranges, or statistical tests for model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:65-68",
+    "text": "We set k=5 throughout the experiments."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states five trials per task for reported metrics. It reports decoding controls and describes the trials as i.i.d., satisfying all three elements."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. No CI or SE is reported for headline scores, no resampling or variance unit is stated, and clustering within patients or templates is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:65-68",
+    "text": "Pass ∧ k assesses consistent and reliable performance by measuring the proportion of tasks solved in all k trials."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a pass^k-type all-runs metric and states k=5. It does not report action-sequence agreement or final-state agreement."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:61-65",
+    "text": "The temperature for all agent LLMs is set to 0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports model family names and decoding temperature, but no provider snapshot IDs or release dates for evaluated models. The release tag is not stated as the harness version matching reported results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:src/envs/mimic_iv_star/tools/sql_execute.py:39-67",
+    "text": "Execute a SQL query against the database and get back the result."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "S5 provides machine-readable schemas and describes tool purposes, including database execution. Return semantics including errors and failure returns are not documented for every tool."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report tool conformance tests or disclose simulated, stubbed, or no-op tool behaviour reaching the agent-visible surface."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. NA applies because the benchmark reports read-only QA and SQL execution tasks, not clinical orders, prescriptions, notes, messages, or other environment-mutating actions."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:184-188",
+    "text": "correctness is evaluated based on the content within the <answer></answer> tags"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader inputs are stated: SQL result output for IncreQA and answer tags for AdaptQA. The paper gives a rationale for answer-tag grading in AdaptQA, but does not validate the grader against injected correct and incorrect outcomes."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports simulated-user isolation from ground truth, but not controls on answer leakage to the agent through tools, retrieval, web access, prompts, or held-out/private labels."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "Table 2: EHR-ChatQA task statistics."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by task family, and task-family slice sizes are reported. No patient demographic subgroup results are reported, although demographic fields exist in the source EHR data."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:90-92",
+    "text": "publicly available, de-identified EHR datasets (MIMIC-IV-demo and eICU-demo)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of records is stated as public de-identified EHR demo data. The packet does not report an IRB determination, DUA or credentialing requirement, de-identification method, or data redistribution terms separate from code."
+ }
+]

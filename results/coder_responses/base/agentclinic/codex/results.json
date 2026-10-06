@@ -1,0 +1,391 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:24-26",
+    "text": "we use a random sample of diagnostic questions from the US Medical Licensing Exam (USMLE), from deidentified electronic health records (MIMIC-IV)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark names source datasets/platforms such as USMLE/MedQA, MIMIC-IV, NEJM, and MedMCQA. It does not fully report versions or snapshot dates for all sources plus a clear route from each task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-37",
+    "text": "AgentClinic-MIMIC-IV, based on real clinical cases from MIMIC-IV (requires approval from https://physionet.org/content/mimiciv/2.2/)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin is stated and MIMIC-IV access approval is mentioned. The packet does not document licence or terms plus consent/IRB status across the benchmark sources."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:240-259",
+    "text": "The following are the racial demographic statistics from MIMIC-IV patients"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive demographic statistics for MIMIC-IV patients. It does not compare those features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:37-37",
+    "text": "For bias evaluations we test GPT-4 as well as Mixtral-8x7B."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes dedicated bias evaluations. The packet does not show a dedicated unsafe-output test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:73-73",
+    "text": "MedQA performance is not predictive of AgentClinic-MedQA accuracy"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports an indirect empirical argument about MedQA contamination risk. It does not report a developer-side control such as gating, canaries, encryption, or a held-out set plus a measured check."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:24-26",
+    "text": "we separate information by what is provided to each agent"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that information is separated by agent, with the correct diagnosis provided to the moderator. It does not name a concrete runtime isolation mechanism such as no mount, credentials, or labels not public."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts. The packet does not state a frozen release environment with pinned data, software, simulator, and judge model; live model calls remain part of evaluation."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:28-31",
+    "text": "We also evaluate human physician performance collected from three physicians"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Human physician performance gives manual solvability evidence under benchmark constraints. The packet does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts. The notebook tool changes persistent state, so NA does not apply, but the packet does not report checks for unchanged irrelevant state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:65-67",
+    "text": "we chose to not provide these options to the doctor agent and instead keep the problems open-ended"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that trivial multiple-choice guessing is avoided for NEJM by using open-ended answers. No empirical random or trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts. The packet reports model and human physician results but no do-nothing or random agent results."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:72-72",
+    "text": "strong LLM judges like GPT-4 can match both controlled and crowd-sourced human preferences well"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper cites external validation for LLM judges. It does not report benchmark-specific validation of the moderator on its own outputs with error or agreement figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:agentclinic.py:33-67",
+    "text": "temperature=0.05"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A decoding safeguard is visible in code for OpenAI calls. S1-S3 do not state a repeated-run policy or complete harness-level non-determinism safeguards."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:173-201",
+    "text": "Claude 3.5: 62.1% accuracy with a 95% CI of [55%, 68%]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix reports 95% confidence intervals for headline model accuracy results. These support the reported model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes. The packet mentions multiple runs but gives no numbered run count per task, no S1-S3 seed or decoding policy, and no independence statement."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:199-207",
+    "text": "calculated based on the standard error of the mean accuracy across multiple runs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports CIs and states the variance unit as multiple runs. It does not address clustering of tasks within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:199-207",
+    "text": "standard error of the mean accuracy across multiple runs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports score-level variation across runs. It does not report action-sequence agreement, final-state agreement, or pass^k-style all-runs metrics."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code. Exact model identifiers appear in S1, but gpt-4-0613 conflicts with S4 gpt-4-turbo-preview/gpt-4-turbo, so element (i) is absent under A4; no S1-S3 decoding parameters or harness commit are reported."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:366-370",
+    "text": "Research [database] [search query]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines text-command tool protocols, so NA does not apply. It reports command formats and some return semantics for measurement results, but does not document side effects per tool."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:9-11",
+    "text": "doctor agents can perform simulated medical exams"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper discloses simulated medical exams, and the agent-visible measurement prompt also indicates simulated test-result behavior. The packet does not report tests or conformance checks that tools behave as documented."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:362-364",
+    "text": "the doctor agent can write useful tips"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The notebook tool is a state-mutating write action, and S1/S5 describe that notes persist or overwrite prior notes. The packet does not state whether unsafe or unnecessary writes are scored or penalised."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:144-147",
+    "text": "the diagnosis text produced by the doctor agent can be quite unstructured"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the grader uses the doctor's diagnosis text and a moderator LLM, and explains this is needed because diagnoses are unstructured. It does not validate the grader on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes. The packet does not report controls on answer leakage through tools, retrieval, web access, cross-task memory, held-out/private splits, or canaries."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:435-448",
+    "text": "AgentClinic-Spec | 260 cases derived from from MedMCQA"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by task family, language, specialty, and tool, and reports sample sizes for dataset slices. It does not report results per patient demographic subgroup despite demographic fields existing."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-37",
+    "text": "based on real clinical cases from MIMIC-IV (requires approval from https://physionet.org/content/mimiciv/2.2/)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states real clinical cases and includes a credentialing/approval requirement for MIMIC-IV. It does not state redistribution terms for environment data separate from the code licence."
+ }
+]

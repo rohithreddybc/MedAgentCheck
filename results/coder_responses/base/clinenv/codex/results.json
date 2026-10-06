@@ -1,0 +1,417 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:38-43",
+    "text": "ClinEnv is built from MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "making every case fully traceable back to its source EHR"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the datasets and versions, gives the platform via PhysioNet elsewhere, and describes traceability from cases back to source EHR records. This satisfies dataset name, version/platform, and route to source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "distributed through PhysioNet under a credentialed data use agreement"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports data origin and access terms through PhysioNet. The packet does not report consent status, IRB status, or an explicit statement that such review was not required."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:342-349",
+    "text": "sample the remainder to span the full range of case horizons"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a sampling design and descriptive benchmark composition. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet reports ethical cautions and limitations, but no dedicated unsafe-output test or bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:94-103",
+    "text": "Must meet PhysioNet’s compliance standards before use."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports gated/compliance-controlled data access. It does not report a measured contamination check such as overlap, canary, or held-out contamination analysis."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:305-310",
+    "text": "prevents coded outcomes and discharge summaries from being passively exposed to the model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix states that outcome records and discharge summaries are separated from the clinical event timeline exposed to the model. It also identifies the mechanism: separation of admission metadata, held-out diagnosis candidates, discharge notes, and event timelines."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:38-43",
+    "text": "ClinEnv is built from MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The data sources are versioned, but the evaluator and environment use live external services and unpinned model families in the public reporting. Therefore the benchmark is partially pinned rather than fully frozen."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report a scripted reference solution run through the grader or other solvability result."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The benchmark records submitted decisions and dialogue rather than changing a persistent environment state, so the NA clause applies."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:92-94",
+    "text": "Benchmark scores therefore reflect the accuracy of clinical decisions rather than the model’s ability to infer the submission format"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that structured submission counts and ontology matching reduce trivial formatting success. It does not report an empirical random or trivial-agent success rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No do-nothing, random, or trivial-agent score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The evaluator is described, but the packet does not report validation with agreement or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:env/runtime/environment_controller.py:578-616",
+    "text": "extra_kwargs: dict = {\"tool_choice\": \"auto\", \"temperature\": 0, \"parallel_tool_calls\": False}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature-zero decoding and disabled parallel tool calls are visible in code. The public paper/docs do not state a repeated-run policy, so this is only partial under the coding manual."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:172-176",
+    "text": "Shaded bands are standard errors."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports standard errors for a figure. It does not report a confidence interval or statistical test for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. S1-S3 do not state number of runs per task, seed or sampling policy for runs, or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:172-176",
+    "text": "Shaded bands are standard errors."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports standard errors in a result figure. It does not state the resampling or variance unit, and it does not address clustering within patients."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No identical rerun, action-sequence agreement, final-state agreement, or pass^k-style reliability metric is reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. S1-S3 name model families but do not provide exact snapshot identifiers for the reported results, decoding parameters, or a harness commit/tag."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:env/tools/env_tools.py:34-68",
+    "text": "\"required\": [\"action\", \"drug_name\", \"reasoning\"]"
+   },
+   {
+    "chunk_id": "S5:S4:env/tools/env_tools.py:100-147",
+    "text": "Ask the bedside nurse about vitals, observations, fluid balance, or administered medications."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "S5 contains machine-readable function schemas and tool descriptions that distinguish information-gathering and submission actions. Return/error semantics are only partially visible and not documented for every tool on S1-S3."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:prompts/env/patient_agent.txt:1-11",
+    "text": "You are a patient in a hospital."
+   },
+   {
+    "chunk_id": "S5:S4:prompts/env/nurse_agent.txt:1-12",
+    "text": "You are a bedside nurse reporting to the attending physician."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The agent-visible prompts disclose simulated patient and nurse behavior. The packet does not report tests or conformance checks showing that tools behave as documented."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:75-92",
+    "text": "submit_medication | Both | Submit medication decision"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:158-164",
+    "text": "Tests ordered beyond those evidenced in the ground-truth clinical picture are treated as unnecessary expenditure"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "ClinEnv is a research benchmark for measuring LLM behavior, not a clinical decision-support tool"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark identifies medication, procedure, diagnosis, and lab-order actions, and states it is a research benchmark rather than clinical execution. It also scores unnecessary lab orders as wasted expenditure, so write-like clinical actions and penalties are disclosed."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "the evaluation record stores matching assignments and process metrics"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:92-94",
+    "text": "Benchmark scores therefore reflect the accuracy of clinical decisions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the grader uses submitted decisions, dialogue traces, matching assignments, and process metrics rather than an end-state diff. It gives a rationale for structured submission grading, but no validation on labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:305-310",
+    "text": "prevents coded outcomes and discharge summaries from being passively exposed to the model"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "held-out ground-truth items"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports controls against answer leakage by withholding coded outcomes and ground-truth items at run time. It does not report canaries or provenance markers on released tasks."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:182-193",
+    "text": "Table 6: Decision-type decomposition."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:94-103",
+    "text": "The long-horizon subset contains admissions with at least three decision stages."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by task slices such as long-horizon and decision type, and gives slice definitions or sizes for some slices. It does not report performance by patient demographic subgroup despite demographic fields existing."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "ClinEnv is derived from MIMIC-IV and MIMIC-IV-Note, which are de-identified"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "distributed through PhysioNet under a credentialed data use agreement"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that records are real de-identified MIMIC data. It reports governance through PhysioNet credentialing and a data use agreement, which are data terms separate from code licensing."
+ }
+]

@@ -1,0 +1,364 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:35-38",
+    "text": "We source data from top-tier medical journals containing detailed clinical encounter information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the general source type and says cases come from top-tier medical journals. It does not provide a dataset version or snapshot date, platform details, or a route from each task to a source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:35-38",
+    "text": "We source data from top-tier medical journals containing detailed clinical encounter information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The origin is stated as medical journal clinical encounter information. The packet does not document licence or terms, consent, or IRB status."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet includes departmental performance analysis, but not representativeness of patient features against a named target population or descriptive patient statistics."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. Professional ethics metrics include privacy and empathy, but the packet does not report dedicated unsafe-output testing or bias testing."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No developer-side contamination controls such as gating, canaries, held-out sets, encryption, or overlap checks are reported."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:189-200",
+    "text": "without access to actual laboratory results or final diagnoses"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the simulated patient lacks access to laboratory results or final diagnoses, supporting some isolation of gold information. It does not name a concrete runtime mechanism such as no mount, no credential, or unavailable labels."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The environment uses live APIs and external knowledge sources, and the packet does not report pinned data, software, simulator, or judge versions for a frozen release."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No scripted oracle, reference solution, or manual solvability run through the grader is reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The benchmark involves clinical notes, orders, and pathway state, so NA does not apply. The packet does not report grader checks for unchanged irrelevant state."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report random-agent rates, chance rates, or an explicit design argument that trivial changes are unlikely to pass."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No do-nothing, random, or other trivial-agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet describes LLM-based evaluator prompts and metrics, but does not report agreement, error figures, tests, or other evaluator validation."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:codes/evaluation.py:1-49",
+    "text": "temperature: float = 0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A temperature safeguard is visible in code for the evaluator. S1-S3 do not report a repeated-run policy or broader nondeterminism safeguards for the harness."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:91-94",
+    "text": "OpenAI’s GPT-5 and GPT-OSS-120B significantly outperform other models"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper makes a significance-style comparison claim. It reports no CI or statistical test for the headline comparisons, so this reaches at most partial reporting."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. S1-S3 do not state the number of runs per task behind headline scores, seed or sampling policy, or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No CI or SE, resampling unit, or clustering treatment is reported."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet reports no identical reruns, action-sequence agreement, final-state agreement, or pass^k-style reliability metric."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:84-86",
+    "text": "Qwen3-30B-A3B-Instruct-2507"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some evaluated models are reported with exact identifiers or date-like versions. S1-S3 do not report decoding parameters or a harness commit/tag matching the reported results."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:codes/utils/tool_manager.py:163-206",
+    "text": "Generates and returns a JSON string complying with LLM tool invocation specifications."
+   },
+   {
+    "chunk_id": "S4:codes/utils/tools.py:40-81",
+    "text": "Fetches the results of a completed diagnostic test from the patient's medical record."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark defines an LLM tool interface, so NA does not apply. S5 includes machine-readable JSON tool schemas, read/search side-effect descriptions, and return descriptions for the tools."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:codes/utils/tools.py:181-220",
+    "text": "Organize and simulate a Multidisciplinary Team (MDT) discussion for the patient's case."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The agent-visible tool description discloses simulated MDT behavior. The packet does not report tests or conformance checks that tools behave as documented."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:46-47",
+    "text": "requiring physician agents to document clinical reports after each patient interaction"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:51-61",
+    "text": "Record Compliance (RC) evaluates the quality and completeness of physicians’ clinical documentation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Clinical reports, test orders, and treatment plans are write-like clinical actions in the simulated environment. The paper and prompts disclose simulated documentation and orders, and the benchmark scores documentation quality and test-ordering efficiency."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:44-85",
+    "text": "After generating the simulation logs, use `evaluation.py` to compute metrics."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The README states that simulation logs are the evaluator input and that an LLM-based evaluator scores interactions. It does not justify transcript/log grading over end-state grading or validate the grader on labelled correct and incorrect state changes."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report leakage controls through tools or retrieval, a held-out/private split, or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:171-173",
+    "text": "We systematically analyzed the Diagnosis Recall (DR) and Triage Precision (TP) of nine models across 24 departments."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix reports results by department, a benchmark-relevant task partition. It does not report patient demographic subgroup results or slice sizes with the slice results."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.10206v2.html:35-38",
+    "text": "We anchor our simulations in authentic clinical cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of the environment seed state is stated as simulations anchored in authentic clinical cases from medical records. The packet does not report IRB, DUA, de-identification method, or data redistribution terms separate from the code licence."
+ }
+]

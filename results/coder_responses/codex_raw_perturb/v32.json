@@ -1,0 +1,461 @@
+[
+  {
+    "item": "C1",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:40-46",
+        "text": "MIMIC-IV 3.1 ( Johnson et al., 2024 )"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:40-46",
+        "text": "MIMIC-IV 3.1 ( Johnson et al., 2024 )"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "MIMIC-IV version 2.2 (snapshot released in January 2023, hosted on PhysioNet)"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The paper names the source dataset and version. It does not report a route from each task to its source record on S1-S3, so this is partial. S4 reports a different MIMIC-IV version, so the reported provenance is contradicted."
+  },
+  {
+    "item": "C2",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:21-28",
+        "text": "released under a credentialed-access data use agreement"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports the data origin, routine-care collection, DUA terms, and consent/IRB status. This satisfies the full provenance, terms, and consent/IRB anchor."
+  },
+  {
+    "item": "C3",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:170-177",
+        "text": "compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports a comparison of key patient features against a named target population. That meets the full representativeness anchor."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:38-40",
+        "text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper explicitly reports both unsafe-output safety testing and demographic bias testing. That satisfies the full anchor."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:170-177",
+        "text": "distributed only through gated access, and we measured verbatim overlap"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports gated access plus a measured verbatim-overlap check. This meets the full contamination-control anchor."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:59-71",
+        "text": "no network path from the agent sandbox, and they are not published in the repository"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states the agent cannot reach ground truth at run time and names mechanisms: no network path and labels not public. This satisfies the full anchor."
+  },
+  {
+    "item": "C7",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:163-166",
+        "text": "database snapshot, the software image and the simulated-patient language model are all pinned to fixed versions"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:163-166",
+        "text": "database snapshot, the software image and the simulated-patient language model are all pinned to fixed versions"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "MIMIC-IV version 2.2 (snapshot released in January 2023, hosted on PhysioNet)"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports the data, software image, and simulator model are pinned, with no external service except the tested model. S4 gives a conflicting database version relative to the paper’s MIMIC-IV 3.1 reporting, so the frozen-environment claim is flagged."
+  },
+  {
+    "item": "C8",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:40-46",
+        "text": "reference queries execute successfully and yield answers satisfying the specified task requirements"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports scripted reference queries that execute successfully and yield valid answers. It does not state that a scripted reference solution was run through the grader, so this is partial."
+  },
+  {
+    "item": "C9",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5. The packet reports write actions and sandboxing, so NA does not apply. It does not report that the grader checks unchanged as well as changed state."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:1-4",
+        "text": "A random-action agent succeeds on 3.1% of tasks"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:1-4",
+        "text": "A random-action agent succeeds on 3.1% of tasks"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "a random agent scores 2.5% on the same tasks"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The paper reports an empirical random-action success rate. S4 reports a different random-agent rate on the same tasks, so the reported property is contradicted."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:1-4",
+        "text": "A random-action agent succeeds on 3.1% of tasks"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:1-4",
+        "text": "A random-action agent succeeds on 3.1% of tasks"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "a random agent scores 2.5% on the same tasks"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The paper reports a random-action agent result for the task set. S4 reports a conflicting random-agent score, so the result is flagged as contradicted."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports validation of the benchmark’s evaluator on its own labelled outputs with agreement and error figures. This satisfies the full anchor."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:108-110",
+        "text": "temperature 0 and 2,048-token output ceiling"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports decoding control with temperature 0 and also describes repeated-run evaluation through pass^k. Together these meet the full non-determinism safeguard anchor."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "We report 95% confidence intervals computed by bootstrapping over tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports 95% confidence intervals and the bootstrap method. This satisfies the CI anchor for statistical comparison reporting."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:12-22",
+        "text": "At k=4 , pass^k consistency falls below 50%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports a four-run pass^k setting and decoding controls such as temperature 0. It does not state that reruns are independent. Two of three elements are present, so the score is partial."
+  },
+  {
+    "item": "A2",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "where several tasks share a patient, we resample patients instead to account for clustering"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports 95% CIs, identifies task as the resampling unit, and addresses clustering by resampling patients when tasks share a patient. All elements are present."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:12-22",
+        "text": "At k=4 , pass^k consistency falls below 50%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a pass^k all-runs consistency metric with k=4. That is sufficient for the full A3 anchor even though action-sequence and state agreement are not reported."
+  },
+  {
+    "item": "A4",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:108-110",
+        "text": "All reported results match harness version v1.2.0."
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:90-94",
+        "text": "Claude Sonnet 4.6 ( Anthropic, 2026 )"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:108-110",
+        "text": "claude-3-5-sonnet-20241022"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports decoding parameters and a harness version matching reported results. Model identifiers are inconsistent within S1 and with S4 for some reported models, so the model-identifier element is absent under the item rule and flagged."
+  },
+  {
+    "item": "A5",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The benchmark defines interactive SQL/Python and write actions, so NA does not apply. S1 reports side effects for write actions, but the packet does not show a machine-readable schema or return/error semantics. No S5 chunk is present showing side-effect disclosure."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "The agent prompt states that writes are sandboxed."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "NA does not apply because the benchmark has tool-like environment actions. S1 discloses sandboxed write behavior and states that this reaches the agent prompt, but no tool conformance tests are reported."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "S1 lists the write-action classes, states writes are sandboxed, and reports that unsafe or unnecessary writes are penalized. It also states the sandboxing disclosure reaches the agent prompt, so all elements are present."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:178-180",
+        "text": "agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 identifies outcome verification of answer correctness and evidence-grounded abstention rather than pure end-state grading. The paper gives the rationale through evidence-grounded clinical support requirements and reports validation on 200 physician-labelled outputs with per-class error rates."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:95-98",
+        "text": "Agents have no web access during runs and retrieval tools are restricted to the task environment"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports controls on web and retrieval leakage, a private held-out split with hidden labels, and canary strings on released tasks. All three agent-channel contamination elements are present."
+  },
+  {
+    "item": "A10",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:99-101",
+        "text": "On Clean requests, GPT-5.4 performs best on Cost and Labs"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports results by benchmark task families such as clinical intent. It does not report results by patient demographic subgroup or slice sizes with the slice results in the packet. This is partial."
+  },
+  {
+    "item": "A11",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.39371v1.html:114-116",
+        "text": "constructed from MIMIC-IV v3.1, a de-identified EHR database released through PhysioNet"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 states the source records are de-identified real EHR data, gives governance and de-identification details, and describes credentialed access and compatible release terms. All environment-state provenance elements are present."
+  }
+]

@@ -1,0 +1,398 @@
+[
+ {
+  "item": "C1",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (methods 3.1, Figure 1 caption, appendix), S2, S3, S4, S5. The disease-symptom knowledge graph and medical encyclopedia are described only generically, with no name, version, snapshot date, platform or route from a case to a source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:193-201",
+    "text": "the framework’s reliance on synthetically generated patient cases, while crucial for control and privacy"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin is stated as synthetic generation from a knowledge graph plus encyclopedia text, and the generation method is described. No licence or terms and no consent or IRB statement appear (not required is not stated)."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "We randomly generated 5 distinct sets of test cases, each containing 300 unique patient cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A sampling design is stated (random sampling of disease nodes, 5 sets of 300 cases), but there is no comparison of patient features with any named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:72-78",
+    "text": "Conclusion and Safety: Diagnostic Correctness (DC) and Diagnostic Uncertainty (DU)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A safety-oriented rubric dimension (diagnostic uncertainty, overconfidence as a safety risk) is scored, which is the nearest thing to an unsafe-output test. No bias test of any kind is reported; the simulator-backbone sensitivity study is about ranking robustness, not bias. Weak evidence for 1."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:20-26",
+    "text": "This dynamic and knowledge-grounded sampling ensures that each case is coherent with domain expertise while being previously unseen"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Dynamic case generation is a design control against contamination, but no measured overlap or memorization check is reported. The leakage review in 4.6 concerns diagnosis disclosure in dialogue, not training-data contamination."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:26-29",
+    "text": "This profile serves as the latent ground truth from which the patient agent simulates dialogue"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The case profile is a latent ground truth held by the environment and the doctor agent acts on dialogue history, so isolation is implied by the design. The paper never states that the agent cannot reach the profile and names no mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Cases are generated dynamically at evaluation time and no released fixed case set is stated. The patient and examiner simulator (GPT-5) and the judge LLMs are live API models with no snapshot or date pinned, and no harness version is given."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (methods, experiments, appendix A1-A10), S2, S3, S4, S5. No oracle or scripted reference solution, nor any solvability check, is reported."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "NA: no task changes environment state. The doctor agent only asks, requests simulated test results, and issues a final diagnosis; the dialogue history is the only state and is not graded for side effects."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (results, appendix), S2, S3, S4, S5. No random or trivial-agent rate, chance accuracy over the disease set, or design argument about trivial success is given."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 1, appendix tables), S2, S3, S4, S5. Only 15 real LLMs are reported; no do-nothing or random agent result."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:205-208",
+    "text": "Across all experts, Pearson correlations fell within 0.80–0.87, while Spearman correlations ranged from 0.81–0.86"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper validates its own LLM judge against three human experts on 450 annotated cases with correlation figures. It also reports clinician validation of the patient and examiner agent outputs on 200 cases (99.0% no leakage, 93.5% realistic)."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "Inference used temperature =0.0 and top-p =1.0"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "conducted five independent runs for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0.0 and top-p 1.0 are stated together with a repeated-run policy (five independent runs per model) in the paper. No seeds are given."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:79-91",
+    "text": "(mean \\pm standard error) on ClinDEF"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Standard errors are reported for all headline metrics, but no CI or significance test is applied to model comparisons. Rank agreement across simulator backbones (Spearman) is a robustness check, not a test of the model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "conducted five independent runs for each model"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "Inference used temperature =0.0 and top-p =1.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Five runs per model on 5 sets of 300 cases, decoding controls (temperature 0.0, top-p 1.0), and independent runs are all stated. The mapping of runs to tasks is somewhat ambiguous, so element (i) is counted on the stated run number."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:79-91",
+    "text": "(mean \\pm standard error) on ClinDEF"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Standard errors accompany the headline scores. The resampling or variance unit (case, run, or case set) is not named, and clustering is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "conducted five independent runs for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Score-level variation over five runs per model is reported as standard error. No action-level or state-level agreement and no pass^k metric are reported; the runs may also use different case sets, so they are not strictly identical reruns."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:91-97",
+    "text": "Inference used temperature =0.0 and top-p =1.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding parameters are stated. Models are given by family or name only (e.g., GPT-5, Claude-4-Sonnet, Gemini-2.5-Pro), with no snapshot ID or release date, and no harness version or commit is given."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "Diag outputs o_{t}^{D}=d_{t} , representing the model’s final diagnostic decision that terminates the interaction."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A text-command protocol (Ask, Test, Diag) is defined and the environment response to each action is documented, including termination. No schema or enforced grammar, no read/write side-effect classification and no error returns are given. No S5 content in the packet, so S5 reach cannot be told."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:29-35",
+    "text": "the Patient Agent A_{P} and Examiner Agent A_{E} function as responsive environmental simulators"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper discloses that patient and examiner responses are LLM simulated and checks their outputs with clinicians (leakage and fidelity on 200 cases), which is read as a conformance check. No S5 content in the packet, so reach of the disclosure to the agent cannot be shown."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "Test results in o_{t}^{D}=r_{t} , denoting a request for an objective examination."
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:217-223",
+    "text": "avoidance of under- or over-utilization"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Test requests (orders) and the terminating Diag are identified, test results are simulated by an LLM examiner, and test over- and under-utilization is scored in the Test Justification dimension and via findings and turn metrics. Element (i) is borderline since the paper does not label actions as writes. S5 reach cannot be told."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:63-71",
+    "text": "To evaluate the more nuanced aspects of the diagnostic process, we employ an “LLM-as-a-Judge” paradigm"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is named (LLM judge over the dialogue; final diagnosis for accuracy) with a rationale (nuanced process aspects). Validation is by correlation with human experts on 450 cases and gives no per-class error rates on labelled correct and incorrect outcomes, so element (iii) is not met."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:114-116",
+    "text": "Reviewers found that 99.0% of cases contained no such information leakage."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Answer leakage through the patient and examiner agents is checked by clinicians on 200 cases. There is no held-out or private split (cases are generated dynamically) and no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 1, Table A1, figures, appendix), S2, S3, S4, S5. Results are per model and per rubric dimension only; no per-disease or task-family slices and no patient-subgroup (demographic) results or slice sizes, although patient demographics exist in the case profile."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:193-201",
+    "text": "the framework’s reliance on synthetically generated patient cases, while crucial for control and privacy"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated as synthetic, produced by an LLM generator from a knowledge graph and encyclopedia text (the generator model is not named). No governance for real data applies or is stated, and no data redistribution terms separate from code licence are given."
+ }
+]

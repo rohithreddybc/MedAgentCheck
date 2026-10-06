@@ -1,0 +1,68 @@
+{
+ "bench": "clinicalagent-bench",
+ "coder": "codex",
+ "group": 1,
+ "items": [
+  "C1",
+  "C2",
+  "C3",
+  "C4",
+  "C5",
+  "C6",
+  "C7",
+  "C8",
+  "C9",
+  "C10",
+  "C11",
+  "C12",
+  "C13",
+  "C14",
+  "A1",
+  "A2",
+  "A3",
+  "A4",
+  "A5",
+  "A6",
+  "A7",
+  "A8",
+  "A9",
+  "A10",
+  "A11"
+ ],
+ "prompt_sha256": "81ef1ed3969d85d7bdba05986a2c4cfb360b75832c5ff55039b4ae4e8ed5e179",
+ "system_sha256": "c373e9fb2698800960c6fd1af17154118c8869d26ed49a6b6057abf28840ea35",
+ "prompt_tokens_est": 154997,
+ "attempts": [
+  {
+   "timestamp": "2026-10-05T19:30:07Z",
+   "model_id": "gpt-5.5",
+   "usage": {},
+   "meta": {
+    "attempts": 1,
+    "requested_model": "gpt-5.5",
+    "cmd": [
+     "<local-path>",
+     "exec",
+     "--sandbox",
+     "read-only",
+     "--output-last-message",
+     "<local-path>",
+     "-C",
+     "<local-path>",
+     "--model",
+     "gpt-5.5",
+     "--skip-git-repo-check",
+     "--ephemeral",
+     "--color",
+     "never"
+    ]
+   },
+   "raw_response": "[\n  {\n    \"item\": \"C1\",\n    \"score\": 1,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:258-266\",\n        \"text\": \"we choose PubMedQA ( Jin et al., 2019 ) , MMLU\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The paper names multiple original datasets and platforms such as PubMedQA, MMLU, BioASQ, and MedQA. It does not report dataset versions/snapshot dates or a route from an individual CAB task to its original source record.\"\n  },\n  {\n    \"item\": \"C2\",\n    \"score\": 1,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:187-195\",\n        \"text\": \"All patient data has been anonymized, and informed consent was obtained for its use\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The benchmark reports data origin through named source datasets and includes consent/anonymization and ethics approval language. It does not fully document licensing or terms compliance for the assembled benchmark.\"\n  },\n  {\n    \"item\": \"C3\",\n    \"score\": 1,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:272-285\",\n        \"text\": \"randomly sample the 1000 instances from the public part of the dataset and keep the data component proportions\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The paper reports sampling design details for some datasets and task construction. It does not compare key patient features against a named clinical target population.\"\n  },\n  {\n    \"item\": \"C4\",\n    \"score\": 1,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:307-311\",\n        \"text\": \"we choose four types of datasets to validate the trustworthiness\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The Trustworthiness dimension is a dedicated hallucination/unsafe-output style evaluation. The packet does not report a bias test.\"\n  },\n  {\n    \"item\": \"C5\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The packet does not report developer-side contamination controls such as canaries, gated access, encryption, or overlap checks.\"\n  },\n  {\n    \"item\": \"C6\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The public documentation does not state that the agent is isolated from ground truth at run time or name a mechanism.\"\n  },\n  {\n    \"item\": \"C7\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The benchmark links a dataset and gives some dependency versions, but it does not pin the data and full harness for reported results or eliminate live external dependencies.\"\n  },\n  {\n    \"item\": \"C8\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. No scripted reference solution or reported oracle run through the grader is documented.\"\n  },\n  {\n    \"item\": \"C9\",\n    \"score\": \"NA\",\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The benchmark tasks are answer-generation/tool-use tasks and the packet does not show tasks that change environment state, so the NA clause applies.\"\n  },\n  {\n    \"item\": \"C10\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The packet does not report a random/trivial-agent rate, explicit chance rate, or design argument that trivial success is unlikely.\"\n  },\n  {\n    \"item\": \"C11\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. No do-nothing or random-agent results are reported.\"\n  },\n  {\n    \"item\": \"C12\",\n    \"score\": 0,\n    \"elements\": [],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 prompts. The packet shows scoring functions in code, but no public validation with agreement or error figures.\"\n  },\n  {\n    \"item\": \"C13\",\n    \"score\": 1,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S4:reflectool/models/openai_model.py:73-107\",\n        \"text\": \"temperature=0, seed=0\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"Safeguards such as deterministic OpenAI calls are visible in code only. S1-S3 do not state a repeated-run policy.\"\n  },\n  {\n    \"item\": \"C14\",\n    \"score\": 2,\n    \"elements\": [],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:64-70\",\n        \"text\": \"p-value <0.05 and <0.01 comparing with the strongest baseline Reflexion\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The paper reports statistical tests for headline comparisons against Reflexion. This satisfies the comparison-test anchor.\"\n  },\n  {\n    \"item\": \"A1\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. S1-S3 do not state the number of runs per task behind headline scores, seed/sampling policy, or independence of runs.\"\n  },\n  {\n    \"item\": \"A2\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. No CI or SE on headline scores is reported, and no resampling unit or clustering treatment is stated.\"\n  },\n  {\n    \"item\": \"A3\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. The packet does not report identical reruns, action-sequence agreement, final-state agreement, or pass^k metrics.\"\n  },\n  {\n    \"item\": \"A4\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. Model family names are reported, but not provider snapshot IDs or release dates tied to results; decoding parameters and a harness tag/commit are also absent.\"\n  },\n  {\n    \"item\": \"A5\",\n    \"score\": 1,\n    \"elements\": [\n      true,\n      false,\n      false\n    ],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S4:reflectool/agent_prompts/prompt_utils.py:61-85\",\n        \"text\": \"format the api call parameters with the provided api doc\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": false,\n    \"rationale\": \"Agent-visible prompt construction includes action parameter documentation and action formatting. The packet does not document read/write side effects per tool or return/error semantics for every tool.\"\n  },\n  {\n    \"item\": \"A6\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": false,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S5 agent-visible prompts and tool descriptions. The packet does not report tool conformance tests, or a public disclosure of simulated/no-op behavior that reaches the agent.\"\n  },\n  {\n    \"item\": \"A7\",\n    \"score\": \"NA\",\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes; S5 agent-visible prompts and tool descriptions. The documented tools retrieve, calculate, parse, or answer; no action is reported as a clinical order, prescription, note, message, or other state-changing write.\"\n  },\n  {\n    \"item\": \"A8\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. S1-S3 do not state the grader input, justify transcript or answer-string grading, or validate the grader against labelled correct and incorrect outcomes.\"\n  },\n  {\n    \"item\": \"A9\",\n    \"score\": 0,\n    \"elements\": [\n      false,\n      false,\n      false\n    ],\n    \"quotes\": [],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"searched: S1 paper and appendix; S2 README and docs; S3 release notes. The packet does not report controls on answer leakage through tools, retrieval, web access, memory, or prompts, nor canaries/provenance markers.\"\n  },\n  {\n    \"item\": \"A10\",\n    \"score\": 1,\n    \"elements\": [\n      true,\n      false,\n      false\n    ],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:114-116\",\n        \"text\": \"We show the average performance of each dimension in Table 2\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The benchmark reports results by task family/dimension and in detailed task tables. It does not report patient subgroup results or slice sizes alongside the reported result slices.\"\n  },\n  {\n    \"item\": \"A11\",\n    \"score\": 1,\n    \"elements\": [\n      true,\n      true,\n      false\n    ],\n    \"quotes\": [\n      {\n        \"chunk_id\": \"S1:arxiv/2410.17657v3.html:299-303\",\n        \"text\": \"It contains unidentified administrative information following the US Health Insurance Portability and Accountability Act\"\n      }\n    ],\n    \"contradicted\": false,\n    \"contradiction_quotes\": [],\n    \"s5_reach\": null,\n    \"rationale\": \"The paper states sources of patient-record data and gives some governance/de-identification information, such as HIPAA-related unidentified records. It does not state redistribution terms for the environment data separate from the code licence.\"\n  }\n]",
+   "item_errors": {}
+  }
+ ],
+ "status": "ok",
+ "model_id": "gpt-5.5",
+ "item_errors": {},
+ "timestamp": "2026-10-05T19:30:07Z"
+}

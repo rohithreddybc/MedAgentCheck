@@ -1,0 +1,396 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:27-29",
+    "text": "we construct a test set of 165 real-world cases from Chest Imagenome Wu et al. (2021) and RadGenome-BrainMRI datasets"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names original data sources and gives routes from tasks to sources in the real-environment layer. It does not provide a version or snapshot date for each source dataset, so this does not reach the full anchor."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:1-34",
+    "text": "Both require credentialed access, so the pixels cannot be redistributed here."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark states origin and some access/terms constraints for the real data. It does not report consent or IRB status, or an explicit not-required determination."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:278-279",
+    "text": "the 165 cases span two imaging modalities (X-ray and MRI), two anatomical regions (chest and head & neck)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive coverage and sampling design for modalities, anatomy, pathology, and demographics. It does not compare the benchmark against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:187-191",
+    "text": "Bias/Diversity checks whether the sampled items avoid obvious demographic or disease shortcuts"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet documents a bias/diversity review criterion. It does not report a dedicated unsafe-output test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:187-191",
+    "text": "No Leakage checks that the question, metadata, or prompt does not directly reveal the answer."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a no-leakage review criterion, which is an indirect empirical check. It does not report a developer-side control plus a measured check such as canaries or gated held-out labels."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:31-71",
+    "text": "They are separate fields on purpose: merging them would leak the label into the input."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The documentation states that inputs and reference answers are separated to avoid label leakage. It also names the mechanism: distinct `RealCase.inputs` and `RealCase.reference` fields."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:31-71",
+    "text": "Sampling is seeded, so the same `--seed` over the same source data reproduces the same manifest."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The data manifest construction is seeded and the public data release is identified. The evaluator uses live external model judges and executable tools, and the packet does not pin all software, judge models, or a harness commit."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:187-191",
+    "text": "Tool Necessity verifies that answering the QA pair requires the intended radiology tools rather than shortcut reasoning alone."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports manual/clinician evidence that tasks require the intended tools. It does not report a scripted reference solver run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts/tool descriptions. AutoTB can register tools and workflows generate outputs, but the packet does not report checks that irrelevant state remains unchanged."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:187-191",
+    "text": "Ambiguity measures whether the task target and reference answer are clear enough to support reliable evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark gives design and review arguments against trivial success, including ambiguity, no leakage, and tool necessity checks. It does not report an empirical random or trivial-agent rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts/tool descriptions. The packet reports many model and agentic-system results, but no do-nothing or random-agent score."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:152-191",
+    "text": "python tests/test_metrics.py          # 35 checks, every metric formula"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The repository documentation reports tests for metric formulas and harness components. It does not report benchmark-level evaluator agreement or error figures on its own outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:31-71",
+    "text": "Sampling is seeded, so the same `--seed` over the same source data reproduces the same manifest."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs state a seed policy for real-case manifest sampling. They do not state a repeated-run policy, and decoding safeguards are not fully reported on S1-S3."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:61-65",
+    "text": "few-shot learning and multi-agent collaboration yield significant wins ( p<0.05 )"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports statistical significance for prompting-strategy comparisons. It does not provide CIs or tests for the headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:31-71",
+    "text": "Sampling is seeded, so the same `--seed` over the same source data reproduces the same manifest."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports a sampling seed policy. It does not state the number of independent runs behind each headline score or whether repeated runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts/tool descriptions. The packet does not report CIs or SEs for headline scores, so no resampling unit or clustering treatment is stated."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts/tool descriptions. No identical rerun reliability, final-state agreement, or pass^k-style metric is reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts/tool descriptions. S1-S3 name model families and some model-card references, but not exact provider snapshot identifiers for all reported results, decoding parameters, or a harness commit/tag."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:308-308",
+    "text": "Each card specifies: (1) tool name and category; (2) supported anatomy, modality, and image dimensionality;"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark specifies tool cards with structured inputs, outputs, capabilities, and constraints. It does not document per-tool side effects or full return/error semantics for every tool on S1-S3."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:152-191",
+    "text": "python tests/test_autotb_realloop.py  # 25 checks, AutoTB build/replan closure"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The docs report tests for the tool-related real-environment loop and disclose simulated behavior in the synthetic layer. The simulation disclosure is not shown as reaching the agent-visible prompt/tool-description surface."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:189-202",
+    "text": "Treatment Planner (TP) is a treatment planning tool (or system) to provide treatment plans based on current clinical findings."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark includes report generation and treatment-planning outputs, which represent clinical notes or plans. It reports simulated and executable layers, but does not report scoring of unsafe or unnecessary writes; the executed/simulated status is not clearly shown to the agent in S5."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:313-319",
+    "text": "The logs preserve construction status, validation outcome, and downstream invocation outcome"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states grader inputs such as logs, generated answers, references, and LLM/human judgments, and gives rationale for log-based attribution. It does not report validation on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:31-71",
+    "text": "`RealCase.reference` holds the answer. They are separate fields on purpose"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs report separation of inputs from reference answers, and real images/annotations are not redistributed in the repository. No canary or provenance marker on released tasks is reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2412.09529v4.html:67-70",
+    "text": "165 cases across organ/anomaly grounding, diagnosis with grounding clues, and standard report generation (55 cases each)."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports results and sizes by task family. It has demographic fields, but does not report performance results by patient demographic subgroup."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:EvalPlat/RealEnv/README.md:1-34",
+    "text": "Both require credentialed access, so the pixels cannot be redistributed here."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states that the environment data are mixed: GPT-4-generated synthetic records and real cases from named datasets. It reports credentialed-access governance for real data and separate redistribution terms for data versus code."
+ }
+]

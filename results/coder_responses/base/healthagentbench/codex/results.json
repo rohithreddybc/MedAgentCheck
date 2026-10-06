@@ -1,0 +1,444 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:288-299",
+    "text": "Version pin: MIMIC-CXR v2.1.0 PhysioNet release."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:374-388",
+    "text": "Each task containes a volume from CT-RATE’s validation split."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports dataset names, versions or snapshots, platforms such as PhysioNet, HuggingFace, Redivis and TREC, and task-to-record routes such as case IDs, topic IDs, slide IDs, and validation volumes."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:364-375",
+    "text": "Access: HuggingFace gated under OpenRAIL; HF_TOKEN required at bootstrap."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origins and some access or licence terms are documented for multiple datasets. The packet does not report consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:335-339",
+    "text": "Selection criteria: The tasks are selected to cover patient profiles stratified across clinical specialties (ages 15–70, both sexes)."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports sampling and coverage designs, including stratification and representative task selection. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report dedicated unsafe-output or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:47-53",
+    "text": "Gold labels and verifier code are mounted only into the verifier step, never into the agent container."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports developer-side controls such as hidden labels, credential isolation, opaque identifiers, and disabled web browsing. It does not report a measured contamination or overlap check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:299-306",
+    "text": "gold target Findings are never agent-visible; they live only in the verifier."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:299-306",
+    "text": "the main agent service has none."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper and appendix state that ground truth is not reachable by the agent and name mechanisms including verifier-only mounts and missing credentials."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:204-224",
+    "text": "Stable Harbor version used here: `0.8.0`"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:288-299",
+    "text": "Default judge: gpt-5.4 ."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Several datasets and Harbor are pinned, and the judge model is named. However, the benchmark still uses runtime downloads and live external services or model calls, so it is not fully frozen."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:11-12",
+    "text": "Manual review is conducted to ensure that the success criteria are reachable."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports manual solvability review. It does not report a scripted oracle solution run through the grader with results."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:241-259",
+    "text": "default config is byte-identical to upstream"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some tasks change environment state, and the ETL grader checks that an unchanged default config remains unchanged. This is only partial across the benchmark."
+ },
+ {
+  "item": "C10",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:37-39",
+    "text": "HealthAgentBench have a low random-guess success rate—typically below 10\\%"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper explicitly reports a chance-rate design target and explains how low chance success is achieved."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. No do-nothing or random agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:280-290",
+    "text": "verifier uses CheXprompt [ 36 ]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark cites an external verifier for X-ray judging and reports manual gold review. It does not report benchmark-specific evaluator agreement or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report harness non-determinism safeguards such as seeds or temperature controls together with a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:62-64",
+    "text": "error bars are Wilson 95% confidence intervals."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The headline result figure reports Wilson 95% confidence intervals for model success rates."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:57-59",
+    "text": "Across 3 attempts on 54 tasks (i.e 162 trials)"
+   },
+   {
+    "chunk_id": "S2:README.md:146-163",
+    "text": "`--n-attempts` specifies how many independent times each task is run"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states three attempts per task for headline results, identifies xhigh reasoning effort, and the README defines attempts as independent runs."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:62-64",
+    "text": "pooled over all trials (trial-weighted)."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:62-64",
+    "text": "error bars are Wilson 95% confidence intervals."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports CIs and identifies pooled trials as the unit. It does not address clustering within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:57-59",
+    "text": "Across 3 attempts on 54 tasks (i.e 162 trials)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports repeated attempts and score-level outcomes. It does not report action-sequence agreement, final-state agreement, or a pass^k all-runs metric."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:57-59",
+    "text": "with xhigh reasoning effort"
+   },
+   {
+    "chunk_id": "S2:README.md:204-224",
+    "text": "Stable Harbor version used here: `0.8.0`"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Reasoning effort and the Harbor version are reported. Exact provider snapshot identifiers or dates for the evaluated model instances are not reported on S1-S3."
+ },
+ {
+  "item": "A5",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark defines terminal tasks where agents use their own harness tools such as shell and file writing, and no benchmark-specific tool interface is defined."
+ },
+ {
+  "item": "A6",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. A5 is NA because no benchmark-defined tool interface is reported, so tool-contract verification is not applicable."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:6-7",
+    "text": "until it writes the corrected report to /workspace/submission.json"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:280-290",
+    "text": "You may edit existing sentences but may not add statements"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark reports write actions such as writing submissions and editing reports inside task environments, and the tasks are sandboxed container evaluations. It also reports scoring constraints that penalize unsafe or unnecessary report additions."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:288-299",
+    "text": "Per-trial: CheXprompt LLM-as-a-judge 5-vote majority"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:335-339",
+    "text": "missing an eligible trial is a more critical failure"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader inputs are named, including submissions, answer strings, and LLM judgement. The clinical-trial section gives a rationale for recall-based non-state grading, but no validation with per-class error rates is reported."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:47-53",
+    "text": "We also disable web browsing capabilities from agents"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:144-155",
+    "text": "hidden test labels"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports controls on web leakage and hidden verifier-only labels. It does not report a canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:65-66",
+    "text": "exact per-(agent, category) success rate, time, and cost are tabulated"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:144-155",
+    "text": "Table 2 summarizes the seven task categories in the suite."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports results by task family and gives slice sizes for task categories. It does not report results by patient demographic subgroup despite demographic fields existing in source data."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:29-35",
+    "text": "All tasks contain real clinical data including patient data or clinical documents"
+   },
+   {
+    "chunk_id": "S2:README.md:111-129",
+    "text": "MIMIC-CXR is PhysioNet-gated"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.31179v1.html:364-375",
+    "text": "Access: HuggingFace gated under OpenRAIL"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states real clinical sources and synthetic-error generation for mixed task state. It reports governance via credentialing or gated access and states data access terms separately from the code licence."
+ }
+]

@@ -1,0 +1,374 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+    "text": "uploading full EHR records for two patients"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the platform as a FHIR-compliant EHR and states tasks were generated from full EHR records for two patients. It does not give a dataset version or snapshot date, nor a route from a task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not state data origin with collection, license or consent/IRB status."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+    "text": "full EHR records for two patients"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states a sampling/design fact: new tasks were generated from records for two patients. It does not analyze key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:479-501",
+    "text": "clear guardrails around scope of automation, human review of consequential actions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark discusses safety concerns and unsafe consequential actions such as medication orders. The packet does not report a dedicated bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+    "text": "The remaining tasks were held out"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a held-out set for memory evaluation. It does not report a measured overlap, canary, or contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not state that the agent cannot reach ground truth at run time."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not pin data, software, simulator, judge, repository commit, or arXiv version for the reported results."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+    "text": "An internal medicine physician (KB) then independently reviewed each task"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports manual physician review of task quality and feasibility, which is manual solvability evidence. It does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+    "text": "verified that all FHIR resources posted by the agent included correct fields"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some tasks change environment state through posted FHIR resources, so NA does not apply. The grader checks changed resources for correct fields, but the packet does not state that unchanged irrelevant state is checked."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+    "text": "multi-step temporal logic, conditional branches, or medication dosing thresholds"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that tasks require multi-step logic, conditional branches, and dosing thresholds, making trivial success unlikely. It does not report an empirical random or trivial-agent rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report results for a do-nothing or random agent."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet describes custom evaluation functions but reports no validation figures, tests, or reference-solution evidence."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report seeds, temperature settings, or a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-85",
+    "text": "demonstrated significantly improved reliability and adaptability"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper uses a significance claim but reports no statistical test or confidence interval for the headline comparison. Under the anchor, “significant” without a test scores at most 1."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+    "text": "success rate at pass@1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports pass@1, indicating one run per task behind the success-rate metric. It does not report seed/sampling policy or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report CI or SE, a resampling unit, or clustering treatment."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report identical reruns, action agreement, state agreement, or pass^k reliability."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet names GPT-4.1, but not an exact snapshot/date, decoding parameters, or harness tag/commit matching reported results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:546-581",
+    "text": "fhir medication request create: create a medication request"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a tool interface, so NA does not apply. The paper/system prompt lists tools and indicates read/write side effects by names such as search and create, but no machine-readable schema or error return semantics are reported; no S5 chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The benchmark defines tools, so NA does not apply, but the packet reports no tool conformance checks or simulation/no-op disclosure reaching S5."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:103-121",
+    "text": "fhir service request create"
+   },
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:314-338",
+    "text": "the agent incorrectly issued a replacement order regardless of the value"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Some actions represent clinical orders, so NA does not apply. The paper discloses write actions and shows unnecessary writes are treated as errors, but does not state whether writes are executed, simulated, or sandboxed; no S5 chunks are present."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+    "text": "verified that all FHIR resources posted by the agent included correct fields"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states grader inputs include posted FHIR resources and final responses. It does not provide a rationale for non-state grading or validation on labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+    "text": "The remaining tasks were held out"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a held-out split for the memory evaluation. It does not report controls on leakage through tools, retrieval, web access, or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:314-338",
+    "text": "Tasks 5, 6, 9, and 10"
+   },
+   {
+    "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+    "text": "10 new clinical task types with 30 variations of each task type"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by task partitions and gives slice sizes for the new task types. It does not report patient subgroup results or state that demographic fields do not exist."
+ },
+ {
+  "item": "A11",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet mentions EHR records but never states whether the environment data are real de-identified, synthetic, or mixed, and gives no governance or redistribution terms."
+ }
+]

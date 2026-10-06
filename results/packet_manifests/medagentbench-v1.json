@@ -1,0 +1,374 @@
+{
+ "name": "medagentbench-v1",
+ "built_utc": "2026-10-05T06:10:55Z",
+ "manifest_input": {
+  "name": "medagentbench-v1",
+  "benchmark": "MedAgentBench",
+  "frozen_list_id": "arxiv:2501.14654",
+  "access_date": "2026-10-05",
+  "arxiv": {
+   "id": "2501.14654",
+   "version": "v2"
+  },
+  "paper_title": "MedAgentBench: A Realistic Virtual EHR Environment to Benchmark Medical LLM Agents",
+  "paper_latest_version_updated": "2025-02-12T05:32:07Z",
+  "repo": {
+   "url": "https://github.com/stanfordmlgroup/MedAgentBench",
+   "commit": "99260117137b09f04837a8c18d18a1107efa55ae"
+  },
+  "repo_commit_date": "2025-11-21T18:39:26Z",
+  "repo_default_branch": "main",
+  "repo_source": "csv",
+  "repo_zip_size_kb_approx": 1055,
+  "paper_only": false,
+  "notes": "MedAgentBench: the builder has no exclude option, so its S4 rule can fetch data files (data/medagentbench/*.json, capped at 50 lines of 400 characters each). Fetched data files are listed in audit/packets/BUILD_LOG.md. Packet text is local only and must not be redistributed; release manifests only.",
+  "extra_docs": []
+ },
+ "arxiv": {
+  "id": "2501.14654",
+  "version": "v2",
+  "url": "https://arxiv.org/html/2501.14654v2",
+  "format": "html"
+ },
+ "repo": {
+  "url": "https://github.com/stanfordmlgroup/MedAgentBench",
+  "commit": "99260117137b09f04837a8c18d18a1107efa55ae",
+  "subpath": null,
+  "zip_sha256": "2fb932e620d426a76f33928673670bd9bcb0e540f6b7a625580e75267d6c5bfb",
+  "commit_date": "2025-11-21T18:39:26Z",
+  "access_date_utc": "2026-10-05T06:10:57Z"
+ },
+ "sources": [
+  {
+   "surface": "S1",
+   "path": "arxiv/2501.14654v2.html",
+   "url": "https://arxiv.org/html/2501.14654v2",
+   "raw_sha256": "0c5f2356321a71dfe401ec3d93824b574b6ce2a4a723dcd983a30944b33fc125",
+   "text_sha256": "d189f8211ae8fb6dd01887dd44755e1281452a70681aaad015b1cbb2ed7fa193",
+   "tokens": 9410,
+   "truncated": false
+  },
+  {
+   "surface": "S2",
+   "path": "README.md",
+   "url": null,
+   "raw_sha256": "3757decc73bb5d5165cb5bd9f36753c1f1c9b871027d7be291a64f521e41177f",
+   "text_sha256": "aca37bb0db634c5471cf055118432156fdd8bc22a4c18914b72424b5c559c8a2",
+   "tokens": 913,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/api_agents.yaml",
+   "url": null,
+   "raw_sha256": "209565131937907c8ed3e15c46586838f6ff9b6813a7f25b1f66c98f4ac2a357",
+   "text_sha256": "22d8660e7708beb3210a6f27176b11065ffbf40c182b1677e0468a18a0ee67cb",
+   "tokens": 391,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/claude-chat.yaml",
+   "url": null,
+   "raw_sha256": "e091c4a351ec04bb61ffe26dc24076c4d421a687bc4d04faa43d925f3663fe24",
+   "text_sha256": "e091c4a351ec04bb61ffe26dc24076c4d421a687bc4d04faa43d925f3663fe24",
+   "tokens": 142,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/fs_agent.yaml",
+   "url": null,
+   "raw_sha256": "7dbd0b6871b14168d96cbf1f9858cbb009033ed4aeaea9b286bd124be78eed1b",
+   "text_sha256": "7dbd0b6871b14168d96cbf1f9858cbb009033ed4aeaea9b286bd124be78eed1b",
+   "tokens": 108,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/gemini-chat.yaml",
+   "url": null,
+   "raw_sha256": "bed905b755276062b00c4915f57e0420d830f9fc2572ab091a3581299f2bbe89",
+   "text_sha256": "bed905b755276062b00c4915f57e0420d830f9fc2572ab091a3581299f2bbe89",
+   "tokens": 131,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/openai-chat.yaml",
+   "url": null,
+   "raw_sha256": "10398f4631b8f35aaec9ae3a06fd41f18438139adac4beadd2e0314bf6a9c466",
+   "text_sha256": "10398f4631b8f35aaec9ae3a06fd41f18438139adac4beadd2e0314bf6a9c466",
+   "tokens": 95,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/agents/together-chat.yaml",
+   "url": null,
+   "raw_sha256": "d8324c44ac0f9591f1717af37122227eec6ae318831dc5510b290ede84611e3e",
+   "text_sha256": "d8324c44ac0f9591f1717af37122227eec6ae318831dc5510b290ede84611e3e",
+   "tokens": 98,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/assignments/default.yaml",
+   "url": null,
+   "raw_sha256": "5e192a4b7bbfb58143f34648a9505ee28c2f7b1c2a52c760ab3b981313ac99af",
+   "text_sha256": "5e192a4b7bbfb58143f34648a9505ee28c2f7b1c2a52c760ab3b981313ac99af",
+   "tokens": 152,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/assignments/definition.yaml",
+   "url": null,
+   "raw_sha256": "e852fabb31a4dbdfa446e2a64c459b2821c2e70f18661721663b79701de15209",
+   "text_sha256": "e852fabb31a4dbdfa446e2a64c459b2821c2e70f18661721663b79701de15209",
+   "tokens": 68,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/start_task.yaml",
+   "url": null,
+   "raw_sha256": "c761b26459210cdd1bbf53c40d4a0e80c14b01a4239d270d8e9db10c090cbd0c",
+   "text_sha256": "c761b26459210cdd1bbf53c40d4a0e80c14b01a4239d270d8e9db10c090cbd0c",
+   "tokens": 20,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/tasks/medagentbench.yaml",
+   "url": null,
+   "raw_sha256": "8ac404edd65b893c0ad4773b17b9f70400baaf05be60643b4fcfb81cf7d4e191",
+   "text_sha256": "8ac404edd65b893c0ad4773b17b9f70400baaf05be60643b4fcfb81cf7d4e191",
+   "tokens": 83,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "configs/tasks/task_assembly.yaml",
+   "url": null,
+   "raw_sha256": "f138f8c18eb9565f95f20c55987fc464e26d05ec017030e8bd14c079b49e0c7d",
+   "text_sha256": "f138f8c18eb9565f95f20c55987fc464e26d05ec017030e8bd14c079b49e0c7d",
+   "tokens": 30,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "data/medagentbench/funcs_v1.json",
+   "url": null,
+   "raw_sha256": "c977266db5eca75182c0d12cac1962b33ae6b5a54b9029ceb104e1a93b4c38c1",
+   "text_sha256": "c79c2dfd8bb21d1604d4f8efde84fe97d9a379bfafd66534156e636b6dd86eff",
+   "tokens": 100,
+   "truncated": true
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/agent.py",
+   "url": null,
+   "raw_sha256": "a015989b9859ab7525ffbd688a35e70f7a7491e8d903235ae3b18b0f9d3db13b",
+   "text_sha256": "a015989b9859ab7525ffbd688a35e70f7a7491e8d903235ae3b18b0f9d3db13b",
+   "tokens": 48,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/agent_test.py",
+   "url": null,
+   "raw_sha256": "a3f8783ddb93a8412adc354befa0298e11b01a03da489f549450363bbb14e9ad",
+   "text_sha256": "a3f8783ddb93a8412adc354befa0298e11b01a03da489f549450363bbb14e9ad",
+   "tokens": 356,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/agents/__init__.py",
+   "url": null,
+   "raw_sha256": "02adc45ad60de404474f71bf7e51a0af41861cd772497dd221784b2915747c66",
+   "text_sha256": "02adc45ad60de404474f71bf7e51a0af41861cd772497dd221784b2915747c66",
+   "tokens": 20,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/agents/fastchat_client.py",
+   "url": null,
+   "raw_sha256": "c7db80a9093b00c98a19e6e4507351242429edac6bc2b3308baeef968a207e70",
+   "text_sha256": "c7db80a9093b00c98a19e6e4507351242429edac6bc2b3308baeef968a207e70",
+   "tokens": 1652,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/agents/http_agent.py",
+   "url": null,
+   "raw_sha256": "883ddb4d15f48f7e3e314c8f04982c74ea7d3bb4ca1551e3badf69a4cdd468c9",
+   "text_sha256": "883ddb4d15f48f7e3e314c8f04982c74ea7d3bb4ca1551e3badf69a4cdd468c9",
+   "tokens": 1667,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/client/task.py",
+   "url": null,
+   "raw_sha256": "7495eacdd0732bd23f73a8778431370a1afd1802b504866edc9c4ee4fb6f4623",
+   "text_sha256": "7495eacdd0732bd23f73a8778431370a1afd1802b504866edc9c4ee4fb6f4623",
+   "tokens": 1470,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/configs.py",
+   "url": null,
+   "raw_sha256": "3bb79203f93c05f7f9eb53c6e2fc56b05988738bb8deef814f2772fb7cb2dcd5",
+   "text_sha256": "3bb79203f93c05f7f9eb53c6e2fc56b05988738bb8deef814f2772fb7cb2dcd5",
+   "tokens": 1197,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/__init__.py",
+   "url": null,
+   "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "tokens": 0,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/task.py",
+   "url": null,
+   "raw_sha256": "6d0204ea5dad996981c4721acb1a1d419a62733ac35616899ddfc46f7037564c",
+   "text_sha256": "6d0204ea5dad996981c4721acb1a1d419a62733ac35616899ddfc46f7037564c",
+   "tokens": 1552,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/task_controller.py",
+   "url": null,
+   "raw_sha256": "f4eadd95474a19bd854700eab5fbb6ea09363cb7501f23ef0ee82b5be86ca166",
+   "text_sha256": "f4eadd95474a19bd854700eab5fbb6ea09363cb7501f23ef0ee82b5be86ca166",
+   "tokens": 6449,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/task_worker.py",
+   "url": null,
+   "raw_sha256": "d09d6868bcadb1a5d3282434bbc1ae45a5391d6054c4a1197b80d80236d07551",
+   "text_sha256": "d09d6868bcadb1a5d3282434bbc1ae45a5391d6054c4a1197b80d80236d07551",
+   "tokens": 2390,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/tasks/__init__.py",
+   "url": null,
+   "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "tokens": 0,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/tasks/medagentbench/__init__.py",
+   "url": null,
+   "raw_sha256": "d31253d5ea40c033d64e1b43599b4a258de55c3512aab79f66c623a488116668",
+   "text_sha256": "259de70745bf4e962d867432e0093e326d67cebe7a86c9cac01fb58a3cb8b50c",
+   "tokens": 1548,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/tasks/medagentbench/eval.py",
+   "url": null,
+   "raw_sha256": "a14ceb5fd3883ec22f3aebb98124a02d9b73e0295b90aad21d7013d8b3e1c3a6",
+   "text_sha256": "a14ceb5fd3883ec22f3aebb98124a02d9b73e0295b90aad21d7013d8b3e1c3a6",
+   "tokens": 110,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/server/tasks/medagentbench/utils.py",
+   "url": null,
+   "raw_sha256": "05e539e32ffee34d7bb016bd40edd63c14ec05b02f19b0a188c2bd21d3d78a65",
+   "text_sha256": "05e539e32ffee34d7bb016bd40edd63c14ec05b02f19b0a188c2bd21d3d78a65",
+   "tokens": 315,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/start_task.py",
+   "url": null,
+   "raw_sha256": "8624b95590dfe17d4276b5c21f8a85534dc3aca929d6f54c55644c92ebc89341",
+   "text_sha256": "8624b95590dfe17d4276b5c21f8a85534dc3aca929d6f54c55644c92ebc89341",
+   "tokens": 1121,
+   "truncated": false
+  },
+  {
+   "surface": "S4",
+   "path": "src/typings/config.py",
+   "url": null,
+   "raw_sha256": "c46152ae312fcd567d1b87005e156a7fdff2856cae9d17aef04aecc8fb90eb4f",
+   "text_sha256": "c46152ae312fcd567d1b87005e156a7fdff2856cae9d17aef04aecc8fb90eb4f",
+   "tokens": 1402,
+   "truncated": false
+  }
+ ],
+ "n_files": 33,
+ "n_chunks": 114,
+ "n_s5_chunks": 1,
+ "total_chunk_tokens": 35919,
+ "source_tokens_by_surface": {
+  "S1": 9410,
+  "S2": 913,
+  "S4": 22915
+ },
+ "packet_sha256": "7cb4fa0e85a3b62038a9fee90e465d38434b7bda242b79238b603e114bd35d0a",
+ "params": {
+  "chunk_tokens": 400,
+  "overlap_tokens": 50,
+  "chars_per_token": 4,
+  "s4_rule": "s4-rule-v1",
+  "s4_keywords": [
+   "tool",
+   "tools",
+   "env",
+   "environment",
+   "grader",
+   "eval",
+   "judge",
+   "metric",
+   "prompt",
+   "config",
+   "task",
+   "agent",
+   "sandbox",
+   "server",
+   "fhir",
+   "api"
+  ],
+  "s4_exts": [
+   ".py",
+   ".json",
+   ".yaml",
+   ".yml",
+   ".toml",
+   ".md",
+   ".txt",
+   ".jsonl"
+  ],
+  "s4_max_bytes": 204800,
+  "s4_max_files": 300,
+  "s4_data_lines": 50
+ },
+ "privacy_exclusion": {
+  "date": "2026-10-05",
+  "n_removed_chunks": 2,
+  "note": "files and chunks that hold patient-identifier fields were removed before coding; names withheld"
+ }
+}

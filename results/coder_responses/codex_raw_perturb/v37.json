@@ -1,0 +1,418 @@
+[
+  {
+    "item": "C1",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:27-30",
+        "text": "grounded in real patient data from MIMIC-IV-FHIR"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet names MIMIC-IV-FHIR and gives FHIR version information, plus task-to-record traceability through FHIR resource IDs. The paper describes question-context-FHIR resource-answer pairs."
+  },
+  {
+    "item": "C2",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:86-90",
+        "text": "grounded in anonymized patient data"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The origin is stated as MIMIC-IV-FHIR/MIMIC-IV and the paper says the patient data are anonymized. The packet does not document licence or terms plus consent/IRB status."
+  },
+  {
+    "item": "C3",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:30-37",
+        "text": "comparing the benchmark population's age, sex, and racial composition to the U.S. adult hospitalized population"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Representativeness is analysed against a named target population, the U.S. adult hospitalized population. The features compared include age, sex and race."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:169-193",
+        "text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports both unsafe-output testing and bias testing. That satisfies both required parts of the anchor."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:139-173",
+        "text": "gating access to the test split. Measurement of verbatim overlap with public web corpora revealed zero exact matches"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports a developer-side control, gated test access, plus a measured overlap check. This meets the full anchor."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:193-206",
+        "text": "labels reside in an independent evaluation service disconnected from the agent sandbox with no network route"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states that ground truth is isolated from runtime agent access. It also names the mechanism: disconnected service, no network route, and unpublished labels."
+  },
+  {
+    "item": "C7",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:17-20",
+        "text": "The FHIR version used in FHIR-AgentBench is L7 FHIR R4 (v4.0.1)"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Some data or environment components are pinned, including the FHIR version and release references. However, the setup still depends on live external services such as a FHIR store and LLM APIs, so the environment is not fully frozen."
+  },
+  {
+    "item": "C8",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for a scripted reference solution run through the grader or explicit oracle-solver result. The packet reports SQL-derived answers and validation steps, but not an oracle solver graded as a benchmark agent."
+  },
+  {
+    "item": "C9",
+    "score": "NA",
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for environment-mutating tasks. The benchmark is question answering and retrieval over patient records, and the reported tools are read/reasoning tools rather than state-changing actions."
+  },
+  {
+    "item": "C10",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:27-30",
+        "text": "identifying the relevant ones is akin to finding a needle in a haystack"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper gives a design argument that trivial retrieval is unlikely because agents must identify relevant resources among about 9K per patient. It does not report a random or trivial-agent empirical rate."
+  },
+  {
+    "item": "C11",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for do-nothing or random-agent results. The packet reports several LLM agent baselines but no trivial-agent score."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:119-144",
+        "text": "Robustness of LLM-based evaluation based on manual evaluation of 500 samples."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark validates its LLM evaluator on its own outputs with manual evaluation. The table reports match counts and evaluator accuracy figures."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-5",
+        "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports temperature 0, a fixed seed and a repeated-run policy, satisfying the full anchor. S4 contains a conflicting statement about five runs and temperature 0.7, so the contradiction flag is set."
+  },
+  {
+    "item": "C14",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for confidence intervals or significance tests on headline model comparisons. The public reporting surfaces provide point estimates and comparison claims, but no CI or statistical test for those comparisons."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-5",
+        "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1-S3 state the run count and seed/temperature policy, but do not state independence of runs. S4 conflicts with the reported run count and temperature."
+  },
+  {
+    "item": "A2",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for CI or SE on headline scores, resampling unit, and clustering handling. These are not reported on S1-S3."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:218-230",
+        "text": "each task executed eight times. We report pass^8"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports eight reruns per task and a pass^8 metric. It also mentions agreement rates of final environment state, satisfying the action/state repeat-run reliability anchor."
+  },
+  {
+    "item": "A4",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:139-173",
+        "text": "temperature 0 and a maximum of 2,048 output tokens; all reported numbers correspond to harness release v1.2.0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Decoding parameters and a harness release are stated. Exact model identifiers are not counted because the snapshot identifiers in the added statement do not match the reported model set such as o4-mini and Gemini-2.5-Flash."
+  },
+  {
+    "item": "A5",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types."
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "documentation states for every tool whether it only reads or also writes state"
+      },
+      {
+        "chunk_id": "S5:tools/resource_tools.py:79-120",
+        "text": "\"description\": \"Get FHIR resources by patient FHIR ID\""
+      }
+    ],
+    "s5_reach": false,
+    "rationale": "S1 reports schema, side-effect documentation, and return/error semantics for every tool. However, the S5 tool descriptions shown in the packet do not state read/write side effects, so S5 reach for element ii is false and the reported property is contradicted."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:230-243",
+        "text": "We ran conformance tests confirming that each tool behaves as documented."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "S1 reports conformance tests and discloses two simulated stubs. Because simulation exists, full credit needs disclosure reaching S5, but the S5 excerpts do not show stub disclosure."
+  },
+  {
+    "item": "A7",
+    "score": "NA",
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5 checked for actions that mutate environment state or represent clinical orders, prescriptions, notes, or messages. The benchmark’s tools retrieve FHIR data or execute analysis code; no write clinical action is part of the task."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:119-144",
+        "text": "manual evaluation of 500 samples"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The grader inputs are final answers and retrieved resources, with an LLM correctness evaluator. The non-state answer grader is justified by semantic matching rules, and the evaluator is validated on 500 manually labelled samples with per-class figures."
+  },
+  {
+    "item": "A9",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:193-206",
+        "text": "labels reside in an independent evaluation service disconnected from the agent sandbox with no network route"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports controls against answer leakage through runtime access and states labels are not public. No canary or provenance marker is reported."
+  },
+  {
+    "item": "A10",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:139-173",
+        "text": "Overall | 0.4082 | 0.5821 | 0.3333"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports results by FHIR resource/task partition such as Condition, Encounter, Observation, and Empty. The packet does not report results by patient demographic subgroup or slice sizes with those slice results."
+  },
+  {
+    "item": "A11",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2509.19319v2.html:27-30",
+        "text": "grounded in real patient data from MIMIC-IV-FHIR"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The source of patient records is stated as real patient data from MIMIC-IV-FHIR. The packet does not state IRB/DUA/de-identification method or separate redistribution terms for environment data."
+  }
+]

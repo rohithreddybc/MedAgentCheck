@@ -1,0 +1,35 @@
+{
+ "bench": "medsp1000",
+ "item": "A9",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:96-97",
+    "text": "no agent should access privileged information assigned to another role which could compromise the integrity of the evaluation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Role packets and a leakage audit control what the agent-visible prompt contains. No held-out or private split exists since the rubrics and scenario data are public, and no canary string is reported. Tool, retrieval and web-access controls are not described.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "1ee81f2e2d39db275711dc366eec1bda355f1927617a4b07fe9502413f45ddd8",
+ "packet_sha256": "59396e28124f6efa175831911368216338e09eba6a654b52bfa7618aaa0fd34c",
+ "timestamp": "2026-10-05T21:00:03Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/medsp1000.json"
+}

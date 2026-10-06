@@ -1,0 +1,376 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:37-41",
+    "text": "From EHR observation data (50,000 records of 695 patients), we extracted scenarios matching each of the failure modes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper identifies EHR observation data and gives record and patient counts. It also says MRNs link tasks to records, but it does not provide a dataset name, version or snapshot date, and platform traceability sufficient for full credit."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:37-41",
+    "text": "Tasks are synthesized by extracting real patient scenarios (e.g., MRN, timestamps, demographics, lab results) from the EHR database"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The origin is stated as an EHR database and real patient scenarios. The packet does not document licence or terms, consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:37-41",
+    "text": "From EHR observation data (50,000 records of 695 patients), we extracted scenarios matching each of the failure modes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives descriptive counts and describes sampling by failure modes and lab/task categories. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet discusses clinical safety implications, but no dedicated unsafe-output test or bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Models operate in stateless mode (temperature=0, no conversation history) to prevent memorization effects."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A contamination-related control is reported through stateless evaluation with no conversation history. There is no measured overlap, canary, gating, encryption, or held-out contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark reports ground-truth values and exact-match grading, but does not state that agents cannot access ground truth at run time or name an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No repo commit, data snapshot, software version, or frozen evaluator/simulator environment is pinned in the packet."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:54-58",
+    "text": "HITL) clinical experts were engaged to validate a representative subset of synthetic tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports manual expert validation of a representative subset, which is manual solvability/correctness evidence. It does not report a scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Some tasks involve ordering interventions or POST MedicationRequest actions, so NA does not apply. The packet does not report checks that unchanged or irrelevant state remains unchanged."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:47-53",
+    "text": "Each task (see Fig 2 in Appendix) comprises four key components:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The structured task design with instruction, context, ground truth, and patient MRN is a design argument that trivial success is unlikely. The packet does not report a random/trivial-agent rate or explicit chance rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Results are reported only for GPT-4o-mini and Claude 3.5 Sonnet, with no do-nothing or random agent result."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:54-58",
+    "text": "Each generated task undergoes a multi-tier validation process to ensure clinical accuracy and consistency with the source electronic health record"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports validation of generated tasks and consistency with source EHR data. It gives no agreement or error figures for the automatic evaluator on benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Models operate in stateless mode (temperature=0, no conversation history) to prevent memorization effects."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 and stateless mode are stated. No repeated-run policy is reported, so this is only partial."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports success rates but no confidence intervals, standard deviations, ranges, or statistical tests for model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Models operate in stateless mode (temperature=0, no conversation history) to prevent memorization effects."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports a decoding control, temperature 0. It does not state the number of runs per task behind each headline score or whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No CI or SE is reported, no resampling or variance unit is stated, and clustering within patients or templates is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report identical reruns, action-sequence agreement, final-state agreement, or pass^k-style metrics."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Models operate in stateless mode (temperature=0, no conversation history) to prevent memorization effects."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names GPT-4o-mini and Claude 3.5 Sonnet, but not exact provider snapshot IDs or dates for reported runs. It reports decoding parameters for temperature and conversation history, but no harness version or commit."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "executing tasks against a live EHR environment via FHIR-compliant API calls."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines tool/API use, so NA does not apply. The paper discloses FHIR API calls and a POST MedicationRequest example, giving partial side-effect information, but no machine-readable schema or error/return semantics are shown; no S5 chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark uses a FHIR tool/API interface, so NA does not apply. The packet does not report tool conformance tests, simulated/stubbed/no-op behavior, or agent-visible disclosure of such behavior."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:27-30",
+    "text": "POST {fhir_api_base} MedicationRequest"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The packet identifies a clinical write action, POST MedicationRequest, so NA does not apply. It does not state whether writes are executed, simulated, or sandboxed, nor whether unsafe or unnecessary writes are penalized; no S5 chunks are present."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Each task is scored by exact-match comparison against ground-truth values computed from the EHR database."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is an answer/result string compared by exact match to ground truth. The paper notes a limitation of exact-match grading, but does not give a rationale sufficient for non-state grading or validation with labelled correct and incorrect outcomes."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Models operate in stateless mode (temperature=0, no conversation history) to prevent memorization effects."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The stateless, no-conversation-history setup is a control on cross-task memory leakage. The packet does not report a held-out/private split or canary/provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:58-63",
+    "text": "Success Rate (SR, %) with 200 tasks per category."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by task family with slice sizes of 200 tasks per category. Demographic fields exist in the benchmark context, but no patient subgroup results are reported."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.08988v1.html:37-41",
+    "text": "The real clinical data (e.g., lab results, timestamps, patient demographics) remains authentic and unchanged"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of patient records is stated as real clinical/EHR data with synthesized instructions. The packet does not report IRB, DUA, credentialing, de-identification method, or separate redistribution terms for environment data."
+ }
+]

@@ -1,0 +1,48 @@
+{
+ "bench": "medsp1000",
+ "item": "A4",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:124-127",
+    "text": "We evaluated the model version gemini-3.1-pro-preview using the official API."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "are implemented using deterministic decoding (temperature = 0)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "are implemented using deterministic decoding (temperature = 0)"
+   },
+   {
+    "chunk_id": "S4:src/simulate/api.py:94-130",
+    "text": "默认采样温度：None 表示完全不向后端传 temperature（与历史评测行为字节级一致）"
+   }
+  ],
+  "rationale": "Exact identifiers (claude-opus-4-7, gpt-5.5, gemini-3.1-pro-preview, deepseek-v4-pro, Hugging Face IDs) and release dates are given for evaluated models, and temperature 0 is stated. No harness tag or commit is tied to the reported numbers. Note: S4 example config sets the simulator agents to gpt-5.5, whereas S1 names DeepSeek-V4-Pro, and the evaluator model is not named in S1; code also does not send temperature by default.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "1ee81f2e2d39db275711dc366eec1bda355f1927617a4b07fe9502413f45ddd8",
+ "packet_sha256": "59396e28124f6efa175831911368216338e09eba6a654b52bfa7618aaa0fd34c",
+ "timestamp": "2026-10-05T21:00:03Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/medsp1000.json"
+}

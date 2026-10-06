@@ -1,0 +1,443 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:210-216",
+    "text": "ABRA draws its studies from three public collections, all accessed through TCIA"
+   },
+   {
+    "chunk_id": "S2:README.md:24-83",
+    "text": "The manifest captures the DICOM metadata that the task generator depends on"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:233-237",
+    "text": "Each generator instantiates a fixed text template with fields drawn from the dataset and per-study metadata (patient ID, study UID, series UID"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Three named TCIA datasets with citations, a committed study manifest that README says pins the dataset version the benchmark was authored against, and per-task fields (patient ID, study UID, series UID) give a route to the source record. No explicit dataset version or snapshot date is given, so the version element rests on the manifest."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:210-216",
+    "text": "ABRA draws its studies from three public collections, all accessed through TCIA"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:217-225",
+    "text": "Saha et al. [2021] | CC BY-NC 4.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (TCIA collections), local filtering as collection method, and per-dataset licences in Table 6 are documented. No consent or IRB status or explicit 'not required' statement appears, so not 2. Repo is MIT while Duke data is CC BY-NC 4.0, recorded as a note only."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:532-532",
+    "text": "the datasets also share a single US-clinical sourcing population"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:532-532",
+    "text": "The patient counts are modest, particularly for LIDC at 20 studies"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Cohort sizes and modality counts are described (Tables 6-7) and limitations disclose small, single-population sampling (G5). No comparison against a named target population is made."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (main text, appendices A-F, limitations in Appendix D), S2 (README), S3 (no chunks), S4, S5. No dedicated unsafe-output test or bias/subgroup fairness test is reported; the paper only states it does not claim clinical readiness."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4, S5. Tasks, generators and scorers are released publicly; no gating, canary, held-out set, encryption or overlap check is described."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (3.1 episode dynamics, 3.2 initialization, B.3), S2, S3 (no chunks), S4, S5. Papers states what is not pre-loaded into the initial context and that real variants have no detector tool, but never states that the agent cannot reach ground truth at run time or names an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:165-171",
+    "text": "an OHIF viewer (v3.9.0) fronted by a custom extension"
+   },
+   {
+    "chunk_id": "S2:README.md:78-135",
+    "text": "# Verify it matches the manifest in the repo (only generated_at should differ)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Task data is pinned through a committed manifest with a diff check, tasks are deterministic given the manifest, OHIF is pinned to v3.9.0, and there is no judge model. Other services (Orthanc and preprocessor containers, Python dependencies) are not stated as pinned on S1-S3, so not 2."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:1-5",
+    "text": "on the paired oracle variant where a simulated detector supplies the finding, Outcome on the same task reaches 69–100%"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Oracle variants show the tasks are solvable and gradable when the finding is supplied, but this is agent-based evidence. No scripted reference solution is run through the grader and reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (4.3, B.4, Table 3 and Table 11), S2, S3 (no chunks), S4, S5. Tasks change viewer and segmentation state, so NA does not apply. Scorers check target fields, answer strings and false-positive findings; no check that unrelated state is unchanged is described."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:108-116",
+    "text": "which admits competitive scores from prior-based guessing on a well-known categorical distribution and earns partial credit on off-by-one ordinal errors"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper discloses that BI-RADS scoring admits prior-based guessing and off-by-one credit (G5), and uses best-fit-shape IoU normalisation as a design argument. No empirical random or trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 4, 5, 13, 14-17), S2 (leaderboard is empty placeholder), S3 (no chunks), S4, S5. No do-nothing or random agent score is reported for any task."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (4.3, Appendices B.4, C, D), S2, S3 (no chunks), S4, S5. Scorers are deterministic but no scorer tests, reference-solution run or agreement figures are reported on S1-S3; the paper states the reference trajectories are not radiologist-validated."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:90-94",
+    "text": "decode at temperature 0 with provider-default reasoning effort (medium across all evaluated models), and report a single run per (model, task) pair"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 and a single-run policy are stated in S1; README documents repeat and pass^k options. Provider-default reasoning effort leaves residual non-determinism, noted."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 4, 5, 13 and text), S2, S3 (no chunks), S4, S5. No CI, SD, or significance test is reported for model comparisons; single-run point estimates only."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:90-94",
+    "text": "decode at temperature 0 with provider-default reasoning effort (medium across all evaluated models), and report a single run per (model, task) pair"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Run count (one run per model-task pair) and decoding controls (temperature 0, medium reasoning effort) are stated. Run independence is not addressed. element_flags 2/3."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:532-532",
+    "text": "yield many independent tasks per study, so the task budget is not directly bottlenecked by patient count"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No CI or SE on headline scores and no resampling unit is named. Task clustering within studies is discussed (tasks-per-study, annotation density) but only by asserting independence, so element (iii) is marked present with low confidence. element_flags 1/3."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:207-248",
+    "text": "# 4 viewers × 8 repeats per task → 32 concurrent units of work"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "README documents a runner that reports pass^k over repeats, but the paper reports a single run per pair and publishes no pass^k, action- or state-level agreement results. Scored 1 as a documented but unreported capability. element_flags 1/3."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:94-107",
+    "text": "API snapshots: GPT-5.4 ( gpt-5.4-2026-03-05 ), GPT-5.4-nano ( gpt-5.4-nano-2026-03-17 )"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:90-94",
+    "text": "decode at temperature 0 with provider-default reasoning effort (medium across all evaluated models)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:90-94",
+    "text": "we additionally cap output at 20,048 tokens per response"
+   },
+   {
+    "chunk_id": "S4:configs/agents/gemma4-ollama.yaml:1-8",
+    "text": "max_tokens: 262144"
+   },
+   {
+    "chunk_id": "S4:configs/agents/gpt-5.4.yaml:1-6",
+    "text": "model: gpt-5.4"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "Snapshot IDs are given for only four of ten models; the rest are family names, and the S4 GPT configs use aliases differing from the S1 snapshots (counts as absent). Decoding parameters (temperature 0, output cap, reasoning effort) are stated; no harness tag or commit is tied to the results. S4 output caps (20480 for claude and gpt; 262144 and 65536 for Ollama configs) disagree with the stated 20,048. element_flags 1/3."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:66-74",
+    "text": "Each tool is presented as a typed JSON function-calling schema (in the form introduced by OpenAI)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:177-183",
+    "text": "ABRA exposes observations as a set of read-only tools the agent invokes on demand."
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:50-54",
+    "text": "Navigation and display actions modify the active viewport and therefore change what the agent will next observe."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Typed JSON schemas for all tools and read-only versus state-changing classification by category are documented; success returns are described per tool but error and failure return semantics are not on S1-S3. S5 tool descriptions state returns and that submit tools are terminal and use read/write verbs, so side-effect information partly reaches S5. element_flags 2/3."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:189-195",
+    "text": "we expose two oracle tools that simulate calls to external CAD models"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses that the oracle tools simulate external CAD models. No tool tests or conformance checks are reported on S1-S3 (e2e and unit tests exist only in S4). S5 descriptions and task prompts call them an external pathology detection or breast MRI CAD model without saying they are simulated, so the disclosure does not reach the agent. element_flags 1/3."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:50-54",
+    "text": "Segmentation actions deposit region-of-interest annotations in pixel coordinates."
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:42-44",
+    "text": "Episodes run in isolated browser contexts, which makes them cheap to parallelise and trivially resettable between runs."
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:81-91",
+    "text": "Detection rate minus 0.1 per false positive"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Applicable because viewport and annotation actions change state. Writing actions are identified (navigation, segmentation, terminal reporting), execution is in a resettable isolated live viewer, and extraneous calls and false-positive findings are penalised (redundancy penalty, FP penalty). Element (iii) is general rather than specific to unsafe clinical writes. Nothing in S5 says writes are sandboxed. element_flags 3/3."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:44-48",
+    "text": "the ordered sequence of tool calls, per-call return values and execution metadata, and the final structured deliverable"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader inputs are named (trajectory log, final viewport state, answer string, deliverable) and a rationale is given for unordered trajectory matching. No validation of the grader on labelled correct and incorrect outcomes with error rates is reported. element_flags 2/3."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:301-314",
+    "text": "isolating evaluation from ordering effects or leakage across episodes"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Per-episode reset, no preloaded pixels, tags or oracle predictions, and the real variant exposing no detector tool are described as controls against cross-episode and tool leakage. No private or held-out split (tasks and expected outcomes are public) and no canary or provenance marker. element_flags 1/3."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:365-385",
+    "text": "n is the number of tasks of the type."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per task type and difficulty tier with n per slice (Table 13). No patient-subgroup results although the source cohorts carry demographic fields, and no statement that none exist. element_flags 2/3."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:210-216",
+    "text": "ABRA draws its studies from three public collections, all accessed through TCIA"
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.11224v1.html:217-225",
+    "text": "Gong et al. [2025] | CC BY 4.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records come from named public TCIA clinical collections, and data licences (CC BY 3.0, CC BY-NC 4.0, CC BY 4.0) are listed separately from the repo MIT licence. No IRB determination, DUA or de-identification method is stated, and 'de-identified' is not used. element_flags 2/3."
+ }
+]

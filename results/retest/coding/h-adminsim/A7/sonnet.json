@@ -1,0 +1,39 @@
+{
+ "bench": "h-adminsim",
+ "item": "A7",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2602.05407v3.html:51-61",
+    "text": "Schedule changes—rescheduling or cancellation—are handled by updating or deleting the relevant Appointment resources."
+   },
+   {
+    "chunk_id": "S1:arxiv/2602.05407v3.html:51-61",
+    "text": "All FHIR operations are executed in real time throughout the simulation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Actions that create, update or delete Patient and Appointment records are named and said to execute against the FHIR server (optional in the README). The agent-visible prompts do not say writes are executed or simulated. The rubric scores schedule correctness, but no penalty for unsafe or unnecessary writes is described.",
+  "s5_reach": false
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "d41f39a98d94c2a5c6934b418f53538c24cb0049e2102f1bcb9667e7eabc8bef",
+ "packet_sha256": "75f24bb16211681890b1ec5c252a12a2d340e1d69c930b49acdc8161604324ba",
+ "timestamp": "2026-10-05T20:59:59Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/h-adminsim.json"
+}

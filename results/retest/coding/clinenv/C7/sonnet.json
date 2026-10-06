@@ -1,0 +1,35 @@
+{
+ "bench": "clinenv",
+ "item": "C7",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:38-43",
+    "text": "ClinEnv is built from MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2 ( Johnson et al., 2023b )."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:123-128",
+    "text": "Otherwise, both names are resolved to ATC codes via the RxNorm API."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Source data are version-pinned, but evaluation relies on live external services (the RxNorm API, embedding retrieval and LLM rerankers/judges) and the environment agents and judge are identified only by family name in the paper. This matches the 1 anchor: data pinned, evaluators or services live or unpinned.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "ee89ff91303ec146a43b6a681e6915ee713e8a907262c95b46371cadc71f15d8",
+ "packet_sha256": "12bec17ff6d473360fd9519d43ef3efa08f399143bd92ca474a22ff2c0869e13",
+ "timestamp": "2026-10-05T20:59:54Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/clinenv.json"
+}

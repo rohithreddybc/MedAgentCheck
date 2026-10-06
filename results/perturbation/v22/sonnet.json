@@ -1,0 +1,1658 @@
+{
+ "variant": "v22",
+ "benchmark": "arxiv:2605.09679",
+ "bench": "arxiv_2605.09679",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "mode": "packet_v3_multiplexed",
+ "cap_tokens": 150000,
+ "rendered_packet_sha256": "35eb9d76794f4201ae7278398a1c376ccede9a85ba962a40863ee6b4c5002c0c",
+ "n_dropped_chunks": 0,
+ "over_cap": false,
+ "groups": [
+  [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "C8",
+   "C9",
+   "C10",
+   "C11",
+   "C12",
+   "C13",
+   "C14",
+   "A1",
+   "A2",
+   "A3",
+   "A4",
+   "A5",
+   "A6",
+   "A7",
+   "A8",
+   "A9",
+   "A10",
+   "A11"
+  ]
+ ],
+ "attempts": [
+  {
+   "group": 1,
+   "timestamp": "2026-10-06T11:47:09Z",
+   "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+   "usage": {},
+   "meta": {
+    "transport": "subagent",
+    "attempts": 1
+   },
+   "raw_response": "[\n{\"item\":\"C1\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:227-229\",\"text\":\"DeepTumorVQA aggregates CT volumes from 17 publicly available abdominal CT datasets spanning diverse clinical contexts\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:214-225\",\"text\":\"1. CHAOS [ 2018 ] [ link ] | 20 | 1 | 2. Pancreas-CT [ 2015 ] [ link ] | 42 | 1\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Source datasets are named with year, link and volume counts in Table 6, which is a named source with version-level information. No explicit route from a task or question back to its source record is described in S1-S3, so level 2 is not met.\"},\n{\"item\":\"C2\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:224-227\",\"text\":\"All 17 source datasets are publicly available under their respective licenses\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Origin (17 public abdominal CT datasets), collection method and licence terms (CC-BY-4.0 for annotations, source licences for derived images) are documented. No consent, IRB status or explicit 'not required' statement appears in S1-S3, so level 2 is not reached. The sentence about task content derived from hospital-style clinical records is vague and conflicts with the public-dataset origin, so it was not used.\"},\n{\"item\":\"C3\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:229-231\",\"text\":\"Organ coverage statistics: liver is present in 100% of volumes (9,262/9,262), kidneys in 99.8%\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Descriptive statistics (organ coverage, lesion counts, demographic and depth distributions in Figure 3) and a stated selection design are given. There is no comparison against a named target population. The vague statement that patient cases were chosen to cover diverse conditions does not add a sampling rule.\"},\n{\"item\":\"C4\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"a separate bias test that compares agent accuracy across patient demographic groups.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The paper's additional notes state both a dedicated unsafe-output test suite and a separate demographic bias test, which meets the level-2 anchor as reported. The content (medication orders) sits oddly with a read-only CT VQA benchmark, but it is reported on S1 and scored as stated.\"},\n{\"item\":\"C5\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:696-701\",\"text\":\"Released tasks include a canary string.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:696-701\",\"text\":\"A private held-out test split with concealed labels is excluded from all public surfaces.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:438-441\",\"text\":\"verified by BDMAP-id intersection =0\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Developer-side controls are stated (canary string, private held-out split with concealed labels), and a measured overlap check is reported (zero train/test volume-ID intersection). Together these meet level 2.\"},\n{\"item\":\"C6\",\"score\":0,\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1, S2, S3, S4, S5. No S1-S3 statement says the agent cannot reach ground-truth answers at run time with a mechanism; the web-blocking sentence concerns search leakage (scored under A9). The isolation comment in agent_eval/notes.py is code and does not count as reporting (G1a).\"},\n{\"item\":\"C7\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:43-49\",\"text\":\"All modalities are pre-computed for reproducible evaluation.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:79-94\",\"text\":\"All reported results match harness version v1.2.0.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Inputs and tool outputs are pre-computed and cached, scoring is deterministic with no judge model, and a harness version is stated. The dataset version is not pinned consistently (paper cites DeepTumorVQA_1.0, README cites DeepTumorVQA_2.0) and no software or dependency pin for evaluation is reported, so level 2 is not met.\"},\n{\"item\":\"C8\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:49-54\",\"text\":\"In oracle mode, tools return ground-truth values from expert segmentation masks (upper bound).\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Only agent-based and manual solvability evidence is reported (oracle-tool agents, radiologist baselines at 45.0% and 54.5%). No scripted reference solution run through the grader is reported on S1-S3. The 'all 120 reference solutions graded correct' comment in agent_eval/notes.py is code and does not count.\"},\n{\"item\":\"C9\",\"score\":\"NA\",\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1, S2, S3, S4, S5. All four tools (segment_organ, measure, lookup_medical_knowledge, crop_region) read cached or computed values and the final output is an answer; no task changes environment state, so the NA clause applies.\"},\n{\"item\":\"C10\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:588-598\",\"text\":\"giving a benchmark-wide weighted random baseline of approximately 30–35%\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:354-359\",\"text\":\"Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Explicit chance rates are given per template and per task type (50% binary, 25% four-option) and as a benchmark-wide baseline. A do-nothing and random-action agent score is also stated. Level 2.\"},\n{\"item\":\"C11\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:354-359\",\"text\":\"Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A no-action agent (0.0%) and a random-action agent (2.5%) are reported across all tasks as stated. The '120 tasks' count differs from the 10,000-question benchmark elsewhere in the paper, but the sentence is scored as reported.\"},\n{\"item\":\"C12\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:214-225\",\"text\":\"Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The benchmark reports its own grader validation on injected correct and incorrect outcomes with false-acceptance and false-rejection figures. This meets level 2. Appendix aa also re-scores measurement subtypes under tolerance-based accuracy.\"},\n{\"item\":\"C13\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"Each task was run five times per model with independent random seeds; the temperature was set to 0.7\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"the temperature was set to 0.7\"},{\"chunk_id\":\"S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83\",\"text\":\"temperature: float = 0.0,\"}],\"s5_reach\":null,\"rationale\":\"S1 states independent seeds, a temperature and a five-run policy, which meets level 2 as reported. The reference agent code defaults to temperature 0.0 and the README example uses do_sample=False, and Appendix n of the paper says greedy decoding, so the reported temperature 0.7 is a candidate contradiction.\"},\n{\"item\":\"C14\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:54-61\",\"text\":\"95% binomial CIs are \\\\pm 1.0% at N =10,000, so all differences > 2pp are statistically significant\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Binomial 95% CIs are reported for the headline comparisons, with a clustered bootstrap check at volume level and Cohen's h effect sizes for key model comparisons (Appendix n). This meets level 2.\"},\n{\"item\":\"A1\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"Each task was run five times per model with independent random seeds; the temperature was set to 0.7\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:853-856\",\"text\":\"the temperature was set to 0.7\"},{\"chunk_id\":\"S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83\",\"text\":\"temperature: float = 0.0,\"}],\"s5_reach\":null,\"rationale\":\"S1 states the run count (five per task), the seed and temperature policy, and that runs are independent. The reference code defaults to temperature 0.0 and Appendix n states greedy decoding on a single fixed pass, which conflicts with the five-run temperature-0.7 statement.\"},\n{\"item\":\"A2\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:575-588\",\"text\":\"a clustered bootstrap that resamples at the volume level (991 test volumes) yields CIs roughly 1.3 \\\\times wider\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Binomial CIs on headline scores are reported (i), the unit is the question and, for the clustered check, the CT volume (ii), and non-independence of questions sharing a volume is addressed with a clustered bootstrap (iii).\"},\n{\"item\":\"A3\",\"score\":0,\"elements\":[false,false,false],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1, S2, S3, S4, S5. No agreement of actions, sequences or final state across identical reruns and no pass^k metric is reported; the five-run mean statement gives no variation figure, and the exact-sequence-match figures compare against ground-truth traces rather than reruns.\"},\n{\"item\":\"A4\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:79-94\",\"text\":\"API calls used snapshot IDs gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022 with temperature 0 and 2,048-token output ceiling.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:79-94\",\"text\":\"All reported results match harness version v1.2.0.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Snapshot IDs, decoding parameters (temperature 0, output ceiling) and a harness version stated as matching the reported numbers are all given. The named snapshots are not models in the results tables, which is noted but does not change the element presence; no differing S4 identifier for these models exists.\"},\n{\"item\":\"A5\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:419-430\",\"text\":\"Tools are specified using JSON schemas with name, arguments, and types.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:419-430\",\"text\":\"Documentation for each tool declares whether it reads or modifies state and describes return values, including error messages for invalid arguments.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":false,\"rationale\":\"JSON schemas, read/modify declarations and return semantics including errors are stated, and Appendix z lists inputs and outputs per tool. The agent-visible tool descriptions in code give no read-versus-write declaration, so (ii) is not observed on S5 despite the S1 statement that agent prompts include the descriptions.\"},\n{\"item\":\"A6\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:833-849\",\"text\":\"We ran conformance tests confirming that each tool behaves as documented.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:833-849\",\"text\":\"Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:833-849\",\"text\":\"Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper\"},{\"chunk_id\":\"S4:src/deeptumorvqa/eval/tools.py:168-216\",\"text\":\"Run 3D segmentation on the CT scan. Returns voxel count and bounding\"}],\"s5_reach\":false,\"rationale\":\"S1 reports conformance tests, stub disclosure and that the disclosure appears in the agent-visible tool descriptions, so the reported score is 2. The agent-visible descriptions in tools.py describe live segmentation and measurement and contain no stub or cache disclosure, so the claimed S5 reach is flagged as a candidate contradiction.\"},\n{\"item\":\"A7\",\"score\":\"NA\",\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1, S2, S3, S4, S5. All four agent tools are read-only lookups, crops or measurements and the output is an answer; no action writes state or represents an order, prescription, note or message. The passing mention of medication orders in the safety-suite sentence does not describe an agent action.\"},\n{\"item\":\"A8\",\"score\":2,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:214-225\",\"text\":\"Grading operates on the final environment state.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:214-225\",\"text\":\"Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:214-225\",\"text\":\"Grading operates on the final environment state.\"},{\"chunk_id\":\"S4:src/deeptumorvqa/eval/metrics.py:212-262\",\"text\":\"pred_letter = extract_letter(pred_text)\"}],\"s5_reach\":null,\"rationale\":\"Grader input (end state) and validation on injected correct and incorrect outcomes with false-acceptance and false-rejection rates are reported, so the reported score is 2; element (ii) is not needed for an end-state grader. The scoring code grades extracted answer letters or text, not environment state, which is a candidate contradiction.\"},\n{\"item\":\"A9\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:696-701\",\"text\":\"Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:696-701\",\"text\":\"A private held-out test split with concealed labels is excluded from all public surfaces.\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:696-701\",\"text\":\"Released tasks include a canary string.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"S1 states web and retrieval blocking during runs, a private held-out split with concealed labels, and a canary string on released tasks, covering all three elements. The public 10K benchmark questions and answers themselves ship in the repository and on HuggingFace, which is recorded but does not affect the held-out split claim.\"},\n{\"item\":\"A10\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:454-462\",\"text\":\"per patient subgroup by sex and race, and each table lists the number of cases in every slice\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:676-684\",\"text\":\"We stratify accuracy by age, sex, CT scanner manufacturer, and contrast phase (Figure 6 ).\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Results are reported per task type and subtype (the benchmark's named axes), per patient subgroup (age, sex, scanner, contrast phase, and sex and race as stated), with slice sizes given (for example N=2,023 for Recognition and the per-condition N columns in Table 11).\"},\n{\"item\":\"A11\",\"score\":1,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:320-327\",\"text\":\"First, our visual inputs are real CT scans with real pathology\"},{\"chunk_id\":\"S1:arxiv/2605.09679v1.html:224-227\",\"text\":\"The DeepTumorVQA annotations, structured metadata, and benchmark questions contributed by this work are released under CC-BY-4.0.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The source is stated as real CT scans from public datasets, and data terms (CC-BY-4.0 for annotations, source licences for derived images) are stated separately from the Apache-2.0 code licence. No IRB determination, DUA or de-identification method is stated. The sentence about clinical records 'of the kind found in hospital databases' does not name a source type and was not scored.\"}\n]\n"
+  }
+ ],
+ "items": {
+  "C1": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:227-229",
+      "text": "DeepTumorVQA aggregates CT volumes from 17 publicly available abdominal CT datasets spanning diverse clinical contexts"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "1. CHAOS [ 2018 ] [ link ] | 20 | 1 | 2. Pancreas-CT [ 2015 ] [ link ] | 42 | 1"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Source datasets are named with year, link and volume counts in Table 6, which is a named source with version-level information. No explicit route from a task or question back to its source record is described in S1-S3, so level 2 is not met.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:227-229",
+      "text": "DeepTumorVQA aggregates CT volumes from 17 publicly available abdominal CT datasets spanning diverse clinical contexts",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "1. CHAOS [ 2018 ] [ link ] | 20 | 1 | 2. Pancreas-CT [ 2015 ] [ link ] | 42 | 1",
+      "words": 25,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C2": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+      "text": "All 17 source datasets are publicly available under their respective licenses"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Origin (17 public abdominal CT datasets), collection method and licence terms (CC-BY-4.0 for annotations, source licences for derived images) are documented. No consent, IRB status or explicit 'not required' statement appears in S1-S3, so level 2 is not reached. The sentence about task content derived from hospital-style clinical records is vague and conflicts with the public-dataset origin, so it was not used.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+      "text": "All 17 source datasets are publicly available under their respective licenses",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C3": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:229-231",
+      "text": "Organ coverage statistics: liver is present in 100% of volumes (9,262/9,262), kidneys in 99.8%"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Descriptive statistics (organ coverage, lesion counts, demographic and depth distributions in Figure 3) and a stated selection design are given. There is no comparison against a named target population. The vague statement that patient cases were chosen to cover diverse conditions does not add a sampling rule.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:229-231",
+      "text": "Organ coverage statistics: liver is present in 100% of volumes (9,262/9,262), kidneys in 99.8%",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C4": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "a separate bias test that compares agent accuracy across patient demographic groups."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The paper's additional notes state both a dedicated unsafe-output test suite and a separate demographic bias test, which meets the level-2 anchor as reported. The content (medication orders) sits oddly with a read-only CT VQA benchmark, but it is reported on S1 and scored as stated.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "a separate bias test that compares agent accuracy across patient demographic groups.",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C5": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Released tasks include a canary string."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:438-441",
+      "text": "verified by BDMAP-id intersection =0"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Developer-side controls are stated (canary string, private held-out split with concealed labels), and a measured overlap check is reported (zero train/test volume-ID intersection). Together these meet level 2.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Released tasks include a canary string.",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:438-441",
+      "text": "verified by BDMAP-id intersection =0",
+      "words": 5,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C6": {
+   "parsed": {
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1, S2, S3, S4, S5. No S1-S3 statement says the agent cannot reach ground-truth answers at run time with a mechanism; the web-blocking sentence concerns search leakage (scored under A9). The isolation comment in agent_eval/notes.py is code and does not count as reporting (G1a).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C7": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:43-49",
+      "text": "All modalities are pre-computed for reproducible evaluation."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "All reported results match harness version v1.2.0."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Inputs and tool outputs are pre-computed and cached, scoring is deterministic with no judge model, and a harness version is stated. The dataset version is not pinned consistently (paper cites DeepTumorVQA_1.0, README cites DeepTumorVQA_2.0) and no software or dependency pin for evaluation is reported, so level 2 is not met.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:43-49",
+      "text": "All modalities are pre-computed for reproducible evaluation.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "All reported results match harness version v1.2.0.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C8": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:49-54",
+      "text": "In oracle mode, tools return ground-truth values from expert segmentation masks (upper bound)."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Only agent-based and manual solvability evidence is reported (oracle-tool agents, radiologist baselines at 45.0% and 54.5%). No scripted reference solution run through the grader is reported on S1-S3. The 'all 120 reference solutions graded correct' comment in agent_eval/notes.py is code and does not count.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:49-54",
+      "text": "In oracle mode, tools return ground-truth values from expert segmentation masks (upper bound).",
+      "words": 13,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C9": {
+   "parsed": {
+    "score": "NA",
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1, S2, S3, S4, S5. All four tools (segment_organ, measure, lookup_medical_knowledge, crop_region) read cached or computed values and the final output is an answer; no task changes environment state, so the NA clause applies.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": "NA",
+    "effective": "NA",
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C10": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:588-598",
+      "text": "giving a benchmark-wide weighted random baseline of approximately 30–35%"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:354-359",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Explicit chance rates are given per template and per task type (50% binary, 25% four-option) and as a benchmark-wide baseline. A do-nothing and random-action agent score is also stated. Level 2.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:588-598",
+      "text": "giving a benchmark-wide weighted random baseline of approximately 30–35%",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:354-359",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C11": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:354-359",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A no-action agent (0.0%) and a random-action agent (2.5%) are reported across all tasks as stated. The '120 tasks' count differs from the 10,000-question benchmark elsewhere in the paper, but the sentence is scored as reported.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:354-359",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C12": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The benchmark reports its own grader validation on injected correct and incorrect outcomes with false-acceptance and false-rejection figures. This meets level 2. Appendix aa also re-scores measurement subtypes under tolerance-based accuracy.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C13": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "the temperature was set to 0.7"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83",
+      "text": "temperature: float = 0.0,"
+     }
+    ],
+    "rationale": "S1 states independent seeds, a temperature and a five-run policy, which meets level 2 as reported. The reference agent code defaults to temperature 0.0 and the README example uses do_sample=False, and Appendix n of the paper says greedy decoding, so the reported temperature 0.7 is a candidate contradiction.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "the temperature was set to 0.7",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83",
+      "text": "temperature: float = 0.0,",
+      "words": 4,
+      "verified": false,
+      "verified_strict": true,
+      "reason": "quote_too_short"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C14": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:54-61",
+      "text": "95% binomial CIs are \\pm 1.0% at N =10,000, so all differences > 2pp are statistically significant"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Binomial 95% CIs are reported for the headline comparisons, with a clustered bootstrap check at volume level and Cohen's h effect sizes for key model comparisons (Appendix n). This meets level 2.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:54-61",
+      "text": "95% binomial CIs are \\pm 1.0% at N =10,000, so all differences > 2pp are statistically significant",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "A1": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "the temperature was set to 0.7"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83",
+      "text": "temperature: float = 0.0,"
+     }
+    ],
+    "rationale": "S1 states the run count (five per task), the seed and temperature policy, and that runs are independent. The reference code defaults to temperature 0.0 and Appendix n states greedy decoding on a single fixed pass, which conflicts with the five-run temperature-0.7 statement.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+      "text": "the temperature was set to 0.7",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83",
+      "text": "temperature: float = 0.0,",
+      "words": 4,
+      "verified": false,
+      "verified_strict": true,
+      "reason": "quote_too_short"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A2": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:575-588",
+      "text": "a clustered bootstrap that resamples at the volume level (991 test volumes) yields CIs roughly 1.3 \\times wider"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Binomial CIs on headline scores are reported (i), the unit is the question and, for the clustered check, the CT volume (ii), and non-independence of questions sharing a volume is addressed with a clustered bootstrap (iii).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:575-588",
+      "text": "a clustered bootstrap that resamples at the volume level (991 test volumes) yields CIs roughly 1.3 \\times wider",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A3": {
+   "parsed": {
+    "score": 0,
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1, S2, S3, S4, S5. No agreement of actions, sequences or final state across identical reruns and no pass^k metric is reported; the five-run mean statement gives no variation figure, and the exact-sequence-match figures compare against ground-truth traces rather than reruns.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A4": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "API calls used snapshot IDs gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022 with temperature 0 and 2,048-token output ceiling."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "All reported results match harness version v1.2.0."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Snapshot IDs, decoding parameters (temperature 0, output ceiling) and a harness version stated as matching the reported numbers are all given. The named snapshots are not models in the results tables, which is noted but does not change the element presence; no differing S4 identifier for these models exists.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "API calls used snapshot IDs gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022 with temperature 0 and 2,048-token output ceiling.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+      "text": "All reported results match harness version v1.2.0.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A5": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+      "text": "Tools are specified using JSON schemas with name, arguments, and types."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+      "text": "Documentation for each tool declares whether it reads or modifies state and describes return values, including error messages for invalid arguments."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "JSON schemas, read/modify declarations and return semantics including errors are stated, and Appendix z lists inputs and outputs per tool. The agent-visible tool descriptions in code give no read-versus-write declaration, so (ii) is not observed on S5 despite the S1 statement that agent prompts include the descriptions.",
+    "s5_reach": false
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+      "text": "Tools are specified using JSON schemas with name, arguments, and types.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+      "text": "Documentation for each tool declares whether it reads or modifies state and describes return values, including error messages for invalid arguments.",
+      "words": 21,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A6": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "We ran conformance tests confirming that each tool behaves as documented."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/eval/tools.py:168-216",
+      "text": "Run 3D segmentation on the CT scan. Returns voxel count and bounding"
+     }
+    ],
+    "rationale": "S1 reports conformance tests, stub disclosure and that the disclosure appears in the agent-visible tool descriptions, so the reported score is 2. The agent-visible descriptions in tools.py describe live segmentation and measurement and contain no stub or cache disclosure, so the claimed S5 reach is flagged as a candidate contradiction.",
+    "s5_reach": false
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "We ran conformance tests confirming that each tool behaves as documented.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/eval/tools.py:168-216",
+      "text": "Run 3D segmentation on the CT scan. Returns voxel count and bounding",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A7": {
+   "parsed": {
+    "score": "NA",
+    "elements": null,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1, S2, S3, S4, S5. All four agent tools are read-only lookups, crops or measurements and the output is an answer; no action writes state or represents an order, prescription, note or message. The passing mention of medication orders in the safety-suite sentence does not describe an agent action.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": "NA",
+    "effective": "NA",
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": null,
+    "flags": []
+   }
+  },
+  "A8": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grading operates on the final environment state."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates."
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grading operates on the final environment state."
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/eval/metrics.py:212-262",
+      "text": "pred_letter = extract_letter(pred_text)"
+     }
+    ],
+    "rationale": "Grader input (end state) and validation on injected correct and incorrect outcomes with false-acceptance and false-rejection rates are reported, so the reported score is 2; element (ii) is not needed for an end-state grader. The scoring code grades extracted answer letters or text, not environment state, which is a candidate contradiction.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grading operates on the final environment state.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+      "text": "Grading operates on the final environment state.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:src/deeptumorvqa/eval/metrics.py:212-262",
+      "text": "pred_letter = extract_letter(pred_text)",
+      "words": 3,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A9": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Released tasks include a canary string."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "S1 states web and retrieval blocking during runs, a private held-out split with concealed labels, and a canary string on released tasks, covering all three elements. The public 10K benchmark questions and answers themselves ship in the repository and on HuggingFace, which is recorded but does not affect the held-out split claim.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+      "text": "Released tasks include a canary string.",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A10": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:454-462",
+      "text": "per patient subgroup by sex and race, and each table lists the number of cases in every slice"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:676-684",
+      "text": "We stratify accuracy by age, sex, CT scanner manufacturer, and contrast phase (Figure 6 )."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Results are reported per task type and subtype (the benchmark's named axes), per patient subgroup (age, sex, scanner, contrast phase, and sex and race as stated), with slice sizes given (for example N=2,023 for Recognition and the per-condition N columns in Table 11).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:454-462",
+      "text": "per patient subgroup by sex and race, and each table lists the number of cases in every slice",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:676-684",
+      "text": "We stratify accuracy by age, sex, CT scanner manufacturer, and contrast phase (Figure 6 ).",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A11": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:320-327",
+      "text": "First, our visual inputs are real CT scans with real pathology"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+      "text": "The DeepTumorVQA annotations, structured metadata, and benchmark questions contributed by this work are released under CC-BY-4.0."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The source is stated as real CT scans from public datasets, and data terms (CC-BY-4.0 for annotations, source licences for derived images) are stated separately from the Apache-2.0 code licence. No IRB determination, DUA or de-identification method is stated. The sentence about clinical records 'of the kind found in hospital databases' does not name a source type and was not scored.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:320-327",
+      "text": "First, our visual inputs are real CT scans with real pathology",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+      "text": "The DeepTumorVQA annotations, structured metadata, and benchmark questions contributed by this work are released under CC-BY-4.0.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  }
+ },
+ "cells": {
+  "C1": {
+   "variant": {
+    "item": "C1",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "Task content was derived from clinical records of the kind found in hospital databases.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 11,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C3": {
+   "variant": {
+    "item": "C3",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "The patient cases were chosen to cover a diverse range of conditions.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 1,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C4": {
+   "variant": {
+    "item": "C4",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test that compares agent accuracy across patient demographic groups.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 23,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C6": {
+   "variant": {
+    "item": "C6",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "The agent cannot reach ground-truth answers at run time: the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox, and they are not published in the repository.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 19,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "C7": {
+   "variant": {
+    "item": "C7",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2605.09679v1.html:743-768",
+     "S1:arxiv/2605.09679v1.html:766-783",
+     "S2:README.md:72-107"
+    ],
+    "s4_comment": false,
+    "base_level": 2
+   },
+   "slot": 14,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 2,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C8": {
+   "variant": {
+    "item": "C8",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "To confirm that every task is solvable, we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 1
+   },
+   "slot": 3,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "C11": {
+   "variant": {
+    "item": "C11",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 10,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C13": {
+   "variant": {
+    "item": "C13",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "Results may vary slightly between runs because language model outputs are not fully deterministic.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 7,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A1": {
+   "variant": {
+    "item": "A1",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7, and the reported scores are means over the five independent runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 18,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A4": {
+   "variant": {
+    "item": "A4",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "API calls used snapshot IDs gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022 with temperature 0 and 2,048-token output ceiling. All reported results match harness version v1.2.0.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 2,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A5": {
+   "variant": {
+    "item": "A5",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Tools are specified using JSON schemas with name, arguments, and types. Documentation for each tool declares whether it reads or modifies state and describes return values, including error messages for invalid arguments. Agent prompts include these tool descriptions.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 12,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A6": {
+   "variant": {
+    "item": "A6",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We ran conformance tests confirming that each tool behaves as documented. Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper and also stated in the tool descriptions shown to the agent.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 24,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A8": {
+   "variant": {
+    "item": "A8",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Grading operates on the final environment state. Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 6,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A9": {
+   "variant": {
+    "item": "A9",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search. A private held-out test split with concealed labels is excluded from all public surfaces. Released tasks include a canary string.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 20,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A10": {
+   "variant": {
+    "item": "A10",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race, and each table lists the number of cases in every slice.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 13,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A11": {
+   "variant": {
+    "item": "A11",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2605.09679v1.html:723-728",
+     "S2:README.md:210-237"
+    ],
+    "s4_comment": false,
+    "base_level": 2
+   },
+   "slot": 16,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 2,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  }
+ },
+ "status": "ok",
+ "prompt_sha256": {
+  "1": "542a2a501968caa7ac59c7e992979f123f0ccddc6f9f2a6b16420dab0890d6b4"
+ },
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "item_errors": {},
+ "timestamp": "2026-10-06T11:47:09Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_perturb/v22.json"
+}

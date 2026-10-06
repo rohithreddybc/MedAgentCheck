@@ -1,0 +1,488 @@
+[
+  {
+    "item": "C1",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+        "text": "Table 6: Overview of public abdominal CT datasets collected in DeepTumorVQA."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names the source datasets and gives years and links, but the packet does not show dataset versions or a route from an individual task to its source record."
+  },
+  {
+    "item": "C2",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+        "text": "All 17 source datasets are publicly available under their respective licenses"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Origin and licence terms are reported. Consent or IRB status, or an explicit statement that it was not required, is not reported in the packet."
+  },
+  {
+    "item": "C3",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:227-229",
+        "text": "ensuring representation of varied imaging protocols"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a sampling design intended to maximize demographic and pathological diversity. It does not compare benchmark patients against a named target population."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "a safety test suite that measures unsafe outputs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "a separate bias test that compares agent accuracy across patient demographic groups"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports both a safety test suite for unsafe outputs and a separate bias test across demographic groups."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+        "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:438-441",
+        "text": "verified by BDMAP-id intersection =0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a developer-side held-out split with concealed labels and an overlap check showing zero intersection."
+  },
+  {
+    "item": "C6",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions. The only explicit runtime isolation mechanism appears in S4 code comments, which do not count as reporting for this item under G1a."
+  },
+  {
+    "item": "C7",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "All reported results match harness version v1.2.0."
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "All reported results match harness version v1.2.0."
+      },
+      {
+        "chunk_id": "S4:src/deeptumorvqa/evaluate.py:111-139",
+        "text": "p.add_argument(\"--max-steps\", type=int, default=5,"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The paper reports a harness version and released dataset artifacts, but evaluation can still depend on live model/API execution. A contradiction flag is set because S1 reports an 8-step agent loop, while S4 exposes a default max_steps of 5."
+  },
+  {
+    "item": "C8",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions. The scripted reference-solution evidence appears only in S4 comments, which do not count as reporting for this item."
+  },
+  {
+    "item": "C9",
+    "score": "NA",
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions. The benchmark evaluates VQA answers and diagnostic tool calls; the packet does not show tasks that change environment state."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:255-269",
+        "text": "Measurement templates (4-option numeric, random baseline 25%):"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports explicit chance baselines for question types, including 25% for 4-option numeric measurement and 50% for binary recognition."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:354-359",
+        "text": "Across all 120 tasks, an agent with no actions scores 0.0%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports a no-action agent score across all tasks, and also reports a random-action agent score."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+        "text": "yielding 1% false acceptance and 2% false rejection rates."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports its own grader validation with error figures on injected correct and incorrect outcomes."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:575-588",
+        "text": "All models are evaluated on the same fixed 10,000-question benchmark with greedy decoding"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "five times per model with independent random seeds"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:575-588",
+        "text": "greedy decoding"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "the temperature was set to 0.7"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The packet reports greedy decoding and a repeated-run policy with independent seeds. A contradiction flag is set because the appendix also states temperature 0.7."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:54-61",
+        "text": "95% binomial CIs are \\pm 1.0% at N =10,000"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper gives confidence intervals and states how they bear on model differences over the headline 10K-question benchmark."
+  },
+  {
+    "item": "A1",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "five times per model with independent random seeds"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:853-856",
+        "text": "the temperature was set to 0.7"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "temperature 0"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The packet reports five runs, independent random seeds, and sampling/decoding policy. A contradiction flag is set because S1 also reports temperature 0 for API calls."
+  },
+  {
+    "item": "A2",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:575-588",
+        "text": "a clustered bootstrap that resamples at the volume level"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The appendix reports CIs, names the variance unit, and addresses clustering by CT volume."
+  },
+  {
+    "item": "A3",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions. The packet reports repeated runs and trajectory metrics, but not action-level or state-level agreement across identical reruns with run count."
+  },
+  {
+    "item": "A4",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "snapshot IDs gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "temperature 0 and 2,048-token output ceiling"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "All reported results match harness version v1.2.0."
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:79-94",
+        "text": "temperature 0"
+      },
+      {
+        "chunk_id": "S4:src/deeptumorvqa/reference/qwen3vl_agent.py:46-83",
+        "text": "temperature: float = 0.0"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "The paper reports exact snapshot IDs for some API models, decoding parameters, and a harness version. A contradiction flag is set because S4 contains a matching but not complete model-specific default rather than the reported 2,048-token ceiling."
+  },
+  {
+    "item": "A5",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+        "text": "Tools are specified using JSON schemas with name, arguments, and types."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+        "text": "declares whether it reads or modifies state"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:419-430",
+        "text": "describes return values, including error messages for invalid arguments"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The paper reports schemas, side effects, and return/error semantics for tools. The provided S5 excerpts include tool descriptions but do not show read/write side-effect disclosure reaching the agent."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+        "text": "We ran conformance tests confirming that each tool behaves as documented."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:833-849",
+        "text": "Two tools are simulated stubs that return fixed placeholder responses"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The paper reports tool conformance checks and discloses simulated stubs. The S5 excerpts in the packet do not themselves show that the stub disclosure reaches the agent-visible surface, so the item cannot receive full credit."
+  },
+  {
+    "item": "A7",
+    "score": "NA",
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts and tool descriptions. The reported tools perform segmentation, measurement, lookup, and crop retrieval; no action changes environment state or represents a clinical order, prescription, note, or message."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+        "text": "Grading operates on the final environment state."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:214-225",
+        "text": "yielding 1% false acceptance and 2% false rejection rates."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states the grader input as final environment state and reports validation with per-class error rates. Because the grader is state-based, no non-state rationale is needed."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+        "text": "Web access is blocked during runs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+        "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:696-701",
+        "text": "Released tasks include a canary string."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports web/retrieval controls during runs, a private held-out split with concealed labels, and a canary string."
+  },
+  {
+    "item": "A10",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:67-80",
+        "text": "Overall | Recog. | Meas. | Vis.R. | Med.R."
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:454-462",
+        "text": "per patient subgroup by sex and race"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:454-462",
+        "text": "each table lists the number of cases in every slice"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports results per task family, reports demographic subgroup slices, and states that slice tables include case counts."
+  },
+  {
+    "item": "A11",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:43-49",
+        "text": "9,262 abdominal CT volumes from 17 public datasets"
+      },
+      {
+        "chunk_id": "S1:arxiv/2605.09679v1.html:224-227",
+        "text": "released under CC-BY-4.0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet states the environment data source and separate redistribution terms for benchmark annotations and questions. It does not report IRB, DUA, credentialing, or de-identification method."
+  }
+]

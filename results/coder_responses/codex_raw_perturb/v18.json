@@ -1,0 +1,424 @@
+[
+  {
+    "item": "C1",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+        "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The source platforms are named, but no version or snapshot date is given and no route from a task to its source record is documented."
+  },
+  {
+    "item": "C2",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+        "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states data origin and collection from public calculator platforms. It does not document source licence or terms, consent, or IRB status for those sources."
+  },
+  {
+    "item": "C3",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report representativeness of patient features against a named target population or descriptive population statistics."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:348-378",
+        "text": "The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports both an unsafe-output test suite and a separate bias test. This satisfies both required components."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "A private held-out split with hidden labels is kept off all public surfaces, and every released task carries a canary string."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports developer-side controls, including a held-out split and canary strings, plus empirical leakage control statements in the same note. Although this evidence is in S4, it is part of the provided record for contradiction-capable evidence and directly addresses contamination controls."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states that the agent cannot reach ground-truth answers at run time and names the mechanism: a separate evaluation service with no network path."
+  },
+  {
+    "item": "C7",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The benchmark depends on live Google Search and API models, and the packet does not report pinned data, software, simulator, judge model, or harness commit for a frozen evaluation environment."
+  },
+  {
+    "item": "C8",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports scripted reference solutions run through the grader and gives the result. This fully satisfies the oracle solver criterion."
+  },
+  {
+    "item": "C9",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "The grader checks both the intended state changes and that all other records remain unchanged"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports state-changing write actions and says the grader checks both changed and unchanged records. Therefore NA does not apply."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports empirical random-agent success and chance rates, showing trivial success is unlikely."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "A do-nothing agent result is reported for all 120 tasks."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:299-320",
+        "text": "finding a false-accept rate of 1% and a false-reject rate of 2%."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports validation of its grader on injected correct and incorrect outcomes with error figures."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports temperature 0, a fixed seed, and three runs per task, satisfying the item. S4 contradicts the run count, seed policy, and temperature."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:165-170",
+        "text": "Model scores include 95% bootstrap confidence intervals. Statistical testing of the two top-performing models employed paired permutation testing"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports confidence intervals and a paired permutation test for top model comparison."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports the run count and seed/decoding policy. It does not state whether runs are independent, and S4 contradicts the run count and sampling policy."
+  },
+  {
+    "item": "A2",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "where several tasks share a patient, we resample patients instead to account for clustering."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports 95% confidence intervals, bootstrapping over tasks, and patient-level resampling where tasks cluster by patient."
+  },
+  {
+    "item": "A3",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 prompts/tool descriptions. S1-S3 do not report action-sequence agreement, final-state agreement across reruns, or a pass^k all-runs metric."
+  },
+  {
+    "item": "A4",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:224-242",
+        "text": "Qwen3-235B-A22B-Instruct-2507 Team (2025) | Qwen3-235B-Instruct-2507"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Some open models have dated/versioned identifiers, and S1 reports temperature and seed. The packet does not state a harness tag or commit matching the reported numbers."
+  },
+  {
+    "item": "A5",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:260-262",
+        "text": "the model issues an MCP tool call in JSON format with fields server , tool , and arguments"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The paper specifies an MCP JSON action format and documents read/write side effects for some tools. Return semantics including errors are not documented on S1-S3 for every tool; S5 tool descriptions do expose read/write status for tools such as read-only SQL."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+        "text": "We ran conformance tests confirming that each tool behaves as documented."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The paper reports conformance tests and discloses simulated stubs. The packet does not show the simulation disclosure reaching S5, so the item is partial."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The packet lists clinical write actions, states they are sandboxed, and says unsafe or unnecessary writes are penalised. It also states that the agent prompt tells agents writes are sandboxed."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:299-320",
+        "text": "The grader takes the final environment state as its input."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names the grader input as final environment state and validates it on injected correct and incorrect outcomes with false-accept and false-reject rates. A rationale for non-state grading is not needed because the grader is state-based."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-4",
+        "text": "A private held-out split with hidden labels is kept off all public surfaces, and every released task carries a canary string."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports controls on answer leakage through tool and web access, a private held-out split, and canary strings on released tasks."
+  },
+  {
+    "item": "A10",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+        "text": "per patient subgroup by sex and race, and each table lists the number of cases in every slice."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports results per task family and per patient demographic subgroup, with case counts in each slice."
+  },
+  {
+    "item": "A11",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2601.23049v2.html:442-480",
+        "text": "Task content was derived from clinical records of the kind found in hospital databases."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states the broad source of patient records or seed state as clinical records. It does not report IRB/DUA/de-identification method or redistribution terms for environment data separate from the code licence."
+  }
+]

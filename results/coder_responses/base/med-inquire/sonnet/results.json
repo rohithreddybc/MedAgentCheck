@@ -1,0 +1,403 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "The patient cases come from DiagnosisArena ( Zhu et al., 2025 ) , which is a collection of 915 real-world medical cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source dataset (DiagnosisArena, 915 cases from 10 journals) is named and cited, but no version, snapshot date, or route from a task to its source record is given. Source named without version or route gives 1."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "The patient cases come from DiagnosisArena ( Zhu et al., 2025 ) , which is a collection of 915 real-world medical cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin is stated (published case reports in 10 medical journals, via DiagnosisArena). No licence or terms, consent or IRB status, or explicit 'not required' appears in S1-S3. Origin only gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (dataset section, Appendix A, Impact Statement), S2 README, S3 (no chunks), S4/S5. No descriptive statistics of patient features, sampling design, or comparison to a target population. The Impact Statement only notes possible bias from the published-case source."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (experiments, Impact Statement, Appendix J), S2, S3, S4/S5. No dedicated unsafe-output test or bias test is reported. Safety and bias appear only as stated limitations and as a CRITICAL_ERROR grader label."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4/S5. No gating, canary, encryption, held-out set, or overlap or memorisation check on the published-journal cases."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:51-58",
+    "text": "The agent does not receive the hidden case file or the ground-truth diagnosis information."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:8-10",
+    "text": "concealing the complete patient file behind specialized Patient and Examination agents"
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:211-217",
+    "text": "All other details are returned only through actions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the Actor cannot access the case file or ground truth and names the mechanism: a gatekeeper design in which the file sits behind Patient and Examination agents and information flows only through actions. The paper discloses that the Patient agent itself sees the diagnosis; the repo data file is public and no access-control mechanism is described, which is a caveat."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:69-76",
+    "text": "using the same turn limit, action interface, and fixed cost table for each backbone"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The case set (915 cases), case order, turn limit and cost table are fixed. The Patient, Examination (per paper) and Judge are LLM agents run live, with no model snapshot pinned and only a recommendation to log identifiers. No dataset version or harness commit is pinned. Partial pinning gives 1."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4/S5. No scripted reference solution or other solvability evidence is run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "NA: no task changes environment state. Actions only retrieve information from a read-only hidden case file, submit a diagnosis, or accrue a cost. searched: S1, S2, S4/S5."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 3, Table 1, ablations), S2, S3, S4/S5. No random or trivial-agent rate, no chance rate, and no design argument about trivial success. The static-prompt LLM baseline is not a trivial agent."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 1-3), S2, S3, S4/S5. No do-nothing or random agent is reported. The Static Prompt row is a real LLM agent."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 3.5, Appendices E and K), S2, S3, S4/S5. The Judge rubric is given but no agreement or error figures and no human or external validation of the Judge or Process Grader. Appendix K treats the Judge as an assumed proxy."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:225-237",
+    "text": "For reproducibility, the Judge should run with deterministic decoding."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Deterministic decoding is recommended for the Judge and a fixed case order is used, so only part of the harness is covered. Seed logging is advised in Appendix C.1. No repeated-run policy and no temperature or seed values are reported for the Actor or Patient. Partial gives 1."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:97-102",
+    "text": "Shaded bands show an approximate 95\\% interval based on the running standard error"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Figure 2 gives 95% intervals on running means, but Table 1 reports no CIs, SDs or significance tests. The headline comparisons ('outperforms') are stated without a test. A CI with no tested comparison gives 1."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:225-237",
+    "text": "For reproducibility, the Judge should run with deterministic decoding."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "(i) no stated number of runs per task. (ii) only a Judge-level deterministic-decoding policy, with no seed or values (borderline). (iii) independence of runs is not stated, and episodes under test-time learning are explicitly adaptive. 1/3."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:97-102",
+    "text": "Shaded bands show an approximate 95\\% interval based on the running standard error"
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:97-102",
+    "text": "computed from the first t cases."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "(i) intervals appear only on the Figure 2 learning curves, not on Table 1. (ii) the unit is the case, via the standard error over the first t cases. (iii) clustering is not addressed; Appendix H only says code should state how non-independence from adaptation is handled. 2/3."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 1-3, Section 5), S2, S3, S4/S5. No reruns, no action-sequence or end-state agreement, no pass^k metric, and no score variance across identical reruns. 0/3."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 5.2, Appendix C.1), S2 README, S3 (none), S4/S5. Models are given by family name only (gemini-3-pro, gpt-5.1, gpt-4o-mini, MedGemma-27b), with no snapshot ID or date. No decoding values are stated, and no harness tag or commit is tied to the reported results. 0/3."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:218-227",
+    "text": "To make parsing deterministic, the environment should require a fixed machine-readable action format."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:31-37",
+    "text": "If an agent orders a test that is not present in the case file, the Examination agent returns “not available”."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "A text-command protocol with three actions is defined, so A5 is not NA. (i) a JSON action format is specified, though as a recommendation. (iii) return semantics are given, including 'not available' and a fixed parse-failure rule. (ii) read/write side effects per tool are not documented. The Actor prompt gives the format but no per-tool side effects (s5_reach false). 2/3."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:31-37",
+    "text": "it generates a medically reasonable patient-style answer that is consistent with the ground-truth diagnosis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "(i) no tests or conformance checks of the tools. (ii) the paper discloses that the Patient and Examination tools are LLM-simulated and that the Patient invents missing details (see also Appendices D.4 and J). (iii) the Actor's visible prompt does not tell it that tool responses are simulated or may be fabricated. 1/3."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:36-47",
+    "text": "Third, SubmitDiagnosis : the agent submits a final diagnosis. This action ends the episode."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:261-266",
+    "text": "Med-Inquire is a controlled simulation."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:69-76",
+    "text": "ordering a costly confirmatory test before basic screening can be graded as inefficient, even if it returns helpful information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "OrderTest is a simulated clinical order, so the item applies. (i) orders carry a cost and SubmitDiagnosis is terminal. (ii) the environment is declared a controlled simulation. (iii) expensive or unnecessary tests are penalised through the cost table and INEFFICIENT grading. The Actor prompt does not say the setting is simulated (s5_reach false for (ii)). Element (i) is borderline because the paper does not use a write/irreversible frame."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:47-52",
+    "text": "After SubmitDiagnosis , a Judge agent compares the submitted diagnosis against the ground-truth diagnosis recorded in the hidden case file."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:297-300",
+    "text": "Second, the Judge score S is a reasonable proxy for correctness, even though it is computed from text matching under a rubric"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "(i) the grader input is an LLM judge comparing the submitted diagnosis (and transcript) to the ground truth. (ii) a weak rationale is given as a proxy assumption (borderline). (iii) no validation on labelled correct and incorrect outcomes and no per-class error rates. 2/3, so score 1."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:91-96",
+    "text": "the Evolver does not add rules that mention case-specific identifiers"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:91-96",
+    "text": "the Evolver does not add rules that mention case-specific identifiers"
+   },
+   {
+    "chunk_id": "S4:evoclinician/agents/evolver.py:1-52",
+    "text": "f\"{entry.action_content}. Rationale: {entry.rationale}\""
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "(i) controls on cross-task memory leakage are stated: case identifiers are not added to rules, and retrieval queries use only history up to turn t. (ii) no held-out or private split, and the data file is public in the repo. (iii) no canary or provenance marker. Candidate contradiction: the Evolver code builds rules from the raw action content and rationale with no identifier filtering. 1/3."
+ },
+ {
+  "item": "A10",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 1-3, Section 5.5-5.6), S2, S3, S4/S5. Results are reported per backbone and method only, with no per-task-family or per-patient-subgroup results and no slice sizes. The case data contain demographics but no demographic slicing is reported."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "The patient cases come from DiagnosisArena ( Zhu et al., 2025 ) , which is a collection of 915 real-world medical cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "(i) the records are stated as real-world published cases (de-identification is not stated). (ii) no IRB determination, DUA or de-identification method. (iii) no data terms separate from the code licence. 1/3."
+ }
+]

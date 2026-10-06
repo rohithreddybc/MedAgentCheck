@@ -1,0 +1,402 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:213-218",
+    "text": "The 18 scenarios cover 10 medical domains and three page-fidelity tiers."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Sources and platforms are named, including OpenEMR, OHIF, and synthetic reconstructions. The packet does not provide a full route from each task to its source record with snapshot date/time frame."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "MedCUA-Bench contains no real patient information"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "under a permissive research license"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states data origins and explains synthetic/public data collection choices. It also documents license intent and that no real patient information was used, satisfying the consent/IRB-not-needed dimension explicitly enough."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:241-245",
+    "text": "intentionally diverse in age, sex and comorbidity profile"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports descriptive patient features and says the OpenEMR cohort was intentionally diverse. It does not compare those features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:48-53",
+    "text": "Violations are assigned to five dimensions: patient identity, data accuracy, information fidelity, record integrity, and workflow safety."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes dedicated unsafe-output or safety violation tests through its checker. No bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports no gated access, canary, overlap check, encryption, or held-out-set contamination control."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "These traces are hidden from the agent and are consulted only by the deterministic checker"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that checker traces are hidden from the agent. It does not fully name a runtime isolation mechanism for ground-truth results such as no mount, no credentials, or no network path."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:36-39",
+    "text": "One scenario runs OpenEMR v7.0.2"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:353-357",
+    "text": "All seventeen open-source models are served locally with vLLM v0.20.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some software and serving components are pinned, including OpenEMR and vLLM versions. The packet does not pin all data, all evaluated model snapshots, and harness commit/tag with no unpinned live dependencies."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:385-390",
+    "text": "A single trained operator drove a fresh Chromium 1280\\times 800 session"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a human pilot demonstrating solvability on a subset. It does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:48-53",
+    "text": "Record Int. | M | Duplicate POST to the submission endpoint for the same record."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tasks can change state, so NA does not apply. The checker detects some out-of-scope side effects such as duplicate records, but the packet does not state that unchanged state is checked globally."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:48-53",
+    "text": "the checker compares the final page state, the agent’s final message, request traces, and navigation traces against the expected values"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The deterministic checker design makes trivial success unlikely by comparing several state and trace inputs to expected values. No empirical random-agent or chance success rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports no do-nothing or random-agent result."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet describes a deterministic checker, but reports no evaluator validation with tests, agreement, error figures, or reference-solution evidence."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet mentions default sampling and one run per task, but no repeated-run policy or seed/temperature-zero safeguard."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:385-390",
+    "text": "83.3\\% , 95\\% Wilson CI [64.1,93.3]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A confidence interval is reported for the human pilot, and it is compared narratively to model performance. No CI or statistical test is reported for the headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "Each model runs all 432 task instances once"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states the number of runs per task behind headline model scores. It does not state a seed or decoding-control policy sufficient for this item, nor does it state independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:390-400",
+    "text": "ALL | 24 | 83.3 [64,93]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports CIs for the human pilot, not the main model headline scores. It does not state a resampling or variance unit, and does not address clustering within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet states that each agent was evaluated once per task and provides no identical-rerun action, state, or pass^k reliability metric."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:350-353",
+    "text": "default sampling parameters"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names model families and endpoints, but not exact provider snapshot IDs or release dates for each reported result. It mentions default sampling parameters, but gives no harness version or commit matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "The action space follows the BrowserGym pixel interface and is restricted to low-level operations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command/action interface, so NA does not apply. The paper describes an action-space contract, but does not document per-tool side effects or return/error semantics, and no S5 evidence is present."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark defines an action interface, so NA does not apply, but no tool conformance tests or simulation/no-op disclosure reaching S5 are reported."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "including method, URL, and payload"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "if an agent completes the task while causing a safety violation, the reward is reduced"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Some actions mutate clinical state, so NA does not apply. The paper identifies writes through request payload traces, states the systems are benchmark/synthetic/open-source environments, and says unsafe writes are penalized; no S5 chunks are present, so S5 reach is false."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:48-53",
+    "text": "the checker compares the final page state, the agent’s final message, request traces, and navigation traces against the expected values"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names the grader inputs, including final state, message, request traces, and navigation traces. Because the grader uses state, no non-state rationale is needed, but no validation on labelled correct and incorrect outcomes with error rates is reported."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report controls on answer leakage through tools, retrieval, web access, held-out/private labels, canaries, or provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:213-218",
+    "text": "Each scenario contributes 12 base tasks split across easy/medium/hard difficulty bands"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:250-254",
+    "text": "The final 216 base tasks split into 67 easy, 76 medium, and 73 hard."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by benchmark axes such as page fidelity, goal granularity, difficulty, and domain, with slice sizes for several slices. It does not report results per patient subgroup despite demographic fields being present."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "the OpenEMR tier is seeded with five synthetic demonstration patients"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of patient records and seed state is stated as synthetic or public for the environment data. The packet does not report IRB/DUA/de-identification governance or data redistribution terms separate from the general research license."
+ }
+]

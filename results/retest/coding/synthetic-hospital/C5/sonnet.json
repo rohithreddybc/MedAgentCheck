@@ -1,0 +1,35 @@
+{
+ "bench": "synthetic-hospital",
+ "item": "C5",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:27-28",
+    "text": "268 form a held-out split (2,536 instances) whose labels are accessible only through our scorer"
+   },
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:209-217",
+    "text": "providing direct evidence that Synthetic Hospital does not favor the model family used during data generation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "A held-out split is the developer-side control, and a measured check is reported (generator re-rendering robustness test, plus the 54% held-out/training diagnosis overlap). Note: the README says the held-out reference labels are shipped for local scoring, which undercuts the paper's statement that labels are accessible only through the scorer.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "85a48dc2dc4ff7b53121e579af1b387745b94e259463552a113fea3906791218",
+ "packet_sha256": "9efcd297336dac1941e9978549f787b39bc7883defb2d6e3cf01b5d864406b24",
+ "timestamp": "2026-10-05T21:00:05Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/synthetic-hospital.json"
+}

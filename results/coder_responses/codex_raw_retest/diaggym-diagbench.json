@@ -1,0 +1,391 @@
+[
+  {
+    "item": "C1",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:91-100",
+        "text": "The benchmark spans one in-domain center and three out-of-domain (OOD) centers."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Sources are named across four centers, but the packet does not report source versions or a clear public route from each benchmark task to its original source record. Pinned paper version is arxiv/2510.24654v2; no repo commit or access date is present in the packet."
+  },
+  {
+    "item": "C2",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:279-285",
+        "text": "Due to licensing restrictions, we are unable to directly open-source the dataset."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports the data origin and mentions licensing restrictions, satisfying origin plus one provenance/licence element. It does not report consent, IRB status, or an explicit not-required determination."
+  },
+  {
+    "item": "C3",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:89-90",
+        "text": "the benchmark comprises a total of 2,257 physician-validated patient cases"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports descriptive dataset statistics and source stratification. It does not compare patient features against a named target population."
+  },
+  {
+    "item": "C4",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. The packet reports clinical validity and evaluator validation, but not dedicated unsafe-output or bias tests."
+  },
+  {
+    "item": "C5",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:246-252",
+        "text": "we strictly selected case reports published after January 2025"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports developer-side contamination controls, including post-January-2025 selection for PMC-OA and filtering to prevent diagnosis leakage. It does not report a canary, overlap measurement, or combined control plus measured contamination check."
+  },
+  {
+    "item": "C6",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:23-26",
+        "text": "contains no information about the final diagnosis"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states the agent state omits the final diagnosis, indicating isolation from the gold label. It does not name a runtime access-control mechanism such as no mount, no credentials, or no network path."
+  },
+  {
+    "item": "C7",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. The packet names models and data sources, but does not pin the data, software harness commit, simulator, and judge into a frozen evaluation environment."
+  },
+  {
+    "item": "C8",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:253-256",
+        "text": "each case undergoes a rigorous review by a physician"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Physician review and reference trajectories provide manual evidence that task configurations are clinically plausible. No scripted oracle solution is reported as run through the grader."
+  },
+  {
+    "item": "C9",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. The benchmark includes simulated examination-order actions that update the dialogue state, but the packet does not report checks that irrelevant state remains unchanged."
+  },
+  {
+    "item": "C10",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:107-109",
+        "text": "computing precision, recall, and F1-score to measure recommendation quality"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark design compares recommended exams with reference trajectories and diagnoses, making arbitrary outputs less likely to score well. It does not report empirical random or trivial-agent success rates."
+  },
+  {
+    "item": "C11",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. The packet reports many LLM and agentic baselines, but no do-nothing or random-agent result."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:383-387",
+        "text": "the LLM judge demonstrated high reliability across all metrics"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper validates its own automated evaluator against physician consensus and reports agreement/error figures. Supplementary Table 1 includes numerical agreement and MAE values."
+  },
+  {
+    "item": "C13",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. S1-S3 do not state seeds or temperature-zero safeguards plus a repeated-run policy for the harness."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:128-129",
+        "text": "Error bars show 95% confidence intervals."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Headline comparisons report 95% confidence intervals and statistical significance markings. This satisfies CI or test reporting for model comparisons."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:279-285",
+        "text": "We consistently apply a zero-shot prompting strategy across all models."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a sampling/prompting policy, but not the number of independent runs behind each headline score. Independence of runs is not stated."
+  },
+  {
+    "item": "A2",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:150-164",
+        "text": "All metrics are reported with 95% Confidence Intervals"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Headline score tables include 95% confidence intervals. The packet does not state the resampling or variance unit or address clustering within patients/templates."
+  },
+  {
+    "item": "A3",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code/configuration, and S5 prompts. No identical rerun action agreement, final-state agreement, pass^k, or score-level rerun variance is reported."
+  },
+  {
+    "item": "A4",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:272-277",
+        "text": "we utilize gpt-4o-2024-08-06 via API"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Some exact model identifiers and dated snapshots are reported. Decoding parameters for reported results and the harness version or commit are not reported in S1-S3."
+  },
+  {
+    "item": "A5",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S4:DiagAgent/train/rl/verl/examples/data_preprocess/diagnose.py:1-46",
+        "text": "Based on the patient's initial presentation, the following investigation(s) should be performed: [one additional test]"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The benchmark uses a text-command protocol for requesting examinations, so A5 is not NA. The agent-visible prompt specifies the examination-request action, but there is no machine-readable schema for every tool and no documented error/failure return semantics."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S4:DiagGym/eval/instance_wise_evaluation/zero_shot_inference.py:1-37",
+        "text": "predict the most likely results for a specific medical examination"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The packet discloses simulated examination-result behavior, and that behavior reaches agent-visible prompting. It does not report conformance tests showing the tool contract behaves as documented."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:103-105",
+        "text": "all returned examination results are simulated by the DiagGym"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The benchmark identifies examination recommendations as clinical actions and states that returned results are simulated. It also scores examination quality and efficiency through F1/reward components and turn penalties."
+  },
+  {
+    "item": "A8",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:107-109",
+        "text": "we adopt an LLM-as-a-judge approach"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names grader inputs and use of LLM judgement, and justifies rubric-based judging as a complement to automated metrics. It validates against human labels, but does not provide per-class error rates for injected correct and incorrect outcomes."
+  },
+  {
+    "item": "A9",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:223-227",
+        "text": "This step removes instances where the model may have inadvertently introduced the final diagnosis"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports leakage controls and train/test held-out construction. It does not report canaries or provenance markers on released tasks."
+  },
+  {
+    "item": "A10",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2510.24654v2.html:91-100",
+        "text": "The benchmark spans one in-domain center and three out-of-domain (OOD) centers."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Results are reported by benchmark axis/source, and slice sizes are reported for those data sources. No patient demographic subgroup results are reported, despite clinical source data plausibly containing demographic fields."
+  },
+  {
+    "item": "A11",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S2:README.md:23-36",
+        "text": "Researchers with valid [CITI certification](https://physionet.org/content/mimiciv/view-required-training/3.1/#1) may also contact the authors directly"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The environment-state source is stated as EHR-derived and benchmark data includes synthetic DDXPlus among real/mixed sources. Governance and redistribution terms are separately discussed through licensing restrictions, PhysioNet plans, and CITI certification access."
+  }
+]

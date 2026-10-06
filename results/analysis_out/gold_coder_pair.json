@@ -1,0 +1,365 @@
+{
+ "abc": {
+  "set": "abc",
+  "primary_statistic": "cohen_kappa",
+  "levels": [
+   0,
+   1
+  ],
+  "n_cells_common": 198,
+  "n_benchmarks": 9,
+  "benchmarks": [
+   "BIRD-Bench",
+   "GAIA",
+   "KernelBench",
+   "MLE-bench",
+   "OSWorld",
+   "SWE-Lancer",
+   "SWE-bench_Verified",
+   "WebArena",
+   "tau-bench"
+  ],
+  "n_cells_original": {
+   "codex": 198,
+   "sonnet": 198
+  },
+  "n_cells_resolved_original": 198,
+  "reproduced_agreement_json": true,
+  "pairs": {
+   "codex_vs_sonnet": {
+    "n": 198,
+    "raw_agreement": 0.8585858585858586,
+    "raw_agreement_wilson95": [
+     0.8032084174679653,
+     0.9003140441067449
+    ],
+    "cohen_kappa": 0.7079953650057936,
+    "krippendorff_alpha_ordinal": 0.7082410045373009,
+    "primary_statistic": "cohen_kappa",
+    "primary_value": 0.7079953650057936,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.5917753259779339,
+     0.7977528089887641
+    ]
+   },
+   "codex_vs_expert": {
+    "n": 198,
+    "raw_agreement": 0.6464646464646465,
+    "raw_agreement_wilson95": [
+     0.5776656709739829,
+     0.7096885738945609
+    ],
+    "cohen_kappa": 0.2526690391459076,
+    "krippendorff_alpha_ordinal": 0.2544758412424505,
+    "primary_statistic": "cohen_kappa",
+    "primary_value": 0.2526690391459076,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.12227979274611414,
+     0.38238141335914816
+    ]
+   },
+   "sonnet_vs_expert": {
+    "n": 198,
+    "raw_agreement": 0.6565656565656566,
+    "raw_agreement_wilson95": [
+     0.5880087213697137,
+     0.719163057627695
+    ],
+    "cohen_kappa": 0.28874801901743263,
+    "krippendorff_alpha_ordinal": 0.28866525423728817,
+    "primary_statistic": "cohen_kappa",
+    "primary_value": 0.28874801901743263,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.10586486795472741,
+     0.44231635872014424
+    ]
+   },
+   "resolved_vs_expert": {
+    "n": 198,
+    "raw_agreement": 0.6464646464646465,
+    "raw_agreement_wilson95": [
+     0.5776656709739829,
+     0.7096885738945609
+    ],
+    "cohen_kappa": 0.28593508500772813,
+    "krippendorff_alpha_ordinal": 0.28032274856845385,
+    "primary_statistic": "cohen_kappa",
+    "primary_value": 0.28593508500772813
+   }
+  },
+  "original_cells": {
+   "codex": {
+    "n": 198,
+    "cohen_kappa": 0.2526690391459076,
+    "weighted_kappa_quadratic": null,
+    "primary_value": 0.2526690391459076,
+    "primary_ci95": [
+     0.12227979274611414,
+     0.38238141335914816
+    ],
+    "raw_agreement": 0.6464646464646465
+   },
+   "sonnet": {
+    "n": 198,
+    "cohen_kappa": 0.28874801901743263,
+    "weighted_kappa_quadratic": null,
+    "primary_value": 0.28874801901743263,
+    "primary_ci95": [
+     0.10586486795472741,
+     0.44231635872014424
+    ],
+    "raw_agreement": 0.6565656565656566
+   },
+   "resolved": {
+    "n": 198,
+    "cohen_kappa": 0.28593508500772813,
+    "weighted_kappa_quadratic": null,
+    "primary_value": 0.28593508500772813,
+    "primary_ci95": [
+     0.1490566037735849,
+     0.404040404040404
+    ],
+    "raw_agreement": 0.6464646464646465
+   }
+  },
+  "n_cells_resolved_common": 198,
+  "differences_in_primary_statistic": {
+   "pair_minus_codex_expert": {
+    "point": 0.455326325859886,
+    "ci95_bootstrap_over_benchmarks": [
+     0.3393200908954251,
+     0.5870024308457331
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "pair_minus_sonnet_expert": {
+    "point": 0.419247345988361,
+    "ci95_bootstrap_over_benchmarks": [
+     0.24555442088013862,
+     0.616580114175221
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "pair_minus_mean_coder_expert": {
+    "point": 0.43728683592412354,
+    "ci95_bootstrap_over_benchmarks": [
+     0.29668086683285444,
+     0.5990202772100004
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "sonnet_expert_minus_codex_expert": {
+    "point": 0.03607897987152503,
+    "ci95_bootstrap_over_benchmarks": [
+     -0.06390532544378694,
+     0.12500738430374297
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 0.7535
+   }
+  },
+  "agreement_json_values": {
+   "codex": 0.2526690391459076,
+   "sonnet": 0.28874801901743263,
+   "resolved": 0.28593508500772813
+  }
+ },
+ "betterbench": {
+  "set": "betterbench",
+  "primary_statistic": "weighted_kappa_quadratic",
+  "levels": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "n_cells_common": 423,
+  "n_benchmarks": 22,
+  "benchmarks": [
+   "ALE",
+   "ARC-Challenge",
+   "AgentBench",
+   "BBQ",
+   "BOLD",
+   "DecodingTrust",
+   "FinRL-Meta",
+   "GPQA",
+   "GSM8k",
+   "HellaSwag",
+   "HumanEval",
+   "MLCommons_AI_Safety_v0.5",
+   "MMLU",
+   "Machiavelli",
+   "MedMNIST_v2",
+   "PDEBench",
+   "Procgen",
+   "RL_Unplugged",
+   "SafeBench",
+   "TruthfulQA",
+   "WinoGrande",
+   "Wordcraft"
+  ],
+  "n_cells_original": {
+   "codex": 423,
+   "sonnet": 425
+  },
+  "n_cells_resolved_original": 425,
+  "reproduced_agreement_json": true,
+  "pairs": {
+   "codex_vs_sonnet": {
+    "n": 423,
+    "raw_agreement": 0.6950354609929078,
+    "raw_agreement_wilson95": [
+     0.6495689283484105,
+     0.7369914597461449
+    ],
+    "cohen_kappa": 0.5790200510727594,
+    "krippendorff_alpha_ordinal": 0.7648972215994874,
+    "primary_statistic": "weighted_kappa_quadratic",
+    "primary_value": 0.7630623196872877,
+    "weighted_kappa_quadratic": 0.7630623196872877,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.6916204977604484,
+     0.8236364987368111
+    ]
+   },
+   "codex_vs_expert": {
+    "n": 423,
+    "raw_agreement": 0.5106382978723404,
+    "raw_agreement_wilson95": [
+     0.4631197374680345,
+     0.5579653746098503
+    ],
+    "cohen_kappa": 0.2996632727330896,
+    "krippendorff_alpha_ordinal": 0.45469301984271204,
+    "primary_statistic": "weighted_kappa_quadratic",
+    "primary_value": 0.4499252747718109,
+    "weighted_kappa_quadratic": 0.4499252747718109,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.3820510558721305,
+     0.5208210419688455
+    ]
+   },
+   "sonnet_vs_expert": {
+    "n": 423,
+    "raw_agreement": 0.524822695035461,
+    "raw_agreement_wilson95": [
+     0.4772238010091763,
+     0.5719747938392217
+    ],
+    "cohen_kappa": 0.32302755726831905,
+    "krippendorff_alpha_ordinal": 0.517230526537604,
+    "primary_statistic": "weighted_kappa_quadratic",
+    "primary_value": 0.5249294862649128,
+    "weighted_kappa_quadratic": 0.5249294862649128,
+    "primary_ci95_bootstrap_over_benchmarks": [
+     0.4472601488471103,
+     0.5951262961884949
+    ]
+   },
+   "resolved_vs_expert": {
+    "n": 423,
+    "raw_agreement": 0.5106382978723404,
+    "raw_agreement_wilson95": [
+     0.4631197374680345,
+     0.5579653746098503
+    ],
+    "cohen_kappa": 0.3111128594469139,
+    "krippendorff_alpha_ordinal": 0.4508326136873607,
+    "primary_statistic": "weighted_kappa_quadratic",
+    "primary_value": 0.46789348224904426,
+    "weighted_kappa_quadratic": 0.46789348224904426
+   }
+  },
+  "original_cells": {
+   "codex": {
+    "n": 423,
+    "cohen_kappa": 0.2996632727330896,
+    "weighted_kappa_quadratic": 0.4499252747718109,
+    "primary_value": 0.4499252747718109,
+    "primary_ci95": [
+     0.3820510558721305,
+     0.5208210419688455
+    ],
+    "raw_agreement": 0.5106382978723404
+   },
+   "sonnet": {
+    "n": 425,
+    "cohen_kappa": 0.3265402656785842,
+    "weighted_kappa_quadratic": 0.529716442172874,
+    "primary_value": 0.529716442172874,
+    "primary_ci95": [
+     0.454348222122854,
+     0.5978512229741584
+    ],
+    "raw_agreement": 0.5270588235294118
+   },
+   "resolved": {
+    "n": 425,
+    "cohen_kappa": 0.314147391070468,
+    "weighted_kappa_quadratic": 0.47222321048895455,
+    "primary_value": 0.47222321048895455,
+    "primary_ci95": [
+     0.4051679080099314,
+     0.540140741587342
+    ],
+    "raw_agreement": 0.5129411764705882
+   }
+  },
+  "n_cells_resolved_common": 423,
+  "differences_in_primary_statistic": {
+   "pair_minus_codex_expert": {
+    "point": 0.3131370449154768,
+    "ci95_bootstrap_over_benchmarks": [
+     0.24228557111233295,
+     0.38400485525798544
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "pair_minus_sonnet_expert": {
+    "point": 0.2381328334223749,
+    "ci95_bootstrap_over_benchmarks": [
+     0.13427933388151247,
+     0.34109475110799947
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "pair_minus_mean_coder_expert": {
+    "point": 0.27563493916892584,
+    "ci95_bootstrap_over_benchmarks": [
+     0.19478904733589386,
+     0.35562561053073083
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 1.0
+   },
+   "sonnet_expert_minus_codex_expert": {
+    "point": 0.07500421149310188,
+    "ci95_bootstrap_over_benchmarks": [
+     0.009578501977751674,
+     0.1439226798308466
+    ],
+    "n_boot": 2000,
+    "seed": 20261004,
+    "share_resamples_positive": 0.9895
+   }
+  },
+  "agreement_json_values": {
+   "codex": 0.4499252747718109,
+   "sonnet": 0.529716442172874,
+   "resolved": 0.47222321048895455
+  }
+ }
+}

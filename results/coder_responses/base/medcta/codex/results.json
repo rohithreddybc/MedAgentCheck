@@ -1,0 +1,386 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:49-51",
+    "text": "We start from existing medical VQA datasets and curated clinical education resources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark names broad original source classes and platforms only generally. It does not report source dataset versions, snapshot dates, or a route from a task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:274-298",
+    "text": "All inputs come from public datasets approved for research use."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports data origin, collection through LMM drafting and human validation, research-use licensing, and ethics status. It also states the inputs are de-identified and publicly sourced."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:495-500",
+    "text": "We report modality and body-system coverage, but demographic attributes are unavailable"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive modality and body-system coverage and acknowledges demographic gaps. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet discusses misuse risk and fairness limitations, but does not report dedicated unsafe-output or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:500-505",
+    "text": "we perform all evaluation after freezing the validated benchmark"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a developer-side control by freezing the validated benchmark before evaluation. It does not report a canary, overlap check, or other measured contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:500-505",
+    "text": "Reference trajectories are not included in model prompts during autonomous evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that reference trajectories are not in model prompts and that the final task does not expose tool subset, order, or observations. This names the mechanism for runtime isolation from gold information."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:500-505",
+    "text": "GoogleSearch does not query the live web during benchmark evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports frozen retrieval to avoid live web drift. However, the packet does not fully pin data, software, simulator, and judge model versions for reported results."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:59-60",
+    "text": "The refined chain is then executed and logged in structured JSON format"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports manual and clinician-verified solvability evidence through executable reference trajectories. It does not report a scripted oracle solution being run through the grader with results."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The described tools read, retrieve, describe, or compute; the packet does not describe tasks that change environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:36-39",
+    "text": "solving it requires decomposition into multiple subproblems and strategic invocation of tools"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that tasks require multi-step tool use and hidden tool planning. It does not report empirical random, chance, or trivial-agent success rates."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. No do-nothing or random-agent results are reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:385-397",
+    "text": "Aggregate clinical score | 0.62 | 0.60 | 13.5"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its automated clinical judge against clinician audit outputs and reports agreement and error figures. This is validation on the benchmark's own model rollouts."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:320-321",
+    "text": "tool invocations to be executed deterministically and logged in structured JSON format"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports deterministic tool execution and logging as a partial safeguard. It does not state seeds or temperature-zero settings plus a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:376-386",
+    "text": "The bracketed interval is a normal-approximation 95% confidence interval"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix reports confidence intervals for the clinician audit. It does not report a CI or statistical test for the headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports total tasks and rollouts, but not runs per task behind each headline number, seed or sampling policy, or independence."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:371-375",
+    "text": "a normal-approximation 95% confidence interval for the per-task mean score"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states a variance unit for the clinician audit confidence interval. It does not provide CI or SE on the headline leaderboard scores, and clustering is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. No identical rerun reliability, action-sequence agreement, state agreement, or pass^k-style all-runs metric is reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet lists model family names and some setup details, but not provider snapshot IDs or release dates, decoding parameters, or a matching harness tag or commit."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:320-321",
+    "text": "Each tool is defined by a standardized input–output interface"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark reports standardized input-output interfaces and tool schemas. It does not document side effects per tool or error and failure return semantics in S1-S3, and side-effect disclosure does not reach S5."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:416-421",
+    "text": "A tool call is considered valid if (i) the selected tool exists in \\mathcal{D}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper reports checks for tool-call validity and execution failures. It does not disclose simulated or no-op tool behavior to the agent-visible surface."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not describe actions that mutate state or represent clinical orders, prescriptions, notes, or messages."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:82-87",
+    "text": "Clinical Reasoning evaluates evidence usage and summary quality."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names grader inputs including executed trajectories, final answers, and LLM-as-judge clinical reasoning. It gives a rationale for process-aware transcript-style grading, but not validation on injected correct and incorrect state changes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:500-505",
+    "text": "GoogleSearch does not query the live web during benchmark evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports controls on retrieval leakage and temporal drift through frozen GoogleSearch snippets. It does not report a held-out or private split or any canary/provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:64-71",
+    "text": "CT (20.0%), report-based inputs (20.0%), histopathology (18.3%), X-ray (9.6%)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports slice sizes for modality and anatomical coverage. It does not report model results per task family or per patient demographic subgroup."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.11702v1.html:296-319",
+    "text": "All source assets are public and de-identified to the best of our knowledge."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark states that the environment data are real public de-identified clinical assets. It reports ethics/de-identification status and separate academic research-use terms for the dataset."
+ }
+]

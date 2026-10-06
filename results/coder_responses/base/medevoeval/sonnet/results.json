@@ -1,0 +1,402 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:41-46",
+    "text": "the released construction files preserve an audit path from the source manifest to processed episode fields"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Source is named (MedQA-derived corpus MedEvoEval-MedQA-700) and an audit path from source manifest to processed episode fields is described. No source version, snapshot date or platform is given, so not full."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:170-180",
+    "text": "700 release-safe Chinese MedQA-derived simulated clinical cases with stable release IDs."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (MedQA-derived) and the transformation/collection method are stated, with source attribution and 'downstream source requirements' mentioned. No explicit licence terms and no consent or IRB status or 'not required' statement appear in the packet."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3.5, 6, Appendix A, D), S2-S5 (no chunks). No comparison to a target population and no descriptive statistics of patient features; disease distribution appears only as a stated limitation. Split sizes are reported but are not a representativeness analysis."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:50-53",
+    "text": "together with auxiliary indicators such as strict correctness, pass/fail status, and unsafe or unsupported elements"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Manager scoring flags unsafe or unsupported elements and a dangerous-diagnosis rubric level, and a non-dangerous diagnosis rate is reported (Table 14). No bias or fairness test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:229-240",
+    "text": "This 100-case held-out set is not used during longitudinal-stream memory accumulation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A held-out set is used as a control against memory leakage across the stream. No pretraining-contamination check, canary or overlap measurement is reported, so only the control level is met."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:41-46",
+    "text": "This representation is both a data format and the access-control mechanism that makes each episode executable."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:41-46",
+    "text": "The doctor observes only the current visible state and never directly accesses unrevealed examination fields, manager-side rubrics, or provenance metadata."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Isolation from gold is stated and the mechanism is named: role-specific patient, examination and manager views act as the access-control layer, and the doctor sees only the revealed state."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:262-268",
+    "text": "The experiments use API-based inference rather than local model training or fine-tuning."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Data and code are released with manifests and cached results, but patient simulator, manager/judge and doctor models are called live through APIs and are identified by family name only, with no snapshot pinning."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (all sections and appendices), S2-S5 (no chunks). No scripted reference solution or solvability run through the grader is reported."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3.2-3.4, B.1), S2-S5 (no chunks). Actions only reveal pre-specified evidence from a fixed case record and end in a diagnosis; no task changes environment state, so the NA clause applies. Memory write-back changes agent memory, not the task environment."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 4, 5, Appendices C, D), S2-S5 (no chunks). No random or trivial-agent rate, chance rate per metric, or design argument against trivial success is given."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (section 5, Appendix D), S2-S5 (no chunks). No do-nothing or random agent results; the no-memory E0 condition is a model baseline, not a trivial agent."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:367-373",
+    "text": "we performed a single-physician blinded clinical audit on 100 sampled episode final outputs"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:367-373",
+    "text": "Blinded physician auditor | 100 | 0.920 | 0.892 | 0.914 | 0.931"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Own validation of the manager scorer on its own outputs with agreement figures (diagnosis agreement 0.920, kappa 0.892, evidence 0.914, plan 0.931). Limitation noted: a single physician."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:262-268",
+    "text": "The default random seed is 7."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A default seed and fixed case order, action limits and scoring code are stated. No temperature or decoding setting for the API models and no repeated-run policy is stated, so safeguards cover only part of the harness."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:268-279",
+    "text": "Paired model-comparison deltas against Qwen-Turbo on 80 shared cases. Continuous metrics use Wilcoxon signed-rank tests; strict accuracy uses exact McNemar tests."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The headline model comparison reports paired deltas with 95% bootstrap CIs and Wilcoxon and McNemar p-values (Table 8), plus CIs in Table 9."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:262-268",
+    "text": "The default random seed is 7."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A seed is stated (element ii). No number of runs per task behind headline scores is given and run independence is not addressed. Decoding controls are not stated."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:77-82",
+    "text": "Mean estimates and paired differences are accompanied by 95% bootstrap confidence intervals computed by resampling cases while preserving the pairing."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Bootstrap 95% CIs on means and paired differences, with the case as the resampling unit. Clustering of tasks within patients, templates or task groups is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 4, 5, Appendix D), S2-S5 (no chunks). No identical reruns, action-level or state-level agreement, pass^k metric or score variation across reruns is reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (section 5, Appendix D.1), S2-S5 (no chunks). Models are named by family only (Qwen-Turbo, Qwen3.5-122B-A10B, GLM-5, Kimi-K2.5) with no snapshot ID or release date. No decoding parameters and no harness tag or commit tied to the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:45-50",
+    "text": "REQUEST_TEST queries the examination service for a specific catalog item; a result is returned when the requested test is available for the current case"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:268-279",
+    "text": "The runner uses JSON-only prompts together with schema and action validation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A four-action text/JSON command protocol is defined (not NA) with schema and action validation, and return semantics including unavailable or invalid requests are described. Read-versus-write side effects per action are not documented; no S5 chunks in the packet, so reach cannot be told."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:124-127",
+    "text": "patient responses come from structured views, examination results are pre-specified"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Simulated patient and examination behaviour is disclosed in S1 (element ii). No tests or conformance checks of the action tools are reported, and no S5 prompt text is in the packet to show whether the disclosure reaches the agent."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:124-127",
+    "text": "patient responses come from structured views, examination results are pre-specified"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:60-68",
+    "text": "and let R_{i} denote the invalid-test rate, covering unavailable, unparseable, redundant, or low-value examination requests."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Not NA: test requests and consultation represent simulated clinical orders. Simulation is disclosed and unnecessary or invalid test requests are penalised in utility. The paper does not say which actions write or are irreversible. S5 reach cannot be told (no S5 chunks)."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:50-53",
+    "text": "The manager evaluates the submitted diagnosis, supporting evidence, management plan, and follow-up against the manager-side rubric."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is named: an automatic manager/judge reads the final structured output against a rubric. No rationale for non-state grading is given. The physician audit on 100 outputs gives overall agreement and kappa but no per-class error rates, so element iii is not marked."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:41-46",
+    "text": "The doctor observes only the current visible state and never directly accesses unrevealed examination fields, manager-side rubrics, or provenance metadata."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Controls on gold leakage into the agent and a memory-card design that avoids revealing patient facts are described. A 100-case held-out set exists, but the corpus and splits are released, so it is not hidden from public surfaces. No canary or provenance marker for contamination is described."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:102-114",
+    "text": "Transfer | H0 | 100 | 0.338 | 0.001 | 0.290 / 0.180 | 6.810"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per named partition (main stream, held-out transfer, update stages) with N per row. No results per patient subgroup, although the patient view holds demographics, and no per-task-family (e.g. disease) breakdown."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.28900v1.html:170-180",
+    "text": "700 release-safe Chinese MedQA-derived simulated clinical cases with stable release IDs."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated as simulated cases derived from MedQA (no real patient records claimed). No IRB, DUA or de-identification method is stated. No data terms are given separately from the code licence in the packet."
+ }
+]

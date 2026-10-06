@@ -1,0 +1,39 @@
+{
+ "bench": "synthetic-hospital",
+ "item": "A5",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:183-206",
+    "text": "and the 13 EHR tools as function schemas; it acts by calling tools"
+   },
+   {
+    "chunk_id": "S2:README.md:204-225",
+    "text": "unknown tools and bad arguments come back as error"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Function schemas for the 13 tools and error-return behaviour (error observations that still cost a step, malformed submission scores 0) are documented. Per-tool side effects (read versus write) are not documented on S1-S3, and the visible S5 tool descriptions do not state them for all tools, so S5 reach cannot be told.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "85a48dc2dc4ff7b53121e579af1b387745b94e259463552a113fea3906791218",
+ "packet_sha256": "9efcd297336dac1941e9978549f787b39bc7883defb2d6e3cf01b5d864406b24",
+ "timestamp": "2026-10-05T21:00:05Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/synthetic-hospital.json"
+}

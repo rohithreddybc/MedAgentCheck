@@ -1,0 +1,448 @@
+[
+  {
+    "item": "C1",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:25-33",
+        "text": "Table 1 lists them with their sources and metrics."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names source databases and maps task types to them. It does not report a source version or snapshot date, so this is partial."
+  },
+  {
+    "item": "C2",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:11-12",
+        "text": "streams real ambulatory recordings to an agent chunk by chunk"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The origin as real ambulatory ECG recordings is stated. Licence, terms, consent, or IRB status are not documented in the packet."
+  },
+  {
+    "item": "C3",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:132-138",
+        "text": "we compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports comparison of key demographic features against a named target population. That satisfies the full anchor."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports both unsafe-output and bias tests. This meets the full anchor."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "distributed only through gated access, and we measured verbatim overlap between the test tasks and a public web corpus"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The evidence includes a developer-side gated-access control and a measured overlap check. It also mentions canary strings."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "Agents have no web access during runs and retrieval tools are restricted to the task environment"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states controls preventing leakage and names mechanisms: no web access, restricted retrieval, and hidden labels. This supports runtime isolation from gold."
+  },
+  {
+    "item": "C7",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. Public reporting gives a harness release and offline reproduction details but does not state data, software, and any simulator or judge model are all pinned with no live external dependence."
+  },
+  {
+    "item": "C8",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports scripted reference solutions run through the grader and their result. This satisfies the full anchor."
+  },
+  {
+    "item": "C9",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:84-105",
+        "text": "unnecessary or unsafe writes are penalised in the score"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports write actions changing patient state and penalties for unnecessary or unsafe writes. It does not explicitly state the grader checks unchanged state as well as changed state, so this is partial."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "a random agent scores 2.5% on the same tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports empirical trivial and random-agent rates. That establishes trivial success is unlikely."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "A do-nothing agent score is reported for all 120 tasks. This meets the full anchor."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "finding a false-accept rate of 1% and a false-reject rate of 2%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The grader is validated on injected correct and incorrect outcomes with error figures. The packet also reports physician-labelled evaluator validation."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:107-110",
+        "text": "with temperature 0 and a maximum of 2,048 output tokens"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:172-176",
+        "text": "we ran each task eight times"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports deterministic decoding controls and a repeated-run policy. Together these satisfy the full safeguard anchor."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "test the difference between the two best models with a paired permutation test (p = 0.02)"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports bootstrap confidence intervals and a paired permutation test for model comparison. This satisfies the full anchor."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:172-176",
+        "text": "we ran each task eight times"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:107-110",
+        "text": "with temperature 0 and a maximum of 2,048 output tokens"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet gives eight runs per task and decoding controls. It does not state whether reruns are independent."
+  },
+  {
+    "item": "A2",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "We report 95% bootstrap confidence intervals for all model scores"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports CIs on model scores. It does not state the resampling unit or address clustering within patients or task groups."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:172-176",
+        "text": "report pass^8, the fraction of tasks solved in all eight runs"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports pass^8 and final environment-state agreement across eight runs. That meets the full action/state reliability anchor."
+  },
+  {
+    "item": "A4",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:107-110",
+        "text": "snapshot identifiers gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:107-110",
+        "text": "all reported numbers correspond to harness release v1.2.0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports exact dated model identifiers, decoding parameters, and the harness release for reported numbers. No S1/S4 mismatch is shown for those identifiers."
+  },
+  {
+    "item": "A5",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types."
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "describes what each tool returns, including the error message returned for invalid arguments"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The paper reports machine-readable schemas, read/write side-effect documentation, return semantics, and error returns. It also states these descriptions are included in the agent prompt, so the side-effect disclosure reaches the agent-visible surface."
+  },
+  {
+    "item": "A6",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S2:README.md:31-69",
+        "text": "python -m ecgscroll.verify                      # verifier + detection-latency unit tests"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The docs report unit tests for verifier and detection latency, but not clear tool conformance checks for every tool. No disclosure of simulated, stubbed, or no-op tool behavior reaching S5 is shown."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:84-105",
+        "text": "Writes are executed against a sandboxed copy of the record"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:84-105",
+        "text": "unnecessary or unsafe writes are penalised in the score"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The paper reports which write actions affect patient state, that they are sandboxed, and that unsafe or unnecessary writes are penalized. It also states the agent prompt says writes are sandboxed, so S5 reach is true."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:186-194",
+        "text": "The grader takes the final environment state as its input."
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "finding a false-accept rate of 1% and a false-reject rate of 2%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The grader input is named as final environment state, so no non-state rationale is needed. It is validated on injected correct and incorrect outcomes with per-class error rates."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "retrieval tools are restricted to the task environment"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "A private held-out split with hidden labels is kept off all public surfaces"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports controls on web and retrieval leakage, a private held-out split with hidden labels, and canary strings on released tasks. All three elements are present."
+  },
+  {
+    "item": "A10",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race"
+      },
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:194-196",
+        "text": "each table lists the number of cases in every slice"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports results per task family and per patient subgroup, with case counts in each slice. This satisfies all elements."
+  },
+  {
+    "item": "A11",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2609.33117v1.html:11-12",
+        "text": "streams real ambulatory recordings to an agent chunk by chunk"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states the environment uses real ambulatory recordings. It does not report governance for real data or redistribution terms separate from code licence."
+  }
+]

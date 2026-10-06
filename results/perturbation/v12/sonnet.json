@@ -1,0 +1,1658 @@
+{
+ "variant": "v12",
+ "benchmark": "arxiv:2503.22678",
+ "bench": "MedAgentSim",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "mode": "packet_v3_multiplexed",
+ "cap_tokens": 150000,
+ "rendered_packet_sha256": "401b33e3470c43ebeab351c2b5733f4377c29722fd875ff506dbd704f430a3d3",
+ "n_dropped_chunks": 679,
+ "over_cap": false,
+ "groups": [
+  [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "C8",
+   "C9",
+   "C10",
+   "C11",
+   "C12",
+   "C13",
+   "C14",
+   "A1",
+   "A2",
+   "A3",
+   "A4",
+   "A5",
+   "A6",
+   "A7",
+   "A8",
+   "A9",
+   "A10",
+   "A11"
+  ]
+ ],
+ "attempts": [
+  {
+   "group": 1,
+   "timestamp": "2026-10-06T11:47:08Z",
+   "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+   "usage": {},
+   "meta": {
+    "transport": "subagent",
+    "attempts": 1
+   },
+   "raw_response": "[\n{\"item\":\"C1\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S2:README.md:118-158\",\"text\":\"MIMIC-IV | Real-world clinical cases | 288\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The benchmark names its source datasets (NEJM, MedQA, MIMIC-IV) in the paper table and README, with a Hugging Face dataset link. No dataset version, snapshot date or route from a task to its source record is given. The vague sentence that task content derives from records 'of the kind found in hospital databases' names no source.\"},\n{\"item\":\"C2\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:76-84\",\"text\":\"The patient records are real de-identified records from a hospital database.\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:76-84\",\"text\":\"the data are released under terms separate from the MIT code licence\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Origin is stated (real de-identified hospital records) and data terms are said to be separate from the MIT code licence, but the terms themselves are not given. A data use agreement is mentioned, yet no collection method and no consent or IRB status is stated, so the anchor for 2 is not met.\"},\n{\"item\":\"C3\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"we compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The appendix compares benchmark patient age, sex and race against a named target population (U.S. adult inpatient population from a national hospital discharge survey), and reports differences under five percentage points.\"},\n{\"item\":\"C4\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:65-79\",\"text\":\"Figure 4 : Impact of Cognitive and Implicit Biases on Model Accuracy.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A dedicated bias analysis (cognitive and implicit biases, with gender and race conditions in the config) is reported. No dedicated unsafe-output test is reported on S1-S3; the penalty for unsafe writes is a scoring rule, not a test of unsafe output.\"},\n{\"item\":\"C5\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"the test split is held out and distributed only through gated access\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"we measured verbatim overlap between the test tasks and a public web corpus, finding no exact matches\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The appendix reports a developer-side control (held-out test split with gated access) plus a measured check (verbatim overlap against a public web corpus, no exact matches).\"},\n{\"item\":\"C6\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:1-4\",\"text\":\"the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The paper states the agent cannot reach ground truth at run time and names the mechanism: labels live in a separate evaluation service with no network path from the agent sandbox, and the labels are not published in the repository.\"},\n{\"item\":\"C7\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"all reported numbers correspond to harness release v1.2.0\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The harness release is pinned (v1.2.0) and model snapshot identifiers are given for the API models. The data version and the patient, measurement and moderator LLMs that act as simulator and judge are not stated as pinned, so some evaluator components remain unpinned.\"},\n{\"item\":\"C8\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:92-97\",\"text\":\"we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A scripted reference solution was run through the grader for each task and the result (all 120 graded correct) is reported.\"},\n{\"item\":\"C9\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:65-79\",\"text\":\"Grading validates both intended state modifications and preservation of unrelated records.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Tasks include state-changing write actions (orders, notes, messages), so the item applies. The paper states the grader checks both intended changes and preservation of unrelated records, and that unintended changes are scored as failures.\"},\n{\"item\":\"C10\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:65-79\",\"text\":\"an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Empirical trivial-agent rates are reported: 0.0% for a no-action agent and 2.5% for a random-action agent.\"},\n{\"item\":\"C11\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:65-79\",\"text\":\"Across all 120 tasks, an agent with no actions scores 0.0%\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The do-nothing agent score (0.0%) and a random-action agent score (2.5%) are reported across all 120 tasks.\"},\n{\"item\":\"C12\",\"score\":0,\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1 (paper, appendix), S2 (README and docs), S3 (none), S4 and S5. No evaluator validation with agreement or error figures is reported on S1-S3. The 200-output physician validation appears only in a code comment (agent_eval/notes.py), which cannot count as reporting under G1a.\"},\n{\"item\":\"C13\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:46-66\",\"text\":\"five independent runs per task employed separate random seeds at temperature 0.7\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"S1 states separate random seeds, a sampling temperature and a repeated-run policy (five independent runs, scores averaged). The appendix separately reports temperature 0 and eight runs for pass^8; the two descriptions differ but both state seeds or temperature plus a repeat policy.\"},\n{\"item\":\"C14\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:14-17\",\"text\":\"Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Model scores carry 95% bootstrap confidence intervals and the headline comparison of the two top-performing models uses a paired permutation test (p = 0.02).\"},\n{\"item\":\"A1\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:46-66\",\"text\":\"five independent runs per task employed separate random seeds at temperature 0.7\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The run count per task (five), the seed and temperature policy, and the independence of runs are all stated, with scores reported as the mean of the five runs. The appendix gives eight runs for the pass^8 reliability analysis, a different figure from the headline-score runs.\"},\n{\"item\":\"A2\",\"score\":1,\"elements\":[true,false,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:14-17\",\"text\":\"Model scores include 95% bootstrap confidence intervals.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A 95% bootstrap CI on model scores is reported. The resampling unit (task, patient or run) is not named, and clustering of tasks within patients or templates is not addressed.\"},\n{\"item\":\"A3\",\"score\":2,\"elements\":[false,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"the agreement of the final environment state across the eight runs\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"An all-runs metric (pass^8) and agreement of the final environment state across eight runs are reported with the run count. Action-sequence agreement is not reported.\"},\n{\"item\":\"A4\",\"score\":1,\"elements\":[false,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"with temperature 0 and a maximum of 2,048 output tokens\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"all reported numbers correspond to harness release v1.2.0\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Decoding parameters and a harness release tied to the reported numbers are stated. The S1 snapshot claude-3-5-sonnet-20241022 differs from the claude-3-5-sonnet-20240620 identifier in the code, so under the A4 exception the exact-identifier element counts as absent rather than as a contradiction.\"},\n{\"item\":\"A5\",\"score\":1,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S4:medsim/agents.py:333-350\",\"text\":\"You can request test results using the format 'REQUEST TEST: [test]'. For example, 'REQUEST TEST: Chest_X-Ray'.\"},{\"chunk_id\":\"S4:medsim/agents.py:507-546\",\"text\":\"If the requested results are not in your data then respond with 'NORMAL READINGS'.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":false,\"rationale\":\"The interface is a text-command protocol, so the item applies. The agent-visible prompts give the command grammar (REQUEST TEST, REQUEST IMAGES, DIAGNOSIS READY) and a return fallback (RESULTS, NORMAL READINGS). No per-tool read or write side effects are documented, so element (ii) is absent and does not reach S5. No machine-readable schema is given.\"},\n{\"item\":\"A6\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:83-91\",\"text\":\"Conformance testing confirms tool behavior matches documentation.\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:83-91\",\"text\":\"This is disclosed both in the paper and in the tool descriptions visible to the agent.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":true,\"rationale\":\"The paper reports conformance testing, discloses that two tools are simulated stubs returning fixed placeholder responses, and states that this disclosure appears in the agent-visible tool descriptions. The S5 reach rests on the paper's statement; the S5 chunks in the packet do not show the stub text either way.\"},\n{\"item\":\"A7\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"The write actions that change patient state (medication orders, notes and messages) are listed in a table.\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score.\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"The agent prompt states that writes are sandboxed.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":true,\"rationale\":\"The write actions are listed, executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised. The paper states the agent prompt says writes are sandboxed; the S5 prompts shown in the packet do not contain that wording, so reach rests on the paper's statement.\"},\n{\"item\":\"A8\",\"score\":1,\"elements\":[true,false,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:65-79\",\"text\":\"Grading validates both intended state modifications and preservation of unrelated records.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The grader input is stated as environment state (intended modifications and preserved records). No rationale for a non-state grader is needed or given, and no validation on labelled correct and incorrect outcomes with per-class error rates is reported on S1-S3; the physician-labelled validation exists only in a code comment.\"},\n{\"item\":\"A9\",\"score\":1,\"elements\":[true,true,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:1-4\",\"text\":\"the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:123-129\",\"text\":\"the test split is held out and distributed only through gated access\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Leakage is controlled by network isolation of the labels from the agent sandbox, and a held-out split is distributed only through gated access with labels not published in the repository. No canary or provenance marker is reported.\"},\n{\"item\":\"A10\",\"score\":1,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:35-48\",\"text\":\"Baseline | Size/Type | NEJM | NEJM Ext. | MedQA | MedQA Ext. | MIMIC-IV\"},{\"chunk_id\":\"S2:README.md:118-158\",\"text\":\"NEJM | Complex real-world cases | 15\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Results are reported per benchmark partition (NEJM, MedQA, MIMIC-IV and extended variants) and the README gives the case count for each. No results per patient subgroup are reported; the sex and race comparison is a representativeness check, and the per-family and per-subgroup claim exists only in a code comment.\"},\n{\"item\":\"A11\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:76-84\",\"text\":\"The patient records are real de-identified records from a hospital database.\"},{\"chunk_id\":\"S1:arxiv/2503.22678v2.html:76-84\",\"text\":\"the data are released under terms separate from the MIT code licence\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The paper states the records are real and de-identified, names the governance (a data use agreement with credentialed access and safe-harbour de-identification), and says the data terms are separate from the MIT code licence.\"}\n]\n"
+  }
+ ],
+ "items": {
+  "C1": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S2:README.md:118-158",
+      "text": "MIMIC-IV | Real-world clinical cases | 288"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The benchmark names its source datasets (NEJM, MedQA, MIMIC-IV) in the paper table and README, with a Hugging Face dataset link. No dataset version, snapshot date or route from a task to its source record is given. The vague sentence that task content derives from records 'of the kind found in hospital databases' names no source.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S2:README.md:118-158",
+      "text": "MIMIC-IV | Real-world clinical cases | 288",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C2": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "The patient records are real de-identified records from a hospital database."
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "the data are released under terms separate from the MIT code licence"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Origin is stated (real de-identified hospital records) and data terms are said to be separate from the MIT code licence, but the terms themselves are not given. A data use agreement is mentioned, yet no collection method and no consent or IRB status is stated, so the anchor for 2 is not met.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "The patient records are real de-identified records from a hospital database.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "the data are released under terms separate from the MIT code licence",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C3": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The appendix compares benchmark patient age, sex and race against a named target population (U.S. adult inpatient population from a national hospital discharge survey), and reports differences under five percentage points.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C4": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Figure 4 : Impact of Cognitive and Implicit Biases on Model Accuracy."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A dedicated bias analysis (cognitive and implicit biases, with gender and race conditions in the config) is reported. No dedicated unsafe-output test is reported on S1-S3; the penalty for unsafe writes is a scoring rule, not a test of unsafe output.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Figure 4 : Impact of Cognitive and Implicit Biases on Model Accuracy.",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C5": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the test split is held out and distributed only through gated access"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we measured verbatim overlap between the test tasks and a public web corpus, finding no exact matches"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The appendix reports a developer-side control (held-out test split with gated access) plus a measured check (verbatim overlap against a public web corpus, no exact matches).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the test split is held out and distributed only through gated access",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we measured verbatim overlap between the test tasks and a public web corpus, finding no exact matches",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C6": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:1-4",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The paper states the agent cannot reach ground truth at run time and names the mechanism: labels live in a separate evaluation service with no network path from the agent sandbox, and the labels are not published in the repository.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:1-4",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C7": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "all reported numbers correspond to harness release v1.2.0"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The harness release is pinned (v1.2.0) and model snapshot identifiers are given for the API models. The data version and the patient, measurement and moderator LLMs that act as simulator and judge are not stated as pinned, so some evaluator components remain unpinned.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "all reported numbers correspond to harness release v1.2.0",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C8": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:92-97",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A scripted reference solution was run through the grader for each task and the result (all 120 graded correct) is reported.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:92-97",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C9": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Grading validates both intended state modifications and preservation of unrelated records."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Tasks include state-changing write actions (orders, notes, messages), so the item applies. The paper states the grader checks both intended changes and preservation of unrelated records, and that unintended changes are scored as failures.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Grading validates both intended state modifications and preservation of unrelated records.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C10": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Empirical trivial-agent rates are reported: 0.0% for a no-action agent and 2.5% for a random-action agent.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%",
+      "words": 13,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C11": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The do-nothing agent score (0.0%) and a random-action agent score (2.5%) are reported across all 120 tasks.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Across all 120 tasks, an agent with no actions scores 0.0%",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C12": {
+   "parsed": {
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1 (paper, appendix), S2 (README and docs), S3 (none), S4 and S5. No evaluator validation with agreement or error figures is reported on S1-S3. The 200-output physician validation appears only in a code comment (agent_eval/notes.py), which cannot count as reporting under G1a.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C13": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:46-66",
+      "text": "five independent runs per task employed separate random seeds at temperature 0.7"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "S1 states separate random seeds, a sampling temperature and a repeated-run policy (five independent runs, scores averaged). The appendix separately reports temperature 0 and eight runs for pass^8; the two descriptions differ but both state seeds or temperature plus a repeat policy.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:46-66",
+      "text": "five independent runs per task employed separate random seeds at temperature 0.7",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C14": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:14-17",
+      "text": "Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Model scores carry 95% bootstrap confidence intervals and the headline comparison of the two top-performing models uses a paired permutation test (p = 0.02).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:14-17",
+      "text": "Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "A1": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:46-66",
+      "text": "five independent runs per task employed separate random seeds at temperature 0.7"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The run count per task (five), the seed and temperature policy, and the independence of runs are all stated, with scores reported as the mean of the five runs. The appendix gives eight runs for the pass^8 reliability analysis, a different figure from the headline-score runs.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:46-66",
+      "text": "five independent runs per task employed separate random seeds at temperature 0.7",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A2": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:14-17",
+      "text": "Model scores include 95% bootstrap confidence intervals."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A 95% bootstrap CI on model scores is reported. The resampling unit (task, patient or run) is not named, and clustering of tasks within patients or templates is not addressed.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:14-17",
+      "text": "Model scores include 95% bootstrap confidence intervals.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A3": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     false,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the agreement of the final environment state across the eight runs"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "An all-runs metric (pass^8) and agreement of the final environment state across eight runs are reported with the run count. Action-sequence agreement is not reported.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the agreement of the final environment state across the eight runs",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A4": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     false,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "all reported numbers correspond to harness release v1.2.0"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Decoding parameters and a harness release tied to the reported numbers are stated. The S1 snapshot claude-3-5-sonnet-20241022 differs from the claude-3-5-sonnet-20240620 identifier in the code, so under the A4 exception the exact-identifier element counts as absent rather than as a contradiction.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "all reported numbers correspond to harness release v1.2.0",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A5": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S4:medsim/agents.py:333-350",
+      "text": "You can request test results using the format 'REQUEST TEST: [test]'. For example, 'REQUEST TEST: Chest_X-Ray'."
+     },
+     {
+      "chunk_id": "S4:medsim/agents.py:507-546",
+      "text": "If the requested results are not in your data then respond with 'NORMAL READINGS'."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The interface is a text-command protocol, so the item applies. The agent-visible prompts give the command grammar (REQUEST TEST, REQUEST IMAGES, DIAGNOSIS READY) and a return fallback (RESULTS, NORMAL READINGS). No per-tool read or write side effects are documented, so element (ii) is absent and does not reach S5. No machine-readable schema is given.",
+    "s5_reach": false
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S4:medsim/agents.py:333-350",
+      "text": "You can request test results using the format 'REQUEST TEST: [test]'. For example, 'REQUEST TEST: Chest_X-Ray'.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:medsim/agents.py:507-546",
+      "text": "If the requested results are not in your data then respond with 'NORMAL READINGS'.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A6": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:83-91",
+      "text": "Conformance testing confirms tool behavior matches documentation."
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:83-91",
+      "text": "This is disclosed both in the paper and in the tool descriptions visible to the agent."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The paper reports conformance testing, discloses that two tools are simulated stubs returning fixed placeholder responses, and states that this disclosure appears in the agent-visible tool descriptions. The S5 reach rests on the paper's statement; the S5 chunks in the packet do not show the stub text either way.",
+    "s5_reach": true
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:83-91",
+      "text": "Conformance testing confirms tool behavior matches documentation.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:83-91",
+      "text": "This is disclosed both in the paper and in the tool descriptions visible to the agent.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A7": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table."
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score."
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "The agent prompt states that writes are sandboxed."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The write actions are listed, executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised. The paper states the agent prompt says writes are sandboxed; the S5 prompts shown in the packet do not contain that wording, so reach rests on the paper's statement.",
+    "s5_reach": true
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score.",
+      "words": 20,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "The agent prompt states that writes are sandboxed.",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A8": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Grading validates both intended state modifications and preservation of unrelated records."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The grader input is stated as environment state (intended modifications and preserved records). No rationale for a non-state grader is needed or given, and no validation on labelled correct and incorrect outcomes with per-class error rates is reported on S1-S3; the physician-labelled validation exists only in a code comment.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:65-79",
+      "text": "Grading validates both intended state modifications and preservation of unrelated records.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A9": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:1-4",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the test split is held out and distributed only through gated access"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Leakage is controlled by network isolation of the labels from the agent sandbox, and a held-out split is distributed only through gated access with labels not published in the repository. No canary or provenance marker is reported.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:1-4",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:123-129",
+      "text": "the test split is held out and distributed only through gated access",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A10": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:35-48",
+      "text": "Baseline | Size/Type | NEJM | NEJM Ext. | MedQA | MedQA Ext. | MIMIC-IV"
+     },
+     {
+      "chunk_id": "S2:README.md:118-158",
+      "text": "NEJM | Complex real-world cases | 15"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Results are reported per benchmark partition (NEJM, MedQA, MIMIC-IV and extended variants) and the README gives the case count for each. No results per patient subgroup are reported; the sex and race comparison is a representativeness check, and the per-family and per-subgroup claim exists only in a code comment.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:35-48",
+      "text": "Baseline | Size/Type | NEJM | NEJM Ext. | MedQA | MedQA Ext. | MIMIC-IV",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S2:README.md:118-158",
+      "text": "NEJM | Complex real-world cases | 15",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A11": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "The patient records are real de-identified records from a hospital database."
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "the data are released under terms separate from the MIT code licence"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The paper states the records are real and de-identified, names the governance (a data use agreement with credentialed access and safe-harbour de-identification), and says the data terms are separate from the MIT code licence.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "The patient records are real de-identified records from a hospital database.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2503.22678v2.html:76-84",
+      "text": "the data are released under terms separate from the MIT code licence",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  }
+ },
+ "cells": {
+  "C1": {
+   "variant": {
+    "item": "C1",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "Task content was derived from clinical records of the kind found in hospital databases.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 20,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C2": {
+   "variant": {
+    "item": "C2",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2503.22678v2.html:30-31",
+     "S2:README.md:159-202"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 10,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C3": {
+   "variant": {
+    "item": "C3",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To assess representativeness, we compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population reported in a national hospital discharge survey, and found differences of under five percentage points in every category.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 6,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C4": {
+   "variant": {
+    "item": "C4",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2503.22678v2.html:67-82"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 18,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C5": {
+   "variant": {
+    "item": "C5",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To limit contamination, the test split is held out and distributed only through gated access, and we measured verbatim overlap between the test tasks and a public web corpus, finding no exact matches.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 7,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C6": {
+   "variant": {
+    "item": "C6",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The agent cannot reach ground-truth answers at run time: the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox, and they are not published in the repository.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 0,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C7": {
+   "variant": {
+    "item": "C7",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "The environment code and task files are publicly available in the project repository.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 9,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C8": {
+   "variant": {
+    "item": "C8",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To confirm that every task is solvable, we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 19,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C9": {
+   "variant": {
+    "item": "C9",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Grading validates both intended state modifications and preservation of unrelated records. Any unintended changes are caught and scored as failures.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 15,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C10": {
+   "variant": {
+    "item": "C10",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Models are compared on accuracy.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 8,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C11": {
+   "variant": {
+    "item": "C11",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Across all 120 tasks, an agent with no actions scores 0.0%, while a random-action agent achieves 2.5%.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 14,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C12": {
+   "variant": {
+    "item": "C12",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "We validated the automatic evaluator on 200 outputs labelled by two physicians; agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 1
+   },
+   "slot": 11,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "C14": {
+   "variant": {
+    "item": "C14",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Model scores include 95% bootstrap confidence intervals. Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 3,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A1": {
+   "variant": {
+    "item": "A1",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "For each model, five independent runs per task employed separate random seeds at temperature 0.7. Reported scores represent the mean of these five independent runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 13,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A3": {
+   "variant": {
+    "item": "A3",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To measure reliability, we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs, together with the agreement of the final environment state across the eight runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 21,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A4": {
+   "variant": {
+    "item": "A4",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Models were queried through their APIs using the snapshot identifiers gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022, with temperature 0 and a maximum of 2,048 output tokens; all reported numbers correspond to harness release v1.2.0.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 24,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A6": {
+   "variant": {
+    "item": "A6",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Conformance testing confirms tool behavior matches documentation. Two tools consist of simulated stubs providing fixed placeholder responses. This is disclosed both in the paper and in the tool descriptions visible to the agent.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 17,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A7": {
+   "variant": {
+    "item": "A7",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table. Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score. The agent prompt states that writes are sandboxed.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 22,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A8": {
+   "variant": {
+    "item": "A8",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2503.22678v2.html:30-31"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 5,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "A10": {
+   "variant": {
+    "item": "A10",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race, and each table lists the number of cases in every slice.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 1
+   },
+   "slot": 4,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "A11": {
+   "variant": {
+    "item": "A11",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The patient records are real de-identified records from a hospital database. Their use was approved under a data use agreement requiring credentialed access and de-identification by the safe harbour method, and the data are released under terms separate from the MIT code licence.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 16,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  }
+ },
+ "status": "ok",
+ "prompt_sha256": {
+  "1": "ff52f6211fb49cf7466b351c8c62fb0d0782865c8e996fbd189d72b6fac5c87b"
+ },
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "item_errors": {},
+ "timestamp": "2026-10-06T11:47:08Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_perturb/v12.json"
+}

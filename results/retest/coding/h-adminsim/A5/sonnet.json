@@ -1,0 +1,39 @@
+{
+ "bench": "h-adminsim",
+ "item": "A5",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2602.05407v3.html:370-372",
+    "text": "a “NO TOOL” flag is returned to trigger LLM-based reasoning for scheduling as a fallback mechanism"
+   },
+   {
+    "chunk_id": "S4:src/h_adminsim/tools/scheduling_rule.py:256-299",
+    "text": "def physician_filter_tool(preferred_doctor: str) -> dict:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Five tools (physician filter, date filter, earliest slot, cancel, reschedule) are exposed with typed signatures and docstrings visible to the agent (S5), and the NO TOOL return for unhandled or failed requests is documented in S1. Read versus write behaviour is not documented per tool: the cancel_tool docstring says it identifies an index although the tool also cancels the appointment, so (ii) does not reach S5.",
+  "s5_reach": false
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "d41f39a98d94c2a5c6934b418f53538c24cb0049e2102f1bcb9667e7eabc8bef",
+ "packet_sha256": "75f24bb16211681890b1ec5c252a12a2d340e1d69c930b49acdc8161604324ba",
+ "timestamp": "2026-10-05T20:59:59Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/h-adminsim.json"
+}

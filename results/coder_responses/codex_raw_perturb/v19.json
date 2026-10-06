@@ -1,0 +1,539 @@
+[
+  {
+    "item": "C1",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:349-355",
+        "text": "The tasks are drawn from the clinical database MIMIC-IV version 2.2"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:349-355",
+        "text": "every task record stores the identifier of its source patient record"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 names a dataset, version, platform and route from task to source record. This satisfies all C1 traceability elements."
+  },
+  {
+    "item": "C2",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "contains no real patient information"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "will be released under a permissive research license"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "contains no real patient information"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-3",
+        "text": "The patient records are real de-identified records from a hospital database."
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports origin, provenance, licence posture and that no real patient information was used, making consent effectively not applicable. S4 contradicts this by saying patient records are real de-identified hospital records under a DUA."
+  },
+  {
+    "item": "C3",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:231-237",
+        "text": "intentionally diverse in age, sex and comorbidity profile"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 gives descriptive representativeness information for demonstration patients. It does not compare those features against a named target population."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "a safety test suite that measures unsafe outputs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "a separate bias test that compares agent accuracy across patient demographic groups"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports both an unsafe-output safety test and a separate demographic bias test. That meets the full C4 anchor."
+  },
+  {
+    "item": "C5",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:67-74",
+        "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:67-74",
+        "text": "Released tasks include a canary string."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports developer-side controls: a private held-out split and canary string. It does not report a measured overlap or contamination check, so this is partial."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "has no network path from the agent sandbox"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "they are not published in the repository"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 states the agent cannot reach ground-truth answers at run time. It also names mechanisms: no network path and unpublished labels."
+  },
+  {
+    "item": "C7",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:49-69",
+        "text": "database snapshot, software image, and patient-simulation LLM are each version-pinned"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:49-69",
+        "text": "no other external services are involved"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports pinned data, software and simulator components. It also states evaluation uses no live external services except the model under test."
+  },
+  {
+    "item": "C8",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:169-182",
+        "text": "we ran a scripted reference solution for each task through the grader"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:169-182",
+        "text": "all 120 reference solutions were graded correct"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports scripted reference solutions run through the grader and reports the outcome. This fully satisfies the oracle-solver anchor."
+  },
+  {
+    "item": "C9",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:307-328",
+        "text": "Duplicate POST to the submission endpoint for the same record."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:85-89",
+        "text": "Scores penalize unnecessary or unsafe writes."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Tasks include state-changing writes, so NA does not apply. S1 reports record-integrity checks and penalties for unnecessary writes, indicating out-of-scope side effects are detectable."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:151-170",
+        "text": "a random agent scores 2.5% on the same tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports an empirical random-agent success rate. This directly supports that trivial or random success is unlikely."
+  },
+  {
+    "item": "C11",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:151-170",
+        "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports a do-nothing result, but only for 120 tasks. The benchmark elsewhere reports 432 evaluated instances, so this is partial."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:307-328",
+        "text": "agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports validation of the benchmark's evaluator on its own outputs, labelled by two physicians. It includes agreement and error figures."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:115-121",
+        "text": "All runs use temperature 0 and a fixed random seed"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:115-121",
+        "text": "each task is run three times"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports temperature, seed and a repeated-run policy. Internal S1 inconsistency is not a G2 contradiction flag because G2 flags S4 or S5 contradictions."
+  },
+  {
+    "item": "C14",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:302-306",
+        "text": "Headline scores carry 95% bootstrap CIs"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:302-306",
+        "text": "Headline scores carry 95% bootstrap CIs"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-3",
+        "text": "test the difference between the two best models with a paired permutation test"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports confidence intervals for headline scores, but not a test for the headline model comparison on S1-S3. S4 reports a paired permutation test, which is stronger than the S1 reporting but does not count for scoring."
+  },
+  {
+    "item": "A1",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:115-121",
+        "text": "each task is run three times"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:115-121",
+        "text": "temperature 0 and a fixed random seed"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports a run count and seed/decoding controls. It does not state whether repeated runs are independent."
+  },
+  {
+    "item": "A2",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:302-306",
+        "text": "Headline scores carry 95% bootstrap CIs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:302-306",
+        "text": "the resampling unit is the task"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:302-306",
+        "text": "resamples patients to address within-patient clustering"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports confidence intervals, the resampling unit, and clustering treatment. All three A2 elements are present."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "ran each task eight times and report pass^8"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:388-394",
+        "text": "agreement of the final environment state across the eight runs"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports an eight-run pass^8 metric and final environment-state agreement. It does not report action-sequence agreement."
+  },
+  {
+    "item": "A4",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:49-69",
+        "text": "GPT-5.4 ( OpenAI, 2026 )"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:115-121",
+        "text": "All runs use temperature 0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 gives model identifiers with cited dates and reports a decoding parameter. It does not state a harness tag or commit matching the reported results."
+  },
+  {
+    "item": "A5",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:209-219",
+        "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:209-219",
+        "text": "These tool descriptions are included in the agent prompt."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "S1 reports machine-readable schemas, side effects, return semantics and errors for every tool. It also states these descriptions are included in the agent prompt, so S5 reach is reported."
+  },
+  {
+    "item": "A6",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1-S5. The packet reports tool descriptions, but no tests or conformance checks of tools. It also does not disclose simulated, stubbed or no-op tool behaviour or show such disclosure reaching S5."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:85-89",
+        "text": "write actions affecting patient state: orders, notes, and messages"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:85-89",
+        "text": "These execute on a sandboxed record copy."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:85-89",
+        "text": "Scores penalize unnecessary or unsafe writes."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "S1 identifies clinical write actions, says they execute on sandboxed copies and says unsafe or unnecessary writes are penalized. It also states the agent prompt discloses sandboxing, so S5 reach is true."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:34-37",
+        "text": "A deterministic checker compares the final state with expected values"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:307-328",
+        "text": "We validated the automatic evaluator on 200 outputs labelled by two physicians"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:307-328",
+        "text": "false-positive rate of 3% and a false-negative rate of 8%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 names final state as grader input. Because this is a state grader, the non-state rationale element is not needed for the score, and S1 reports validation with per-class error rates."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:67-74",
+        "text": "Web access is blocked during runs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:67-74",
+        "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:67-74",
+        "text": "Released tasks include a canary string."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports web/retrieval leakage controls, a private held-out split absent from public surfaces, and a canary. All three A9 elements are present."
+  },
+  {
+    "item": "A10",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:14-28",
+        "text": "Accuracy is reported by task family"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:14-28",
+        "text": "by patient subgroup (sex, race)"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:14-28",
+        "text": "case counts displayed for every slice"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 states results are reported by task family and patient subgroup. It also states case counts are displayed for every slice."
+  },
+  {
+    "item": "A11",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "the OpenEMR tier is seeded with five synthetic demonstration patients"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "the synthetic scenarios use seed-generated identifiers and vitals"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.03203v1.html:101-104",
+        "text": "contains no real patient information"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-3",
+        "text": "The patient records are real de-identified records from a hospital database."
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 states the environment state is synthetic or publicly redistributable, satisfying only the source-state element. It does not report real-data governance or separate environment-data terms; S4 contradicts the no-real-patient-information claim."
+  }
+]

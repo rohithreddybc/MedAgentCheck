@@ -1,0 +1,361 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:29-34",
+    "text": "We curated a subset of 26 patient cases from the HANCOCK dataset"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names source datasets and relates benchmark cases and questions to those sources. It does not report a complete version or snapshot date plus platform and a full task-to-source-record route."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:29-34",
+    "text": "the HANCOCK dataset (CC BY 4.0)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states data origin and licensing for the benchmark sources. It does not document consent, IRB status, or an explicit statement that such review was not required."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:29-34",
+    "text": "For each selected patient, an average of 40 modality-specific files are available"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper provides descriptive statistics and sampling details for the selected cases. It does not compare the sample against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report dedicated unsafe-output or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No developer-side contamination control or measured contamination check is reported."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark does not report that agents are isolated from ground-truth results at run time."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not pin data, software, harness, and live external dependencies sufficiently for a frozen release."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:208-214",
+    "text": "the final set of questions in MTBBench were sent for external manual review by domain specialists"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports clinician review of question-answer pairs, which is manual solvability and correctness evidence. It does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark tasks are question-answering and file/tool access tasks; the packet does not describe tasks that change environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:92-93",
+    "text": "outcome and recurrence prediction remain the most difficult, with accuracies near random (50%)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper discloses a chance-like rate for some tasks and uses multiple-choice or true/false formats. This is a disclosed weakness rather than an empirical trivial-agent result."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No do-nothing or random-agent score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports objective answer parsing, but not validation of the automatic evaluator on benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:neurips25/eval/gpt_4o.py:44-83",
+    "text": "temperature=0.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A decoding safeguard is visible in code for the OpenAI evaluator. The paper/docs do not state seeds or a repeated-run policy for the full harness."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:50-61",
+    "text": "Mean accuracy and 95% confidence intervals of various LLMs by task"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports mean accuracy with 95% confidence intervals for model comparisons across tasks. It also describes bootstrap resampling for those intervals."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. S1-S3 do not report the number of independent runs per task, a seed or sampling policy for model runs, or run independence."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:90-92",
+    "text": "we sample with replacement from the set of question outcomes per model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports CIs and states the bootstrap resampling unit as question outcomes or patient-question pairs. It does not address clustering of tasks within patients."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No action-level, state-level, pass^k, or identical-rerun reliability metric is reported."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:247-251",
+    "text": "we use the gpt-4o-2024-08-06 checkpoint for gpt4o"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives exact snapshot identifiers for the OpenAI models and names other evaluated model families. It does not report decoding parameters or a harness commit/tag matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:neurips25/models/agent_with_tools.py:197-220",
+    "text": "To use CONCH you must provide the H&E image name and extension and a list of options"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark defines text-command formats for requesting files and using tools, and the prompts describe file reads/tool use to the agent. Return semantics including errors or failure returns are not documented on reporting surfaces."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report tool conformance tests or a disclosure of simulated, stubbed, or no-op tool behavior reaching the agent."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet describes file requests, tool queries, and final answers, not clinical orders, prescriptions, notes, messages, or other write actions."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:250-255",
+    "text": "Model outputs are parsed using regular expressions to extract answers."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the grader reads the model answer string and justifies this by using objective multiple-choice/true-false accuracy. It does not validate the grader on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No controls on answer leakage through tools/retrieval, held-out/private split, or canary/provenance marker are reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:50-61",
+    "text": "Mean accuracy and 95% confidence intervals of various LLMs by task"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by benchmark task family and gives dataset/task sizes elsewhere. It does not report results per patient demographic subgroup despite demographic fields being present."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2511.20490v1.html:38-43",
+    "text": "a clinicogenomic resource of cancer patients linking genomic profiles with structured clinical timelines"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the source of patient records and separate data licences/terms for source datasets. It does not report IRB, DUA, credentialing, or de-identification method."
+ }
+]

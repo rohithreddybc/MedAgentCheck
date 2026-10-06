@@ -1,0 +1,424 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:29-35",
+    "text": "PrimeKG and HPO annotations supply disease–phenotype associations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names data sources including PrimeKG, HPO annotations, and public case reports. It does not provide source versions/snapshot dates or a route from an individual task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:29-35",
+    "text": "supplemented by public case reports"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origins are stated as clinician-authored tasks drawing on PrimeKG, HPO, and public case reports. The packet does not document source data licence or terms, consent, or IRB status for the data sources."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:46-53",
+    "text": "The corpus contains 304 distinct target-diagnosis labels"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports descriptive corpus statistics such as diagnosis counts and clinical subcategories. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report dedicated unsafe-output tests or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:41-46",
+    "text": "we also provide a split of 283 training tasks and 50 held-out test tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A held-out split is reported, which is a developer-side control. The packet does not report a measured contamination check such as overlap testing or canaries."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:53-62",
+    "text": "The patient persona and scoring key remain inaccessible to the agent."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S2:README.md:155-188",
+    "text": "It could therefore read the answer key in `/var/lib/caa`."
+   },
+   {
+    "chunk_id": "S4:klinikebench_train/prepare_tasks.py:1-34",
+    "text": "SkyRL pins Harbor 0.1.44, which ignores [environment.env], [agent] user"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "S1 reports isolation of the hidden scoring key and describes packaging in a containerized Harbor environment. S2 and S4 directly contradict this for SkyRL/Harbor 0.1.44 by saying the agent may run as root and read the answer key."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:54-90",
+    "text": "installs from our `uv.lock` with `--frozen`"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The README pins software dependencies through a frozen lockfile and reports fixed splits. However, evaluation depends on live patient and judge LLM calls through an OpenAI-compatible endpoint, so the environment is not fully frozen."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:33-42",
+    "text": "Clinicians then inspect live patient–agent simulations and revise inconsistent responses"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports clinician inspection of live simulations and revision of infeasible requirements, which is manual solvability evidence. It does not report a scripted oracle reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. Tasks include state-changing actions, but the packet does not report that the grader checks irrelevant unchanged state or out-of-scope side effects."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:46-53",
+    "text": "Strict pass@1 requires all gates and all must-ask topics."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The conjunction of diagnosis, required tools, action constraints, and must-ask topics is a design argument that trivial success is unlikely. No empirical random or trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report results for a do-nothing or random agent."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:104-109",
+    "text": "Thirty clinicians assessed 35 virtual-patient conversations and 15 MTS-Dialog references"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates virtual-patient dialogue quality with clinician ratings and reports figures. It does not validate the automatic evaluator itself with agreement or error figures against benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:61-64",
+    "text": "Patient simulation uses temperature 0.7 and history judging uses temperature 0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports temperature 0 for the history judge, a safeguard for part of the harness. Patient simulation remains stochastic and no repeated-run policy or seeds are stated for the full harness."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:310-333",
+    "text": "+6\\;[-6,20]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports confidence intervals for step-cap ablations and training comparisons. It does not report a CI or significance test for the headline model comparison across the 31-model leaderboard."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:53-62",
+    "text": "with one rollout per model–task pair"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "S1 states one rollout per model-task pair for the main evaluation. It also gives decoding controls such as medium reasoning effort and simulator/judge temperatures, but does not state independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:348-364",
+    "text": "Paired-bootstrap 95% confidence intervals describe uncertainty in the change in strict pass@1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports confidence intervals for some comparisons and identifies paired-bootstrap resampling for changes in strict pass@1. It does not address clustering of tasks within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:330-350",
+    "text": "GPT-5.4-mini (repeat) | 26 | 28 | 24 | 20"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The sensitivity table includes a repeated score-level condition, but no action-sequence agreement, final-state agreement, or pass^k all-runs metric. Thus it shows score-level rerun information only."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:61-64",
+    "text": "Patient simulation uses temperature 0.7 and history judging uses temperature 0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports decoding parameters including reasoning effort and temperatures. Model names are given, but exact provider snapshot IDs or release dates are not, and the reported-results harness version or commit is not clearly pinned."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:218-224",
+    "text": "clinic tools , which returns their names, descriptions, and JSON parameter schemas."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "S1 documents JSON parameter schemas, tool side effects, and return behavior including unavailable/default responses. No S5 chunks are present, so there is no evidence that side-effect documentation reaches the agent-visible surface."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:244-248",
+    "text": "A local dispatch audit of the findings-enabled corpus covered all 3,550 exposed task–tool pairs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper reports a dispatch audit and discloses simulated or mocked tool behavior. Because the packet has no S5 chunks, there is no evidence that disclosure of simulated behavior reaches the agent-visible surface, so the item cannot score 2."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:231-240",
+    "text": "These actions do not trigger external clinical services."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "S1 identifies write actions such as orders, prescriptions, referrals, admissions, and notes, and states they update simulated encounter state without external services. It also reports argument-level action constraints, but no S5 evidence shows the simulated/sandboxed status reaches the agent."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:41-46",
+    "text": "The resulting dialogue and tool trace are passed to the verifier."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader inputs are stated as dialogue, tool trace, final diagnosis, and LLM must-ask judgement. The packet does not provide a rationale for non-state grading or validation on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:33-42",
+    "text": "diagnosis and scoring criteria remain hidden from the evaluated agent."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S2:README.md:155-188",
+    "text": "It could therefore read the answer key in `/var/lib/caa`."
+   },
+   {
+    "chunk_id": "S2:README.md:155-188",
+    "text": "Evaluation with a current Harbor (`scripts/eval.sh`) runs the agent unprivileged."
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The benchmark reports hidden scoring criteria and a held-out split, but does not report canaries or provenance markers. The README contradicts the leakage control for SkyRL Harbor 0.1.44 by warning that the agent could read the answer key."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:310-333",
+    "text": "Step-cap ablation for five clinicians on 50 matched tasks."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results for named task/evaluation partitions such as step-cap and 50-task held-out ablations with slice sizes. It does not report results by patient demographic subgroup."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.38480v1.html:29-35",
+    "text": "Clinicians select a target disease and associated findings"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that clinicians author patient personas and clinical state from target diseases and findings, with LLM assistance. It does not state IRB/DUA/de-identification governance or data redistribution terms separate from the code licence."
+ }
+]

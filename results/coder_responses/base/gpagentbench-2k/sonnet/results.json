@@ -1,0 +1,440 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:25-27",
+    "text": "GPAgentBench-2K was constructed using real-world GP visit records from a primary-care network."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source is named only as real-world GP visit records from a primary-care network. No time frame, platform, dataset version or snapshot date, and no route from a task to its source record is given. README is a title only."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:345-350",
+    "text": "GPAgentBench-2K is under a non-commercial research-use license."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:334-344",
+    "text": "All clinical records were processed under the applicable institutional data-governance requirements and were de-identified before use to protect patient privacy."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin, collection (GP network records, physician validation) and licence terms are documented. No patient consent or IRB status or explicit 'not required' is stated; only 'institutional data-governance requirements' and annotator consent, so held at 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:177-185",
+    "text": "male patients account for 57.6% and females for 42.4% of the 2,256 cases with recorded gender data"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Appendix A.4 gives descriptive statistics (gender, age, specialties, symptoms, tests). There is no comparison against a named target population; the limitations note institution-specific referral norms."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "Safety costs penalize clinical risks, including missed referral (a harmful miss where the agent manage a patient requiring a referral locally)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Dedicated unsafe-behaviour metrics (Miss Refer, Miss GP) are reported for all models. No bias or fairness test across patient subgroups or personas is reported; bias appears only as a limitation caveat."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (paper, appendices, limitations), S2 (README is a title only), S3 (none), S4 and S5 (no chunks). No gating, canary, encryption or overlap check is described; the 20% test split is a standard evaluation split, not described as a contamination control."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:22-26",
+    "text": "the ground-truth diagnosis and disposition is hidden from the agent"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:29-32",
+    "text": "To prevent label leakage, we remove diagnostic statements and treatment recommendations from the clinical notes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states ground truth is hidden from the agent and names a mechanism: diagnostic and treatment statements are stripped from the structured case data the environment serves. Borderline on mechanism type (data stripping rather than access control)."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "the patient agent is instantiated with GPT-4o-mini OpenAI (2024)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "The Dx accuracy and Tx score are computed using GPT-5.4 as the LLM judge"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The case set and test split are fixed, but the patient simulator and the judge are live commercial API models without snapshot IDs, so they are not pinned. No software or harness version is stated."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:28-29",
+    "text": "cases are evaluated on evidence completeness ( i.e. , if the diagnosis can be confirmed given the clinical evidence)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Physician review of evidence completeness gives manual solvability evidence. No scripted reference solution is run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (environment design, appendix C), S2, S3, S4, S5. The environment state is only the accumulating dialogue and record-derived observations; records are read-only and no task changes external environment state, so NA applies."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:98-98",
+    "text": "reflects near-constant local management rather than calibrated triage"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No random or trivial-agent rate or chance rate per metric is reported. The paper discloses that a degenerate near-always-treat policy gets a deceptively low Miss-GP rate, and pairs two safety metrics to expose it (disclosed weakness, G5)."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 1-3, 5-10, text), S2, S3, S4, S5. No do-nothing, random or always-treat/always-refer agent is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:229-242",
+    "text": "We randomly sampled 200 outputs from diagnose-and-manage cases across the 16 evaluated models."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:46-50",
+    "text": "The audit shows strong agreement with two senior physicians"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its own GPT-5.4 judge on its own outputs against two physicians (Cohen's kappa 0.92 Dx, 0.89 Tx) and runs a cross-judge re-score (Table 5). Management metrics are deterministic from the terminal action."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "whereas the management and safety metrics are computed deterministically against the ground-truth management label"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Only part of the harness is made deterministic (management and safety scoring, string-matched referral destinations, 10-turn cap). No seeds, temperature or repeated-run policy is stated for the agents, simulator or judge."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:68-78",
+    "text": "Parentheses report the standard error of the mean."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Standard errors are reported for Table 1 and Table 10, but no significance test or CI-based comparison supports the headline claims (for example C-GRPO outperforms GRPO, whose SEs overlap)."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Runs per task are never stated (only 'we simply sample rollouts'); no seed, temperature or decoding policy, and no statement about run independence."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:306-320",
+    "text": "mean \\pm standard error across test cases"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:68-78",
+    "text": "Parentheses report the standard error of the mean."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "SEs are reported on headline scores, with the unit stated as test cases for Table 10. Clustering of cases within patients, departments or personas is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No identical-rerun information, action or state agreement across reruns, or pass^k metric. Table 3 reports duplicated actions per trajectory, which is not rerun agreement."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:56-68",
+    "text": "GPT-5.4 OpenAI (2026)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Evaluated models are listed with version names and a year, though no provider snapshot IDs (the GPT-4o-mini simulator has family name only). No decoding parameters are stated, and no harness version or commit matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "The agent must generate XML-style tags"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "the agent may recursively execute information-gathering actions"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "unavailable requests return unavailable results rather than fabricated evidence"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A text-command protocol (XML-style action tags with required fields, a six-action schema, admissible-action mask) is defined, so not NA. Information-gathering versus terminal actions and return semantics (unavailable results, workflow-violation and timeout penalties) are described, though not as an explicit read/write table. S5 chunks are absent, so reach of (ii) cannot be told."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "For body_exam and test , available targets are record-derived; unavailable requests return unavailable results rather than fabricated evidence."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper discloses that patient responses are simulated and that exam and test results are record-derived. No tests or conformance checks of the tool/action parser are reported. Whether the disclosure reaches the agent prompt cannot be seen because S5 has no chunks."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "take a refer action to abstain from diagnosis and immediately terminate the episode"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "Efficiency costs penalize resource overutilization by tracking the total dialogue turns and the monetary cost of ordered diagnostic tests per episode."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Test orders, treat and refer represent simulated clinical orders and dispositions, so not NA. Terminal and costed actions are identified, orders are executed as record look-ups in a simulated environment, and wrong terminal actions and excess tests are penalised via safety and cost terms. S5 reach cannot be told."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "The Dx accuracy and Tx score are computed using GPT-5.4 as the LLM judge"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:112-116",
+    "text": "We do not evaluate exact trajectory matching because multiple evidence-acquisition paths may be clinically reasonable for the same case"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is named (LLM judge on predicted diagnosis and treatment, deterministic terminal-action check) with a rationale for not grading trajectories. Physician validation on 200 outputs reports kappa only, with no per-class error rates, so (iii) is not credited."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:29-32",
+    "text": "To prevent label leakage, we remove diagnostic statements and treatment recommendations from the clinical notes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Label stripping of case data is a control on leakage through the environment. No held-out split with labels absent from public surfaces is described, and no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:56-68",
+    "text": "stratified by management label (284 diagnose-and-manage and 201 abstain-and-refer cases)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Management-label slices are sized, and Miss Refer / Miss GP are slice-specific rates. No results per patient subgroup (age, gender) or persona dimension are reported even though demographic fields exist."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:357-363",
+    "text": "automated and manual screening to remove all personally identifiable information (PII) and protected health information (PHI)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:345-350",
+    "text": "GPAgentBench-2K is under a non-commercial research-use license."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:345-350",
+    "text": "The accompanying evaluation code and scripts will be released under the Apache License 2.0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated as real de-identified GP encounters, the de-identification method is described (D.5), and dataset terms (non-commercial research licence) are separate from the code licence (Apache 2.0)."
+ }
+]

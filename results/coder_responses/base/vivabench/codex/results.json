@@ -1,0 +1,391 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:41-44",
+    "text": "Each entry includes a unique identifier ( uid ), source information, free-text clinical vignette , diagnosis with differentials"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names source platforms including PubMed and HuggingFace and says entries include source information and unique IDs. It does not report a source dataset version or snapshot date plus a complete route from a task to a source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:36-37",
+    "text": "we sourced clinical vignettes exclusively from publicly available repositories"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports the origin and collection approach from public repositories and filtering. It does not document licence or terms plus consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:210-213",
+    "text": "VivaBench consists of 990 cases across nine specialty groups"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper provides descriptive composition statistics by specialty and journal sources. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet reports failure modes and clinical safety implications, but no dedicated unsafe-output test or bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:218-226",
+    "text": "Generated sentences exhibited consistently low textual similarity to the original second sentences"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports an indirect empirical contamination check using sentence completion and similarity metrics. It does not report a developer-side control such as gating, canaries, encryption, or a held-out set."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not state that the agent cannot reach ground truth at run time or name an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The paper names datasets and models but does not pin data, software, simulator, judge model, or harness versions for a frozen release."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:214-218",
+    "text": "4 clinicians provided a provisional diagnosis based on the clinical picture over 14 unseen cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a small human clinician baseline, which is manual solvability evidence. It does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The diagnostic benchmark does not report tasks that change an external environment state; interactions retrieve information and produce diagnoses."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:46-48",
+    "text": "accuracy was counted if any one diagnosis was correctly identified"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The scoring design requires diagnosis matches using exact or approximate criteria, which is a design argument against trivial success. No empirical random, trivial-agent, or explicit chance rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not report a do-nothing or random agent score."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:271-273",
+    "text": "we evaluated their precision (Pr) and recall (Rc) in mapping free-text queries to the correct structured information keys"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its mapper/evaluator components on its own outputs and reports precision and recall figures. It also reports clinician agreement for post-hoc validation."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:49-55",
+    "text": "Each model was tested at temperature 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports temperature 0 for evaluated models and mapper settings, which covers part of the harness. It also says only a single evaluation run was conducted, so no repeated-run policy is stated."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:214-218",
+    "text": "0.68 ± 0.09 top-3 accuracy versus 0.52 ± 0.07"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports uncertainty for the small human baseline comparison and statistical tests for adaptation correlations. It does not report a CI or test for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:86-93",
+    "text": "we conducted only a single evaluation run for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the number of evaluation runs per model and gives temperature 0 as the decoding control. It does not state whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not report CI or SE on headline scores, a resampling unit, or clustering treatment."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:274-277",
+    "text": "100 distinct queries were each submitted 10 times"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports action-level mapper repeat-run agreement using repeated identical queries and gives the run count. This satisfies action-level rerun reliability for the harness component."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:280-283",
+    "text": "Each model was accessed through OpenRouter [ 4 ] and tested at temperature = 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives model names with dates in references for several models and reports temperature 0. It does not provide provider snapshot IDs or a harness tag or commit matching the reported results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:300-308",
+    "text": "Available actions: history : Interview the patient directly."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark defines a text-command action protocol and a required JSON diagnosis format, and describes each action's clinical read/order role. Return semantics including errors and failure returns are not fully documented, and no S5 chunks are provided to verify reach."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:271-273",
+    "text": "we evaluated their precision (Pr) and recall (Rc) in mapping free-text queries"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports validation of the mapper tools and discloses simulated viva voce information retrieval. It does not show that the simulation disclosure reaches S5, and no S5 chunks are present."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:284-288",
+    "text": "Category-specific request limits were also enforced: 10 for history"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes clinical orders for investigations and imaging, states they occur within a simulated evaluation, and scores information-seeking precision/recall including unnecessary requests. The packet lacks S5 chunks, so reach to agent-visible surfaces cannot be told."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:289-290",
+    "text": "The complete output trace for each model interaction—including all queries, retrieved information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states grader inputs including traces, queries, retrieved information, and diagnoses, and justifies process metrics for transcript/action grading. It does not validate the grader on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:240-240",
+    "text": "strictly adhering to the information boundaries established by the deterministic parsing logic"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports controls that ground retrieval and parser outputs in case information boundaries to prevent leakage or hallucination. It does not report a held-out/private split or canary/provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:65-68",
+    "text": "Subgroup analysis demonstrated variation in model performance across different specialty groups"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by specialty group and gives slice sizes for specialty composition elsewhere. It does not report results by patient demographic subgroup despite demographic fields existing in the schema."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:183-184",
+    "text": "PubMed case reports were selected as the primary source"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of patient records or seed state is stated as PubMed case reports. The packet does not document IRB, DUA, de-identification method, or redistribution terms separate from code licence."
+ }
+]

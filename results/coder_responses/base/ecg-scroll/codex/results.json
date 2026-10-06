@@ -1,0 +1,396 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:163-188",
+    "text": "All from [PhysioNet](https://physionet.org/); cite the original databases if you use ECG-Scroll."
+   },
+   {
+    "chunk_id": "S2:README.md:131-171",
+    "text": "\"record\": \"04015\", \"pn_dir\": \"afdb\", \"lead\": 0,"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The README names the platform, source databases, and task schema route to source records via pn_dir and record. It does not state source database versions or snapshot dates, but the route and platform are explicit enough for full traceability under the item anchor."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:184-188",
+    "text": "The underlying PhysioNet databases retain their own licenses; download them from PhysioNet and cite the original sources."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin is stated as PhysioNet and licence handling is discussed separately from the MIT code licence. The packet does not document consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:32-36",
+    "text": "The release is a suite of 390 whole-recording instances over 247 recordings spanning 2,536 hours across five databases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports descriptive dataset statistics and task/database coverage. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet contains no dedicated unsafe-output test or bias test."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No developer-side contamination controls, canaries, gated access, encryption, held-out split, or overlap checks are reported."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:22-26",
+    "text": "the event timeline E is never observed directly"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:22-26",
+    "text": "the event timeline E is never observed directly"
+   },
+   {
+    "chunk_id": "S4:ecgscroll/tools.py:437-469",
+    "text": "from beat annotations (mitdb/ltdb)."
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper states the event timeline is not observed directly, which reports isolation in general terms. However, S4 diagnostic tools read ground-truth annotations, so this is flagged as a contradiction candidate under G2."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:66-102",
+    "text": "once records are cached under `data/raw/<db>_local/` they run fully offline"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs report local/offline operation for cached data and local verifiers. The packet does not pin software, simulator, judge model, repo commit, or model under test versions for reported results."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:92-94",
+    "text": "As a signal-grounded reference we include a Rule Agent that uses no language model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a rule-based reference agent run through the benchmark, which is agent-based solvability evidence. It is not an oracle scripted reference solution demonstrating perfect or expected-correct grader behavior."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The tasks require reporting ECG findings and writing to a benchmark memory ledger, not changing an external environment state with irrelevant unchanged state to preserve."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:32-36",
+    "text": "their episodes are few and brief with a median duration near 16 s"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that sparse, brief events make trivial success unlikely. It does not report an empirical random/trivial-agent rate or explicit chance rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports Rule Agent and LLM results, but no do-nothing or random agent scores."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:11-36",
+    "text": "All verifiers return a score in `[0, 1]` and are unit-tested"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The README reports unit tests for verifiers and detection latency. It does not provide agreement or error figures on benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. S1-S3 do not report seeds, temperature settings, or repeated-run policy for the harness."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The result tables report point estimates only, with no confidence intervals, standard deviations, ranges, or significance tests."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:35-45",
+    "text": "Table 1 lists them with their sources and metrics."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports task counts N in Table 1, which gives the number of instances behind task-level headline scores. It does not report seed or sampling policy, nor whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No CI or SE is reported, so no resampling unit or clustering treatment is stated."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports no identical reruns, action-sequence agreement, state agreement, pass^k metric, or score-level rerun variance."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Model family names are reported, but not exact provider snapshot IDs or release dates for evaluated models; decoding parameters and harness commit are also absent."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:50-66",
+    "text": "write(entry) | commit | append a cursor-timestamped finding to memory"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper and README document side effects for skim, measure, and write at a textual level. They do not provide machine-readable schemas for every tool or documented error/failure return semantics; no S5 chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:11-36",
+    "text": "All verifiers return a score in `[0, 1]` and are unit-tested"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The README reports unit tests, including environment-related verifier tests, which partially supports tool/environment conformance. The packet does not disclose simulated/stubbed/no-op behavior in S1-S3, and no S5 disclosure is available."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:64-70",
+    "text": "each write appends an entry of type, lead, interval, value, and confidence"
+   },
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:26-28",
+    "text": "Events never recorded count as missed."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark has a write action that mutates the memory ledger, and missed writes are scored as misses. It does not explicitly state whether writes are executed, simulated, or sandboxed, and no S5 chunks are present."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:92-94",
+    "text": "flagged or written spans are committed to the memory ledger"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is identified as flagged or written spans assembled into answers and scored by verifiers. The paper explains using rule-based ECG ground truth rather than a model judge, but gives no validation on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report controls on answer leakage through tools, retrieval, web access, cross-task memory, held-out/private splits, or canaries."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:70-89",
+    "text": "Metrics are accuracies in [0,1] , higher is better."
+   },
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:35-45",
+    "text": "N is the number of whole-recording instances"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by task family, and Table 1 reports slice sizes for those task families. No patient subgroup results are reported, and the packet does not state that demographic fields do not exist."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.33117v1.html:29-31",
+    "text": "ECG-Scroll uses real two-lead ambulatory recordings from PhysioNet"
+   },
+   {
+    "chunk_id": "S2:README.md:184-188",
+    "text": "The underlying PhysioNet databases retain their own licenses"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states records are real PhysioNet recordings and gives data terms separate from the code licence. It does not report IRB, DUA or credentialing requirements, or a de-identification method."
+ }
+]

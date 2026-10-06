@@ -1,0 +1,1793 @@
+{
+ "variant": "v20",
+ "benchmark": "pubmed:41727598",
+ "bench": "FHIR-AgentEval",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "mode": "packet_v3_multiplexed",
+ "cap_tokens": 150000,
+ "rendered_packet_sha256": "82b34b7ba581cce862d00fdb1958e94752f5a134a8494f9a10f6a9e87555856f",
+ "n_dropped_chunks": 0,
+ "over_cap": false,
+ "groups": [
+  [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "C8",
+   "C9",
+   "C10",
+   "C11",
+   "C12",
+   "C13",
+   "C14",
+   "A1",
+   "A2",
+   "A3",
+   "A4",
+   "A5",
+   "A6",
+   "A7",
+   "A8",
+   "A9",
+   "A10",
+   "A11"
+  ]
+ ],
+ "attempts": [
+  {
+   "group": 1,
+   "timestamp": "2026-10-06T11:47:09Z",
+   "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+   "usage": {},
+   "meta": {
+    "transport": "subagent",
+    "attempts": 1
+   },
+   "raw_response": "[\n{\"item\":\"C1\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:181-191\",\"text\":\"All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The source (an unnamed de-identified hospital database) and a time frame (2008-2019) are stated. No dataset name, version or snapshot date, and no route from a task to its source record, so level 1.\"},\n{\"item\":\"C2\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:181-191\",\"text\":\"All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:181-191\",\"text\":\"the source institution's review board determined that the study qualified for a waiver of consent.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:1-17\",\"text\":\"the data are distributed under terms distinct from the MIT code licence.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Origin, collection setting (routine care), data terms (credentialed-access DUA) and consent status (IRB waiver) are all stated. Note: the paper carries CC BY 4.0 and the code is MIT, while the data terms differ; recorded, score not lowered.\"},\n{\"item\":\"C3\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:1-17\",\"text\":\"The patient cases were chosen to cover a diverse range of conditions.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Only a stated selection rule (diverse range of conditions) is given. There is no comparison against a named target population and no descriptive statistics, so level 1.\"},\n{\"item\":\"C4\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:139-147\",\"text\":\"Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The paper reports both an unsafe-output test and a bias test, stated as built into the benchmark.\"},\n{\"item\":\"C5\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"A private held-out test split with concealed labels is excluded from all public surfaces. Released tasks include a canary string.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Developer-side controls (held-out private split, canary string) are reported on S1. The measured overlap check appears only in a code comment (S4), which does not count as reporting, so no measured check on S1-S3 and level 1.\"},\n{\"item\":\"C6\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"A private held-out test split with concealed labels is excluded from all public surfaces.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Isolation is stated with named mechanisms: no web access, retrieval confined to the task environment, and labels not public.\"},\n{\"item\":\"C7\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:105-111\",\"text\":\"Environment components are fixed at release: database snapshot, software image, and patient-simulation LLM are each version-pinned.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:105-111\",\"text\":\"During evaluation, only the model under test is called; no other external services are involved.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Data, software and simulator are pinned, and only the model under test is called at evaluation time. The soft validator is used only during curation.\"},\n{\"item\":\"C8\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:89-94\",\"text\":\"we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A scripted reference solution was run through the grader and the result is reported. The count of 120 differs from the 43 tasks stated elsewhere; noted but not scored.\"},\n{\"item\":\"C9\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"along with additional irrelevant resources to emulate realistic EHR complexity.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Tasks change state (23 of 43) and the seeded state includes irrelevant resources, but the paper does not state that the grader checks that unrelated state is unchanged. It checks required field-level changes and prohibited tool use, so partial.\"},\n{\"item\":\"C10\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:144-166\",\"text\":\"A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Empirical do-nothing and random-agent rates are reported. A code comment (S4) cites a 3.1% random rate, a numeric discrepancy rather than an opposite property, so no flag set.\"},\n{\"item\":\"C11\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:144-166\",\"text\":\"A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Do-nothing and random agent scores are reported for all tasks.\"},\n{\"item\":\"C12\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:100-104\",\"text\":\"Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:144-166\",\"text\":\"The evaluator was validated against 200 physician-labeled outputs.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The benchmark's own validation of its grader and evaluator is reported with error figures (false acceptance/rejection rates; physician agreement).\"},\n{\"item\":\"C13\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:75-87\",\"text\":\"Each task was run five times per model with independent random seeds; the temperature was set to 0.7\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:75-87\",\"text\":\"the temperature was set to 0.7\"},{\"chunk_id\":\"S4:agent_eval/notes.py:1-4\",\"text\":\"with temperature 0 and a maximum of 2,048 output tokens\"}],\"s5_reach\":null,\"rationale\":\"Seeds, temperature and a five-run repeated-run policy are stated in S1. A code comment (S4) gives temperature 0, which conflicts with the reported 0.7, so it is flagged. The results text also says three runs, an internal inconsistency.\"},\n{\"item\":\"C14\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:86-89\",\"text\":\"Figure 5a reports the mean task success rate (± standard deviation) over three runs.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Only standard deviations are reported. No CI or significance test supports the configuration comparisons.\"},\n{\"item\":\"A1\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:75-87\",\"text\":\"Each task was run five times per model with independent random seeds; the temperature was set to 0.7\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Run count (five), seeds and temperature, and independence of runs are stated. The results section says three runs, an inconsistency noted.\"},\n{\"item\":\"A2\",\"score\":1,\"elements\":[false,true,false],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:89-94\",\"text\":\"Error bars represent standard deviation over three independent runs.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"No CI or SE on headline scores. The variance unit (run) is named through the SD error bars. Variance is decomposed into between-task and within-task components but clustering of tasks within templates or patients is not addressed.\"},\n{\"item\":\"A3\",\"score\":1,\"elements\":[false,false,false],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:89-94\",\"text\":\"Error bars represent standard deviation over three independent runs.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Only score-level variation across identical reruns (SD, same-prompt variance) is reported. No action-level or state-level agreement across reruns and no pass^k metric.\"},\n{\"item\":\"A4\",\"score\":1,\"elements\":[false,true,false],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:75-87\",\"text\":\"the temperature was set to 0.7\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:75-87\",\"text\":\"the temperature was set to 0.7\"},{\"chunk_id\":\"S4:agent_eval/notes.py:1-4\",\"text\":\"with temperature 0 and a maximum of 2,048 output tokens\"}],\"s5_reach\":null,\"rationale\":\"S1 gives only family names (GPT-4.1, GPT-4.1-mini, o4-mini) with no snapshot or date. S4 names different models and snapshots (gpt-4o-2024-08-06), which counts as absent. The harness version v1.2.0 appears only in code, so not on S1-S3. S4 also gives temperature 0 versus 0.7 in S1.\"},\n{\"item\":\"A5\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:190-205\",\"text\":\"Each tool is defined by a JSON schema listing its name, arguments and argument types.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:190-205\",\"text\":\"The documentation states for every tool whether it only reads or also writes state\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:190-205\",\"text\":\"These tool descriptions are included in the agent prompt.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":true,\"rationale\":\"Schema per tool, read/write documentation and return semantics including error messages are stated. The paper states the tool descriptions are included in the agent prompt, so the read/write property reaches S5 (S5 chunks themselves are absent from the packet).\"},\n{\"item\":\"A6\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:46-53\",\"text\":\"We ran conformance tests confirming that each tool behaves as documented.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:46-53\",\"text\":\"Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:46-53\",\"text\":\"also stated in the tool descriptions shown to the agent\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":true,\"rationale\":\"Conformance tests are reported, the two simulated stub tools are disclosed, and the disclosure is stated to appear in the agent-visible tool descriptions.\"},\n{\"item\":\"A7\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"Before each run, the HAPI FHIR 14 server is reset and then seeded with task-specific prerequisite resources\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"tasks involving creation or modification (23 out of 43 tasks) additionally verify server-side resource state and field-level changes\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:105-111\",\"text\":\"Prohibited tool used: the run includes a tool that the task explicitly disallows.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Write tools (create, update, delete) are named and read/write status is documented per tool. Writes execute against a resettable sandboxed HAPI FHIR server, and prohibited tool use is scored as a failure mode. Whether the sandboxed-execution fact reaches S5 cannot be told, since no S5 chunks are in the packet.\"},\n{\"item\":\"A8\",\"score\":2,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:100-104\",\"text\":\"Grading operates on the final environment state.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:100-104\",\"text\":\"Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The grader input is the final environment state, so no non-state rationale is needed (element ii not shown). Validation on injected correct and incorrect outcomes with per-class error rates is reported.\"},\n{\"item\":\"A9\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"A private held-out test split with concealed labels is excluded from all public surfaces.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:41-46\",\"text\":\"Released tasks include a canary string.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Leakage controls (web blocked, retrieval confined), a private held-out split with labels absent from public surfaces, and a canary string are all stated.\"},\n{\"item\":\"A10\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:190-205\",\"text\":\"We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:190-205\",\"text\":\"each table lists the number of cases in every slice.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Results per task family and per sex and race subgroup are reported, with the number of cases in every slice.\"},\n{\"item\":\"A11\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:1-17\",\"text\":\"The patient records utilized are genuine, de-identified entries sourced from a hospital database.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:1-17\",\"text\":\"Additionally, the data are distributed under terms distinct from the MIT code licence.\"},{\"chunk_id\":\"S1:extra/pmc12919212-fhir-agenteval:181-191\",\"text\":\"The data are released under a credentialed-access data use agreement\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Records are stated as real de-identified. Governance is stated (DUA with credentialed access, safe harbour de-identification, IRB waiver). Data terms are stated separately from the MIT code licence.\"}\n]\n"
+  }
+ ],
+ "items": {
+  "C1": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The source (an unnamed de-identified hospital database) and a time frame (2008-2019) are stated. No dataset name, version or snapshot date, and no route from a task to its source record, so level 1.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C2": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "the source institution's review board determined that the study qualified for a waiver of consent."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "the data are distributed under terms distinct from the MIT code licence."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Origin, collection setting (routine care), data terms (credentialed-access DUA) and consent status (IRB waiver) are all stated. Note: the paper carries CC BY 4.0 and the code is MIT, while the data terms differ; recorded, score not lowered.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "the source institution's review board determined that the study qualified for a waiver of consent.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "the data are distributed under terms distinct from the MIT code licence.",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C3": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "The patient cases were chosen to cover a diverse range of conditions."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Only a stated selection rule (diverse range of conditions) is given. There is no comparison against a named target population and no descriptive statistics, so level 1.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "The patient cases were chosen to cover a diverse range of conditions.",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C4": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:139-147",
+      "text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The paper reports both an unsafe-output test and a bias test, stated as built into the benchmark.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:139-147",
+      "text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C5": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces. Released tasks include a canary string."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Developer-side controls (held-out private split, canary string) are reported on S1. The measured overlap check appears only in a code comment (S4), which does not count as reporting, so no measured check on S1-S3 and level 1.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces. Released tasks include a canary string.",
+      "words": 20,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C6": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Isolation is stated with named mechanisms: no web access, retrieval confined to the task environment, and labels not public.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C7": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "Environment components are fixed at release: database snapshot, software image, and patient-simulation LLM are each version-pinned."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "During evaluation, only the model under test is called; no other external services are involved."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Data, software and simulator are pinned, and only the model under test is called at evaluation time. The soft validator is used only during curation.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "Environment components are fixed at release: database snapshot, software image, and patient-simulation LLM are each version-pinned.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "During evaluation, only the model under test is called; no other external services are involved.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C8": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A scripted reference solution was run through the grader and the result is reported. The count of 120 differs from the 43 tasks stated elsewhere; noted but not scored.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C9": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "along with additional irrelevant resources to emulate realistic EHR complexity."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Tasks change state (23 of 43) and the seeded state includes irrelevant resources, but the paper does not state that the grader checks that unrelated state is unchanged. It checks required field-level changes and prohibited tool use, so partial.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "along with additional irrelevant resources to emulate realistic EHR complexity.",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C10": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Empirical do-nothing and random-agent rates are reported. A code comment (S4) cites a 3.1% random rate, a numeric discrepancy rather than an opposite property, so no flag set.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.",
+      "words": 23,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C11": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Do-nothing and random agent scores are reported for all tasks.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.",
+      "words": 23,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C12": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "The evaluator was validated against 200 physician-labeled outputs."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The benchmark's own validation of its grader and evaluator is reported with error figures (false acceptance/rejection rates; physician agreement).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+      "text": "The evaluator was validated against 200 physician-labeled outputs.",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C13": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens"
+     }
+    ],
+    "rationale": "Seeds, temperature and a five-run repeated-run policy are stated in S1. A code comment (S4) gives temperature 0, which conflicts with the reported 0.7, so it is flagged. The results text also says three runs, an internal inconsistency.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C14": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:86-89",
+      "text": "Figure 5a reports the mean task success rate (± standard deviation) over three runs."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Only standard deviations are reported. No CI or significance test supports the configuration comparisons.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:86-89",
+      "text": "Figure 5a reports the mean task success rate (± standard deviation) over three runs.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "A1": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Run count (five), seeds and temperature, and independence of runs are stated. The results section says three runs, an inconsistency noted.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A2": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "Error bars represent standard deviation over three independent runs."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "No CI or SE on headline scores. The variance unit (run) is named through the SD error bars. Variance is decomposed into between-task and within-task components but clustering of tasks within templates or patients is not addressed.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "Error bars represent standard deviation over three independent runs.",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A3": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "Error bars represent standard deviation over three independent runs."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Only score-level variation across identical reruns (SD, same-prompt variance) is reported. No action-level or state-level agreement across reruns and no pass^k metric.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+      "text": "Error bars represent standard deviation over three independent runs.",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A4": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens"
+     }
+    ],
+    "rationale": "S1 gives only family names (GPT-4.1, GPT-4.1-mini, o4-mini) with no snapshot or date. S4 names different models and snapshots (gpt-4o-2024-08-06), which counts as absent. The harness version v1.2.0 appears only in code, so not on S1-S3. S4 also gives temperature 0 versus 0.7 in S1.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+      "text": "the temperature was set to 0.7",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "with temperature 0 and a maximum of 2,048 output tokens",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A5": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "The documentation states for every tool whether it only reads or also writes state"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "These tool descriptions are included in the agent prompt."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Schema per tool, read/write documentation and return semantics including error messages are stated. The paper states the tool descriptions are included in the agent prompt, so the read/write property reaches S5 (S5 chunks themselves are absent from the packet).",
+    "s5_reach": true
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "The documentation states for every tool whether it only reads or also writes state",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "These tool descriptions are included in the agent prompt.",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A6": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "We ran conformance tests confirming that each tool behaves as documented."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "also stated in the tool descriptions shown to the agent"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Conformance tests are reported, the two simulated stub tools are disclosed, and the disclosure is stated to appear in the agent-visible tool descriptions.",
+    "s5_reach": true
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "We ran conformance tests confirming that each tool behaves as documented.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+      "text": "also stated in the tool descriptions shown to the agent",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A7": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Before each run, the HAPI FHIR 14 server is reset and then seeded with task-specific prerequisite resources"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "tasks involving creation or modification (23 out of 43 tasks) additionally verify server-side resource state and field-level changes"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "Prohibited tool used: the run includes a tool that the task explicitly disallows."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Write tools (create, update, delete) are named and read/write status is documented per tool. Writes execute against a resettable sandboxed HAPI FHIR server, and prohibited tool use is scored as a failure mode. Whether the sandboxed-execution fact reaches S5 cannot be told, since no S5 chunks are in the packet.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Before each run, the HAPI FHIR 14 server is reset and then seeded with task-specific prerequisite resources",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "tasks involving creation or modification (23 out of 43 tasks) additionally verify server-side resource state and field-level changes",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+      "text": "Prohibited tool used: the run includes a tool that the task explicitly disallows.",
+      "words": 13,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A8": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grading operates on the final environment state."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The grader input is the final environment state, so no non-state rationale is needed (element ii not shown). Validation on injected correct and incorrect outcomes with per-class error rates is reported.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grading operates on the final environment state.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+      "text": "Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A9": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Released tasks include a canary string."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Leakage controls (web blocked, retrieval confined), a private held-out split with labels absent from public surfaces, and a canary string are all stated.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search.",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "A private held-out test split with concealed labels is excluded from all public surfaces.",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+      "text": "Released tasks include a canary string.",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A10": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "each table lists the number of cases in every slice."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Results per task family and per sex and race subgroup are reported, with the number of cases in every slice.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+      "text": "each table lists the number of cases in every slice.",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A11": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "The patient records utilized are genuine, de-identified entries sourced from a hospital database."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "Additionally, the data are distributed under terms distinct from the MIT code licence."
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "The data are released under a credentialed-access data use agreement"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Records are stated as real de-identified. Governance is stated (DUA with credentialed access, safe harbour de-identification, IRB waiver). Data terms are stated separately from the MIT code licence.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 3,
+    "n_verified": 3,
+    "n_verified_strict": 3,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "The patient records utilized are genuine, de-identified entries sourced from a hospital database.",
+      "words": 13,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+      "text": "Additionally, the data are distributed under terms distinct from the MIT code licence.",
+      "words": 13,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+      "text": "The data are released under a credentialed-access data use agreement",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  }
+ },
+ "cells": {
+  "C2": {
+   "variant": {
+    "item": "C2",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019. The data are released under a credentialed-access data use agreement, and the source institution's review board determined that the study qualified for a waiver of consent.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 23,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C3": {
+   "variant": {
+    "item": "C3",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "The patient cases were chosen to cover a diverse range of conditions.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 1,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C4": {
+   "variant": {
+    "item": "C4",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics. Both test suites are built into the benchmark.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 17,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C5": {
+   "variant": {
+    "item": "C5",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "To limit contamination, the test split is held out and distributed only through gated access, and we measured verbatim overlap between the test tasks and a public web corpus, finding no exact matches.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 1
+   },
+   "slot": 8,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "C7": {
+   "variant": {
+    "item": "C7",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Environment components are fixed at release: database snapshot, software image, and patient-simulation LLM are each version-pinned. During evaluation, only the model under test is called; no other external services are involved.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 13,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C8": {
+   "variant": {
+    "item": "C8",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To confirm that every task is solvable, we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 11,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C10": {
+   "variant": {
+    "item": "C10",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 7,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "C11": {
+   "variant": {
+    "item": "C11",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 18,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C12": {
+   "variant": {
+    "item": "C12",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The evaluator was validated against 200 physician-labeled outputs. Physician agreement reached 94%, with 3% false positives and 8% false negatives.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 20,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C13": {
+   "variant": {
+    "item": "C13",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Results may vary slightly between runs because language model outputs are not fully deterministic.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 9,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C14": {
+   "variant": {
+    "item": "C14",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "Model A scored 61.2% and model B scored 58.9%.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 16,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A1": {
+   "variant": {
+    "item": "A1",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7, and the reported scores are means over the five independent runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 10,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A2": {
+   "variant": {
+    "item": "A2",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:extra/pmc12919212-fhir-agenteval:87-90"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 4,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "A3": {
+   "variant": {
+    "item": "A3",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:extra/pmc12919212-fhir-agenteval:87-90"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 22,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "A4": {
+   "variant": {
+    "item": "A4",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Models were queried through their APIs using the snapshot identifiers gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022, with temperature 0 and a maximum of 2,048 output tokens; all reported numbers correspond to harness release v1.2.0.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 15,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "A5": {
+   "variant": {
+    "item": "A5",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Each tool is defined by a JSON schema listing its name, arguments and argument types. The documentation states for every tool whether it only reads or also writes state, and describes what each tool returns, including the error message returned for invalid arguments. These tool descriptions are included in the agent prompt.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 2,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A6": {
+   "variant": {
+    "item": "A6",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We ran conformance tests confirming that each tool behaves as documented. Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper and also stated in the tool descriptions shown to the agent.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 6,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A8": {
+   "variant": {
+    "item": "A8",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Grading operates on the final environment state. Grader validation tested 150 injected correct and incorrect outcomes, yielding 1% false acceptance and 2% false rejection rates.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 12,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A9": {
+   "variant": {
+    "item": "A9",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search. A private held-out test split with concealed labels is excluded from all public surfaces. Released tasks include a canary string.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 5,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A10": {
+   "variant": {
+    "item": "A10",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race, and each table lists the number of cases in every slice.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 19,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A11": {
+   "variant": {
+    "item": "A11",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The patient records utilized are genuine, de-identified entries sourced from a hospital database. Their usage was authorized via a data use agreement that mandated credentialed access and de-identification compliant with the safe harbour method. Additionally, the data are distributed under terms distinct from the MIT code licence.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 0,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  }
+ },
+ "status": "ok",
+ "prompt_sha256": {
+  "1": "d8a8af3756afeab3196b16c764e4357aede32b66cc0dc580363ef2de9034081f"
+ },
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "item_errors": {},
+ "timestamp": "2026-10-06T11:47:09Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_perturb/v20.json"
+}

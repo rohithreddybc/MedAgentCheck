@@ -1,0 +1,57 @@
+{
+ "score_raw": 1,
+ "effective": 1,
+ "supported": true,
+ "n_quotes": 2,
+ "n_verified": 2,
+ "n_verified_strict": 2,
+ "supported_strict": true,
+ "quotes": [
+  {
+   "chunk_id": "S1:arxiv/2606.05112v1.html:124-127",
+   "text": "We evaluated the model version gemini-3.1-pro-preview using the official API.",
+   "words": 10,
+   "verified": true,
+   "verified_strict": true,
+   "reason": "ok"
+  },
+  {
+   "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+   "text": "are implemented using deterministic decoding (temperature = 0)",
+   "words": 8,
+   "verified": true,
+   "verified_strict": true,
+   "reason": "ok"
+  }
+ ],
+ "contradicted": true,
+ "contradiction_verified": true,
+ "contradiction_quotes": [
+  {
+   "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+   "text": "are implemented using deterministic decoding (temperature = 0)",
+   "words": 8,
+   "verified": true,
+   "verified_strict": true,
+   "reason": "ok"
+  },
+  {
+   "chunk_id": "S4:src/simulate/api.py:94-130",
+   "text": "默认采样温度：None 表示完全不向后端传 temperature（与历史评测行为字节级一致）",
+   "words": 3,
+   "verified": true,
+   "verified_strict": true,
+   "reason": "ok"
+  }
+ ],
+ "elements": [
+  true,
+  true,
+  false
+ ],
+ "flags": [],
+ "bench": "medsp1000",
+ "item": "A4",
+ "coder": "sonnet",
+ "family": "anthropic"
+}

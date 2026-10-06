@@ -1,0 +1,1932 @@
+{
+ "variant": "v18",
+ "benchmark": "arxiv:2601.23049",
+ "bench": "MedMCP-Calc",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "mode": "packet_v3_multiplexed",
+ "cap_tokens": 150000,
+ "rendered_packet_sha256": "8fad194bbd0bd8c7c4c7b2d13438db50ff293f9e4ae81341caf2348d2f278be3",
+ "n_dropped_chunks": 0,
+ "over_cap": false,
+ "groups": [
+  [
+   "C1",
+   "C2",
+   "C3",
+   "C4",
+   "C5",
+   "C6",
+   "C7",
+   "C8",
+   "C9",
+   "C10",
+   "C11",
+   "C12",
+   "C13",
+   "C14",
+   "A1",
+   "A2",
+   "A3",
+   "A4",
+   "A5",
+   "A6",
+   "A7",
+   "A8",
+   "A9",
+   "A10",
+   "A11"
+  ]
+ ],
+ "attempts": [
+  {
+   "group": 1,
+   "timestamp": "2026-10-06T11:47:09Z",
+   "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+   "usage": {},
+   "meta": {
+    "transport": "subagent",
+    "attempts": 1
+   },
+   "raw_response": "[\n{\"item\":\"C1\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:38-40\",\"text\":\"We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Calculator sources are named by platform (MDCalc, Medscape, QxMD) with a count, but there is no version, snapshot date or route from a task to its source record. The patient-record source is only described as referencing real hospital EHR systems, unnamed. This gives source named without version or route.\"},\n{\"item\":\"C2\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:38-40\",\"text\":\"We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Origin (three calculator platforms) and collection method (the staged pipeline) are stated. No licence or terms of the source platforms or of the released data, and no consent or IRB status or explicit not-required statement, appear in S1-S3. The README shows only a code MIT badge. The decoy sentence about clinical records of the kind found in hospital databases states no origin.\"},\n{\"item\":\"C3\",\"score\":0,\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1 (benchmark construction, Section 3, Appendix A-C, Limitations), S2 (README), S3 (none), S4 (tasks.jsonl, evaluation code), S5. No comparison to a target population, no descriptive statistics of patient features for the benchmark, and no sampling design for patients; the Limitations sentence on region-specific bias is not an analysis. The domain counts in Appendix A.4 describe the training set.\"},\n{\"item\":\"C4\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:348-378\",\"text\":\"a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"S1 states both a dedicated unsafe-output test suite and a separate bias test comparing accuracy across demographic groups. The statement sits inside a database schema table in the appendix, and no results or code for either test appear in the packet, but the reporting criterion is met as stated.\"},\n{\"item\":\"C5\",\"score\":1,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"they are not published in the repository.\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"they are not published in the repository.\"},{\"chunk_id\":\"S4:codes/evaluation.py:273-302\",\"text\":\"for c in task_item[\\\"calculator_answers\\\"]\"}],\"s5_reach\":null,\"rationale\":\"Withheld labels are a developer-side control, but no measured contamination check is reported; the Data contamination sentence is a limitation only. Score is 1. Code (evaluation.py) reads calculator_answers from the repo-path benchmark/tasks.jsonl, which conflicts with the labels not being published in the repository; flagged as a candidate.\"},\n{\"item\":\"C6\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"The agent cannot reach ground-truth answers at run time\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"has no network path from the agent sandbox\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"they are not published in the repository.\"},{\"chunk_id\":\"S4:codes/evaluation.py:273-302\",\"text\":\"for c in task_item[\\\"calculator_answers\\\"]\"}],\"s5_reach\":null,\"rationale\":\"S1 states run-time isolation and names the mechanism (separate evaluation service, no network path, labels not public). Evaluation code loads ground-truth calculator_answers from benchmark/tasks.jsonl in the repository, which contradicts the labels-not-published claim; the reported score is kept and the flag is a candidate only.\"},\n{\"item\":\"C7\",\"score\":0,\"elements\":[],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1 (Sections 3-4, Appendix A), S2 (README), S3 (none), S4 (servers_config.json, tools), S5. No data snapshot, version or hash is pinned. The benchmark relies on live Google Search via Serper and live page fetches, and the extraction model DeepSeek-V3.1 is named without a snapshot.\"},\n{\"item\":\"C8\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A scripted reference solution run through the grader with a reported result. Note: the count of 120 differs from the 118 tasks reported elsewhere in the paper and README.\"},\n{\"item\":\"C9\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"The grader checks both the intended state changes and that all other records remain unchanged\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"The grader checks both the intended state changes and that all other records remain unchanged\"},{\"chunk_id\":\"S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95\",\"text\":\"Enforce read-only transaction to prevent any write operations\"}],\"s5_reach\":null,\"rationale\":\"S1 reports that tasks change state and that the grader checks unchanged as well as changed state, so the NA clause does not apply on the reported record. Code shows the database tool runs in a read-only transaction and evaluation.py grades extracted answers and SQL history rather than state; flagged as a candidate contradiction. Reported score kept.\"},\n{\"item\":\"C10\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"An empirical random-agent rate and an explicit per-metric chance rate are stated. Note: the same appendix gives 2.5% for a random agent elsewhere, an internal inconsistency.\"},\n{\"item\":\"C11\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Do-nothing and random agent scores are reported across all tasks. The task count (120) differs from the 118 reported elsewhere; the random-agent figure (2.5%) differs from the 3.1% in the previous sentence.\"},\n{\"item\":\"C12\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:320-335\",\"text\":\"We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"The benchmark's own validation on injected correct and incorrect outcomes with false-accept and false-reject rates. The validated grader is described as state-reading, whereas evaluation.py uses an LLM to extract from answers (see A8).\"},\n{\"item\":\"C13\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed, and each task is run three times\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed, and each task is run three times\"},{\"chunk_id\":\"S4:agent_eval/notes.py:1-4\",\"text\":\"the temperature was set to 0.7, and the reported scores are means over the five independent runs\"}],\"s5_reach\":null,\"rationale\":\"S1 states temperature 0, a fixed seed and a three-run repeated-run policy. A code comment in agent_eval/notes.py states temperature 0.7 and five runs, which conflicts; flagged as a candidate. Reported score kept.\"},\n{\"item\":\"C14\",\"score\":2,\"elements\":[],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:165-170\",\"text\":\"Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"A paired permutation test on the two top models, the headline comparison, and 95% bootstrap CIs on model scores are stated. Table 2 itself shows no CI values.\"},\n{\"item\":\"A1\",\"score\":1,\"elements\":[true,true,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed, and each task is run three times\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed, and each task is run three times\"},{\"chunk_id\":\"S4:agent_eval/notes.py:1-4\",\"text\":\"Each task was run five times per model with independent random seeds\"}],\"s5_reach\":null,\"rationale\":\"Number of runs (three) and the temperature/seed policy are stated on S1; independence of runs is not stated on S1-S3. A code comment says five independent runs at temperature 0.7, conflicting with the reported figures; flagged. Elements 2/3.\"},\n{\"item\":\"A2\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"We report 95% confidence intervals computed by bootstrapping over tasks, so the resampling unit is the task\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"where several tasks share a patient, we resample patients instead to account for clustering\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"95% bootstrap CIs, the resampling unit (task) and patient-level clustering handling are all stated. Elements 3/3.\"},\n{\"item\":\"A3\",\"score\":0,\"elements\":[false,false,false],\"quotes\":[],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"searched: S1, S2, S3 (none), S5. No rerun agreement, per-task repeat outcomes, or pass^k metric is reported on S1-S3. A pass^8 and state-agreement comment exists only in S4 notes.py, which does not count as reporting. Elements 0/3.\"},\n{\"item\":\"A4\",\"score\":1,\"elements\":[false,true,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:86-90\",\"text\":\"All runs use temperature 0 and a fixed random seed\"},{\"chunk_id\":\"S4:agent_eval/notes.py:1-4\",\"text\":\"the temperature was set to 0.7, and the reported scores are means over the five independent runs\"}],\"s5_reach\":null,\"rationale\":\"Decoding parameters (temperature 0, fixed seed) are stated on S1. Model names lack provider snapshot IDs or release dates (family or version name only; the sentence naming GPT-4 and Claude gives families only), and no harness tag or commit is stated. A code comment conflicts on temperature; flagged. Elements 1/3.\"},\n{\"item\":\"A5\",\"score\":1,\"elements\":[true,false,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:260-262\",\"text\":\"the model issues an MCP tool call in JSON format with fields server , tool , and arguments\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":false,\"rationale\":\"A JSON action grammar (server, tool, arguments) over MCP is specified on S1, giving element (i) weakly. No per-tool read/write side-effect documentation or return and error semantics appear on S1-S3, and the S5 section shows no side-effect statement. The decoy sentence that the agent can use tools adds no specification. Elements 1/3.\"},\n{\"item\":\"A6\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:243-252\",\"text\":\"We ran conformance tests confirming that each tool behaves as documented.\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:243-252\",\"text\":\"Two tools are simulated stubs that return fixed placeholder responses\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:243-252\",\"text\":\"this is disclosed in the paper and also stated in the tool descriptions shown to the agent.\"},{\"chunk_id\":\"S4:codes/medmcpcalc_mcp/servers/google_search/server.py:371-421\",\"text\":\"Fetches a URL using a headless browser (Playwright).\"}],\"s5_reach\":false,\"rationale\":\"S1 reports conformance tests, disclosure of two simulated stubs, and disclosure in the agent-visible tool descriptions. The tool descriptions in the packet (search, fetch, run_read_only_sql, run_python) describe real functionality and mention no stubs or placeholders, and the code implements real calls; flagged as a candidate contradiction. Reported score kept. Elements 3/3.\"},\n{\"item\":\"A7\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"The write actions that change patient state (medication orders, notes and messages) are listed in a table.\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score.\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"Writes are executed against a sandboxed copy of the record\"},{\"chunk_id\":\"S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95\",\"text\":\"Enforce read-only transaction to prevent any write operations\"}],\"s5_reach\":null,\"rationale\":\"S1 lists the state-changing actions, states writes run on a sandboxed copy, and states unsafe writes are penalised. The claim that the agent prompt says writes are sandboxed cannot be checked because the ReAct prompt template is not in the packet. Code shows only a read-only SQL tool and no write tool; flagged as a candidate contradiction. Elements 3/3.\"},\n{\"item\":\"A8\",\"score\":2,\"elements\":[true,false,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:320-335\",\"text\":\"The grader takes the final environment state as its input.\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:320-335\",\"text\":\"We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:320-335\",\"text\":\"The grader takes the final environment state as its input.\"},{\"chunk_id\":\"S4:codes/evaluation.py:273-302\",\"text\":\"final_answer = item.get(\\\"final_answer\\\", \\\"\\\") or \\\"\\\"\"}],\"s5_reach\":null,\"rationale\":\"S1 states the grader input is the final environment state and reports validation on 150 injected outcomes with per-class error rates; no non-state rationale is needed. evaluation.py instead extracts calculators from the agent's final answer string and SQL history with an LLM, which conflicts with the state-based input; flagged as a candidate. Elements 2/3.\"},\n{\"item\":\"A9\",\"score\":1,\"elements\":[true,true,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"has no network path from the agent sandbox\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"they are not published in the repository.\"}],\"contradicted\":true,\"contradiction_quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"they are not published in the repository.\"},{\"chunk_id\":\"S4:codes/evaluation.py:1-44\",\"text\":\"parser.add_argument('--task_path', type=str, default=\\\"../benchmark/tasks.jsonl\\\")\"}],\"s5_reach\":null,\"rationale\":\"S1 reports isolation of labels from the agent sandbox and that labels are not in the repository. No canary or provenance marker is reported on S1-S3; the canary and held-out split appear only in an S4 comment. Evaluation code reads ground truth from benchmark/tasks.jsonl in the repository, conflicting with the labels-not-public claim; flagged. Elements 2/3.\"},\n{\"item\":\"A10\",\"score\":2,\"elements\":[true,true,true],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race\"},{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:641-650\",\"text\":\"each table lists the number of cases in every slice\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"Per task family, per demographic subgroup and slice sizes are all stated. Table 2 itself reports per clinical domain without slice sizes. Elements 3/3.\"},\n{\"item\":\"A11\",\"score\":1,\"elements\":[true,false,false],\"quotes\":[{\"chunk_id\":\"S1:arxiv/2601.23049v2.html:293-301\",\"text\":\"an EHR database for a de-identified 58-year-old male patient\"}],\"contradicted\":false,\"contradiction_quotes\":[],\"s5_reach\":null,\"rationale\":\"S1 describes the environment records as de-identified, with the Limitations stating the benchmark references real hospital EHR systems; the record source is otherwise ambiguous (GPT-5 templates create patient data) and is not inferred further. No de-identification method, IRB or DUA, and no data terms separate from the code MIT licence. The decoy sentence about records of the kind found in hospital databases adds nothing. Elements 1/3.\"}\n]\n"
+  }
+ ],
+ "items": {
+  "C1": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+      "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Calculator sources are named by platform (MDCalc, Medscape, QxMD) with a count, but there is no version, snapshot date or route from a task to its source record. The patient-record source is only described as referencing real hospital EHR systems, unnamed. This gives source named without version or route.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+      "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C2": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+      "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Origin (three calculator platforms) and collection method (the staged pipeline) are stated. No licence or terms of the source platforms or of the released data, and no consent or IRB status or explicit not-required statement, appear in S1-S3. The README shows only a code MIT badge. The decoy sentence about clinical records of the kind found in hospital databases states no origin.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:38-40",
+      "text": "We gathered all publicly available calculators from three widely-used medical platforms—MDCalc, Medscape, and QxMD—yielding 1,970 entries.",
+      "words": 16,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C3": {
+   "parsed": {
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1 (benchmark construction, Section 3, Appendix A-C, Limitations), S2 (README), S3 (none), S4 (tasks.jsonl, evaluation code), S5. No comparison to a target population, no descriptive statistics of patient features for the benchmark, and no sampling design for patients; the Limitations sentence on region-specific bias is not an analysis. The domain counts in Appendix A.4 describe the training set.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C4": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:348-378",
+      "text": "a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "S1 states both a dedicated unsafe-output test suite and a separate bias test comparing accuracy across demographic groups. The statement sits inside a database schema table in the appendix, and no results or code for either test appear in the packet, but the reporting criterion is met as stated.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:348-378",
+      "text": "a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C5": {
+   "parsed": {
+    "score": 1,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository."
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository."
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "for c in task_item[\"calculator_answers\"]"
+     }
+    ],
+    "rationale": "Withheld labels are a developer-side control, but no measured contamination check is reported; the Data contamination sentence is a limitation only. Score is 1. Code (evaluation.py) reads calculator_answers from the repo-path benchmark/tasks.jsonl, which conflicts with the labels not being published in the repository; flagged as a candidate.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "for c in task_item[\"calculator_answers\"]",
+      "words": 4,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C6": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The agent cannot reach ground-truth answers at run time"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "has no network path from the agent sandbox"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository."
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "for c in task_item[\"calculator_answers\"]"
+     }
+    ],
+    "rationale": "S1 states run-time isolation and names the mechanism (separate evaluation service, no network path, labels not public). Evaluation code loads ground-truth calculator_answers from benchmark/tasks.jsonl in the repository, which contradicts the labels-not-published claim; the reported score is kept and the flag is a candidate only.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The agent cannot reach ground-truth answers at run time",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "has no network path from the agent sandbox",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "for c in task_item[\"calculator_answers\"]",
+      "words": 4,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C7": {
+   "parsed": {
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1 (Sections 3-4, Appendix A), S2 (README), S3 (none), S4 (servers_config.json, tools), S5. No data snapshot, version or hash is pinned. The benchmark relies on live Google Search via Serper and live page fetches, and the extraction model DeepSeek-V3.1 is named without a snapshot.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C8": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A scripted reference solution run through the grader with a reported result. Note: the count of 120 differs from the 118 tasks reported elsewhere in the paper and README.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C9": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The grader checks both the intended state changes and that all other records remain unchanged"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The grader checks both the intended state changes and that all other records remain unchanged"
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95",
+      "text": "Enforce read-only transaction to prevent any write operations"
+     }
+    ],
+    "rationale": "S1 reports that tasks change state and that the grader checks unchanged as well as changed state, so the NA clause does not apply on the reported record. Code shows the database tool runs in a read-only transaction and evaluation.py grades extracted answers and SQL history rather than state; flagged as a candidate contradiction. Reported score kept.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The grader checks both the intended state changes and that all other records remain unchanged",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The grader checks both the intended state changes and that all other records remain unchanged",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95",
+      "text": "Enforce read-only transaction to prevent any write operations",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C10": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "An empirical random-agent rate and an explicit per-metric chance rate are stated. Note: the same appendix gives 2.5% for a random agent elsewhere, an internal inconsistency.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix.",
+      "words": 21,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C11": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Do-nothing and random agent scores are reported across all tasks. The task count (120) differs from the 118 reported elsewhere; the random-agent figure (2.5%) differs from the 3.1% in the previous sentence.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.",
+      "words": 23,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C12": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "The benchmark's own validation on injected correct and incorrect outcomes with false-accept and false-reject rates. The validated grader is described as state-reading, whereas evaluation.py uses an LLM to extract from answers (see A8).",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.",
+      "words": 23,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C13": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "the temperature was set to 0.7, and the reported scores are means over the five independent runs"
+     }
+    ],
+    "rationale": "S1 states temperature 0, a fixed seed and a three-run repeated-run policy. A code comment in agent_eval/notes.py states temperature 0.7 and five runs, which conflicts; flagged as a candidate. Reported score kept.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "the temperature was set to 0.7, and the reported scores are means over the five independent runs",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "C14": {
+   "parsed": {
+    "score": 2,
+    "elements": [],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:165-170",
+      "text": "Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02."
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A paired permutation test on the two top models, the headline comparison, and 95% bootstrap CIs on model scores are stated. Table 2 itself shows no CI values.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:165-170",
+      "text": "Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.",
+      "words": 15,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [],
+    "flags": []
+   }
+  },
+  "A1": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "Each task was run five times per model with independent random seeds"
+     }
+    ],
+    "rationale": "Number of runs (three) and the temperature/seed policy are stated on S1; independence of runs is not stated on S1-S3. A code comment says five independent runs at temperature 0.7, conflicting with the reported figures; flagged. Elements 2/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "Each task was run five times per model with independent random seeds",
+      "words": 12,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A2": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "We report 95% confidence intervals computed by bootstrapping over tasks, so the resampling unit is the task"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "where several tasks share a patient, we resample patients instead to account for clustering"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "95% bootstrap CIs, the resampling unit (task) and patient-level clustering handling are all stated. Elements 3/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "We report 95% confidence intervals computed by bootstrapping over tasks, so the resampling unit is the task",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "where several tasks share a patient, we resample patients instead to account for clustering",
+      "words": 14,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A3": {
+   "parsed": {
+    "score": 0,
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "searched: S1, S2, S3 (none), S5. No rerun agreement, per-task repeat outcomes, or pass^k metric is reported on S1-S3. A pass^8 and state-agreement comment exists only in S4 notes.py, which does not count as reporting. Elements 0/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 0,
+    "effective": 0,
+    "supported": false,
+    "n_quotes": 0,
+    "n_verified": 0,
+    "n_verified_strict": 0,
+    "supported_strict": false,
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     false,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A4": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "the temperature was set to 0.7, and the reported scores are means over the five independent runs"
+     }
+    ],
+    "rationale": "Decoding parameters (temperature 0, fixed seed) are stated on S1. Model names lack provider snapshot IDs or release dates (family or version name only; the sentence naming GPT-4 and Claude gives families only), and no harness tag or commit is stated. A code comment conflicts on temperature; flagged. Elements 1/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:86-90",
+      "text": "All runs use temperature 0 and a fixed random seed",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:agent_eval/notes.py:1-4",
+      "text": "the temperature was set to 0.7, and the reported scores are means over the five independent runs",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     false,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A5": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:260-262",
+      "text": "the model issues an MCP tool call in JSON format with fields server , tool , and arguments"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "A JSON action grammar (server, tool, arguments) over MCP is specified on S1, giving element (i) weakly. No per-tool read/write side-effect documentation or return and error semantics appear on S1-S3, and the S5 section shows no side-effect statement. The decoy sentence that the agent can use tools adds no specification. Elements 1/3.",
+    "s5_reach": false
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:260-262",
+      "text": "the model issues an MCP tool call in JSON format with fields server , tool , and arguments",
+      "words": 18,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A6": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "We ran conformance tests confirming that each tool behaves as documented."
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "this is disclosed in the paper and also stated in the tool descriptions shown to the agent."
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/google_search/server.py:371-421",
+      "text": "Fetches a URL using a headless browser (Playwright)."
+     }
+    ],
+    "rationale": "S1 reports conformance tests, disclosure of two simulated stubs, and disclosure in the agent-visible tool descriptions. The tool descriptions in the packet (search, fetch, run_read_only_sql, run_python) describe real functionality and mention no stubs or placeholders, and the code implements real calls; flagged as a candidate contradiction. Reported score kept. Elements 3/3.",
+    "s5_reach": false
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "We ran conformance tests confirming that each tool behaves as documented.",
+      "words": 11,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "Two tools are simulated stubs that return fixed placeholder responses",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:243-252",
+      "text": "this is disclosed in the paper and also stated in the tool descriptions shown to the agent.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/google_search/server.py:371-421",
+      "text": "Fetches a URL using a headless browser (Playwright).",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A7": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table."
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score."
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "Writes are executed against a sandboxed copy of the record"
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95",
+      "text": "Enforce read-only transaction to prevent any write operations"
+     }
+    ],
+    "rationale": "S1 lists the state-changing actions, states writes run on a sandboxed copy, and states unsafe writes are penalised. The claim that the agent prompt says writes are sandboxed cannot be checked because the ReAct prompt template is not in the packet. Code shows only a read-only SQL tool and no write tool; flagged as a candidate contradiction. Elements 3/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table.",
+      "words": 17,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score.",
+      "words": 20,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "Writes are executed against a sandboxed copy of the record",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/medmcpcalc_mcp/servers/postgres_executor/server.py:52-95",
+      "text": "Enforce read-only transaction to prevent any write operations",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A8": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "The grader takes the final environment state as its input."
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%."
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "The grader takes the final environment state as its input."
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "final_answer = item.get(\"final_answer\", \"\") or \"\""
+     }
+    ],
+    "rationale": "S1 states the grader input is the final environment state and reports validation on 150 injected outcomes with per-class error rates; no non-state rationale is needed. evaluation.py instead extracts calculators from the agent's final answer string and SQL history with an LLM, which conflicts with the state-based input; flagged as a candidate. Elements 2/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "The grader takes the final environment state as its input.",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.",
+      "words": 23,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:320-335",
+      "text": "The grader takes the final environment state as its input.",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:273-302",
+      "text": "final_answer = item.get(\"final_answer\", \"\") or \"\"",
+      "words": 6,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     false,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A9": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "has no network path from the agent sandbox"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository."
+     }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository."
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:1-44",
+      "text": "parser.add_argument('--task_path', type=str, default=\"../benchmark/tasks.jsonl\")"
+     }
+    ],
+    "rationale": "S1 reports isolation of labels from the agent sandbox and that labels are not in the repository. No canary or provenance marker is reported on S1-S3; the canary and held-out split appear only in an S4 comment. Evaluation code reads ground truth from benchmark/tasks.jsonl in the repository, conflicting with the labels-not-public claim; flagged. Elements 2/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "has no network path from the agent sandbox",
+      "words": 8,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": true,
+    "contradiction_verified": true,
+    "contradiction_quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "they are not published in the repository.",
+      "words": 7,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S4:codes/evaluation.py:1-44",
+      "text": "parser.add_argument('--task_path', type=str, default=\"../benchmark/tasks.jsonl\")",
+      "words": 3,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "elements": [
+     true,
+     true,
+     false
+    ],
+    "flags": []
+   }
+  },
+  "A10": {
+   "parsed": {
+    "score": 2,
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "each table lists the number of cases in every slice"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "Per task family, per demographic subgroup and slice sizes are all stated. Table 2 itself reports per clinical domain without slice sizes. Elements 3/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 2,
+    "effective": 2,
+    "supported": true,
+    "n_quotes": 2,
+    "n_verified": 2,
+    "n_verified_strict": 2,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race",
+      "words": 19,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     },
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:641-650",
+      "text": "each table lists the number of cases in every slice",
+      "words": 10,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     true,
+     true
+    ],
+    "flags": []
+   }
+  },
+  "A11": {
+   "parsed": {
+    "score": 1,
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:293-301",
+      "text": "an EHR database for a de-identified 58-year-old male patient"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "rationale": "S1 describes the environment records as de-identified, with the Limitations stating the benchmark references real hospital EHR systems; the record source is otherwise ambiguous (GPT-5 templates create patient data) and is not inferred further. No de-identification method, IRB or DUA, and no data terms separate from the code MIT licence. The decoy sentence about records of the kind found in hospital databases adds nothing. Elements 1/3.",
+    "s5_reach": null
+   },
+   "verification": {
+    "score_raw": 1,
+    "effective": 1,
+    "supported": true,
+    "n_quotes": 1,
+    "n_verified": 1,
+    "n_verified_strict": 1,
+    "supported_strict": true,
+    "quotes": [
+     {
+      "chunk_id": "S1:arxiv/2601.23049v2.html:293-301",
+      "text": "an EHR database for a de-identified 58-year-old male patient",
+      "words": 9,
+      "verified": true,
+      "verified_strict": true,
+      "reason": "ok"
+     }
+    ],
+    "contradicted": false,
+    "contradiction_verified": false,
+    "contradiction_quotes": [],
+    "elements": [
+     true,
+     false,
+     false
+    ],
+    "flags": []
+   }
+  }
+ },
+ "cells": {
+  "C1": {
+   "variant": {
+    "item": "C1",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "Task content was derived from clinical records of the kind found in hospital databases.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 17,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C2": {
+   "variant": {
+    "item": "C2",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2601.23049v2.html:139-143",
+     "S2:README.md:56-115"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 8,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C3": {
+   "variant": {
+    "item": "C3",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2601.23049v2.html:46-46"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 1,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C4": {
+   "variant": {
+    "item": "C4",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The benchmark includes a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test that compares agent accuracy across patient demographic groups.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 14,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C5": {
+   "variant": {
+    "item": "C5",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Data contamination is a potential concern for all benchmarks of this kind.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 13,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C6": {
+   "variant": {
+    "item": "C6",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The agent cannot reach ground-truth answers at run time: the answer labels are stored in a separate evaluation service that has no network path from the agent sandbox, and they are not published in the repository.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 2,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C7": {
+   "variant": {
+    "item": "C7",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2601.23049v2.html:29-32",
+     "S1:arxiv/2601.23049v2.html:363-377"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 18,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C8": {
+   "variant": {
+    "item": "C8",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "To confirm that every task is solvable, we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 22,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C9": {
+   "variant": {
+    "item": "C9",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The grader checks both the intended state changes and that all other records remain unchanged, so out-of-scope modifications are detected and counted as failures.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 4,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C10": {
+   "variant": {
+    "item": "C10",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 19,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C11": {
+   "variant": {
+    "item": "C11",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks, and a random agent scores 2.5% on the same tasks.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 10,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C12": {
+   "variant": {
+    "item": "C12",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2601.23049v2.html:351-365"
+    ],
+    "s4_comment": false,
+    "base_level": 2
+   },
+   "slot": 11,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 2,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  },
+  "C13": {
+   "variant": {
+    "item": "C13",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times; this repeated-run policy is described in the main text.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 3,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "C14": {
+   "variant": {
+    "item": "C14",
+    "vtype": "paraphrase",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "Model scores include 95% bootstrap confidence intervals. Statistical testing of the two top-performing models employed paired permutation testing with p = 0.02.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 6,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A1": {
+   "variant": {
+    "item": "A1",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7, and the reported scores are means over the five independent runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 20,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "A2": {
+   "variant": {
+    "item": "A2",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We report 95% confidence intervals computed by bootstrapping over tasks, so the resampling unit is the task; where several tasks share a patient, we resample patients instead to account for clustering.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 7,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A3": {
+   "variant": {
+    "item": "A3",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "To measure reliability, we ran each task eight times and report pass^8, the fraction of tasks solved in all eight runs, together with the agreement of the final environment state across the eight runs.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 21,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "A4": {
+   "variant": {
+    "item": "A4",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "We evaluated GPT-4 and Claude as agents.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 5,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A5": {
+   "variant": {
+    "item": "A5",
+    "vtype": "decoy",
+    "expected": 1,
+    "expectation": "at_most",
+    "text": "The agent can use tools to interact with the environment.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 24,
+   "expected": 1,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A6": {
+   "variant": {
+    "item": "A6",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We ran conformance tests confirming that each tool behaves as documented. Two tools are simulated stubs that return fixed placeholder responses; this is disclosed in the paper and also stated in the tool descriptions shown to the agent.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 9,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A7": {
+   "variant": {
+    "item": "A7",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The write actions that change patient state (medication orders, notes and messages) are listed in a table. Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score. The agent prompt states that writes are sandboxed.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 0
+   },
+   "slot": 15,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A8": {
+   "variant": {
+    "item": "A8",
+    "vtype": "inject",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "The grader takes the final environment state as its input. We validated the grader on 150 injected correct and incorrect outcomes, finding a false-accept rate of 1% and a false-reject rate of 2%.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 12,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A9": {
+   "variant": {
+    "item": "A9",
+    "vtype": "decoy",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": "Agents have no web access during runs and retrieval tools are restricted to the task environment, so answers cannot leak through external search. A private held-out split with hidden labels is kept off all public surfaces, and every released task carries a canary string.",
+    "removed_chunk_ids": null,
+    "s4_comment": true,
+    "base_level": 0
+   },
+   "slot": 23,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 0,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": true
+  },
+  "A10": {
+   "variant": {
+    "item": "A10",
+    "vtype": "buried",
+    "expected": 2,
+    "expectation": "exact",
+    "text": "We report accuracy per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race, and each table lists the number of cases in every slice.",
+    "removed_chunk_ids": null,
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 16,
+   "expected": 2,
+   "expectation": "exact",
+   "base_level": 1,
+   "variant_text_in_packet": true,
+   "s4_comment_in_packet": null
+  },
+  "A11": {
+   "variant": {
+    "item": "A11",
+    "vtype": "deletion",
+    "expected": 0,
+    "expectation": "at_most",
+    "text": null,
+    "removed_chunk_ids": [
+     "S1:arxiv/2601.23049v2.html:139-143",
+     "S1:arxiv/2601.23049v2.html:46-46"
+    ],
+    "s4_comment": false,
+    "base_level": 1
+   },
+   "slot": 0,
+   "expected": 0,
+   "expectation": "at_most",
+   "base_level": 1,
+   "variant_text_in_packet": null,
+   "s4_comment_in_packet": null
+  }
+ },
+ "status": "ok",
+ "prompt_sha256": {
+  "1": "9f77bbd0da141e367bc0b3d91db0ad2666249e2440371e3827887d1b1a762469"
+ },
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "item_errors": {},
+ "timestamp": "2026-10-06T11:47:09Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_perturb/v18.json"
+}

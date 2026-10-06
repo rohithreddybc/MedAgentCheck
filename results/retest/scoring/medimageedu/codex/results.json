@@ -1,0 +1,381 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:175-178",
+    "text": "We instantiate MedImageEdu on 150 radiology cases drawn from three sources."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names the source datasets and describes the case counts from each source. It does not report source versions, snapshot dates, platforms, or a route from a task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:94-99",
+    "text": "MedImageEdu is built from public or de-identified radiology sources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports data origins and says the sources are public or de-identified. It does not document licence or terms compliance, consent, or IRB status."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:175-178",
+    "text": "100 cases, comes from MedThinkVQA"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a sampling design and descriptive source composition, including counts from three sources. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:47-50",
+    "text": "provide dimension-level pairwise preferences on Consultation, Safety & Scope, Language Quality, Drawing Quality, Image-Text Response Quality"
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:80-87",
+    "text": "analyze profile-conditioned robustness across education level, health literacy, and interaction state"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Safety & Scope is a dedicated unsafe-output/scope dimension. The profile-conditioned analysis covers user-profile robustness across education, health literacy, and interaction state, which counts as a bias or subgroup stress test."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not report gated access, canaries, held-out controls, overlap checks, or empirical contamination checks."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet discusses hidden patient profiles, but not isolation of the agent from ground-truth results or any isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not pin data, software, simulator, judge model, or external-service versions for a frozen evaluation environment."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:179-181",
+    "text": "With clinician input, we formulate case-specific, report-grounded patient questions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports clinician input and inclusion criteria requiring questions to be answerable from report and images. It does not report a scripted reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The benchmark concerns dialogue and drawing outputs, and the packet does not report tasks that change environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:179-181",
+    "text": "where visual support is substantively useful"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The inclusion criteria make a design argument that trivial copying or text-only paraphrase should not solve cases. No empirical random or trivial-agent success rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The reported results cover named VLMs, with no do-nothing or random-agent baseline."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:47-50",
+    "text": "Agreement between judge-induced preferences and expert preferences remains substantial"
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:47-50",
+    "text": "Cohen’s \\kappa=0.584 , percent agreement =79.1\\% , and Spearman’s \\rho=0.587"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its own LLM-as-judge evaluation on its own outputs against expert preferences. It reports agreement figures, satisfying the full anchor."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not report seeds, temperature settings, or a repeated-run policy for harness nondeterminism."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:205-220",
+    "text": "Chapter SD” and “Chapter range” measure disease-to-disease stability"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports SDs and ranges for robustness slices. It does not report CIs or significance tests for the headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not state number of runs per task, seed or sampling policy, or run independence."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. No CI or SE on headline scores, variance unit, or clustering treatment is reported."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not report identical reruns, action-sequence agreement, final-state agreement, or pass^k-style metrics."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. Model family names are listed, but no exact snapshot IDs or dates, decoding parameters, or harness commit/tag for reported results are stated."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:189-191",
+    "text": "When original case images are used, the underlying medical pixels should be preserved and only overlays should be added."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a drawing-tool interface, so NA does not apply. The paper describes side effects at a high level: the tool overlays on images or creates sketches while preserving medical pixels, but it does not provide a machine-readable schema or error/return semantics, and no S5 chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:50-54",
+    "text": "GPT Image 1.5 serves as the shared benchmark-provided drawing tool."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a tool, so NA does not apply. The paper discloses that the shared drawing tool is GPT Image 1.5, but does not report tool conformance tests; no S5 agent-visible disclosure is included in the packet."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not report actions that change environment state or represent clinical orders, prescriptions, notes, or messages."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:45-47",
+    "text": "the Multi-turn Simulation block is scored from the consultation transcript"
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:47-50",
+    "text": "These results support the use of rubric-following LLM evaluation as a scalable proxy"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is stated as the consultation transcript and multimodal outputs, with LLM judgement. The rationale is scalability as a proxy for expert assessment, but the validation is pairwise expert agreement rather than injected known correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. The packet does not report controls on leakage through tools, retrieval, web access, held-out labels, or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:78-82",
+    "text": "Across the 20 cleaned ICD chapters"
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:80-87",
+    "text": "across education level, health literacy, and interaction state"
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:66-74",
+    "text": "Digestive system | 7"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports slice results by ICD chapter and profile condition. Slice sizes are reported for disease slices, and profile subgroups are explicitly analyzed."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.14656v1.html:94-99",
+    "text": "public or de-identified radiology sources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of environment records is stated as public or de-identified radiology data. The packet does not report IRB/DUA status, de-identification method, or redistribution terms separate from code licence."
+ }
+]

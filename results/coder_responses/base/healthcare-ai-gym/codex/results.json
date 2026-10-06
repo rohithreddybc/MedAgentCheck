@@ -1,0 +1,399 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:194-200",
+    "text": "Tasks are sourced from three pipelines: expert-curated seed tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names source datasets and generation pipelines, but does not give source versions or snapshot dates. It also does not fully document a public route from each released task to a source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:440-477",
+    "text": "All patient data is **synthetic**. No real patient information is used."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S2:README.md:440-477",
+    "text": "All patient data is **synthetic**. No real patient information is used."
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:194-200",
+    "text": "EHRConverter extracts MIMIC-III/IV admission episodes"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The README reports synthetic patient data and an Apache code license, while the paper names several source datasets and collection pipelines. It does not document source licence or terms compliance for the benchmark data, nor consent or IRB status for real-source components."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:51-55",
+    "text": "sampled without replacement from the same domain distribution as training"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states a sampling design for validation. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet reports a safety reward taxonomy, but not a dedicated unsafe-output test and not a bias test."
+ },
+ {
+  "item": "C5",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:51-55",
+    "text": "zero data contamination verified via test-set fingerprinting"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a measured contamination check. It also reports held-out validation tasks, satisfying a developer-side control plus measured check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The public reporting does not state that the agent cannot reach ground truth at run time with a named isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:docker/README.md:45-51",
+    "text": "All servers call **live public APIs**"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some components and sample counts are documented, but the Docker MCP environment depends on live APIs. The environment is therefore not fully frozen at release."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:359-368",
+    "text": "representative multi-turn trajectories from the TT-OPD model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix gives agent-based successful trajectories as solvability evidence. It does not report a scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. Some tools are write/state-modifying actions, but the packet does not report checking unchanged or irrelevant state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:194-200",
+    "text": "expected tool interactions with compare_args specifying which arguments must match"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a design argument that expected actions and arguments must match. It does not report an empirical random or trivial-agent success rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No do-nothing or random-agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet describes reward functions and action scoring, but reports no evaluator validation with agreement or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:configs/opd_truncated_only_qwen35_9b.yaml:51-98",
+    "text": "seed: 42"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A seed is visible in configuration, but the paper/docs do not state a repeated-run policy. This only covers part of the harness and appears in code/config rather than the main reporting surfaces."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:84-86",
+    "text": "mean accuracy of 59.5% ( \\pm 1.4 pp) over steps 40–60"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports variation over training steps. It does not report a CI or statistical test for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not state the number of independent evaluation runs per task behind each headline score, the evaluation seed/sampling policy, or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. No CI or SE on headline scores is reported, and no resampling unit or clustering treatment is stated."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report identical reruns, action-sequence agreement, final-state agreement, or pass^k-style reliability."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:297-337",
+    "text": "temperature | – | –"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports some generation/training hyperparameters, including temperature. It gives only a family-style model name rather than a precise snapshot, and no harness commit or tag matching the reported results."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:200-207",
+    "text": "Tools are registered via the @is_tool(ToolType) decorator, which supports four types: READ (queries), WRITE (state modifications)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper documents machine-readable OpenAI-compatible tool definitions, read/write side-effect categories, and error handling. The side-effect category does not appear to reach the agent-visible tool schemas in S5."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:bioagents/evaluation/agent_runner.py:1809-1840",
+    "text": "In simulation mode, returns pre-computed findings from the database."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The packet discloses simulated tool behavior, and at least some of that disclosure reaches S5. It does not report tests or conformance checks showing tools behave as documented."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:217-229",
+    "text": "Critical violations (severity 5: contraindication ignored, dangerous dosing, missed emergency) cap total reward at 0.1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark documents write/state-modifying tool categories, simulated clinical actions, and safety penalties for harmful clinical behavior. S5 tool descriptions also disclose simulated behavior for relevant write-like actions."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:276-282",
+    "text": "evaluated via action-based scoring, measuring whether the agent executes the expected clinical tool calls"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names grader inputs such as action-based scoring, answer accuracy, and assertions. It does not justify transcript/action-log grading instead of end-state grading, nor validate against labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:51-55",
+    "text": "TT-OPD validation accuracy is computed on a held-out set of 307 tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a held-out validation set. It does not report controls on answer leakage through tools, retrieval, web access, prompts, or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:297-337",
+    "text": "Table 5 : Evaluation benchmark suite."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results and sample sizes are reported by benchmark/task family. No patient subgroup results are reported, despite patient demographic fields existing in the environment data."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:440-477",
+    "text": "All patient data is **synthetic**. No real patient information is used."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S2:README.md:440-477",
+    "text": "All patient data is **synthetic**. No real patient information is used."
+   },
+   {
+    "chunk_id": "S1:arxiv/2605.02943v1.html:194-200",
+    "text": "EHRConverter extracts MIMIC-III/IV admission episodes"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The README states synthetic patient data, and the paper names generation/conversion pipelines. It does not report IRB/DUA/de-identification governance or data redistribution terms separate from the code licence."
+ }
+]

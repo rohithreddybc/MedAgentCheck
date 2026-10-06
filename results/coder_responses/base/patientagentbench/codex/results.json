@@ -1,0 +1,426 @@
+[
+ {
+  "item": "C1",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. The benchmark reports synthetic generation and seed attributes, but not an original dataset with version/snapshot date, platform, and route from task to source record."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:210-213",
+    "text": "All patient profiles, clinical narratives, and conversations are fully synthetic; no real patient health information or personally identifiable information is used"
+   },
+   {
+    "chunk_id": "S2:README.md:1-22",
+    "text": "[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states the data origin as fully synthetic, describes generation/collection through seed selection and LLM enrichment, and provides the repository license. The explicit statement that no real PHI or PII is used addresses consent/IRB applicability."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:72-76",
+    "text": "the attribute distributions in Table 2 calculated directly over these generated entries"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive distributions and states a deliberate sampling design. It does not compare the benchmark to a named target patient population."
+ },
+ {
+  "item": "C4",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:209-209",
+    "text": "our disaggregated analysis (Section 5.4 ) surfaces small but directionally consistent gaps"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:148-150",
+    "text": "The most common shortcoming was omitting crisis resources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes dedicated safety evaluation and reports unsafe-output failure modes. It also performs demographic disaggregated analysis for bias/fairness signals."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:102-103",
+    "text": "there is no fixed answer key to memorize"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a contamination-control design argument: generated cases and no fixed answer key. It does not report a developer-side measured overlap/canary/held-out check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:95-95",
+    "text": "the assistant does not receive the patient story, the underlying task, or the personality traits"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the assistant is isolated from key ground-truth scenario information at runtime. The named mechanism is withholding the patient story, task, and personality traits from the assistant."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. Cases are generated on demand and the evaluator/simulator models are live model services; the packet does not pin data, software, simulator, and judge model for a frozen release environment."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. The packet reports clinician realism validation, but no scripted reference solution or oracle solver run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. Tasks do change sandbox state, so NA does not apply. The packet does not report that the grader checks unchanged irrelevant state as well as changed state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:102-103",
+    "text": "no per-scenario answer key"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark gives a design argument that static memorized or trivial answer-key success is unlikely because grading uses conversation-agnostic rubrics. No empirical random or trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. No do-nothing or random agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:187-190",
+    "text": "Adjacent agreement ( \\pm 1) ranged from 79% to 93% across all dimensions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its automatic LLM-as-a-Jury evaluator against licensed clinicians on its own conversations. It reports quantitative agreement figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:163-202",
+    "text": "`--seed`, `-s` | Random seed for reproducibility | None"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs expose a seed option for generated benchmark data. The packet does not state a repeated-run policy or full non-determinism control for the LLM harness."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:141-142",
+    "text": "three statistically distinct performance tiers emerge from the aggregate scores, separated by gaps with non-overlapping confidence intervals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports confidence intervals for headline model comparisons and makes comparison claims based on non-overlap."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:124-128",
+    "text": "Each model was evaluated on all 1,200 benchmark scenarios"
+   },
+   {
+    "chunk_id": "S2:README.md:163-202",
+    "text": "`--seed`, `-s` | Random seed for reproducibility | None"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet gives the number of conversations/scenarios behind headline scores and documents a seed option. It does not state that repeated runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:129-140",
+    "text": "Per-model results across six dimensions for the 10 baseline foundation models (N=1,200 conversations per model"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:310-319",
+    "text": "standard deviation reflects conversation-to-conversation variability"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Headline aggregate scores include 95% CIs, and the variance unit is conversations/cases. The packet does not address clustering within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. The packet reports score variance across conversations, not identical rerun action/state agreement, final-state agreement, or pass^k metrics."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper/appendix; S2 README/docs; S3 release notes; S4 code/config; S5 prompts/tool descriptions. The paper names model families and labels but not exact provider snapshot identifiers, decoding parameters, or a harness commit/tag for the reported results."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:89-91",
+    "text": "structured natural-language specification of its purpose, required and optional parameters, return format, and behavioral preconditions"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:84-88",
+    "text": "each tool invocation can alter the data visible to future invocations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark defines a healthcare tool interface with parameters, preconditions, return formats, and stateful effects. S5 tool descriptions include side-effect and return/error semantics, so the side-effect property reaches the agent-visible surface."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:tests/test_prescription_tools.py:331-367",
+    "text": "Test that refill output contains confirmation, pickup timeline, and pharmacy."
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:78-84",
+    "text": "Each conversation operates within an isolated, dynamically generated healthcare sandbox"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Code tests verify some tool behavior, and the paper discloses that behavior occurs in a simulated sandbox. The sandbox/simulation disclosure is not shown as agent-visible in S5, so full credit is not met."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:84-88",
+    "text": "scheduling an appointment marks a slot as unavailable"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:157-160",
+    "text": "executing actions before confirming with the patient"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper identifies state-mutating actions and states they are sandboxed. It also reports scoring penalties for unsafe or unnecessary writes such as acting before confirmation; S5 tool descriptions show sandboxed execution details."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:99-100",
+    "text": "the evaluator sees the agent’s internal workflow execution, not just its visible replies"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:155-157",
+    "text": "Surfacing such mismatches requires inspecting the full tool trace"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is stated as transcript plus tool invocations/results, and the paper justifies this non-end-state grading by explaining tool-trace inspection. It does not validate the grader on injected correct and incorrect state outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:95-95",
+    "text": "the assistant does not receive the patient story, the underlying task, or the personality traits"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark controls leakage by withholding scenario/task/personality information from the assistant. It does not report a held-out/private split or canary/provenance marker on released tasks."
+ },
+ {
+  "item": "A10",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:183-183",
+    "text": "Personality type is the strongest performance driver across all benchmark attributes."
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:186-186",
+    "text": "aggregate scores varied minimally by patient age group"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:65-73",
+    "text": "Table 2: Benchmark statistics (N=1,200)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports slice results by task category and benchmark attributes, including demographic patient subgroups. Slice sizes are supported by the overall N and distribution table for the reported benchmark attributes."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:61-61",
+    "text": "we use an LLM to enrich each seed into a complete benchmark entry"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark states patient records/environment seed state are synthetic and generated using an LLM. It does not provide real-data governance details, and separate redistribution terms for environment data are not stated beyond the repository license."
+ }
+]

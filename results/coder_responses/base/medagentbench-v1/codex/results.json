@@ -1,0 +1,371 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "patient profiles are extracted from a deidentified clinical data warehouse curated by the STARR"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source dataset/platform is named, and a cutoff/time frame is reported elsewhere in the same section. However, the packet does not report a route from each task to its specific source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "patient profiles are extracted from a deidentified clinical data warehouse curated by the STARR"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports data origin and some collection/extraction details. It does not report licence or terms, consent, IRB status, or an explicit statement that consent/IRB was not required."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "The characteristics of the cohort are summarized in Table 2 ."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet includes descriptive cohort statistics and a sampling design. It does not compare those features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No dedicated unsafe-output test or bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not report developer-side contamination controls or measured overlap/canary checks."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not state that agents are isolated from ground truth at run time."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:configs/tasks/medagentbench.yaml:1-13",
+    "text": "data_file: \"data/medagentbench/test_data_v2.json\""
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The configuration identifies fixed data and function files, but this is code/config evidence rather than S1-S3 reporting. The evaluator depends on a local FHIR service and model APIs, and no release commit/tag is reported in S1-S3."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "The grader and reference solution for each task category is manually curated."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A manually curated reference solution is reported. The packet does not report a scripted oracle being run through the grader with results."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. Some tasks change or represent changes to environment state, so NA does not apply, but no check of unchanged irrelevant state is reported."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "rule-based sanity checks to verify the correctness of the payload of POST requests"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that query answers and POST payloads are checked for correctness. It does not report an empirical random/trivial-agent rate or explicit chance rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No do-nothing or random-agent score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The benchmark reports rule-based grading but no evaluator validation figures, tests, or agreement/error rates."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "We set the temperature to zero for all models except o3-mini."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A decoding safeguard is reported for most models. There is no repeated-run policy, and o3-mini is explicitly excepted."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No confidence intervals, significance tests, SDs, or ranges are reported for model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "we exclusively adopt pass@1 in our benchmark"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports pass@1, which states one run/attempt per task behind reported scores. It also reports temperature zero for most models, but does not state whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet reports no CI or SE, no resampling or variance unit, and no clustering treatment."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The paper mentions future reliability work but reports no identical rerun, action-agreement, state-agreement, or pass^k result."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "We set the temperature to zero for all models except o3-mini."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding temperature is reported. Exact provider snapshot IDs or release dates are not consistently stated in S1-S3, and the harness commit/tag for reported results is not reported."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "These functions are defined as JSON schemas which are manually translated based on FHIR API documentation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper reports JSON schemas for the functions and describes GET versus POST behavior and execution feedback. The S5 prompt also tells the agent GET and POST formats, so read/write side-effect disclosure reaches the agent-visible surface."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "we conduct a simple sanity check to make sure the payload data is JSON-loadable"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper reports a sanity check for POST payloads and discloses that POST execution is simulated by indicating success. That simulated/no-op behavior is not disclosed in the S5 prompt, so full credit is not met."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "For action-based tasks, we manually write many rule-based sanity checks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper identifies action-based tasks that modify records, discloses that only GET requests are actually sent while POSTs receive success feedback, and reports invalid actions as failures. The S5 prompt describes POST format but does not disclose the simulation/sandboxing behavior."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "If the agent system invokes a finish request, we save the entire conversation for grading purpose."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input includes the saved conversation and reported answer/reference comparison or payload checks. The packet gives no rationale for non-state transcript grading and no validation on labelled correct/incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No answer-leakage controls, held-out/private split, or canary/provenance marker is reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:75-91",
+    "text": "half (150) only require information retrieval via GET requests"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results for named task partitions such as query/action and difficulty, and gives slice sizes for at least query/action. It does not report performance by patient demographic subgroup despite demographic fields being present."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "Benchmark examples are based on real patient cases that were deidentified and jittered."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that environment records come from real de-identified patient cases and gives de-identification/jittering details. It does not state redistribution terms for the environment data separate from any code licence."
+ }
+]

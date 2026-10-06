@@ -1,0 +1,63 @@
+{
+ "source_lines_matching_seed": {
+  "driver_v3.py": [
+   "6: Design: first 10 of each benchmark's seeded sample (random.Random(20261004).sample(pool, 15)[:10]),",
+   "27: SEED = 20261004",
+   "77: r = random.Random(SEED)"
+  ],
+  "v3_config.json": [],
+  "AgentClinic_runner.py": [],
+  "RadABench_runner.py": [
+   "15: final_state, verdict, raw_log_path, usage, calls, env_seed, error}",
+   "29: (random.sample of supported organs etc.), so the runner seeds `random` from a stable hash of",
+   "31: conditions for a task. env_seed is recorded.",
+   "100: env_seed = int(hashlib.sha256(a.task_id.encode()).hexdigest()[:8], 16)",
+   "101: random.seed(env_seed)",
+   "241: \"env_seed\": env_seed,"
+  ],
+  "synthetic_hospital_runner.py": [],
+  "runner_common.py": [],
+  "AgentClinic patched agentclinic.py (model call)": [],
+  "RadABench llm_client.py (model call)": []
+ },
+ "raw_logs_scanned": 300,
+ "request_payloads_contain_seed_key": {
+  "AgentClinic calls.jsonl: logged fields": false,
+  "RadABench request body keys": false,
+  "synthetic_hospital request body keys": false
+ },
+ "request_keys_seen": {
+  "AgentClinic calls.jsonl: logged fields": [
+   "backend",
+   "latency_s",
+   "messages",
+   "model",
+   "response",
+   "system_fingerprint",
+   "temperature",
+   "ts",
+   "usage"
+  ],
+  "RadABench request body keys": [
+   "max_tokens",
+   "messages",
+   "model",
+   "temperature"
+  ],
+  "synthetic_hospital request body keys": [
+   "max_tokens",
+   "messages",
+   "model",
+   "temperature",
+   "tools"
+  ]
+ },
+ "role_temperatures_in_v3_config": {
+  "agent": null,
+  "simulator": 0,
+  "judge": 0
+ },
+ "ollama_option_keys_in_config": [],
+ "radabench_env_seed_values_per_task_constant": true,
+ "radabench_distinct_env_seeds": 10
+}

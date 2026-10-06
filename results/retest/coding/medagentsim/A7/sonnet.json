@@ -1,0 +1,35 @@
+{
+ "bench": "medagentsim",
+ "item": "A7",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:24-25",
+    "text": "The measurement agent provides diagnostic test results but only when explicitly requested"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Test requests are simulated clinical orders, so NA does not apply. The paper shows they are fulfilled by a simulated measurement agent but does not classify actions as mutating or irreversible, and does not score unnecessary orders. The doctor-facing prompt does not state this simulation; element_flags 1/3.",
+  "s5_reach": false
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "7b13cbe1c628b40ecbf738d2042e64b3334b71c4eb2434c7d3467621b291d4aa",
+ "packet_sha256": "17b97ffe98722300a406ab2b9daf23e23836ddfda24098a2378ad666f8658bda",
+ "timestamp": "2026-10-05T21:00:01Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/medagentsim.json"
+}

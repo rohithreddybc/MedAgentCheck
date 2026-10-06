@@ -1,0 +1,366 @@
+[
+ {
+  "item": "C1",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The packet names workflows and FHIR resources but does not state original data sources with timeframe, platform, version, or a route from task to source record."
+ },
+ {
+  "item": "C2",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The paper gives an article license and repository links, but the origin of the benchmark data or environment records is not stated. Without data origin, the item scores 0."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The packet does not report descriptive patient statistics, sampling design, or comparison against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The benchmark discusses reliability and clinical safety motivation, but reports no dedicated unsafe-output test and no bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:71-81",
+    "text": "evaluate on three variations of the remaining 22 held-out tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a held-out-task experimental setting, which is a developer-side control. It does not report a measured contamination or overlap check, so this is partial."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The paper describes validators and gold tool sequences, but does not state that the agent cannot reach ground truth at runtime or name an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The packet does not pin a repo commit, release tag, software environment, simulator, or judge model snapshot for the reported results."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:39-43",
+    "text": "A reference implementation by human engineers that performs the optimal sequence of FHIR operations."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports human-engineered gold standard tool call sequences used to verify feasibility. It does not report that a scripted oracle solution was run through the grader with results, so the score is partial."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:39-43",
+    "text": "along with additional irrelevant resources to emulate realistic EHR complexity."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some tasks change state, so NA does not apply. The environment includes irrelevant resources and validators verify server-side state for create/modify tasks, but the packet does not say unchanged irrelevant state is checked."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:39-43",
+    "text": "query-only tasks compare returned IDs against expected targets"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The deterministic validation design implies random or trivial changes are unlikely to pass because outputs and server state are checked against expected targets. No empirical random/trivial-agent rate or explicit chance rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. No do-nothing or random agent result is reported for all tasks or any subset."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:43-50",
+    "text": "Soft validator feedback is used to iteratively identify and correct biases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports validation-like curation of deterministic validators using soft-validator feedback and inspection. It does not provide agreement or error figures for the benchmark's evaluator on its own outputs, so this is partial."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. Repeated runs are reported, but no seed, temperature 0, or other non-determinism safeguard for the harness is stated."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:80-83",
+    "text": "reports the mean task success rate (± standard deviation) over three runs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports standard deviations over three runs. It does not report confidence intervals or statistical tests for the headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:80-83",
+    "text": "over three runs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The number of runs behind headline scores is reported as three. The packet does not state seed or sampling policy, and does not state independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:87-90",
+    "text": "Same-prompt variance captures run-to-run variability for identical task descriptions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states variance units including same-prompt, within-task, and between-task levels, and addresses task/template-style clustering through hierarchical variance components. It does not report CI or SE on headline scores, so not all elements are present."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:87-90",
+    "text": "same-prompt variance accounts for approximately 30–35% of total variance"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports score-level variation across identical reruns. It does not report action-sequence agreement, final-state agreement, or a pass^k-style all-runs metric."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. Model family names such as GPT-4.1-mini are reported, but no provider snapshot ID or release date, decoding parameters, or harness commit/tag matching reported results is provided."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:51-56",
+    "text": "exposing 5 tools: createResource, searchResources, getResourceById, updateResource , and deleteResource"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark defines a tool interface and names CRUD tools whose read/write side effects are apparent in the documented operations. The packet does not provide a machine-readable schema or documented return semantics including errors, and no S5 chunks are present to determine agent-visible reach."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The benchmark defines a tool interface, so NA does not apply. The packet does not report conformance tests for tool behavior, simulated/no-op behavior disclosure, or S5 disclosure."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:39-43",
+    "text": "tasks involving creation or modification (23 out of 43 tasks) additionally verify server-side resource state"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some actions change environment state, so NA does not apply. The paper identifies create/modify tasks, states they execute against a resettable FHIR server, and reports that prohibited tools and server-side state are checked; no S5 chunks are present to determine reach."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:56-59",
+    "text": "collect its outputs and logs and use the task’s deterministic validator to determine success"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states grader inputs including agent outputs, logs, and server state for modifying tasks. It does not report validation on injected correct and incorrect outcomes with per-class error rates, which is required for full credit."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:71-81",
+    "text": "remaining 22 held-out tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a held-out task split. It does not report controls on answer leakage through tools, retrieval, web access, or memory, and does not report canaries or provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:83-87",
+    "text": "subset of 23 tasks involving FHIR resource creation or modification"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results for task partitions such as creation/modification tasks and gives the slice size of 23. It does not report results per patient subgroup or state that no demographic fields exist."
+ },
+ {
+  "item": "A11",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tools. The packet does not state whether patient records or seed state are real de-identified, synthetic with a named generator, or mixed. It also does not report governance for real data or data redistribution terms separate from code."
+ }
+]

@@ -1,0 +1,462 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:38-43",
+    "text": "ClinEnv is built from MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "making every case fully traceable back to its source EHR"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the source datasets with versions and platform via MIMIC/PhysioNet. It also reports retained audit artifacts that trace cases back to source EHR records."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "distributed through PhysioNet under a credentialed data use agreement"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "which are de-identified"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin is MIMIC-IV and MIMIC-IV-Note, with preprocessing/collection described. The paper states de-identification and a credentialed PhysioNet DUA, satisfying terms and consent/ethics-related governance."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:94-103",
+    "text": "stratifying by horizon so that short and long admissions are both well represented"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports descriptive composition and a stratified sampling design. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Ethical limitations are discussed, but no dedicated unsafe-output test or bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:94-103",
+    "text": "Must meet PhysioNet’s compliance standards before use."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports gated/compliance-controlled data access through PhysioNet. It does not report canaries, encryption, held-out contamination controls, or measured overlap checks."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:92-94",
+    "text": "the model submits exactly n_{k}^{(t)} items per type"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "held-out ground-truth items"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "held-out ground-truth items"
+   },
+   {
+    "chunk_id": "S4:env/runtime/environment_controller.py:166-204",
+    "text": "submit_tools = \", \".join(\n            f\"submit_{t} ×{counts[t]}\" for t in required\n        )"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper reports held-out ground truth, but also reports count hints, so isolation is only partial rather than full mechanism-based runtime isolation from gold. S4 shows count-derived hints are actually constructed from ground-truth types and counts."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:38-43",
+    "text": "MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:65-78",
+    "text": "each powered by GPT-5.4-mini"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The data versions and some model family names are reported. However, live external services and unpinned model identifiers are used for agent/judge/scoring functions, so the environment is not fully frozen."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:342-349",
+    "text": "the integrity of each stage rests on three properties that are guaranteed by construction"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper provides construction-quality evidence and a worked example as agent/manual-style solvability evidence. It does not report a scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark simulates clinical orders/submissions, but the packet does not report checking irrelevant unchanged state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:92-94",
+    "text": "Benchmark scores therefore reflect the accuracy of clinical decisions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that exact submission counts and ontology-grounded matching reduce trivial format/count success. It does not report a random, trivial-agent, or explicit chance success rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No do-nothing or random-agent score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:342-349",
+    "text": "Construction Quality"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:342-349",
+    "text": "guaranteed by construction and remain verifiable against the source record"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports construction-quality checks and verifiability, but without agreement or error figures for automatic evaluator outputs. Deterministic claims alone do not reach full validation."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:env/runtime/environment_controller.py:578-616",
+    "text": "extra_kwargs: dict = {\"tool_choice\": \"auto\", \"temperature\": 0, \"parallel_tool_calls\": False}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 and single tool-call controls are visible in code, which counts only as partial for this item. S1-S3 do not state a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:172-176",
+    "text": "Shaded bands are standard errors."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports standard errors for per-stage plots. It does not report a CI or statistical test for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S4:env/runtime/environment_controller.py:578-616",
+    "text": "temperature\": 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A decoding control is visible in code, but the public reporting surfaces do not state number of runs per task or independence of runs. Under G1 this gives only partial evidence."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:172-176",
+    "text": "Shaded bands are standard errors."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports SE bands, satisfying the uncertainty element. It does not state the resampling or variance unit, nor address clustering within patients."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. No identical rerun reliability, action-sequence agreement, state agreement, or pass^k-style metric is reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The paper reports model family names such as GPT-5.4, but not exact provider snapshot IDs, decoding parameters, or harness commit for reported results. README mentions a dated default model string, but not as the pinned model for reported results."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:env/tools/env_tools.py:1-39",
+    "text": "\"required\": [\"action\", \"drug_name\", \"reasoning\"]"
+   },
+   {
+    "chunk_id": "S5:env/tools/env_tools.py:100-147",
+    "text": "Ask the bedside nurse about vitals, observations, fluid balance, or administered medications."
+   },
+   {
+    "chunk_id": "S5:env/agents/lab_agent.py:45-89",
+    "text": "{\"found\": True,  \"results\": [...]}   if matched"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The tool interface has machine-readable function schemas in S5. Tool descriptions specify read/query roles and return semantics including found/not-found results and errors."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:prompts/env/patient_agent.txt:1-11",
+    "text": "You are a patient in a hospital."
+   },
+   {
+    "chunk_id": "S5:prompts/env/nurse_agent.txt:1-12",
+    "text": "You are a bedside nurse reporting to the attending physician."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The packet discloses simulated patient/nurse agents to the agent-visible surface. It does not report tests or conformance checks that tools behave as documented, so full credit is not met."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:65-78",
+    "text": "committing to medications, procedures, and diagnoses"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "not a clinical decision-support tool"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark discloses clinical-frame commitments and makes clear the benchmark is not real clinical support, implying simulated evaluation rather than executed care. It does not clearly report unsafe or unnecessary write penalties, and S5 does not explicitly tell the agent that writes are simulated/sandboxed."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:299-305",
+    "text": "the evaluation record stores matching assignments and process metrics"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:92-94",
+    "text": "rather than the model’s ability to infer the submission format"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states grader inputs/outputs include submitted decisions, dialogue, matching assignments, and process metrics. It justifies non-state grading as isolating clinical decision accuracy, but does not validate on injected correct/incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:305-310",
+    "text": "prevents coded outcomes and discharge summaries from being passively exposed to the model"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:305-310",
+    "text": "prevents coded outcomes and discharge summaries from being passively exposed to the model"
+   },
+   {
+    "chunk_id": "S4:env/runtime/environment_controller.py:847-880",
+    "text": "inject GT from each prior stage as established facts"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper reports leakage controls preventing passive exposure of coded outcomes and discharge summaries. It does not report held-out/private splits or canaries; S4 shows prior-stage GT can be injected as context, a contradiction candidate to the stronger leakage-control framing."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:182-193",
+    "text": "Table 6: Decision-type decomposition."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:94-103",
+    "text": "long-horizon ( \\geq 3) | 1,748 (49.8%)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by named task partitions such as decision type, horizon, and stage position, with slice sizes for some benchmark slices. It does not report results by patient demographic subgroup despite demographic fields existing."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "ClinEnv is derived from MIMIC-IV and MIMIC-IV-Note"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.02568v1.html:197-201",
+    "text": "distributed through PhysioNet under a credentialed data use agreement"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states records come from real de-identified MIMIC data. It reports credentialing/DUA governance and separates data access terms through PhysioNet from the code repository."
+ }
+]

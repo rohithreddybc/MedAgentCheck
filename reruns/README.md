@@ -1,0 +1,7 @@
+# reruns/
+
+Per-episode records of the executed reruns of three benchmarks (AgentClinic, RadABench, Synthetic Hospital; 100 episodes each; local agent models served by Ollama, see `model_ids`), derived from `research/executed/runs/v3/*/episodes.jsonl` of the authors' working tree. Licence: CC BY 4.0.
+
+Kept per episode: task id, condition, repeat, model ids and digests (`model_ids`, `role_config`), system fingerprints, start and end timestamps, wall time, call counts, token usage, environment seed, driver status, error string (first 160 characters), the verdict metrics, the action sequence (`actions`), `n_actions`, and SHA-256 hashes of the canonical sequence (`actions_sha256`) and of the strict AgentClinic sequence (`actions_strict_sha256`).
+
+Not released: raw transcripts and call logs, final environment states, task and case texts, reference answers (`correct_diagnosis`, `reference_answer`), model conclusions, and the strict AgentClinic action text. For `synthetic_hospital`, `actions` holds tool names only because the arguments carry patient identifiers and diagnoses of the synthetic records; two episodes have the same canonical sequence if and only if their `actions_sha256` match. `analysis/postfreeze/rq3_reruns.py` needs the unreleased fields (final states, transcripts) for the grader-versus-state and judge re-runs; the divergence and pass^k figures can be recomputed from the hashes and verdict fields here.

@@ -1,0 +1,357 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:295-299",
+    "text": "MIMIC-III ( Johnson et al., 2016 ) 5 5 5 https://physionet.org/content/mimiciii/1.4 covers 38,597 patients and 49,785 hospital admissions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names every source dataset (MedQA, MIMIC-III, eICU, emrQA, etc.) with citations, and gives a version/platform for some (MIMIC-III 1.4 on PhysioNet, eICU 2.0, emrQA on Hugging Face). It gives no snapshot date for the assembled CAB and no route from each CAB task back to its source record, so the 2 anchor is not met."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:187-195",
+    "text": "All patient data has been anonymized, and informed consent was obtained for its use"
+   },
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:187-195",
+    "text": "data usage has been approved by relevant ethics committees"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (existing public datasets, derived or sampled as described in Appendix B.1) is stated, and consent/ethics approval is stated in the Ethics section. No licence or data terms for CAB or its source datasets appear on S1-S3, so the score is 1 rather than 2."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:272-285",
+    "text": "we randomly sample the 1000 instances from the public part of the dataset and keep the data component proportions to avoid bias"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states sampling designs for some sources (random sampling of OmniMedVQA preserving component proportions, random selection of LongHealthQA cases, SLAKE English test subset). There is no comparison of patient features against a named target population. The score rests only on the stated sampling design and is a lenient reading."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:307-311",
+    "text": "we choose four types of datasets to validate the trustworthiness in four types of tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The Trustworthiness dimension (MedHalt-Rht, MedVQA-Halt, EHR-Halt, LongHalt) tests hallucination and refusal on unanswerable questions, which is counted here as the unsafe-output test. No bias or fairness test is reported anywhere on S1-S3, so only one of the two components is present. Whether hallucination tests count as 'unsafe output' is a judgement call."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (benchmark construction, limitations, ethics), S2 (README dataset section), S3 (no chunks), S4, S5. No gating, canary, encryption, overlap check or other contamination control is described; the train/test split exists only to build the agent's optimization memory, not as a contamination control."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3, 4, Appendix D), S2 (README evaluation and dataset), S3 (no chunks), S4, S5. Neither the paper nor the docs state that the agent cannot reach ground truth at evaluation time or name any mechanism. Ground truth is shown to the agent only in the optimization/reflection stage by design."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:179-183",
+    "text": "MedRAG requires retrieval, and UMLS needs internet access"
+   },
+   {
+    "chunk_id": "S2:README.md:61-84",
+    "text": "pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Dataset files, memory and software versions (python 3.10.8, torch 2.3.1) are pinned in the README, but the toolbox depends on live external services (Google Search, the UMLS API, and OpenAI for LongDocRAG per the tool docs). The paper itself acknowledges UMLS needs internet access, so the environment is not frozen and 2 is not reachable."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (section 2, Appendix B, limitations), S2, S3 (no chunks), S4, S5. No scripted reference solution, manual solvability check or agent-based solvability evidence is reported; the limitations note that tools do not perfectly align with tasks."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 9 toolbox, Appendix B), S2, S4 (actions, EHRSQL/eval), S5. All 18 tasks are question answering, information extraction or read-only SQL retrieval over EHR databases; no task changes environment state, so the NA clause applies."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2, 10, sections 4-5), S2 leaderboard, S3 (no chunks), S4, S5. No chance rate, random-baseline rate or design argument against trivial success is stated, although many tasks are multiple choice. The COT-without-tools agent is a no-tool baseline, not a trivial-success estimate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2 and 10), S2 leaderboard, S3 (no chunks), S4, S5. No do-nothing or random agent score is reported for any task; the COT agent runs the LLM without tools, which is a real baseline rather than a trivial agent."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4 (eval_score.py), S5. The scoring is deterministic (string match, ROUGE, SQL execution) and S1-S3 never describe the metrics or any validation, tests or reference-solution check of them."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:reflectool/utilities.py:1-40",
+    "text": "parser.add_argument('--seed', type=int, default=0)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Code sets a default seed of 0 and temperature 0 for the OpenAI client and local models, but S1-S3 state no seed, temperature or repeated-run policy. Safeguards visible only in code score 1. Candidate selection uses beam-search sampling, which is not covered by a stated policy."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:64-70",
+    "text": "\\dagger and \\ddagger indicate the p-value <0.05 and <0.01 comparing with the strongest baseline Reflexion"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Table 2 marks ReflecTool results with p-value thresholds against the strongest baseline Reflexion, which is a significance test on the headline comparison. The specific test and any CI are not named, but a test is reported."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 4, 5, Appendix D), S2 (README), S3 (no chunks). No number of runs per task, seed, decoding controls or run independence is stated on S1-S3."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2-10, section 4), S2 leaderboard, S3 (no chunks). Only p-value markers are given; no CI or SE on headline scores, no resampling unit and no clustering discussion."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (section 5, Tables 5-8), S2, S3 (no chunks). No reruns of identical tasks, per-task repeat outcomes, pass^k metric or action- or state-level agreement across reruns are reported."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 4.1, Appendix D, Table 2 notes), S2 (README support models), S3 (no chunks), S4 (models/config.yaml). Models appear by family name only (e.g. GPT-3.5-turbo, GPT-4o-mini, Qwen2-72B) with no snapshot or date. S1 says '*' models use 4-bit GPTQ, but S4 config lists Llama3.1-70B as AWQ-INT4, so the identifier differs between S1 and S4 and counts as absent. No decoding parameters or harness commit are stated on S1-S3."
+ },
+ {
+  "item": "A5",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 (Table 9, Appendix B.2), S2 (README ToolBox pointer), S3 (no chunks), S5 (action docs, prompts). The benchmark defines a 15-tool text-command interface, so NA does not apply. Table 9 gives only a one-line description and an input-type icon per tool: no schema or grammar, no read/write side-effect statement and no return or error semantics on S1-S3. The S5 tool descriptions also do not state read versus write behaviour."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Appendix B.2, section 5.5), S2, S3 (no chunks), S5. No conformance tests of the tools are reported, and S1 does not say whether any tool behaviour is simulated or stubbed. The tool-selection and parameter error analyses concern agent behaviour, not tool correctness."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 9, Appendix B), S2, S4 (actions), S5. All tools (knowledge retrieval, calculator, read-only SQL queries, image models, NER) retrieve or compute; no action changes environment state or represents an order, prescription, note or message."
+ },
+ {
+  "item": "A8",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3, 4, Appendix B and D), S2, S3 (no chunks). S1-S3 never state what the grader reads or how the metrics are computed; only Eq. 3 implies a prediction-equals-ground-truth check in the optimization stage. No rationale for the grader and no validation against known outcomes are given."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3.2, 5, Appendix B.1 and B.2), S2 (README dataset), S3 (no chunks). The paper uses the open web (Google Search) and public test files with no leakage control stated. A separate train split for optimization memory exists but is not presented as a control, the test split is public, and there is no canary."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:114-116",
+    "text": "We show the average performance of each dimension in Table 2 , and the complete results are shown in Table 10 ."
+   },
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:23-29",
+    "text": "the numbers in the outer circle represent the size of each dataset"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per dimension (Table 2) and per dataset (Table 10), which are the paper's benchmark axes. No results are split by patient subgroup although MIMIC-III and eICU hold demographic fields. Dataset sizes appear in the Figure 1 caption and Appendix B.1 text but not alongside the result tables, so (iii) is only partly met."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:295-299",
+    "text": "It includes deidentified administrative information such as demographics and highly granular clinical information"
+   },
+   {
+    "chunk_id": "S1:arxiv/2410.17657v3.html:187-195",
+    "text": "data usage has been approved by relevant ethics committees"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source is stated as real de-identified patient data (MIMIC-III, eICU; LongHealthQA is described as fictional cases), and governance is stated via anonymization and ethics-committee approval. No redistribution or data terms are given separately from the code licence on S1-S3, so element (iii) is absent."
+ }
+]

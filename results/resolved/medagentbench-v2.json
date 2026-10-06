@@ -1,0 +1,1943 @@
+{
+ "bench": "medagentbench-v2",
+ "cells": {
+  "C1": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "uploading full EHR records for two patients",
+       "words": 7,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper names the platform as a FHIR-compliant EHR and states tasks were generated from full EHR records for two patients. It does not give a dataset version or snapshot date, nor a route from a task to its source record.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "uploading full EHR records for two patients (including medication",
+       "words": 9,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "The source is named (MedAgentBench, a FHIR-compliant EHR; new tasks built from two patients' EHR records) but no dataset version or snapshot date, and no route from a task to its source record, is given in S1. Tasks only carry a stated 'now' date in examples.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C2": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not state data origin with collection, license or consent/IRB status.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "These inputs were given to o3 with",
+       "words": 7,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Origin and collection method of the 300 new tasks are described (o3-generated, physician-reviewed). The origin of the underlying patient records (real or synthetic), data licence and consent/IRB status are not stated; the CC BY-NC notice covers the paper only.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C3": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "full EHR records for two patients",
+       "words": 6,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper states a sampling/design fact: new tasks were generated from records for two patients. It does not analyze key patient features against a named target population.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 (paper and appendix) for patient-population statistics or comparison to a target population; S2, S3, S4, S5 had no chunks. Nothing reports representativeness of patient features.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C4": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:479-501",
+       "text": "clear guardrails around scope of automation, human review of consequential actions",
+       "words": 11,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The benchmark discusses safety concerns and unsafe consequential actions such as medication orders. The packet does not report a dedicated bias test.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for dedicated unsafe-output or bias tests; S2-S5 had no chunks. The paper discusses safety needs in prose and recommends physician oversight but reports no dedicated test.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C5": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+       "text": "The remaining tasks were held out",
+       "words": 6,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper reports a held-out set for memory evaluation. It does not report a measured overlap, canary, or contamination check.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+       "text": "tasks formed the training set used to populate memory. The remaining tasks were held out",
+       "words": 15,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "A held-out split is used for the memory train/test design and the new tasks are described as an unseen test set, with a blinded evaluator. This is a split control, not a stated contamination control, and no overlap or contamination check is measured. Scored 1 as a weak control.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C6": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not state that the agent cannot reach ground truth at run time.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for statements that the agent cannot reach ground truth or the evaluator at run time; S2-S5 had no chunks. Not addressed.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C7": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not pin data, software, simulator, judge, repository commit, or arXiv version for the reported results.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for pinned data, software, model snapshot or frozen environment; S2-S5 had no chunks. Only 'GPT-4.1' by family name and a localhost FHIR server example appear; nothing is pinned.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C8": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "An internal medicine physician (KB) then independently reviewed each task",
+       "words": 10,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper reports manual physician review of task quality and feasibility, which is manual solvability evidence. It does not report a scripted reference solution run through the grader.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "and feasibility given the agent",
+       "words": 5,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "No scripted reference solution is run through the grader. A physician rated each new task for feasibility given the toolset and the agent solved 88.67% of the new tasks, which is manual and agent-based solvability evidence.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C9": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+       "text": "verified that all FHIR resources posted by the agent included correct fields",
+       "words": 12,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "Some tasks change environment state through posted FHIR resources, so NA does not apply. The grader checks changed resources for correct fields, but the packet does not state that unchanged irrelevant state is checked.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:206-239",
+       "text": "However, the agent misinterprets the conditional scope and orders a follow-up lab, even if",
+       "words": 14,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Tasks create orders, so the NA clause does not apply. Unnecessary orders on conditional tasks (e.g. a follow-up lab when potassium is normal) are counted as failures, which shows partial unchanged-state checking for some tasks. The paper does not state that the grader checks unchanged state generally.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C10": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+       "text": "multi-step temporal logic, conditional branches, or medication dosing thresholds",
+       "words": 9,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper gives a design argument that tasks require multi-step logic, conditional branches, and dosing thresholds, making trivial success unlikely. It does not report an empirical random or trivial-agent rate.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for random, trivial-agent or chance rates and design arguments against trivial success; S2-S5 had no chunks. None reported.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C11": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report results for a do-nothing or random agent.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for do-nothing or random agent results; S2-S5 had no chunks. None reported.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C12": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet describes custom evaluation functions but reports no validation figures, tests, or reference-solution evidence.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:424-446",
+       "text": "The clinical logic was correct, but the response",
+       "words": 8,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Custom evaluation functions are described, and error analysis exposes evaluator false negatives from format mismatch (a disclosed weakness, G5). No agreement or error figures, tests or reference-solution evidence are reported for the evaluators, so the score is 1 at most.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C13": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report seeds, temperature settings, or a repeated-run policy.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for seeds, temperature or repeated-run policy; S2-S5 had no chunks. Only 'success rate at pass@1' is stated; no safeguard is described.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "C14": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-85",
+       "text": "demonstrated significantly improved reliability and adaptability",
+       "words": 6,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper uses a significance claim but reports no statistical test or confidence interval for the headline comparison. Under the anchor, “significant” without a test scores at most 1.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:401-425",
+       "text": "there was no significant drop",
+       "words": 5,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "The paper uses 'significant' (improvements with memory, no significant drop on new tasks) without any test, CI or SD. Capped at 1 per the anchor; noted as an untested significance claim.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A1": {
+   "final": 0,
+   "status": "not_established",
+   "supporters": [],
+   "fallback": true,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 0,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [
+      "unsupported"
+     ],
+     "elements": [
+      true,
+      false,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+       "text": "success rate at pass@1",
+       "words": 4,
+       "verified": false,
+       "verified_strict": true,
+       "reason": "quote_too_short"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper reports pass@1, indicating one run per task behind the success-rate metric. It does not report seed/sampling policy or independence of runs.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for run count, seed or decoding controls, and run independence; S2-S5 had no chunks. Only 'pass@1' is stated, with no explicit number of runs, seed or decoding policy. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A2": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report CI or SE, a resampling unit, or clustering treatment.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for CIs, SEs, resampling unit and task clustering; S2-S5 had no chunks. Success rates are point estimates only. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A3": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report identical reruns, action agreement, state agreement, or pass^k reliability.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for repeat-run, action-level or state-level agreement and pass^k metrics; S2-S5 had no chunks. Memory experiments rerun tasks but report no identical-rerun variation or per-task repeat outcomes. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A4": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet names GPT-4.1, but not an exact snapshot/date, decoding parameters, or harness tag/commit matching reported results.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for model snapshot IDs, decoding parameters and harness commit; S2-S5 had no chunks. 'GPT-4.1' is a family name only, no decoding parameters are given, and a repo URL is given without a tag or commit tied to the results. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A5": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      true,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:546-581",
+       "text": "fhir medication request create: create a medication request",
+       "words": 8,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The benchmark defines a tool interface, so NA does not apply. The paper/system prompt lists tools and indicates read/write side effects by names such as search and create, but no machine-readable schema or error return semantics are reported; no S5 chunks are present.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      true,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:546-581",
+       "text": "fhir medication request create: create a medication request",
+       "words": 8,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "The appendix system prompt lists each tool with a one-line description that separates search (read) from create (write) tools. No machine-readable schema for every tool is shown (only the finish tool is said to enforce typing) and return and error semantics are not documented. The tool list is part of the agent's system prompt, so (ii) reaches the agent-visible surface. Element flags 1/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A6": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The benchmark defines tools, so NA does not apply, but the packet reports no tool conformance checks or simulation/no-op disclosure reaching S5.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for tool tests or conformance checks and disclosure of simulated or stubbed behaviour; S2-S5 had no chunks. The 200-item GET cap and sandboxed calculator are disclosed as constraints, but not as simulated tool behaviour, and no tool tests are reported. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A7": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 2,
+     "n_verified": 2,
+     "n_verified_strict": 2,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      true
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:103-121",
+       "text": "fhir service request create",
+       "words": 4,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      },
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:314-338",
+       "text": "the agent incorrectly issued a replacement order regardless of the value",
+       "words": 11,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "Some actions represent clinical orders, so NA does not apply. The paper discloses write actions and shows unnecessary writes are treated as errors, but does not state whether writes are executed, simulated, or sandboxed; no S5 chunks are present.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 2,
+     "n_verified": 2,
+     "n_verified_strict": 2,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      true
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:546-581",
+       "text": "fhir service request create: create a service request",
+       "words": 8,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      },
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:206-239",
+       "text": "However, the agent misinterprets the conditional scope and orders a follow-up lab, even if",
+       "words": 14,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Write tools (medication request, service request, vitals create) are listed in the system prompt, and unnecessary orders are treated as failures. The paper does not state whether writes are executed, simulated or sandboxed; the 'sandboxed and logged' wording is a deployment recommendation. S5 reach for (ii) cannot be told. Element flags 2/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A8": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+       "text": "verified that all FHIR resources posted by the agent included correct fields",
+       "words": 12,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper states grader inputs include posted FHIR resources and final responses. It does not provide a rationale for non-state grading or validation on labelled correct and incorrect outcomes with error rates.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:275-294",
+       "text": "The evaluation logic also verified that all FHIR resources posted by the agent",
+       "words": 13,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Grader input is named: the final answer and the FHIR resources the agent posted, checked by task-specific functions. No rationale for a non-state grader is given and there is no validation on labelled correct and incorrect outcomes with error rates. Element flags 1/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A9": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      true,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+       "text": "The remaining tasks were held out",
+       "words": 6,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper reports a held-out split for the memory evaluation. It does not report controls on leakage through tools, retrieval, web access, or canary/provenance markers.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 1,
+     "n_verified": 1,
+     "n_verified_strict": 1,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      false
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:155-179",
+       "text": "tasks formed the training set used to populate memory. The remaining tasks were held out",
+       "words": 15,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "The memory mechanism is controlled by a train/test split so memory entries (which contain expected answers) come only from training tasks. No statement that held-out labels are absent from public surfaces, and no canary or provenance marker. Element flags 1/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A10": {
+   "final": 1,
+   "status": "resolved",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 1,
+   "votes": {
+    "codex": {
+     "raw": 1,
+     "effective": 1
+    },
+    "sonnet": {
+     "raw": 1,
+     "effective": 1
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 2,
+     "n_verified": 1,
+     "n_verified_strict": 2,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      true
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:314-338",
+       "text": "Tasks 5, 6, 9, and 10",
+       "words": 6,
+       "verified": false,
+       "verified_strict": true,
+       "reason": "quote_too_short"
+      },
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "10 new clinical task types with 30 variations of each task type",
+       "words": 12,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "The paper reports results by task partitions and gives slice sizes for the new task types. It does not report patient subgroup results or state that demographic fields do not exist.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 1,
+     "effective": 1,
+     "supported": true,
+     "supported_strict": true,
+     "n_quotes": 2,
+     "n_verified": 2,
+     "n_verified_strict": 2,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      true,
+      false,
+      true
+     ],
+     "quotes": [
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:314-338",
+       "text": "tasks requiring three or more tool calls (Tasks 5, 6, 9, and 10), success rate rose to",
+       "words": 17,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      },
+      {
+       "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:254-276",
+       "text": "we developed 10 new clinical task types with 30 variations of each task type,",
+       "words": 14,
+       "verified": true,
+       "verified_strict": true,
+       "reason": "ok"
+      }
+     ],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "Results are reported per task (Tasks 1-10, with grouped task results) and the new set has 30 variations per task type. No results by patient subgroup are given and the paper does not state that demographic fields are absent. Element flags 2/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  },
+  "A11": {
+   "final": 0,
+   "status": "established_zero",
+   "supporters": [
+    "codex",
+    "sonnet"
+   ],
+   "fallback": false,
+   "majority_final": 0,
+   "votes": {
+    "codex": {
+     "raw": 0,
+     "effective": 0
+    },
+    "sonnet": {
+     "raw": 0,
+     "effective": 0
+    }
+   },
+   "coders": {
+    "codex": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "openai",
+     "model_id": "gpt-5.5",
+     "timestamp": "2026-10-05T19:56:58Z",
+     "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet mentions EHR records but never states whether the environment data are real de-identified, synthetic, or mixed, and gives no governance or redistribution terms.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    },
+    "sonnet": {
+     "score_raw": 0,
+     "effective": 0,
+     "supported": false,
+     "supported_strict": false,
+     "n_quotes": 0,
+     "n_verified": 0,
+     "n_verified_strict": 0,
+     "contradicted": false,
+     "contradiction_verified": false,
+     "flags": [],
+     "elements": [
+      false,
+      false,
+      false
+     ],
+     "quotes": [],
+     "contradiction_quotes": [],
+     "family": "anthropic",
+     "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+     "timestamp": "2026-10-05T20:16:12Z",
+     "rationale": "searched: S1 for whether patient records are real de-identified, synthetic or mixed, for IRB or de-identification governance, and for data terms separate from code licence; S2-S5 had no chunks. Only 'full EHR records for two patients' is stated, with no provenance. Element flags 0/3.",
+     "prompt_sha256": "263ee6a82deb7384880d0c2631c186cceb357067520a5a425076ad9b490bc735",
+     "packet_sha256": "860aa4d174f810789f7b91740d4fe246f97329a07ed61f121719edd53a720fa1"
+    }
+   }
+  }
+ }
+}

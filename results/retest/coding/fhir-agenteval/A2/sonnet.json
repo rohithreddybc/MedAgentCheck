@@ -1,0 +1,35 @@
+{
+ "bench": "fhir-agenteval",
+ "item": "A2",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:extra/pmc12919212-fhir-agenteval:87-90",
+    "text": "within-task variance reflects sensitivity to different task variations, and between-task variance represents performance differences across distinct tasks."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Only SD over runs is given, no CI or SE on headline scores. The hierarchical variance decomposition names run, task-variation and task as units and so addresses grouping of variations within tasks.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "c6496935c51c2596c1741bfbebf3682e28b29d32b9a2547733650e427ca022a4",
+ "packet_sha256": "9627012f96999ec1421ccfad1de8d24c0e79928d9b49f056b44c1c941b45beff",
+ "timestamp": "2026-10-05T20:59:58Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/fhir-agenteval.json"
+}

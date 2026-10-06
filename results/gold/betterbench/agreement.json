@@ -1,0 +1,478 @@
+{
+ "set": "betterbench",
+ "instrument": "BetterBench (arXiv 2411.12990v1)",
+ "seed": 20261004,
+ "n_boot": 2000,
+ "gold_cutoff": "2024-11-21T23:59:59Z",
+ "items": [
+  "J.1-1",
+  "J.1-12",
+  "J.1-5",
+  "J.1-6",
+  "J.1-9",
+  "J.2-1",
+  "J.2-2",
+  "J.2-4",
+  "J.2-5",
+  "J.2-7",
+  "J.2-8",
+  "J.2-9",
+  "J.3-11",
+  "J.3-12",
+  "J.3-16",
+  "J.3-17",
+  "J.3-19",
+  "J.3-4",
+  "J.3-8",
+  "J.4-1"
+ ],
+ "coders": {
+  "codex": "openai",
+  "sonnet": "anthropic"
+ },
+ "comparison_scale": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "note": "effective score (a 1+ without a verified quote counts as 0) against the published score; cells with NA on either side are counted and left out; primary statistic: weighted_kappa_quadratic",
+ "by_coder": {
+  "codex": {
+   "n_cells": 423,
+   "n_gold_na": 11,
+   "n_pred_na_where_gold_scored": 6,
+   "n_both_na": 5,
+   "raw_agreement": {
+    "agree": 216,
+    "n": 423,
+    "rate": 0.5106382978723404,
+    "wilson95": [
+     0.4631197374680345,
+     0.5579653746098503
+    ]
+   },
+   "cohen_kappa": 0.2996632727330896,
+   "majority_class_baseline_agreement": 0.4846335697399527,
+   "confusion": {
+    "0": {
+     "0": 63,
+     "1": 23,
+     "2": 36,
+     "3": 7
+    },
+    "1": {
+     "0": 4,
+     "1": 4,
+     "2": 5,
+     "3": 1
+    },
+    "2": {
+     "0": 9,
+     "1": 8,
+     "2": 36,
+     "3": 22
+    },
+    "3": {
+     "0": 39,
+     "1": 8,
+     "2": 45,
+     "3": 113
+    }
+   },
+   "weighted_kappa_quadratic": 0.4499252747718109,
+   "weighted_kappa_linear": 0.388665757765578,
+   "within_one_level": {
+    "hits": 323,
+    "n": 423,
+    "rate": 0.7635933806146572,
+    "wilson95": [
+     0.7208448043995457,
+     0.8015974170858231
+    ]
+   },
+   "primary_statistic": "weighted_kappa_quadratic",
+   "primary_value": 0.4499252747718109,
+   "primary_ci95_bootstrap_over_benchmarks": [
+    0.3820510558721305,
+    0.5208210419688455
+   ],
+   "per_item_raw_agreement": {
+    "J.1-1": {
+     "n": 22,
+     "raw_agreement": 0.7727272727272727
+    },
+    "J.1-12": {
+     "n": 22,
+     "raw_agreement": 0.5454545454545454
+    },
+    "J.1-5": {
+     "n": 22,
+     "raw_agreement": 0.3181818181818182
+    },
+    "J.1-6": {
+     "n": 22,
+     "raw_agreement": 0.5454545454545454
+    },
+    "J.1-9": {
+     "n": 22,
+     "raw_agreement": 0.3181818181818182
+    },
+    "J.2-1": {
+     "n": 22,
+     "raw_agreement": 0.7727272727272727
+    },
+    "J.2-2": {
+     "n": 22,
+     "raw_agreement": 0.2727272727272727
+    },
+    "J.2-4": {
+     "n": 12,
+     "raw_agreement": 0.5
+    },
+    "J.2-5": {
+     "n": 22,
+     "raw_agreement": 0.5
+    },
+    "J.2-7": {
+     "n": 17,
+     "raw_agreement": 0.7058823529411765
+    },
+    "J.2-8": {
+     "n": 22,
+     "raw_agreement": 0.4090909090909091
+    },
+    "J.2-9": {
+     "n": 22,
+     "raw_agreement": 0.4090909090909091
+    },
+    "J.3-11": {
+     "n": 21,
+     "raw_agreement": 0.7142857142857143
+    },
+    "J.3-12": {
+     "n": 21,
+     "raw_agreement": 0.47619047619047616
+    },
+    "J.3-16": {
+     "n": 22,
+     "raw_agreement": 0.8181818181818182
+    },
+    "J.3-17": {
+     "n": 22,
+     "raw_agreement": 0.22727272727272727
+    },
+    "J.3-19": {
+     "n": 22,
+     "raw_agreement": 0.36363636363636365
+    },
+    "J.3-4": {
+     "n": 22,
+     "raw_agreement": 0.36363636363636365
+    },
+    "J.3-8": {
+     "n": 22,
+     "raw_agreement": 0.5909090909090909
+    },
+    "J.4-1": {
+     "n": 22,
+     "raw_agreement": 0.6363636363636364
+    }
+   },
+   "n_scored_items_without_gold": 0
+  },
+  "sonnet": {
+   "n_cells": 425,
+   "n_gold_na": 11,
+   "n_pred_na_where_gold_scored": 4,
+   "n_both_na": 5,
+   "raw_agreement": {
+    "agree": 224,
+    "n": 425,
+    "rate": 0.5270588235294118,
+    "wilson95": [
+     0.4795624418262969,
+     0.5740704323365682
+    ]
+   },
+   "cohen_kappa": 0.3265402656785842,
+   "majority_class_baseline_agreement": 0.4823529411764706,
+   "confusion": {
+    "0": {
+     "0": 60,
+     "1": 34,
+     "2": 29,
+     "3": 8
+    },
+    "1": {
+     "0": 4,
+     "1": 6,
+     "2": 3,
+     "3": 1
+    },
+    "2": {
+     "0": 3,
+     "1": 9,
+     "2": 36,
+     "3": 27
+    },
+    "3": {
+     "0": 26,
+     "1": 14,
+     "2": 43,
+     "3": 122
+    }
+   },
+   "weighted_kappa_quadratic": 0.529716442172874,
+   "weighted_kappa_linear": 0.4473569423983803,
+   "within_one_level": {
+    "hits": 344,
+    "n": 425,
+    "rate": 0.8094117647058824,
+    "wilson95": [
+     0.7693635259799705,
+     0.8439167307519209
+    ]
+   },
+   "primary_statistic": "weighted_kappa_quadratic",
+   "primary_value": 0.529716442172874,
+   "primary_ci95_bootstrap_over_benchmarks": [
+    0.454348222122854,
+    0.5978512229741584
+   ],
+   "per_item_raw_agreement": {
+    "J.1-1": {
+     "n": 22,
+     "raw_agreement": 0.8636363636363636
+    },
+    "J.1-12": {
+     "n": 22,
+     "raw_agreement": 0.5454545454545454
+    },
+    "J.1-5": {
+     "n": 22,
+     "raw_agreement": 0.3181818181818182
+    },
+    "J.1-6": {
+     "n": 22,
+     "raw_agreement": 0.5909090909090909
+    },
+    "J.1-9": {
+     "n": 22,
+     "raw_agreement": 0.4090909090909091
+    },
+    "J.2-1": {
+     "n": 22,
+     "raw_agreement": 0.7727272727272727
+    },
+    "J.2-2": {
+     "n": 22,
+     "raw_agreement": 0.22727272727272727
+    },
+    "J.2-4": {
+     "n": 14,
+     "raw_agreement": 0.7142857142857143
+    },
+    "J.2-5": {
+     "n": 22,
+     "raw_agreement": 0.5454545454545454
+    },
+    "J.2-7": {
+     "n": 17,
+     "raw_agreement": 0.7058823529411765
+    },
+    "J.2-8": {
+     "n": 22,
+     "raw_agreement": 0.5454545454545454
+    },
+    "J.2-9": {
+     "n": 22,
+     "raw_agreement": 0.3181818181818182
+    },
+    "J.3-11": {
+     "n": 21,
+     "raw_agreement": 0.7142857142857143
+    },
+    "J.3-12": {
+     "n": 21,
+     "raw_agreement": 0.47619047619047616
+    },
+    "J.3-16": {
+     "n": 22,
+     "raw_agreement": 0.7272727272727273
+    },
+    "J.3-17": {
+     "n": 22,
+     "raw_agreement": 0.2727272727272727
+    },
+    "J.3-19": {
+     "n": 22,
+     "raw_agreement": 0.36363636363636365
+    },
+    "J.3-4": {
+     "n": 22,
+     "raw_agreement": 0.5909090909090909
+    },
+    "J.3-8": {
+     "n": 22,
+     "raw_agreement": 0.5
+    },
+    "J.4-1": {
+     "n": 22,
+     "raw_agreement": 0.45454545454545453
+    }
+   },
+   "n_scored_items_without_gold": 0
+  }
+ },
+ "resolved": {
+  "n_cells": 425,
+  "n_gold_na": 11,
+  "n_pred_na_where_gold_scored": 4,
+  "n_both_na": 5,
+  "raw_agreement": {
+   "agree": 218,
+   "n": 425,
+   "rate": 0.5129411764705882,
+   "wilson95": [
+    0.46551824188950924,
+    0.5601322631449045
+   ]
+  },
+  "cohen_kappa": 0.314147391070468,
+  "majority_class_baseline_agreement": 0.4823529411764706,
+  "confusion": {
+   "0": {
+    "0": 76,
+    "1": 24,
+    "2": 28,
+    "3": 3
+   },
+   "1": {
+    "0": 5,
+    "1": 5,
+    "2": 3,
+    "3": 1
+   },
+   "2": {
+    "0": 11,
+    "1": 8,
+    "2": 38,
+    "3": 18
+   },
+   "3": {
+    "0": 44,
+    "1": 10,
+    "2": 52,
+    "3": 99
+   }
+  },
+  "weighted_kappa_quadratic": 0.47222321048895455,
+  "weighted_kappa_linear": 0.4106387265766668,
+  "within_one_level": {
+   "hits": 328,
+   "n": 425,
+   "rate": 0.7717647058823529,
+   "wilson95": [
+    0.7295335504113126,
+    0.8091270553113751
+   ]
+  },
+  "primary_statistic": "weighted_kappa_quadratic",
+  "primary_value": 0.47222321048895455,
+  "primary_ci95_bootstrap_over_benchmarks": [
+   0.4051679080099314,
+   0.540140741587342
+  ],
+  "per_item_raw_agreement": {
+   "J.1-1": {
+    "n": 22,
+    "raw_agreement": 0.7727272727272727
+   },
+   "J.1-12": {
+    "n": 22,
+    "raw_agreement": 0.5909090909090909
+   },
+   "J.1-5": {
+    "n": 22,
+    "raw_agreement": 0.36363636363636365
+   },
+   "J.1-6": {
+    "n": 22,
+    "raw_agreement": 0.5454545454545454
+   },
+   "J.1-9": {
+    "n": 22,
+    "raw_agreement": 0.3181818181818182
+   },
+   "J.2-1": {
+    "n": 22,
+    "raw_agreement": 0.7727272727272727
+   },
+   "J.2-2": {
+    "n": 22,
+    "raw_agreement": 0.2727272727272727
+   },
+   "J.2-4": {
+    "n": 14,
+    "raw_agreement": 0.6428571428571429
+   },
+   "J.2-5": {
+    "n": 22,
+    "raw_agreement": 0.5
+   },
+   "J.2-7": {
+    "n": 17,
+    "raw_agreement": 0.7058823529411765
+   },
+   "J.2-8": {
+    "n": 22,
+    "raw_agreement": 0.5454545454545454
+   },
+   "J.2-9": {
+    "n": 22,
+    "raw_agreement": 0.45454545454545453
+   },
+   "J.3-11": {
+    "n": 21,
+    "raw_agreement": 0.7619047619047619
+   },
+   "J.3-12": {
+    "n": 21,
+    "raw_agreement": 0.38095238095238093
+   },
+   "J.3-16": {
+    "n": 22,
+    "raw_agreement": 0.7272727272727273
+   },
+   "J.3-17": {
+    "n": 22,
+    "raw_agreement": 0.2727272727272727
+   },
+   "J.3-19": {
+    "n": 22,
+    "raw_agreement": 0.3181818181818182
+   },
+   "J.3-4": {
+    "n": 22,
+    "raw_agreement": 0.4090909090909091
+   },
+   "J.3-8": {
+    "n": 22,
+    "raw_agreement": 0.45454545454545453
+   },
+   "J.4-1": {
+    "n": 22,
+    "raw_agreement": 0.5454545454545454
+   }
+  },
+  "status_counts": {
+   "resolved": 290,
+   "not_established": 66,
+   "established_zero": 73,
+   "na_accepted": 9,
+   "na_rejected_as_zero": 2
+  },
+  "fallback_cells": 68
+ }
+}

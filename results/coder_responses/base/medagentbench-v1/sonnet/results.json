@@ -1,0 +1,409 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "patient profiles are extracted from a deidentified clinical data warehouse curated by the STARR (STAnford Research Repository) project"
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "we extract lab test results, vital signs, procedure orders, diagnosis and medication orders in the last five years"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Source (STARR data warehouse at Stanford), platform and a time frame (last five years, cutoff and anchor dates) are named. No dataset version or snapshot identifier and no route from a task to its source record is given, so the anchor for 2 is not met."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "We randomly sample 100 patients from a cohort with an inpatient sodium lab test ordered on the morning of November 13, 2023."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "Benchmark examples are based on real patient cases that were deidentified and jittered."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (real de-identified STARR records) and collection method (random sampling from an anchored cohort, field extraction) are stated. No licence or terms for the data and no consent or IRB status is given in S1-S3, so only origin plus one other element is present."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "We randomly sample 100 patients from a cohort with an inpatient sodium lab test ordered on the morning of November 13, 2023."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:99-99",
+    "text": "since all patient profiles are derived from Stanford Hospital records and are not representative of the general population"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A sampling design and descriptive cohort statistics (Table 2: age, sex, record counts) are given, and the limitation section discloses non-representativeness (G5). No comparison against a named target population is reported, so 1."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (results, discussion, limitations), S2 (README), S3 (no chunks), S4 and S5. The paper mentions potential bias in the patient profiles as a limitation but reports no dedicated unsafe-output test and no bias test."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4, S5. No contamination control or overlap check is reported. The README tells users to download refsol.py from an external link, but it is not described as gating or as a contamination control, so it is not counted."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (2.3, 2.4), S2 (README), S3 (no chunks), S4, S5. Neither the paper nor the README states that the agent cannot reach ground truth or names an isolation mechanism. The separately downloaded refsol.py is not described as isolation."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:55-60",
+    "text": "we build a new Docker image for easy setup"
+   },
+   {
+    "chunk_id": "S2:README.md:1-48",
+    "text": "docker pull jyxsu6/medagentbench:latest"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Patient data is frozen in a prebuilt Docker image with a persistent H2 database, and the paper sends only GET requests so the state is not changed. The image is pulled by the floating latest tag, the software dependencies are not stated as pinned, and the reference solution is a separate download, so full pinning is not shown."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (2.4.1, results, appendix), S2 (README), S3 (no chunks), S4, S5. The paper says reference solutions are manually curated for each task category, but no scripted reference run through the grader and no solvability or correctness result is reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (2.4, 2.4.1), S2, S3 (no chunks), S4, S5. The paper describes half of the tasks as requiring record modification, so NA is not used. The grader checks only the correctness of POST payloads and the paper reports no check of unchanged or irrelevant state; POSTs are not executed against the server."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (metrics, results, discussion), S2, S3 (no chunks), S4, S5. No random or trivial-agent rate, chance rate, or design argument that trivial outputs fail is stated. Rule-based payload checks are described only as the grading method."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 3 and 4, results), S2, S3 (no chunks), S4, S5. No do-nothing or random agent score is reported; all rows are LLMs."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (2.4.1, appendix), S2, S3 (no chunks), S4, S5. The grader is a deterministic manually written rule set with a curated reference solution, but no tests, agreement or error figures validating it are reported."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "We set the temperature to zero for all models except o3-mini."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "we exclusively adopt pass@1 in our benchmark"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature zero (all models except o3-mini) and an explicit single-attempt pass@1 policy are stated in S1. Code configs also set temperature 0. The o3-mini exception is a model-level carve-out rather than a harness gap."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 3 and 4, results), S2, S3 (no chunks), S4, S5. No CI, SE, SD of scores or significance test is given for model comparisons. The word significant appears in the abstract about variation across categories without a test."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "assesses models under a single-attempt constraint"
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "We set the temperature to zero for all models except o3-mini."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "One attempt per task (pass@1) is stated, and temperature 0 is the decoding control. Independence of runs is not addressed."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 3 and 4, results), S2, S3 (no chunks), S4, S5. No CI or SE is reported, no resampling or variance unit is named, and clustering of tasks within patients or templates is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (discussion, limitations), S2, S3 (no chunks), S4, S5. Only single-run scores are reported. Reliability across repeated action-based runs is listed as future work."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:66-69",
+    "text": "We set the temperature to zero for all models except o3-mini."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding temperature is stated. Models are named by family or version without provider snapshot IDs, and S1 and S4 differ (S1 reports o3-mini and GPT-4o mini; the S4 configs list o1-mini, gpt-4o-mini and gemini-2.0-flash-exp), so identifiers count as absent. No harness tag or commit is stated as matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "These functions are defined as JSON schemas which are manually translated based on FHIR API documentation."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "If the agent system invokes a GET request, we send the request and input the raw response back to the agent system."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Text-command protocol with nine functions defined as JSON schemas (i). Reads versus writes are distinguished as GET (search) and POST (create) and the agent prompt gives separate GET and POST formats (ii; reaches S5 by HTTP verb only). Return semantics are given for success cases, but error returns are not documented in S1-S3, so (iii) is not counted."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "we decide to only send GET requests to the environment"
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:69-70",
+    "text": "we conduct a simple sanity check to make sure the payload data is JSON-loadable, and indicate success of execution to the agent system"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses that POSTs are not executed (only a JSON sanity check, with success returned). No tool conformance tests are reported. The agent-visible reply is 'POST request accepted and executed successfully.' (S4 code) and the prompt carries no simulation notice, so the disclosure does not reach S5. This matches the paper's own description, so no contradiction flag."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:75-91",
+    "text": "the other half require the modification of medical records through POST requests"
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "we decide to only send GET requests to the environment"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Write actions are identified (create functions; recording, test, referral and medication ordering tasks) and the paper states that POSTs are not sent to the server, only checked and graded on payload. Scoring of unsafe or unnecessary writes is not stated. The agent is told its POST was executed successfully (S4 code message), so S5 does not disclose the simulation. The paper elsewhere describes the agent as modifying the records database, which is in tension with the GET-only statement."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "we manually write many rule-based sanity checks to verify the correctness of the payload of POST requests"
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:61-65",
+    "text": "we decide to only send GET requests to the environment"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader inputs are named (answer strings compared with reference solutions; POST payloads checked by rules) and the GET-only design is given as the reason state is not graded. No validation of the grader on labelled correct and incorrect outcomes is reported."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2 (README), S3 (no chunks), S4, S5. No leakage controls, held-out split, or canary or provenance marker is reported. The README only says refsol.py is downloaded from an external link, without stating that it is a held-out control."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:75-91",
+    "text": "We calculate task success rates for these two subgroups and name them as query SR and action SR respectively."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:142-155",
+    "text": "easy (1 step), medium (2 steps), and hard ( \\geq 3 steps)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per task type (query versus action, 150 tasks each) and per difficulty level (Table 4). No per-patient-subgroup results are given although demographic fields exist (age, sex in Table 2). Slice sizes are given only for query and action, not for difficulty levels or categories, so (iii) is not counted."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:33-47",
+    "text": "Benchmark examples are based on real patient cases that were deidentified and jittered."
+   },
+   {
+    "chunk_id": "S1:arxiv/2501.14654v2.html:43-55",
+    "text": "As protected health information such as medical record numbers (MRNs), names, phone numbers and addresses are removed in the STARR data warehouse."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated to be real, de-identified patient data with timestamp jittering, MRNs replaced by random IDs and Faker-generated names, phone numbers and addresses (de-identification method). No data terms separate from the code licence are stated in S1-S3."
+ }
+]

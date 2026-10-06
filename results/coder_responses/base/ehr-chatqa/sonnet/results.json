@@ -1,0 +1,422 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "MIMIC-IV ( Johnson et al., 2023 ) , which contains detailed ICU data from Beth Israel Deaconess Medical Center"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "we use a subset of records from the privacy-safe demo versions of these databases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Sources are named (MIMIC-IV, eICU demo versions, EHRSQL, internal logs of a medical center) with platform/institution, but no database version or snapshot date and no explicit route from each task to a source record is reported on S1-S3. Source named without version or route gives 1."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:90-92",
+    "text": "EHR-ChatQA utilizes publicly available, de-identified EHR datasets (MIMIC-IV-demo and eICU-demo), which are free of Protected Health Information (PHI)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:52-54",
+    "text": "curate and adapt clinically relevant queries from two primary sources: the EHRSQL dataset"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (public de-identified demo databases, EHRSQL, internal logs) and collection method (annotation pipeline) are documented. No licence or terms of the source data or the benchmark, and no IRB/consent statement (including for the internal hospital logs), appear on S1-S3, so origin plus one other element gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "we use a subset of records from the privacy-safe demo versions of these databases"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:202-204",
+    "text": "We manually explore the database to sample valid value pairs (e.g., specific diagnosis codes and overlapping admission dates)."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A sampling design is stated (demo subset, manual sampling of values giving non-empty results) and task counts are tabulated. There is no analysis of patient features against a named target population; the Ethics Statement only acknowledges possible demographic bias."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (ethics statement, experiments, error analysis), S2 README, S3 release notes, S4 and S5 code and prompts. No dedicated unsafe-output test or bias test is reported; the ethics statement only acknowledges possible database bias without testing it."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:52-54",
+    "text": "we rename all table and column names (e.g., “patients” to “demographics”)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Schema renaming is a developer-side control against memorization of original MIMIC-IV/eICU schemas, and the user simulator is isolated from gold. No measured overlap or contamination check is reported, so 1. Task files are public in the repo."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:34-36",
+    "text": "the user is isolated from the database content and the GT SQL and answers"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the simulated user (the agent's only conversational channel) is isolated from GT SQL and answers, preventing tipping off the agent. It does not state that the agent itself cannot reach ground truth at run time or name a mechanism such as no mount or labels not public, so 1."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:25-29",
+    "text": "tool interactions with the database are deterministic, while the LLM-based user’s responses and web search results are stochastic"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:32-34",
+    "text": "The web_search() tool is optionally provided to the agent to supplement or confirm clinical knowledge"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Databases, tasks and tools are released (tag v1.0.0), but the simulator and validator are named by family (Gemini-2.0-Flash, Gemini-2.5-Flash) without snapshot pinning, and live calls (LLM user, web search, OpenAI embeddings) occur at evaluation time. Data pinned while services are live or unpinned gives 1."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:57-58",
+    "text": "preliminary simulations flag tasks that repeatedly cause agent failures for manual review"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Solvability evidence is manual or agent-based: agent simulations flag failing tasks for manual review, SQL/answers are manually verified, a physician checks AdaptQA flows, and 38 contributors beta-tested. No scripted reference solution is run through the grader and its result reported."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (task formulation, tools, evaluation A.6), S2 README, S4 env/base.py and S5 agent rules. Tasks are read-only question answering over a database opened immutable, and agent rules forbid INSERT/UPDATE/DELETE/DROP/ALTER, so no task changes environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:184-188",
+    "text": "This avoids false positives from numeral-word mismatches during evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Only design arguments are stated (answers in words, GT built to satisfy all constraints so dropping context fails). No empirical random or trivial-agent rate and no chance rate per metric is reported. Note the S4 AdaptQA grader uses substring containment, looser than the paper's strict match wording."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 3, section 5, appendices), S2 README, S3 release notes, S4 metric.py and agent code. No do-nothing, random or trivial agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:169-174",
+    "text": "To assess the reliability of the simulation validator, we manually inspected 100 randomly sampled trajectories."
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:169-174",
+    "text": "False acceptance (9%) : Minor deviations were missed by the validator."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The LLM-based simulation validator is validated by the authors on their own outputs with human inspection of 100 trajectories and false-rejection (10%) and false-acceptance (9%) rates. The deterministic rule-based answer grader itself has no reported tests, so the score rests on the validator."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:61-65",
+    "text": "The temperature for all agent LLMs is set to 0.0, meaning that performance variation across trials for the same task arises solely"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:65-68",
+    "text": "We set k=5 throughout the experiments."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Agent temperature 0.0 and a five-trial repeated-run policy are stated in S1, with a validator-triggered rerun policy for invalid simulations. No seeds are reported, and the user simulator is deliberately stochastic (temperature 1.0)."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 3, section 5.2, figure 3 text), S2 README metric table, S4 metric.py. Only point estimates (SR-5, Pass@5, Pass^5, Gap-5) are reported; no CI, SD or significance test for any model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:1-4",
+    "text": "over five i.i.d. trials"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:61-65",
+    "text": "The temperature for all agent LLMs is set to 0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Five trials per task are stated (k=5) behind all headline scores, with decoding policy (agent temperature 0.0, user 1.0) and independence ('i.i.d. trials') stated. No explicit seed is reported."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 3, metrics definitions, section 5.2), S2 README, S3, S4 metric.py. No CI or SE on headline scores, no resampling or variance unit, and no treatment of clustering of tasks within templates or categories."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:59-63",
+    "text": "Pass ∧ 5 (success in all 5 trials)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Pass^5 (all-runs metric) with run count k=5 is a headline metric with Gap-5 to Pass@5, reported for every model and flow. No action-level or state-level agreement across reruns is reported."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:61-65",
+    "text": "The temperature for all agent LLMs is set to 0.0"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:34-36",
+    "text": "We use Gemini-2.0-Flash at a temperature of 1.0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding temperatures are given for agent, user and validator. Models are identified by family names (o4-mini, GPT-4o, Gemini-2.5-Flash) with no snapshot ID or release date, no reasoning effort for o4-mini, and the v1.0.0 tag is not stated to match the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:135-149",
+    "text": "sql_execute SQL query, k=100 SQL result Executes the provided SQL query and returns up to k results."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Table 4 defines all six tools with names, inputs, defaults and outputs; JSON function schemas exist in code. Reads versus writes per tool and error returns are not documented on S1-S3. The agent prompt rules (concatenated into the system prompt) forbid INSERT/UPDATE/DELETE/DROP/ALTER, and sql_execute's description says an error message is returned, so the read-only property reaches S5."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (tools, Table 4, appendix A.2), S2 README, S3, S4 tools and S5 tool descriptions. No tests or conformance checks of tool behaviour are reported, and S1 does not state whether tools are real or stubbed beyond calling DB interactions deterministic and web search stochastic."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": null,
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (task formulation, tools), S2 README, S4 env/base.py, S5 agent rules. Agent actions are read-only schema/value search, web search, SQL queries and conversational replies; the database is immutable and writes are forbidden, so no action mutates state or represents an order, prescription or note."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:184-188",
+    "text": "correctness is evaluated based on the content within the <answer></answer> tags of the agent’s response to the user"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:184-188",
+    "text": "This method is better suited for tasks that require clinical reasoning beyond simple SQL retrieval."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is named (executed SQL result set for IncreQA, answer-tag string for AdaptQA) with a rationale for the non-state AdaptQA grader. The answer matchers are not validated on labelled correct/incorrect outcomes; the 100-trajectory check covers the simulation validator only. Code AdaptQA matching is substring-based, looser than the paper's 'strictly matches'."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:34-36",
+    "text": "the user is isolated from the database content and the GT SQL and answers"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A leakage control exists on the user-simulator channel (isolation from DB content and GT) plus schema renaming against memorization. All 366 tasks with gold SQL/answers are public, no held-out split, no canary or provenance marker, and no control on web_search leakage is stated."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:59-63",
+    "text": "Overall results on EHR-ChatQA across two different interaction flows: Incremental Query Refinement (IncreQA) and Adaptive Query Refinement (AdaptQA)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:43-51",
+    "text": "Total | 286 | 80 | 366"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are split by the two interaction flows (benchmark axes) and slice sizes (286 IncreQA, 80 AdaptQA) are given in Table 2. Results are averaged over MIMIC-IV and eICU, and no patient-subgroup results are reported although the source EHR data hold demographic fields."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2509.23415v2.html:90-92",
+    "text": "EHR-ChatQA utilizes publicly available, de-identified EHR datasets (MIMIC-IV-demo and eICU-demo), which are free of Protected Health Information (PHI)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The record source is stated as real de-identified public demo databases. No de-identification method, IRB determination, DUA or credentialing requirement is given, and no data redistribution terms separate from the code licence appear on S1-S3."
+ }
+]

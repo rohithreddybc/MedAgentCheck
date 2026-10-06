@@ -1,0 +1,433 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:135-139",
+    "text": "a Supplementary CSV file lists all 613 source articles with their titles, original authors, and MedEdPORTAL URLs"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names MedEdPORTAL as the platform, gives the dataset scale and source articles, and reports a route back to source records via the supplementary CSV. It also gives access/use date context in references and source processing details."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:133-135",
+    "text": "no patient recruitment, no new collection of patient data, and no access to protected health information"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:135-139",
+    "text": "under a CC BY-NC-SA licence"
+   },
+   {
+    "chunk_id": "S2:README.md:229-254",
+    "text": "Released under the [MIT License](LICENSE)."
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper documents origin, collection from MedEdPORTAL, licence terms, and explicitly states consent was not required. The repository README reports an MIT licence, conflicting with the paper's data licence, so this is flagged but not lowered."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:21-24",
+    "text": "The final MedSP1000 span a broad range of clinical specialties"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports descriptive composition by specialties and competencies. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts. The packet reports clinical performance and failure modes but not dedicated unsafe-output and bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:92-93",
+    "text": "Articles are retained if the non-text attachments are non-essential"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports dataset screening and role leakage audits, which are controls over benchmark construction. It does not report a developer-side contamination control plus measured overlap/canary check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:96-97",
+    "text": "must never non-causally access future disease progression, untriggered test results, or the evaluator’s reference answers"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the assessed model is restricted from ground-truth/future information and names the mechanism: role-specific packets and visibility rules. It also reports leakage review of role packets."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:121-166",
+    "text": "The frozen ACGME rubrics used for scoring ship in this repo"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Data/rubrics are described as frozen and released, but simulator and evaluator agents call live LLM APIs/models. The paper and docs do not pin a fully frozen environment with no external live calls other than the model under test."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:27-27",
+    "text": "clinicians also corrected any identified errors, yielding a human-verified clean subset"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports human validation and correction of cases, which is manual evidence of feasibility/quality. It does not report a scripted oracle reference solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:107-107",
+    "text": "actions for which the source materials provide no result are marked as unsupported rather than fabricated"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tasks change simulated clinical state, and the environment can mark unsupported actions. The packet does not report that the grader checks unchanged as well as changed state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:101-103",
+    "text": "The rubric is constructed once and applied unchanged to every model evaluated on that case"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Frozen expert rubrics and binary item scoring provide a design argument that trivial changes are unlikely to score well. No random/trivial-agent success rate or explicit chance rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts. The packet reports evaluated LLMs and test-time strategies, but no do-nothing or random-agent result."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:28-28",
+    "text": "evaluator agent’s per-rubric judgements agreed with human adjudication"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates runtime simulation including evaluator correctness on its own outputs and reports agreement figures. The reported figures include 83.3% exact agreement and 96.2% within one point."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "implemented using deterministic decoding (temperature = 0)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "implemented using deterministic decoding (temperature = 0)"
+   },
+   {
+    "chunk_id": "S4:src/simulate/api.py:284-319",
+    "text": "if resolved_temperature is not None: create_kwargs[\"temperature\"] = resolved_temperature"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper reports deterministic decoding with temperature 0, but does not state a repeated-run policy. Code indicates temperature is only passed when configured, creating a contradiction candidate against the paper's broad deterministic claim."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:34-41",
+    "text": "the bottom line is its 95% confidence interval"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Headline model comparison table reports point estimates with 95% CIs. The paper also states test-time differences lack statistical significance."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:130-133",
+    "text": "we run each case N times independently under identical settings (here N=5 )"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports one run per case implicitly for main scores and N=5 independent runs for Best-of-N, and reports deterministic decoding. Independence is stated for the test-time strategy, but not for every headline score."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:34-41",
+    "text": "95% confidence interval (bootstrap over cases)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports CIs and states the bootstrap unit is cases. It does not address clustering of tasks within patients, templates, or source articles."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts. The packet does not report action-sequence agreement, final-state agreement, pass^k, or repeat-run reliability for identical reruns."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:124-127",
+    "text": "We evaluated the model version gpt-5.5 using the official API."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:124-127",
+    "text": "We evaluated the model version gpt-5.5 using the official API."
+   },
+   {
+    "chunk_id": "S4:src/analysis/compute_eval_stats.py:1-49",
+    "text": "Generate evaluation statistics report and figures for GPT-5.1"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper provides model identifiers and release dates, and reports temperature 0 decoding. No harness tag or commit matching the reported numbers is stated, and code includes GPT-5.1 analysis text conflicting with reported GPT-5.5 results, so the model identifier element is flagged."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:src/simulate/prompts.py:1-34",
+    "text": "Format must be {{\"speak\": \"...\", \"actions\": [\"...\", \"...\"], \"eos\": false}}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark defines a text/JSON action interface, so NA does not apply. It specifies schemas and some side effects such as speak versus actions, including in S5, but does not document full return/error semantics."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:src/simulate/prompts.py:83-110",
+    "text": "Do not return investigation results, environment feedback, system events, or scoring information."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark discloses simulated roles and boundaries, and this reaches S5. It does not report tool conformance tests or checks that the tool interface behaves as documented."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:107-107",
+    "text": "procedures, treatments, and dispositions, when the source materials specify them"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Clinical actions include orders, procedures, treatments, and dispositions, and the benchmark states they are simulated by the environment controller. The rubrics score completed or missed actions, including unsafe/dangerous action categories in competency definitions, and S5 tells agents how actions are handled."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:108-109",
+    "text": "it receives the full interaction trajectory alongside the rubric packet"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names grader inputs as full trajectory and rubric packet, with a process-level rationale for trajectory grading. It validates evaluator quality, but not on injected correct/incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:20-20",
+    "text": "It first receives only the “scenario initialization” packet"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports role-based visibility controls to prevent answer leakage during runs. It does not report a held-out/private split or canary/provenance marker on released tasks."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:55-57",
+    "text": "the remaining two specialties of the 17-specialty taxonomy contained too few cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by specialties and competencies with slice sizes for specialties. It does not report results per patient demographic subgroup, although metadata fields exist in code."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:133-135",
+    "text": "source materials are instructional standardized-patient and simulation cases and do not contain identifiable patient information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The environment seed/state source is stated as instructional SP and simulation cases, not live patient records. Governance is addressed by no PHI/no consent required, and the data terms are stated separately from the code licence."
+ }
+]

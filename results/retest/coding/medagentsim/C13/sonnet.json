@@ -1,0 +1,31 @@
+{
+ "bench": "medagentsim",
+ "item": "C13",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:examples/agentclinic.py:135-173",
+    "text": "temperature=0.05,"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "rationale": "Nothing on S1-S3 states seeds, temperature or a repeated-run policy. A low temperature appears only in code, in part of the harness (the AgentClinic-derived query function); medsim/core/agent.py samples at temperature 0.7 with no seed. Scored 1 under the code-only anchor.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "7b13cbe1c628b40ecbf738d2042e64b3334b71c4eb2434c7d3467621b291d4aa",
+ "packet_sha256": "17b97ffe98722300a406ab2b9daf23e23836ddfda24098a2378ad666f8658bda",
+ "timestamp": "2026-10-05T21:00:01Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/medagentsim.json"
+}

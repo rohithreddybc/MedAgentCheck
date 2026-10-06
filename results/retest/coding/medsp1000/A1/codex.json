@@ -1,0 +1,42 @@
+{
+ "bench": "MedSP1000",
+ "item": "A1",
+ "coder": "codex",
+ "family": "openai",
+ "backend": "codex",
+ "requested_model": "gpt-5.5",
+ "model_id": "gpt-5.5",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "implemented using deterministic decoding (temperature = 0)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.05112v1.html:41-47",
+    "text": "implemented using deterministic decoding (temperature = 0)"
+   },
+   {
+    "chunk_id": "S4:src/simulate/api.py:284-319",
+    "text": "do not send temperature"
+   }
+  ],
+  "rationale": "The packet reports a decoding control, but not the number of runs per task behind each headline score or independence of runs. Code indicates temperature may be omitted rather than set to zero, so the decoding-policy report is contradicted.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "1ee81f2e2d39db275711dc366eec1bda355f1927617a4b07fe9502413f45ddd8",
+ "packet_sha256": "59396e28124f6efa175831911368216338e09eba6a654b52bfa7618aaa0fd34c",
+ "timestamp": "2026-10-06T16:28:47Z"
+}

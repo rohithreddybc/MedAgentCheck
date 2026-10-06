@@ -1,0 +1,406 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:25-27",
+    "text": "GPAgentBench-2K was constructed using real-world GP visit records from a primary-care network."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source is named as real-world GP visit records from a primary-care network. The packet does not report a time frame, platform, version/snapshot date for source data, or a route from each task to a source record."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:345-350",
+    "text": "GPAgentBench-2K is under a non-commercial research-use license."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:387-390",
+    "text": "The information you provide in this study will be used only for academic research."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states data origin and collection from real GP records, plus licence terms. It also documents consent language for human evaluators and data handling."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:177-185",
+    "text": "male patients account for 57.6% and females for 42.4% of the 2,256 cases with recorded gender data."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix reports descriptive statistics for demographics, specialties, symptoms, exams, and tests. It does not compare these features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:219-221",
+    "text": "The safety cost captures two types of management errors: (1) Missed Referral (Miss Refer)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes dedicated safety metrics and reports unsafe management errors. The packet does not show a dedicated bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:56-68",
+    "text": "We evaluate off-the-shelf LLMs on a 20% random test split stratified by management label"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A held-out random test split is reported, which is a developer-side control. The packet does not report a measured contamination or overlap check."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:22-26",
+    "text": "the ground-truth diagnosis and disposition is hidden from the agent."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that ground truth is hidden from the agent. It does not name a concrete runtime isolation mechanism such as no mount, no credential, no network path, or non-public labels."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The packet names live model APIs, simulator and judge model families, but does not pin data, software, simulator, or judge snapshots as a frozen reproducible environment."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:28-29",
+    "text": "collected cases undergo rigorous validation by two senior physicians."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Physician validation of cases is manual solvability/correctness evidence. There is no scripted oracle reference solution run through the grader with reported result."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark has stateful trajectories, but the packet does not report checks that unchanged or irrelevant state remains unaffected."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "The agent must generate XML-style tags"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports structured XML-style actions, action masking, terminal management decisions, and detailed clinical scoring, which is a design argument against trivial success. It does not report an empirical random or trivial-agent success rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The reported baselines are LLMs and RL methods, not a do-nothing or random agent."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:229-242",
+    "text": "The averaged Cohen’s \\kappa between GPT-5.4 judge and physicians is 0.92 for Dx accuracy and 0.89 for Tx score."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its automatic judge on sampled outputs from its own evaluated models. It reports agreement figures against two senior physicians."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report seeds, temperature-zero decoding, or a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:68-78",
+    "text": "Parentheses report the standard error of the mean."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Headline tables report standard errors. The packet uses language such as significant degradation, but it does not report a statistical test or CI for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The packet gives numbers of cases and sampled audit outputs, but not the number of runs per task behind each headline score. It also does not state seed/sampling policy or run independence for headline scores."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:306-320",
+    "text": "mean \\pm standard error across test cases."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix reports standard error and states that it is across test cases. Clustering of tasks within patients, templates, or groups is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. There is no rerun reliability metric for actions, final state, or pass^k-style all-runs outcomes."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:56-68",
+    "text": "GPT-5.4 OpenAI (2026)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some evaluated models are named with years, satisfying the model identifier/date element. Decoding parameters and a harness version or commit matching reported results are not reported."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:42-45",
+    "text": "The agent must generate XML-style tags"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command action interface, so NA does not apply. It reports XML-style tags and required fields, but does not document side effects per tool or full return/error semantics; no S5 chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark defines a text-command action interface, so NA does not apply. The packet does not report tool conformance tests, simulated/no-op tool disclosure, or disclosure reaching S5."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:49-56",
+    "text": "For zero-shot benchmarking of off-the-shelf LLMs, we simply sample rollouts of the policy within the environment"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:219-221",
+    "text": "Missed Local Management (Miss GP): Unnecessary escalation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Clinical terminal actions include treatment and referral, so the item applies. The paper identifies action types, makes clear they are sampled in a benchmark environment rather than clinical execution, and scores unsafe or unnecessary management actions; no S5 chunks are present."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:209-214",
+    "text": "We use GPT-5.4 as an automated judge to assign a binary score"
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:46-50",
+    "text": "Clinical equivalence allows synonymous wording and minor specificity differences"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader inputs and method include predicted diagnosis/treatment strings, ground truth labels, terminal action, and LLM judgement. The paper gives a rationale for semantic judging, but does not validate on injected correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:29-32",
+    "text": "To prevent label leakage, we remove diagnostic statements and treatment recommendations from the clinical notes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a control against label leakage in clinical notes. It does not state that held-out labels are absent from every public surface, nor does it report canaries or provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:89-96",
+    "text": "Table 2: Comparison of different metrics of Qwen2.5 (7B) optimized using GRPO and C-GRPO."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:56-68",
+    "text": "284 diagnose-and-manage and 201 abstain-and-refer cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports results across named method/model partitions and gives slice sizes for the test split by management label. It has demographic fields but does not report model results by patient demographic subgroup."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:357-363",
+    "text": "The original clinical records were rigorously anonymized prior to any processing."
+   },
+   {
+    "chunk_id": "S1:arxiv/2608.30188v2.html:345-350",
+    "text": "The accompanying evaluation code and scripts will be released under the Apache License 2.0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the source as real clinical records and describes de-identification procedures. It also separates dataset terms from the code licence."
+ }
+]

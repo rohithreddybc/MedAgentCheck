@@ -1,0 +1,417 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:20-26",
+    "text": "where K_{G} is a structured disease–symptom knowledge graph, K_{E} is an unstructured medical encyclopedia"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names source types for case generation: a disease-symptom knowledge graph and medical encyclopedia. It does not provide dataset version or snapshot date, platform, or a route from task to source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:20-26",
+    "text": "For each diagnostic session, \\mathcal{G} first samples a disease node d\\in K_{G} and retrieves the corresponding descriptive passage T_{d}\\subset K_{E}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The origin and collection/generation method are partially described. The packet does not document licence or terms compliance, consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "We randomly generated 5 distinct sets of test cases, each containing 300 unique patient cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a sampling design for generated cases. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:109-112",
+    "text": "This overconfidence creates the illusion of certainty and poses a potential safety risk"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark includes safety-relevant evaluation of diagnostic uncertainty and potential clinical risk. No dedicated bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:26-29",
+    "text": "Contamination resistance , since the space of possible cases is huge and instantiated dynamically at evaluation time"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Dynamic case generation is presented as a contamination control. No measured overlap, canary, gating, encryption, or held-out-set check is reported."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not state that the doctor agent cannot access ground truth at run time or name an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not pin data, software, simulator, or judge model versions for a frozen release, and evaluation uses live API models."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:114-116",
+    "text": "Five licensed clinicians independently evaluated a shared set of 200 randomly sampled cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Manual clinician review provides agent/manual evidence that simulated cases and environment outputs are valid. There is no scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The described benchmark is a simulated diagnostic dialogue and does not report tasks that change environment state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "By abstracting physician behavior into these three canonical moves, we isolate the fundamental reasoning primitives"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives a design argument that the task requires structured clinical-reasoning moves. It does not report an empirical random or trivial-agent rate or explicit chance rate."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. No do-nothing or random agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:205-208",
+    "text": "Pearson correlations fell within 0.80–0.87, while Spearman correlations ranged from 0.81–0.86"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its LLM-as-judge evaluator against expert ratings on its own diagnostic outputs. Agreement figures are reported."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "Inference used temperature =0.0 and top-p =1.0"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "conducted five independent runs for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports decoding safeguards and a repeated-run policy. This satisfies the anchor for temperature 0 plus repeated runs."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:79-91",
+    "text": "Diagnostic accuracy, efficiency, and quality (mean \\pm standard error) on ClinDEF"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Headline tables report means with standard errors. The packet does not report confidence intervals or statistical tests for headline model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "We randomly generated 5 distinct sets of test cases, each containing 300 unique patient cases"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "conducted five independent runs for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states five independent runs for each model. It also states the sampling policy and decoding controls."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:79-91",
+    "text": "Diagnostic accuracy, efficiency, and quality (mean \\pm standard error) on ClinDEF"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Standard errors are reported for headline metrics. The resampling or variance unit is not named, and clustering by patients or templates is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:98-101",
+    "text": "conducted five independent runs for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports score-level variation across repeated runs via mean and standard error. It does not report action-sequence agreement, final-state agreement, or pass^k-style reliability."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:228-232",
+    "text": "inference hyperparameters fixed to temperature =0.0 and top-p =1.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding parameters are reported. Model names are family names or access routes without provider snapshot IDs or release dates for the exact evaluated versions, and no harness version or commit is stated."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:35-45",
+    "text": "\\mathcal{A}_{D}=\\{\\texttt{Ask},\\,\\texttt{Test},\\,\\texttt{Diag}\\}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command protocol/action space, so NA does not apply. It gives an enforced action grammar but not per-tool side effects or error/failure return semantics, and no S5 surface is present."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "the Patient A_{P} and Examiner A_{E} agents are deterministic simulators"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark discloses simulated Patient and Examiner behavior. It does not report tool conformance tests, and the disclosure does not reach S5 in the packet."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "Test results in o_{t}^{D}=r_{t} , denoting a request for an objective examination."
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:44-50",
+    "text": "Their behavior is a reactive response to the Doctor’s action"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The Test action represents a clinical order/request and is handled in simulation. The paper does not state whether unsafe or unnecessary writes are directly scored or penalized, and no S5 surface is present."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:63-71",
+    "text": "we employ an “LLM-as-a-Judge” paradigm grounded in established OSCE evaluation principles"
+   },
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:56-63",
+    "text": "also scrutinize the efficiency and quality of the diagnostic process"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is described as diagnostic dialogue judged by LLMs, and OSCE/process-quality rationale is given. Validation exists, but not as injected correct and incorrect state outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:51-56",
+    "text": "Each response u_{t} is strictly constrained by the structured case profile \\mathcal{C}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports controls intended to prevent answer leakage through simulated patient and examiner responses. It does not report held-out labels absent from public surfaces or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:165-177",
+    "text": "Overall Diagnostic Quality Score and Fine-Grained Performance Across Seven Clinical Reasoning Dimensions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports results by named metric/dimension slices. It does not report patient subgroup results, and slice sizes are not reported with those slice results."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2512.23440v1.html:233-240",
+    "text": "we employed LLMs for the knowledge-grounded synthesis of patient cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The environment state is stated to be synthetic and generated by LLMs using knowledge-grounded synthesis. No governance for real data or separate redistribution terms for environment data are reported."
+ }
+]

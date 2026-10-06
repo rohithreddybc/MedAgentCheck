@@ -1,0 +1,518 @@
+[
+  {
+    "item": "C1",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:25-30",
+        "text": "ClinEnv is built from MIMIC-IV v3.1 ( Johnson et al., 2023a ) and MIMIC-IV-Note v2.2"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "Every event preserves its source provenance"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names the original data sources and versions, with MIMIC/PhysioNet as the platform. It also reports event-level provenance and a route from benchmark events and ground truth back to source rows."
+  },
+  {
+    "item": "C2",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:177-181",
+        "text": "distributed through PhysioNet under a credentialed data use agreement"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:177-181",
+        "text": "which are de-identified"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark states the EHR origin, the preprocessing/collection route from MIMIC sources, and PhysioNet DUA terms. It also states de-identification and credentialing requirements."
+  },
+  {
+    "item": "C3",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "229,482 admission files across 24,760 subjects and 237,814,500 retained events"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet gives descriptive dataset statistics and some entity distributions. It does not compare the sample to a named target population."
+  },
+  {
+    "item": "C4",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 prompts/tool descriptions. The packet contains ethical discussion and subgroup reporting notes, but no dedicated unsafe-output test or bias test."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:161-173",
+        "text": "test split is held out and distributed only through gated access"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:161-173",
+        "text": "measured verbatim overlap between the test tasks and a public web corpus"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports developer-side controls: gated held-out test access and canary strings. It also reports a measured overlap check against a public web corpus."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:36-45",
+        "text": "A private held-out split with hidden labels is kept off all public surfaces"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:285-291",
+        "text": "prevents coded outcomes and discharge summaries from being passively exposed to the model"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states labels are hidden from public surfaces and describes a mechanism separating coded outcomes and discharge summaries from model exposure. This directly addresses ground-truth isolation at runtime."
+  },
+  {
+    "item": "C7",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "the database snapshot, the software image and the simulated-patient language model are all pinned to fixed versions"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "no external service is called at evaluation time other than the model under test"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "no external service is called at evaluation time other than the model under test"
+      },
+      {
+        "chunk_id": "S4:evaluation/scorers/atc_scoring.py:123-161",
+        "text": "r = requests.get(f\"{_RXNORM}/{endpoint}\", params=params, timeout=_TIMEOUT)"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports a fully frozen environment with pinned data, software, and simulator model, and no external service calls except the model under test. S4 code appears to call external RxNorm during scoring, so the reported property is contradicted."
+  },
+  {
+    "item": "C8",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:78-98",
+        "text": "Solvability was confirmed by executing a scripted reference solution for every task through the grader."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:78-98",
+        "text": "All 120 reference implementations received correct grades."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports a scripted reference solution run through the grader. It also reports the result for all reference implementations."
+  },
+  {
+    "item": "C9",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "The grader checks both the intended state changes and that all other records remain unchanged"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The tasks include clinical decisions/orders that represent state-changing actions. The paper states the grader checks both intended changes and unchanged records, so out-of-scope side effects are detectable."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:347-358",
+        "text": "Random-action agents achieve 3.1% success across tasks."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports an empirical random-action agent success rate across tasks. This satisfies the anchor for random or trivial changes being unlikely to be graded correct."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:347-358",
+        "text": "Random-action agents achieve 3.1% success across tasks."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "A random-action agent result is reported across tasks. The item permits either do-nothing or random agent scores."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:105-114",
+        "text": "We validated the automatic evaluator on 200 outputs labelled by two physicians"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:105-114",
+        "text": "agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports validation of its automatic evaluator on its own outputs. It includes agreement and false-positive/false-negative figures."
+  },
+  {
+    "item": "C13",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S4:env/runtime/environment_controller.py:578-616",
+        "text": "extra_kwargs: dict = {\"tool_choice\": \"auto\", \"temperature\": 0, \"parallel_tool_calls\": False}"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "Temperature 0 is visible in code for runtime calls, but S1-S3 do not state both decoding safeguards and a repeated-run policy. Under the anchor, code-only safeguards receive partial credit."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:279-286",
+        "text": "Model scores include 95% bootstrap confidence intervals."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:279-286",
+        "text": "paired permutation testing with p = 0.02."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports confidence intervals and a paired permutation test for the top-performing model comparison. That satisfies the headline comparison criterion."
+  },
+  {
+    "item": "A1",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "each task executed eight times"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "agreement rates of the final environment state across these eight runs"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "each task executed eight times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-3",
+        "text": "Each task was run five times per model with independent random seeds"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports eight executions per task and an all-runs reliability setup, which supplies the run count and independence by repeated executions. S4 contains conflicting run-count and sampling-policy comments, so the reported score is retained with contradiction flagged."
+  },
+  {
+    "item": "A2",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:279-286",
+        "text": "Model scores include 95% bootstrap confidence intervals."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:151-155",
+        "text": "Shaded bands are standard errors."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports CIs and SEs for model scores. The packet does not state the resampling or variance unit, nor does it address clustering within patients or task groups."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "each task executed eight times"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "pass^8 (share of tasks solved in all 8 runs)"
+      }
+    ],
+    "contradicted": true,
+    "contradiction_quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:262-271",
+        "text": "each task executed eight times"
+      },
+      {
+        "chunk_id": "S4:agent_eval/notes.py:1-3",
+        "text": "Each task was run five times per model with independent random seeds"
+      }
+    ],
+    "s5_reach": null,
+    "rationale": "S1 reports pass^8 and final environment-state agreement across eight runs, satisfying the action/state-level reliability anchor. S4 contains conflicting run-count notes, so contradiction is flagged."
+  },
+  {
+    "item": "A4",
+    "score": 0,
+    "elements": [
+      false,
+      false,
+      false
+    ],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix; S2 README/docs; S3 release notes; S4 code; S5 prompts/tool descriptions. S1 reports family-style names like GPT-5.4, and S2 gives one dated default model, but reported result identifiers conflict with S4 model configuration. Decoding parameters and a harness tag or commit matching reported numbers are not stated on S1-S3."
+  },
+  {
+    "item": "A5",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S5:env/tools/env_tools.py:1-39",
+        "text": "\"name\": \"submit_medication\""
+      },
+      {
+        "chunk_id": "S5:env/agents/lab_agent.py:45-89",
+        "text": "Returns: {\"found\": True,  \"results\": [...]}   if matched"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The benchmark defines an agent tool interface with machine-readable function schemas and required parameters. Tool descriptions and prompts specify read-style information tools and submission actions, and S5 documents return semantics including error/failure-style lab returns."
+  },
+  {
+    "item": "A6",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:240-252",
+        "text": "Conformance testing confirms tool behavior matches documentation."
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:240-252",
+        "text": "Two tools consist of simulated stubs providing fixed placeholder responses."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "S1 reports conformance testing and discloses simulated stub tools. The same excerpt says this disclosure is present in tool descriptions visible to the agent, so element iii and S5 reach are satisfied."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:222-242",
+        "text": "Writes are executed against a sandboxed copy of the record"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:222-242",
+        "text": "unnecessary or unsafe writes are penalised in the score"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The benchmark has clinical write/order actions. S1 states the write actions are listed, executed against a sandbox copy, penalized when unnecessary or unsafe, and that the sandboxing reaches the agent prompt."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:329-334",
+        "text": "active model inquiries, environment responses, submitted action, held-out target, and process diagnostics are all recorded"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:105-114",
+        "text": "agreement was 94%, with a false-positive rate of 3% and a false-negative rate of 8%."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The grader inputs include submitted actions, held-out targets, dialogue traces, and LLM judgement for some metrics. The paper justifies transcript/process grading as measuring information acquisition and validates the automatic evaluator on 200 physician-labelled outputs with per-class error rates."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:36-45",
+        "text": "Agents have no web access during runs"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:36-45",
+        "text": "A private held-out split with hidden labels is kept off all public surfaces"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:36-45",
+        "text": "every released task carries a canary string"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports controls against leakage through web access and environment-restricted tools. It also states a private held-out split with hidden labels and canary strings on released tasks."
+  },
+  {
+    "item": "A10",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "We report accuracy per task family"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "per patient subgroup by sex and race"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:358-364",
+        "text": "each table lists the number of cases in every slice"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports task-family slice results, patient subgroup results by sex and race, and slice sizes. This satisfies all three elements."
+  },
+  {
+    "item": "A11",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:177-181",
+        "text": "ClinEnv is derived from MIMIC-IV and MIMIC-IV-Note"
+      },
+      {
+        "chunk_id": "S1:arxiv/2606.02568v1.html:177-181",
+        "text": "de-identified and distributed through PhysioNet under a credentialed data use agreement"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The source records are stated to be real de-identified MIMIC data. Governance is documented through de-identification and PhysioNet credentialed DUA requirements, which are data terms separate from code licensing."
+  }
+]

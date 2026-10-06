@@ -1,0 +1,431 @@
+[
+{
+"item": "C1",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:57-72",
+"text": "Each task record preserves the source patient identifier, enabling complete traceability from any task back to its underlying patient record."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet states a named source with version/snapshot date and says task records preserve source patient identifiers. This satisfies dataset identity, snapshot/platform, and task-to-source route."
+},
+{
+"item": "C2",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:264-273",
+"text": "The data are released under a credentialed-access data use agreement, and the source institution's review board determined that the study qualified for a waiver of ...",
+"truncated": true,
+"full_words": 26,
+"full_sha256": "cddb0e2f098585f6e456deaa3461e90f2754b7e7fc476b05fa623097e8dfb2ae"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports real de-identified hospital data, release under a credentialed-access DUA, and IRB waiver of consent. That covers origin, terms, and consent/IRB status."
+},
+{
+"item": "C3",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports benchmark composition and slice reporting, but not representativeness against a named target population or descriptive patient statistics as representativeness analysis."
+},
+{
+"item": "C4",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Dedicated unsafe-output and bias tests appear only in S4 comments, which do not count as reporting for this item."
+},
+{
+"item": "C5",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:89-94",
+"text": "Measurement of verbatim overlap with public web corpora revealed zero exact matches between test tasks and public sources."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports gating access to the test split and a measured overlap check. This meets the developer-side control plus measured check anchor."
+},
+{
+"item": "C6",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:5-7",
+"text": "Agents have no web access during runs and retrieval tools are restricted to the task environment"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet reports isolation mechanisms, including no web access and restricted retrieval. It also reports hidden labels kept off public surfaces, supporting runtime isolation from gold answers."
+},
+{
+"item": "C7",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:264-273",
+"text": "the database snapshot, the software image and the simulated-patient language model are all pinned to fixed versions"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Appendix notes state that the data, software image, and simulator are pinned. It also states no external service is called except the model under test."
+},
+{
+"item": "C8",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:264-273",
+"text": "we ran a scripted reference solution for each task through the grader; all 120 reference solutions were graded correct."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet reports a scripted reference solution for each task and grader results. This directly satisfies the oracle solver anchor."
+},
+{
+"item": "C9",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet mentions write actions and sandboxing, but does not report that the grader checks unchanged state as well as changed state."
+},
+{
+"item": "C10",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:259-263",
+"text": "A random-action agent succeeds on 3.1% of tasks, and the chance success rate for each metric is reported in the appendix."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The appendix reports an empirical random-action success rate and chance rates per metric. That meets the full anchor."
+},
+{
+"item": "C11",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:259-263",
+"text": "A random-action agent succeeds on 3.1% of tasks"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet reports a random-action agent result over tasks. This is a trivial-agent result."
+},
+{
+"item": "C12",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:57-72",
+"text": "yielding 1% false acceptance and 2% false rejection rates."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The grader is validated on injected correct and incorrect outcomes, with false acceptance and false rejection rates. This satisfies own-output validation with error figures."
+},
+{
+"item": "C13",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:188-192",
+"text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+}
+],
+"contradicted": true,
+"contradiction_quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:188-192",
+"text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+},
+{
+"chunk_id": "S4:agent_eval/notes.py:1-4",
+"text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+}
+],
+"s5_reach": null,
+"rationale": "S1 reports temperature 0, fixed seed, and a three-run policy. S4 contradicts the number of runs and temperature, so the reported score is kept and contradiction is flagged."
+},
+{
+"item": "C14",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:112-117",
+"text": "test the difference between the two best models with a paired permutation test (p = 0.02)."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports bootstrap CIs and a paired permutation test for the model comparison. This meets the statistical-comparison anchor."
+},
+{
+"item": "A1",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:188-192",
+"text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+}
+],
+"contradicted": true,
+"contradiction_quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:188-192",
+"text": "each task is run three times"
+},
+{
+"chunk_id": "S4:agent_eval/notes.py:1-4",
+"text": "Each task was run five times per model with independent random seeds"
+}
+],
+"s5_reach": null,
+"rationale": "S1 reports the number of runs and a seed/temperature policy. It does not state independence of runs on S1-S3, and S4 contradicts the run count."
+},
+{
+"item": "A2",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:236-240",
+"text": "where several tasks share a patient, we resample patients instead to account for clustering."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports 95% confidence intervals, states bootstrap resampling units, and addresses clustering by resampling patients when needed. All three elements are present."
+},
+{
+"item": "A3",
+"score": 0,
+"elements": [
+false,
+false,
+false
+],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports score uncertainty and repeated runs, but not action-sequence agreement, final-state agreement, or pass^k/all-runs reliability."
+},
+{
+"item": "A4",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:27-31",
+"text": "using the snapshot identifiers gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022"
+}
+],
+"contradicted": true,
+"contradiction_quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:27-31",
+"text": "temperature 0 and a maximum of 2,048 output tokens"
+},
+{
+"chunk_id": "S4:neurips25/eval/gpt_4o.py:44-83",
+"text": "max_tokens=1024,\n            temperature=0.2,"
+}
+],
+"s5_reach": null,
+"rationale": "S1 reports exact model snapshot identifiers, decoding parameters, and harness release v1.2.0 for the reported numbers. S4 shows conflicting decoding settings, so a contradiction is flagged."
+},
+{
+"item": "A5",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S4:neurips25/models/agent.py:109-140",
+"text": "To ask for files, include in your reasoning [REQUEST: filename.extension]"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": true,
+"rationale": "The agent-visible prompt gives an enforced text protocol for file requests and states file-reading access. Return/error semantics for every tool are not documented in the reported surfaces."
+},
+{
+"item": "A6",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:78-82",
+"text": "We ran conformance tests confirming that each tool behaves as documented."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "S1 reports conformance tests and discloses simulated stubs. The packet does not show the simulated/stub disclosure reaching S5, which is required for a score of 2 when simulation exists."
+},
+{
+"item": "A7",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:145-150",
+"text": "Writes are executed against a sandboxed copy of the record, and unnecessary or unsafe writes are penalised in the score."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "S1 reports which write actions change patient state, sandbox execution, and penalties for unsafe or unnecessary writes. The packet does not show that the sandboxing disclosure reaches S5."
+},
+{
+"item": "A8",
+"score": 2,
+"elements": [
+true,
+false,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:57-72",
+"text": "Grading operates on the final environment state."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet names final environment state as grader input and reports validation with injected correct and incorrect outcomes and error rates. Because the grader is stated as state-based, a separate non-state rationale is not applicable to the reported grading mode."
+},
+{
+"item": "A9",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:5-7",
+"text": "a private held-out split with hidden labels is kept off all public surfaces, and every released task carries a canary string."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports no web access and restricted retrieval tools, plus a private held-out split and canary strings. All three agent-channel contamination elements are present."
+},
+{
+"item": "A10",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:264-273",
+"text": "per task family (diagnosis, ordering and documentation tasks) and per patient subgroup by sex and race"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "Appendix notes report results per task family and per patient subgroup. They also state that each table lists the number of cases in every slice."
+},
+{
+"item": "A11",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:arxiv/2511.20490v1.html:155-158",
+"text": "The patient records are real de-identified records from a hospital database."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet states real de-identified hospital records, governance through DUA and de-identification, and separate data release terms. All environment-state provenance elements are present."
+}
+]

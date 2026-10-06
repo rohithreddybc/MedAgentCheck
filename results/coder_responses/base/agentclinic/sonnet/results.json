@@ -1,0 +1,411 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-37",
+    "text": "based on real clinical cases from MIMIC-IV (requires approval from https://physionet.org/content/mimiciv/2.2/)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Source datasets are named (MedQA, MIMIC-IV, NEJM case challenges, MedMCQA) and the README gives a MIMIC-IV version (2.2). No snapshot date or route from each task back to its source record is given on S1-S3, so this is partial."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:24-26",
+    "text": "We initially use an LLM (GPT-4) to populate the structured JSON, and then manually validate each of the case scenarios."
+   },
+   {
+    "chunk_id": "S2:README.md:1-37",
+    "text": "requires approval from https://physionet.org/content/mimiciv/2.2/"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (USMLE/MedQA, MIMIC-IV, NEJM) and a construction method are stated, and MIMIC-IV access terms are noted via PhysioNet approval. No licence for the released case files and no consent or IRB status (or explicit not-required) appears, so origin plus some of the others gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:240-259",
+    "text": "The following are the racial demographic statistics from MIMIC-IV patients: Asian: 8.5% Black: 11.0% Hispanic: 5.5% White: 66.0%"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Descriptive demographic statistics of the MIMIC-IV subset and a random-sampling design are stated. No comparison against a named target population is reported."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:9-11",
+    "text": "We also support the ability for agents to exhibit 24 different biases that are known to be present in clinical environments."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A dedicated bias test (cognitive and implicit bias prompts, effects on accuracy and patient perception) is reported. No dedicated unsafe-output test is reported on S1-S3, so only one of the two is present."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:73-73",
+    "text": "MedQA performance is not predictive of AgentClinic-MedQA accuracy (Figure 3 ) provides evidence that this may not be an issue"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No developer-side control (gating, canary, held-out set) is described. The paper offers an indirect empirical argument against leakage (MedQA accuracy not predictive of AgentClinic accuracy), and also removes the multiple-choice options for NEJM; this is indirect evidence beyond a bare limitation sentence, so 1."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:15-20",
+    "text": "Each language agent has specific instructions and is provided unique information that is only available to that particular agent."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper says the ground-truth diagnosis is given only to the moderator and the doctor receives only its objective. This is per-agent prompt partitioning rather than a named technical mechanism, and the doctor has web and textbook retrieval with no stated block on gold-label sources, so isolation is stated without a strong mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:165-169",
+    "text": "GPT-4 ( gpt-4-0613 ) is a large-scale, multimodal LLM which is able to process both image and text inputs."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:165-169",
+    "text": "GPT-4 ( gpt-4-0613 )"
+   },
+   {
+    "chunk_id": "S4:agentclinic.py:64-96",
+    "text": "model=\"gpt-4-turbo-preview\","
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "Case data ship as files in the repo and the paper names some snapshot IDs, but the patient, measurement and moderator simulators are live API calls, the doctor can use live internet retrieval, and no repo commit or tag is tied to results. Code maps 'gpt4' to gpt-4-turbo(-preview), not the gpt-4-0613 named in the paper, so the pinning claim is candidate-contradicted."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:28-31",
+    "text": "We also evaluate human physician performance collected from three physicians, provided the same instructions and constraints as the LLMs."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No scripted oracle solution is run through the grader. Manual solvability evidence exists in the form of human physicians completing the same task and manual validation of case scenarios, so 1."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (agent and task descriptions, appendix L), S2, S4, S5. The task is a dialogue ending in a diagnosis answer; test requests only retrieve readings and no task changes environment state."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No random or trivial-agent rate, no chance rate and no stated design argument that trivial answers would fail; open-ended NEJM answers are mentioned only as a choice, not argued as a chance control."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No do-nothing, random or trivial agent result is reported for any task."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:72-72",
+    "text": "strong LLM judges like GPT-4 can match both controlled and crowd-sourced human preferences well, achieving over 80% agreement"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The LLM moderator is justified only by cited external validation of LLM judges (Zheng et al., 2023). The clinical reader study rates dialogue realism, not moderator correctness, and no own agreement or error figures for the moderator are reported."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:agentclinic.py:33-67",
+    "text": "temperature=0.05,"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Low sampling temperature appears only in code (S4), and S1-S3 state no seed, temperature or repeated-run policy. Safeguards are therefore visible only in code."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:173-201",
+    "text": "Claude 3.5: 62.1% accuracy with a 95% CI of [55%, 68%]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "95% CIs are reported for every model on the headline MedQA, MIMIC-IV and NEJM tables, which underpin the model-ranking claim. No formal significance test is run, and some intervals are inconsistent (e.g., Mixtral [25%, 38%] around 37.1%)."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3. The paper mentions 'multiple runs' only without a number, states no seed or decoding policy, and does not say whether runs are independent. Temperature appears only in S4 code."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:199-207",
+    "text": "The 95% confidence intervals were calculated based on the standard error of the mean accuracy across multiple runs for each model."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "95% CIs are given on headline scores and the variance unit is stated as runs. Clustering of cases within patients, templates or specialties is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3. No action-sequence or end-state agreement across identical reruns, no pass^k metric, and no per-task repeat outcomes are reported; only single CIs."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4. S1 names gpt-4-0613, gpt-3.5-turbo-0613 and gpt-4o-2024-05-13, but S4 uses gpt-4-turbo(-preview), gpt-3.5-turbo and gpt-4o, so the mismatch counts as absent under the A4 exception. Claude, Llama and Mixtral have no snapshot IDs on S1-S3, no decoding parameters are on S1-S3, and no harness tag or commit is stated for the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:370-378",
+    "text": "If the requested results are not in your data then you can respond with Normal Readings."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Tools are a text-command protocol (Request Test, Research, Request Images), so not NA. There is no machine-readable schema or enforced grammar and no per-tool read/write side-effect documentation; a default return for missing results (Normal Readings) is given as return semantics. Element (ii) does not reach S5."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:72-72",
+    "text": "its reliance on using an LLM to provide results may introduce errors or hallucinations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Not NA (text-command tools). No conformance tests of tools are reported. The paper discloses that test results are LLM-simulated and may hallucinate, but the doctor agent's prompt (S5) does not say results are simulated."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:140-142",
+    "text": "This agent allows the doctor agent to request particular tests to be performed on the patient."
+   },
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:407-408",
+    "text": "Your new notes will overwrite previous notes."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Not NA: test requests are simulated clinical orders and the notebook tool overwrites persistent notes. Orders are described as simulated via the measurement agent, but the doctor's prompt does not state that, and no scoring or penalty for unsafe or unnecessary orders is reported."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:144-147",
+    "text": "This agent is necessary because the diagnosis text produced by the doctor agent can be quite unstructured depending on the model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input (the doctor's diagnosis text judged by an LLM moderator against ground truth) and the rationale for a non-state grader are stated. No validation on labelled correct and incorrect outcomes with error rates is reported."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S5. Doctor agents may use web and textbook retrieval with no leakage control stated, case files with gold diagnoses are in the public repo, and no canary or provenance marker is described. The notebook prompt only tells the agent not to record patient-specific details."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:49-50",
+    "text": "An analysis of language model performance across nine medical specialties reveals significant differences in diagnostic accuracy"
+   },
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:411-435",
+    "text": "Physical | 56, 42% | 31.4 | 15.7 | 11.1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are broken out by specialty, language, dataset, tool and NEJM image type, with n for the image-type slices and case counts per dataset. Demographic fields exist in the cases but results by patient subgroup are not reported; the paper defers demographic analysis to future work."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2405.07960v5.html:24-26",
+    "text": "from deidentified electronic health records (MIMIC-IV)"
+   },
+   {
+    "chunk_id": "S2:README.md:1-37",
+    "text": "requires approval from https://physionet.org/content/mimiciv/2.2/"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The MIMIC-IV records are stated as real de-identified data and the README states a PhysioNet approval (credentialing) requirement. No redistribution terms for environment data separate from the code licence are stated."
+ }
+]

@@ -1,0 +1,378 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:38-43",
+    "text": "RareArena zhao2025rarearena is built from publicly available case reports in PubMed Central (PMC)"
+   },
+   {
+    "chunk_id": "S2:README.md:64-110",
+    "text": "**[DiagnosisArena](https://huggingface.co/datasets/shzyk/DiagnosisArena)**: `data/DiagnosisArena_segmented.jsonl`."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Source datasets are named with platform links and repo file paths, but no dataset version or snapshot date is given and no route from an EviMed task to its source record (case ID) is stated. Source named without version or route is 1."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:38-43",
+    "text": "This conversion is performed automatically using GPT-5-mini."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:38-43",
+    "text": "ClinicalBench yan2024clinicallab is derived from de-identified electronic medical records with both structured and unstructured content."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (five named source datasets) and construction method (automatic GPT-5-mini conversion to atomic evidences) are documented. No data licence or terms for the source data (README shows only a repo MIT badge) and no consent or IRB status are stated, so origin plus one other element gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:180-186",
+    "text": "we sample 200 distinct diseases using a frequency-stratified scheme"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A sampling design is stated (200 cases per source, frequency-stratified 2:2:1 for RareArena) and Table 1 gives descriptive evidence counts. No comparison against a named target population is made."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (benchmark sections, experiments, Limitations), S2 README, S3 (no chunks), S4 code and S5 prompts. No unsafe-output test and no bias or fairness test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4, S5. No developer-side gating, canary, held-out split or overlap check is reported; the leakage-reduction remarks (DiagnosisArena treatment removal, Derm-Private) describe the source datasets, and the segmented data are public in the repo."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Sections 2, 5, Appendix A), S2 README, S3 (no chunks), S4, S5. The doctor agent interacts only through simulators, but no statement that the agent cannot reach ground truth at run time, or a mechanism for it, is made on S1-S3."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:64-110",
+    "text": "All available datasets are placed under `data/`."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Segmented data are shipped in the repo (except ClinicalBench, which is not redistributed). Patient, reporter and judge are LLMs reached through a live configurable endpoint (OPENAI_API_BASE_URL) with no snapshot pinned, and no software versions or commit are tied to results, so some evaluator components are live or unpinned."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:58-65",
+    "text": "Upper Bound uses a static full-information setting where all patient information and examination results are provided upfront."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Model-based static full-information upper bound and a sanity check on concatenated evidences (Table 5) give agent-based solvability evidence. No scripted reference solution run through the grader is reported."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S4, S5. NA because no task changes environment state: actions are asking a question, requesting a test result and issuing a diagnosis against a fixed case record."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Sections 5.2-5.8, appendices), S2, S3 (no chunks), S4, S5. No random or trivial-agent rate, chance rate or design argument against trivial success is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2-6), S2, S3 (no chunks), S4, S5. No do-nothing or random agent result is reported; the static Upper Bound and Baseline are real models."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 5.8, Appendix A.2), S2, S3 (no chunks), S4, S5. The LLM judge is described and its prompts shown, but no agreement or error validation of the judge is reported; Section 5.8 validates evidence construction, not the judge."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "Both the simulated patient and the simulated reporter operate with a context window of 1 and a temperature of 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 and a stateless context are stated for the patient and reporter simulators only. No seeds, doctor or judge decoding settings, or repeated-run policy are stated in S1-S3, so coverage is partial."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (all tables and analysis sections), S2, S3 (no chunks), S4, S5. No CI, SD, or significance test for any model or strategy comparison is reported."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "Both the simulated patient and the simulated reporter operate with a context window of 1 and a temperature of 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding control (temperature 0) is stated for the simulators, counted as element (ii). No number of runs per task and no statement on run independence is given, so the headline scores appear to be single-run."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2-4, 6, Sections 5.2-5.7), S2, S3 (no chunks), S4, S5. No CI or SE on headline scores, no resampling unit, and no clustering discussion."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4, S5. No rerun information of any kind, no score variation across reruns, no action or state agreement, no pass^k."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "Both the simulated patient and the simulated reporter operate with a context window of 1 and a temperature of 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Models are named by family or release label only (e.g. GPT-5-mini, Qwen2.5-72B) with no snapshot ID or date. Decoding parameters are given for the simulators only (partial). No harness tag or commit is stated as matching the reported numbers; code defaults (temperature 0.0, max_tokens 6000) are in S4 only."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:21-25",
+    "text": "If the query is unrelated to any evidence, the patient explicitly indicates uncertainty."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The interface is a text-command protocol (query, test, diagnosis), so not NA. S1 documents return semantics including the no-evidence return; no schema or enforced grammar on S1-S3 and no read/write side effects are documented. The doctor prompt does not describe side effects, so (ii) does not reach S5."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:21-25",
+    "text": "The environment is composed of three distinct roles, including a simulated patient, a simulated reporter, and the doctor agent being evaluated."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "S1 discloses that the patient and reporter are simulated. No tool conformance tests are reported. The doctor prompt presents a 'Medical Analyst' and a patient without saying they are simulated, and the reporter prompt's 'Normal' default for unlisted tests is not disclosed in S1-S3, so disclosure does not reach the agent."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:21-25",
+    "text": "In response, the simulated patient and the simulated reporter return information grounded in the case record."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Test requests and diagnosis represent clinical orders or messages, so not NA. S1 states they are answered by simulators (simulated). No actions are labelled as mutating or irreversible and unsafe or unnecessary orders are not scored; the doctor prompt does not tell the agent the orders are simulated."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:171-176",
+    "text": "We use an LLM judge that outputs a binary decision with no additional text."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is named: an LLM judge compares the predicted diagnosis with the reference (binary or three-level rubric), with ICR computed from revealed evidence. No rationale for non-state grading and no validation of the judge on labelled outcomes is reported."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3 (no chunks), S4, S5. No controls on answer leakage through tools or prompts reported on S1-S3, no held-out split (segmented data are public in the repo), no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:171-176",
+    "text": "We sample 200 cases from each source to form a 1,000-case evaluation set."
+   },
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:71-76",
+    "text": "Table 2: Static Upper Bound vs. interactive Baseline evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per source dataset (the benchmark axis) with 200 cases per slice stated (Table 1, Appendix B.1). No results per patient subgroup are reported although the source data hold demographic fields."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:38-43",
+    "text": "ClinicalBench yan2024clinicallab is derived from de-identified electronic medical records with both structured and unstructured content."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Source of records is stated: real case reports and de-identified EMRs, converted by GPT-5-mini. No de-identification method, IRB or DUA is described. The README gives only a repo MIT badge and a note that ClinicalBench is not redistributed, with no separate data terms."
+ }
+]

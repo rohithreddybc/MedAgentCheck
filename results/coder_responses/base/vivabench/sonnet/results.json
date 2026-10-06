@@ -1,0 +1,444 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:41-44",
+    "text": "Each entry includes a unique identifier ( uid ), source information, free-text clinical vignette"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:172-175",
+    "text": "corresponding excerpts from the input vignette are preserved for traceability"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Dataset name (VivaBench), platform (HuggingFace, PubMed case reports) and a per-case route to the source (uid, source information, preserved vignette excerpts) are given. No dataset version, snapshot date or commit is stated; PubMed appears only as a 2022 reference entry. Scored 1 because the version/snapshot element is missing."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:36-37",
+    "text": "we sourced clinical vignettes exclusively from publicly available repositories"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (PubMed case reports, MedQA) and collection method (rule-based filtering, LLM screening, clinician review, schema conversion) are documented. No licence or terms for the source case reports or the released dataset, and no consent or IRB statement, appear in the packet. Origin plus collection method gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:210-213",
+    "text": "consists of 990 cases across nine specialty groups: Endocrine & Reproductive (150), Infectious Disease & Immunology (150)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:36-37",
+    "text": "Our selection prioritized cases that: (1) represent common clinical presentations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Descriptive composition (specialty counts, journal table) and a stated selection design are reported. The journal distribution is said to reflect case report literature, but there is no comparison of patient features (age, sex, etc.) against a named target population. Scored 1."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (paper, appendices A-G), S2, S3, S4, S5 (S2-S5 empty in the packet). No dedicated unsafe-output test or demographic bias test is reported. The failure-mode analysis (anchoring, premature closure) is a qualitative error analysis of diagnostic reasoning, not a safety or bias test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:214-218",
+    "text": "we conducted a sentence completion experiment following the methodology of Golchin et al."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A measured indirect contamination check is reported (Appendix C.1, BLEURT/ROUGE on second-sentence completion, manual review of the top 10%, no exact matches). No developer-side control (gating, canary, encryption, held-out set) is described; the full dataset is public on HuggingFace. Indirect empirical check only, so 1."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:34-36",
+    "text": "retrieves and presents the specifically requested clinical information"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:259-260",
+    "text": "while preventing information leakage by grounding its output in"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The agent only sees information the examiner module returns for a request, and leakage prevention (grounding in the case keys, 'not available' returns) is stated. The paper never explicitly states that the agent cannot reach the ground-truth diagnosis set and names no isolation mechanism such as labels withheld from the agent process. Scored 1."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:41-44",
+    "text": "Both the complete generated dataset and human-reviewed subset are available on our HuggingFace repository."
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:280-283",
+    "text": "Each model was accessed through OpenRouter [ 4 ] and tested at temperature = 0 ."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The case data is a fixed released set (990 cases, 934-case evaluation set), but no dataset version, commit or snapshot is stated. The default LLM mapper (gpt-4.1, no snapshot ID) is a live API call, so it is an unpinned live evaluator component; models under test run via OpenRouter. Scored 1 as data fixed but evaluator live/unpinned."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:214-218",
+    "text": "we obtained a brief human baseline, where 4 clinicians provided a provisional diagnosis based on the clinical picture over 14 unseen cases."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No scripted reference solution is run through the grader. Manual solvability evidence exists: a 14-case, 4-clinician baseline (0.68 top-3), plus the Full Information pre-test where models reach high accuracy. Manual or agent-based evidence gives 1."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 3, Appendices D-F), S2, S3, S4, S5 (S2-S5 empty). NA clause applies: the actions are information requests and test orders answered from a static structured case; no task changes environment state, so there is no state-change side effect for a grader to check."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (all sections and appendices), S2, S3, S4, S5 (S2-S5 empty). No random or trivial-agent rate, no chance rate and no stated design argument that trivial outputs fail. The requirement that a match also needs a relevant ordered investigation is a scoring rule, not an argument or measurement of trivial success."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 2, 5, 8, Appendix E-F), S2, S3, S4, S5. No do-nothing, random or trivial-agent results are reported; the Full Information pre-test is an upper-bound control, not a trivial agent."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:271-273",
+    "text": "This validation was conducted on a calibration set of 100 clinical cases featuring human-annotated query-to-key mappings."
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:274-277",
+    "text": "validation using two independent clinicians on 50 cases, with a weighted Cohen’s kappa of 0.655 (moderate agreement)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its own query-to-key mapper on its own outputs with per-category precision/recall (Table 6), a determinism test (IoU > 0.99) and a clinician kappa of 0.655. The diagnosis-matching grader (ICD/semantic similarity) and the LLM failure-mode classifier have no reported validation, so this is the strongest evidence for the retrieval component only."
+ },
+ {
+  "item": "C13",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:49-55",
+    "text": "Each model was tested at temperature 0"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:86-93",
+    "text": "due to computational constraints, we conducted only a single evaluation run for each model"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 for agents and the gpt-4.1 mapper is stated in S1, a determinism test of the mapper (100 queries x 10 repeats) is reported, and the run policy (single run per model) is disclosed in Limitations along with the LLM variant not being fully deterministic. A repeated-run policy is stated, though the policy is one run."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:214-218",
+    "text": "Our clinician baseline achieved a 0.68 ± 0.09 top-3 accuracy versus 0.52 ± 0.07 for models at the provisional stage"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "SDs/± values appear for the human baseline and the contamination table, and Table 3 reports p<0.05 for correlations among adaptation variables. The headline model comparison (Gemini 2.5 Pro 'consistently outperformed') has no CI or test, and Table 2 reports point estimates only. Scored 1 (variation reported, headline comparison untested)."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:86-93",
+    "text": "due to computational constraints, we conducted only a single evaluation run for each model"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:49-55",
+    "text": "Each model was tested at temperature 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Run count is one per model (stated), and decoding is temperature 0; no seed is reported. Independence of runs is not addressed since there is a single run."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Table 2, Section 4, Appendices C-F), S2, S3, S4, S5 (S2-S5 empty). Headline model scores (Table 2) carry no CI or SE, no resampling unit is named, and clustering of cases within source journals or specialties is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:274-277",
+    "text": "100 distinct queries were each submitted 10 times to"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:274-277",
+    "text": "an Intersection over Union (IoU) of > 0.99 for the set of mapped keys"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The agents were run once per case, so there is no agent action-level or pass^k reliability. The only rerun evidence is for the environment mapper: 100 queries x 10 repeats with IoU > 0.99 on mapped keys, a per-query repeat agreement at component level. Scored 1 as the closest anchor; it is not agent-level reliability."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:49-55",
+    "text": "Each model was tested at temperature 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Models are named by family (e.g., Gemini 2.5 pro, Llama-4 Maverick) with only month/year reference dates for some and no provider snapshot IDs; the gpt-4.1 mapper has no snapshot. Decoding is stated as temperature 0 (no reasoning-effort setting reported). No harness version or commit tied to the reported results appears."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:44-45",
+    "text": "For history and physical examination findings, negative results (absent symptoms or normal examination findings) are explicitly returned when queried."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "A text-command protocol with named actions (history, examination, investigation, imaging, diagnosis) is defined, so NA does not apply. Return semantics including failure returns (negatives, default normals, 'not available') are documented in S1. There is no machine-readable per-tool schema (only a prompt-specified diagnosis format) and no read/write side-effect documentation; the reproduced agent prompt does not include either."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:44-45",
+    "text": "To validate our information retrieval system, we measured inter-annotator agreement on query-to-information mapping."
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:278-280",
+    "text": "For history queries, it simulates patient responses in a first-person perspective, maintaining appropriate medical literacy."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The retrieval tool is checked against human-annotated mappings (precision/recall, kappa), and simulated behaviour (LLM-simulated patient replies, default normal values, 'not available') is disclosed in S1. The system prompt reproduced as Algorithm 4 describes the actions as direct patient interview and ordering, with no statement that responses are simulated or defaulted, so disclosure to the agent is not shown."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:291-301",
+    "text": "Once you order any lab or imaging investigations, you can no longer gather additional history or perform examinations on the patient"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:34-36",
+    "text": "effectively simulating the progressive information exchange characteristic of clinical viva voce examinations."
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:49-55",
+    "text": "we tracked the relevance of clinical information requested by calculating precision (proportion of requested information that was relevant to the diagnosis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Investigation and imaging orders are simulated clinical orders, so the item applies. The orders are identified and the ordering step is irreversible within the protocol (history/exam locked afterwards); results are simulated from the structured case. Unnecessary orders are scored through precision of requested items, and exact matches need a relevant ordered investigation. The agent prompt does not say orders are simulated, so S5 reach is false; element (i) is a protocol-level irreversibility rather than an explicit write/read classification."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:46-48",
+    "text": "a prediction was considered an exact match if its ICD-10 code matched a ground truth diagnosis at the appropriate hierarchical level"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader input is stated: the agent's diagnosis lists (ICD-10 code/name, semantic similarity) plus the investigation-ordering log, with an LLM classifier for failure modes. No rationale for grading answers rather than state is given, and the grader (as opposed to the retrieval mapper) is not validated on labelled correct/incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:259-260",
+    "text": "while preventing information leakage by grounding its output in"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Leakage control within the examiner (grounding in case keys, 'not available' returns) is stated. There is no held-out or private split (full dataset and curated set are public on HuggingFace) and no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:65-68",
+    "text": "Subgroup analysis demonstrated variation in model performance across different specialty groups"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:210-213",
+    "text": "consists of 990 cases across nine specialty groups: Endocrine & Reproductive (150), Infectious Disease & Immunology (150)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results per specialty group are reported (Figure 4) and per-group case counts are given in Appendix C. The schema holds demographics (age, gender, ethnicity), but no results by patient demographic subgroup are reported, so (ii) is absent and not NA."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.10278v1.html:41-44",
+    "text": "Following human review, 990 cases were retained, all derived from the PubMed database"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated to derive from published PubMed case reports (with MedQA cases in the generation pool). No governance statement (IRB, DUA, de-identification method) and no separate data redistribution terms appear in the packet; no synthetic status is inferred."
+ }
+]

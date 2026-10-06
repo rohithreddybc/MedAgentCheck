@@ -1,0 +1,386 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:18-20",
+    "text": "We ingest USMLE-style board questions and supplementary medical knowledge from flashcard decks and reference documents."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source types are named and the paper describes provenance from task instances back to source material. The packet does not give source versions or snapshot dates/platforms for the medical-education materials, so this is partial."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:10-10",
+    "text": "Synthetic Hospital is built entirely from publicly available medical-education material containing no protected health information."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states origin and broad provenance, and the README separately states released data are redistributable. It does not document the source materials' licences or terms plus consent/IRB status, so this is partial."
+ },
+ {
+  "item": "C3",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:291-296",
+    "text": "Synthetic Hospital closely matches the ICD-10 chapter distribution of its source corpus"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The appendix compares case mix against its source corpus and a named population-oriented Synthea cohort. It reports divergence from the population-calibrated comparator and explicitly characterizes representativeness limits."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The packet reports realism, graph-label validation, leakage controls, and limitations, but no dedicated unsafe-output or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:27-28",
+    "text": "no chart or source material crosses split boundaries"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark uses patient-level held-out splits and reports split-boundary controls. It also reports diagnosis overlap/unseen-diagnosis measurements across splits, satisfying a control plus measured check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:harbor/README.md:29-56",
+    "text": "postgres and redis are on an internal network the agent container is not attached to"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The Harbor and environment docs state the agent token cannot read labels or rewards and name network/credential mechanisms. The README also discloses an older leaky eval/agents harness, but the documented environment/Harbor mechanism satisfies this item."
+ },
+ {
+  "item": "C7",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S3:github/releases:1-2",
+    "text": "Synthetic Hospital v1.3 (tag v1.3, published 2026-09-25T12:44:31Z)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The release pins a v1.3 tag and includes the benchmark database, simulator, scorer, RL environment, and packaging. The scorer is deterministic at evaluation time; external live calls are for the model under test."
+ },
+ {
+  "item": "C8",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:harbor/README.md:1-31",
+    "text": "an oracle solution that scores 1.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The Harbor task export includes an oracle solution and states its expected perfect score. The README also gives a self-check command for running the oracle."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The benchmark tasks are answer-submission tasks over a read-only EHR record; no task requires changing clinical environment state, so the NA clause applies."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:183-206",
+    "text": "a malformed or empty submission scores 0 rather than raising"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs state trivial malformed/empty submissions receive zero and describe task metrics requiring structured clinical content. No empirical random-agent or chance-rate result is reported for all tasks."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The packet includes model, physician, oracle, and scripted demo material, but no do-nothing or random agent score report for the benchmark tasks."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:49-49",
+    "text": "The graph recovered 111 of the 119 relationships (93%)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates ontology-derived labels against independent physician judgment and reports agreement figures. This is validation of its own label construction/evaluator basis on benchmark outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:224-247",
+    "text": "`reset(task=, split=, seed=)` samples deterministically"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs report deterministic sampling for the RL environment and the paper describes deterministic pipeline stages. The packet does not state a repeated-run policy for the harness, so this is partial."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:69-73",
+    "text": "range across physicians | 0.21–0.89"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports ranges and some tests/CIs for validation and robustness analyses. It does not provide a CI or significance test for the headline model-to-model leaderboard comparison."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The packet reports numbers of instances and models, but not number of independent runs per headline score, seed/decoding policy for those runs, or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. Model headline scores are reported as point estimates without CI/SE, resampling unit, or clustering treatment."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The packet does not report identical reruns, action-sequence agreement, final-state agreement, or pass^k metrics."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S3:github/releases:1-2",
+    "text": "Synthetic Hospital v1.3 (tag v1.3, published 2026-09-25T12:44:31Z)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The harness/release is pinned by tag, but the reported model names are family-style names rather than provider snapshot IDs or dated model identifiers. S1-S3 do not report full decoding parameters for the reported evaluations."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:204-225",
+    "text": "obs.tools (function schemas)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The docs specify OpenAI-style function schemas and describe some error/failure behavior, including bad arguments and malformed submissions. They do not document read/write side effects per tool across every tool, and that property does not clearly reach the agent-visible surface."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:25-27",
+    "text": "The completed records are served through a production-style clinical environment"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark discloses that the EHR is a simulated clinical environment. S1-S3 do not report tool conformance test results, and the simulation disclosure is not shown to reach the agent-visible prompt/tool surface."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code excerpts, and S5 prompts/tool descriptions. The packet's benchmark actions are chart-reading/searching and answer submission; no agent action represents a clinical order, prescription, note, message, or other clinical-state write, so the NA clause applies."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:183-206",
+    "text": "Rewards are the tasks' primary metrics"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs state that submissions are graded by task primary metrics over submitted answer strings, not end-state changes. They justify non-state grading through graph-derived labels, but do not report validation on injected correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:204-225",
+    "text": "Assessment and plan sections are stripped from every observation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The docs describe tool-channel leakage controls and a held-out split, though README says heldout reference labels are shipped for local scoring. No canary or task-level provenance marker for released tasks is reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2609.30027v1.html:35-40",
+    "text": "For each task, we report the standardized input, expected output, primary evaluation metric"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per task family, and task instance counts are reported. Although demographic fields exist, the packet does not report model results sliced by patient demographic subgroups."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:283-289",
+    "text": "The released data files are fully synthetic and redistributable"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states the environment records are synthetic and gives redistribution terms separate from code licence. It does not report an IRB determination, DUA/credentialing requirement, or de-identification method for real data governance."
+ }
+]

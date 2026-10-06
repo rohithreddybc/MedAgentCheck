@@ -1,0 +1,381 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:154-154",
+    "text": "Radiology LUMIERE [ 54 ] BASELINE/FOLLOWUP brain MRI 139"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Table 4 names the source dataset for each module with case counts and citations. No dataset version or snapshot date and no route from a task to its source record is given, so this is a named source without version or route."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:229-240",
+    "text": "LUMIERE | Dataset | CC0 public-domain dedication on Figshare; used as de-identified public research data."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (public datasets) and per-asset licences or terms are documented in Appendix I and Table 11. Collection method and consent or IRB status (or an explicit not-required) are not stated, so origin plus licence gives 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:156-158",
+    "text": "the benchmark starts from 360 longitudinal questions and retains 139 after applying the evidence-availability and label-frequency filters"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Case counts per module and selection or filtering rules (LUMIERE filters, NSCLC AMC exclusion) are stated, which is a sampling design and descriptive counts. No comparison of patient features against a named target population and no patient-feature statistics are reported."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (paper, limitations, appendices), S2, S3, S4, S5. No unsafe-output test and no bias or subgroup fairness test is reported; the restriction on raw Python execution is a design safeguard, not a test."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "The benchmark checks these fields with deterministic rules using withheld ground-truth masks, annotations, or labels."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Reference masks and labels are withheld from the agent, which is a developer-side control of the held-out kind. No measured contamination or overlap check is reported, and the datasets are public (Appendix A), so the score is 1."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "The benchmark checks these fields with deterministic rules using withheld ground-truth masks, annotations, or labels."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper says references are withheld and scored by hidden-reference checks, so isolation is stated. No explicit mechanism for run-time isolation (no mount, credential or network path) is named for that purpose; the named-function-only runtime is justified by attack surface and auditability."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Datasets are named but no version or snapshot is pinned, and no 3D Slicer, QuPath or MONAI/VISTA3D version is given; no S2-S4 evidence in the packet. Scoring is deterministic with no judge model, but nothing is stated as pinned or frozen."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No scripted reference solution or other solvability evidence run through the grader is reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Actions in the viewer do change state (Analysis Operators create derived study state), so NA is not applied. The grader checks only answer fields and evidence coordinates, not unchanged or out-of-scope state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:40-44",
+    "text": "if the module-specific evidence gate passes, Strict equals Task ; otherwise Strict is 0."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A design argument is present: the evidence-gated Strict metric zeroes correct answers with ungrounded evidence. No empirical random or trivial-agent rate and no per-metric chance rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No do-nothing, random or trivial-agent score is reported for any task; the 2D slice-montage and M3D/RadFM rows are alternative pipelines, not trivial baselines."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Scoring is deterministic parsing and hidden-reference checks, but no tests, reference-solution run or agreement or error figures validating the verifiers are reported."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No seeds, temperature setting or repeated-run policy for reported results is stated. The 10-run instability study (Appendix G.5) is a diagnostic, not a harness safeguard; per-step logging does not control non-determinism."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Tables report point estimates and deltas only. No CI, SD, significance test or standard error is reported for model comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Headline tables do not state a run count per task, a seed or sampling policy, or run independence. The 10 repeated runs appear only for a single-case diagnostic (Appendix G.5), not behind headline scores. element_flags 0/3."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. No CI or SE on any headline score, no resampling unit, and no clustering of tasks within patients addressed. element_flags 0/3."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:190-192",
+    "text": "Figure 7 shows that only 3 of 10 runs complete this functional sequence."
+   },
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:193-196",
+    "text": "Figure 8: Final registration visualizations from 10 repeated runs of the same case."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Appendix G.5 reports operation-sequence agreement across 10 identical reruns (3 of 10 complete the expected sequence) and compares final registration views and segmentation masks across runs. That is action- and state-level agreement with a run count; no pass^k metric. It covers one registration and one segmentation case, not all tasks."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. Models are given by family and version name (for example Gemini 3.1 Pro Preview), with citation access dates only, and no provider snapshot ID or release date. No decoding parameters and no harness version or commit tied to the reported numbers. element_flags 0/3."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:219-220",
+    "text": "The released schemas contain the exact JSON definitions used at runtime."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tables 9 and 10 list every model-visible tool with arguments and a purpose or returned information, and the paper states JSON schemas are released (schemas not in packet). No explicit per-tool read or write side-effect documentation and no error or failure return semantics. No S5 chunks in the packet, so (ii) reach cannot be told. element_flags 1/3."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1, S2, S3, S4, S5. A tool interface exists, so NA does not apply. No tests or conformance checks of the tools are reported, and no statement that nothing is simulated or stubbed. No S5 chunks in the packet. element_flags 0/3."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:25-26",
+    "text": "Analysis Operators invoke functions that create derived study state, such as segmentation, registration, resampling, quantitative analysis, or automated expert-model outputs."
+   },
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:25-26",
+    "text": "The runtime logs each action invocation together with its arguments, the resulting viewer-state snapshot, and any generated artifacts."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "State-changing actions (derived state, saved evidence artifacts) are grouped by role, and actions run in a real viewer with logged state and artifacts; no clinical orders or notes exist. Unsafe or unnecessary writes are not scored. No S5 chunks in the packet, so reach of (ii) cannot be told. element_flags 2/3."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:196-199",
+    "text": "answers are scored by deterministic parsing and hidden-reference evidence checks."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader inputs are the parsed answer and evidence fields (coordinates, key slices, lesion-status fields) checked against hidden references, with no human or LLM judge. No rationale for grading answers and evidence rather than end state is given, and no validation on labelled correct and incorrect outcomes with error rates. element_flags 1/3."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:210-217",
+    "text": "Raw Python execution in 3D Slicer and arbitrary script execution in QuPath are not provided to the evaluated agent."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The agent is limited to named functions with no raw Python or arbitrary scripts, which restricts the tool channel (justified in Appendix B by attack surface and auditability, not leakage). Reference labels are public datasets, only hidden at run time (Appendix A), so no held-out split. No canary or provenance marker. element_flags 1/3."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:44-45",
+    "text": "Table 1 reports the main 3D Slicer viewer-native results, with lesion-state and subtask-level details in Appendix Table 5."
+   },
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:154-154",
+    "text": "Radiology UCSF-PDGM [ 53 ] Multi-sequence brain MRI 495 Case-level tumor diagnosis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per task family (Tables 1, 2, 5, 6) and Table 4 gives case counts per module. No results by patient subgroup (the paper does not state that demographic fields are absent). element_flags 2/3."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:229-240",
+    "text": "LUMIERE | Dataset | CC0 public-domain dedication on Figshare; used as de-identified public research data."
+   },
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:225-230",
+    "text": "TCIA-hosted datasets are used under the applicable Creative Commons licenses together with the TCIA Data Usage Policy and Restrictions"
+   },
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:229-240",
+    "text": "UCSF-PDGM | Dataset | CC BY 4.0 via TCIA; subject to TCIA Data Usage Policy and Restrictions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are real, de-identified public research datasets, with TCIA data-usage terms and the prohibition on re-identification as governance. Table 11 gives per-dataset licences separate from software and code licences. The de-identification method itself is not described, but a DUA-type requirement is stated."
+ }
+]

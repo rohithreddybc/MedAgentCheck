@@ -1,0 +1,370 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "The patient cases come from DiagnosisArena ( Zhu et al., 2025 )"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source dataset is named and described as containing 915 real-world medical cases from journals. The packet does not report a dataset version or snapshot date, platform, or a route from benchmark tasks to source records."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "a collection of 915 real-world medical cases taken from reports published in 10 major medical journals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states the data origin and a collection source. It does not document licence or terms, consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not provide descriptive patient-feature statistics, a sampling design analysis, or comparison to a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet discusses safety and bias risks, but does not report dedicated unsafe-output tests or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report developer-side contamination controls such as gating, canaries, encryption, held-out sets, or overlap checks."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:51-58",
+    "text": "The agent does not receive the hidden case file or the ground-truth diagnosis information."
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:51-58",
+    "text": "The agent does not receive the hidden case file or the ground-truth diagnosis information."
+   },
+   {
+    "chunk_id": "S4:evoclinician/med_inquire/env.py:103-133",
+    "text": "f\"GROUND TRUTH DIAGNOSIS:\\n{case.ground_truth_diagnosis}\\n\""
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper states that the evaluated agent does not receive the hidden file or ground-truth diagnosis, but does not name an isolation mechanism such as no mount or no credential. S5/S4 show the judge prompt receives the ground truth, which is a candidate contradiction to isolation if that surface is reachable in the harness."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not pin data, software, simulator, or judge model versions for the reported evaluation."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report a scripted reference solution or manual/agent-based oracle solvability evidence."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The benchmark interaction gathers information and submits diagnoses; the packet does not show task actions that change a persistent environment state, so the NA clause applies."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report a random or trivial-agent success rate, chance rate, or design argument that trivial success is unlikely."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The reported baselines include static, memory, prompt optimization, and evolutionary agents, but no do-nothing or random agent results."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet describes an LLM Judge rubric but reports no validation of evaluator quality with agreement or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:211-217",
+    "text": "If any component uses randomness"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Appendix reproduction guidance says runs should log seeds and cache generated details when randomness is used. It also recommends deterministic decoding for the Judge, but the packet does not state a repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:97-102",
+    "text": "Shaded bands show an approximate 95\\% interval based on the running standard error"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports approximate 95% intervals for learning curves using running standard error. It does not report a CI or statistical test for the headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:28-67",
+    "text": "--episodes-per-case 1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The README exposes a one-episode-per-case benchmark setting, and the paper discusses fixed decoding settings and seed logging. Independence of runs is not stated. element_flags=2/3."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:97-102",
+    "text": "computed from the first t cases"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports standard-error-based uncertainty bands on running curves and names cases as the unit. It does not address clustering of tasks within patients, templates, or task groups. element_flags=2/3."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports no identical reruns, action-sequence agreement, final-state agreement, or pass^k-style metric. element_flags=0/3."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet names model families such as gemini-3-pro and gpt-5.1, but not provider snapshot IDs or release dates, full decoding parameters, or a harness tag or commit for reported numbers. element_flags=0/3."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:218-227",
+    "text": "one simple option is JSON with two fields: action_type and action_text"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command protocol with a JSON action schema and documents return semantics for unavailable tests. It does not document side effects per tool, so the side-effect property does not reach S5. element_flags=2/3."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:263-266",
+    "text": "Med-Inquire is a controlled simulation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The packet discloses simulated behavior, including Patient-agent generation of missing details, and this also appears in the agent-visible Patient prompt. It does not report tests or conformance checks that the tools behave as documented. element_flags=2/3."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:141-143",
+    "text": "actively gather information through sequential questions and test orders"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark includes clinical test orders, which represent clinical orders in the frame. The paper makes clear the setting is simulated and says unnecessary tests are penalized through resource cost, but the simulation/sandboxing disclosure does not reach the Actor prompt in S5. element_flags=3/3."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:69-76",
+    "text": "the final Judge score S_{i} , and the total cost C_{i}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states the Process Grader reads the transcript, final Judge score, and total cost, and gives a theory rationale for transcript-based action-level grading. It does not validate the grader on labelled correct and incorrect outcomes with per-class error rates. element_flags=2/3."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:248-261",
+    "text": "the query text for retrieval should be derived only from the dialogue history up to turn t"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports a retrieval control to reduce future-turn leakage during memory retrieval. It does not report a held-out/private split or canary/provenance marker. element_flags=1/3."
+ },
+ {
+  "item": "A10",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports aggregate results by model backbone, not per benchmark task family or patient demographic subgroup with slice sizes. element_flags=0/3."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.22964v1.html:101-108",
+    "text": "915 real-world medical cases taken from reports published in 10 major medical journals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet states that the patient records are real-world medical cases from published journal reports. It does not state IRB/DUA/de-identification governance or redistribution terms for the environment data separate from code licensing. element_flags=1/3."
+ }
+]

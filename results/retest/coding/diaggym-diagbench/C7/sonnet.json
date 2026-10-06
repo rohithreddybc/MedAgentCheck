@@ -1,0 +1,40 @@
+{
+ "bench": "diaggym-diagbench",
+ "item": "C7",
+ "coder": "sonnet",
+ "family": "anthropic",
+ "backend": "claude",
+ "requested_model": "claude-sonnet-5-5",
+ "model_id": "claude-sonnet-5-5 via Claude Code subagent",
+ "status": "ok",
+ "parsed": {
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:49-51",
+    "text": "LLM-as-a-judge (GPT-4o, version gpt-4o-2024-08-06)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:49-51",
+    "text": "LLM-as-a-judge (GPT-4o, version gpt-4o-2024-08-06)"
+   },
+   {
+    "chunk_id": "S4:DiagAgent/eval/single_turn/metric_accuracy.py:1-54",
+    "text": "def workflow(messages, model=\"gpt-4o\", temperature=0.0, max_tokens=1024):"
+   }
+  ],
+  "rationale": "The judge snapshot, simulator model release and software versions (vllm==0.8.3) are partly pinned, but evaluation depends on a live GPT-4o API judge and a served simulator, and the DiagBench data version is not pinned. The eval code defaults to the unpinned alias gpt-4o, which is a candidate contradiction with the pinned snapshot in the paper.",
+  "s5_reach": null
+ },
+ "evidence_scope": "packet_v3",
+ "group": 1,
+ "prompt_sha256": "5997d79e9b3b86be9ab74295b9467f4b58c1388e846146ab557c89b383195f41",
+ "packet_sha256": "44841e200e698b35ef4fd852e8ed99eea0bb2cd68712cc66cb98f85da568805d",
+ "timestamp": "2026-10-05T20:59:57Z",
+ "transport": "subagent",
+ "response_file": "transport/responses_retest/diaggym-diagbench.json"
+}

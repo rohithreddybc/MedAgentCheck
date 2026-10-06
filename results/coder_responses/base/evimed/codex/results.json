@@ -1,0 +1,366 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:171-176",
+    "text": "EviMed-1K integrates five complementary sources that cover general medicine, specialty diagnosis, complex multi-specialty reasoning, rare diseases, and real-world clinical records."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper and README name the source datasets and describe broad origins. They do not provide versions or snapshot dates, and the packet does not show a route from each task to its source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:180-186",
+    "text": "ClinicalBench yan2024clinicallab is derived from de-identified electronic medical records with both structured and unstructured content."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origins are stated for the component datasets, and some collection methods are described. The packet does not document licence or terms for the data sources, nor consent or IRB status."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:180-186",
+    "text": "we sample 200 distinct diseases using a frequency-stratified scheme."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports sampling designs for some sources and descriptive coverage across disease categories. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports diagnostic performance and limitations, but no dedicated unsafe-output or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:177-179",
+    "text": "Derm-Private contains 100 case-based questions newly written by three dermatologists with similar structure and different condition coverage to reduce leakage risk."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports a leakage-reduction design for the Derm private split. It does not report a developer-side control paired with a measured contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet describes simulated patient and reporter evidence access, but does not state that the evaluated agent cannot reach ground truth at run time with a named mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet names datasets and models, but does not pin data snapshots, software, simulator, or judge models."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:135-148",
+    "text": "we compare the diagnostic Success Rate of the original case descriptions against the concatenated constructed evidences in a static evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The construction sanity check provides agent-based solvability evidence that the constructed evidence preserves diagnostic information. It is not a scripted oracle solver run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The consultation benchmark collects information and outputs diagnoses; the packet does not describe tasks that change environment state."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report a random, trivial-agent, or explicit chance rate, nor a clear design argument that trivial success is unlikely."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The reported baselines are interactive strategies and model results, not a do-nothing or random agent."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet specifies LLM-judge rubrics but does not report evaluator validation, agreement, or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "Both the simulated patient and the simulated reporter operate with a context window of 1 and a temperature of 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports deterministic simulator settings for the patient and reporter. It does not state a repeated-run policy, and the safeguard covers only part of the harness."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet reports tables and comparisons, but no confidence intervals, standard deviations, ranges, or statistical tests."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "temperature of 0, resulting in stateless behavior with respect to dialogue history and deterministic decoding across all experiments."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "S1 reports a decoding policy for simulator roles. It does not state the number of runs per task behind headline scores or whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet contains no CI or SE on headline scores, no resampling unit, and no clustering discussion."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet does not report repeated-run reliability at action, state, or pass^k level."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:162-170",
+    "text": "Both the simulated patient and the simulated reporter operate with a context window of 1 and a temperature of 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports decoding parameters for simulator roles. Model names are family identifiers without snapshot IDs or release dates, and no harness tag or commit is stated as matching reported results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:src/eid/prompts/manager.py:123-147",
+    "text": "In every turn, you execute one of the following actions in the corresponding format:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command protocol for QUERY, TEST, and DIAGNOSIS, so the item is not NA. The packet shows an enforced textual format, but not documented side effects per tool or error and failure return semantics."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:21-25",
+    "text": "the simulated patient and the simulated reporter return information grounded in the case record."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses simulated patient and reporter behavior. The packet does not report tool conformance tests, and the simulation disclosure does not reach the agent-visible command protocol as a disclosure that the tools are simulated."
+ },
+ {
+  "item": "A7",
+  "score": "NA",
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README and docs, S3 release notes, S4 code, S5 agent-visible prompts. The actions described are asking questions, requesting examinations, and issuing diagnoses; the packet does not describe state-changing clinical orders, prescriptions, notes, or messages."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:171-176",
+    "text": "We use an LLM judge to score each of the five items against the reference diagnosis using a three-level rubric."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names the grader input as diagnosis output compared to reference diagnosis with an LLM judge, and explains transcript-independent scoring through diagnostic match rubrics. It does not validate the grader on labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:177-179",
+    "text": "Derm-Private contains 100 case-based questions newly written by three dermatologists"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A private or newly authored split is reported for Derm, supporting the held-out or private split element. The packet does not report controls on leakage through tools or web access, and no canary or provenance marker is described."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:44-54",
+    "text": "Table 1 summarizes the benchmark statistics, including the average number of patient evidences and examination evidences per case in each source dataset."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results per named dataset family and reports slice sizes of 200 cases per source. It does not report results per patient subgroup, despite demographic fields appearing in the data excerpts."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2601.19773v1.html:180-186",
+    "text": "ClinicalBench yan2024clinicallab is derived from de-identified electronic medical records with both structured and unstructured content."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states record sources, including de-identified electronic medical records for ClinicalBench, satisfying source and a de-identification governance element. It does not state redistribution terms for environment data separate from the code licence."
+ }
+]

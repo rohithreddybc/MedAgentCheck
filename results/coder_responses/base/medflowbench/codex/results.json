@@ -1,0 +1,371 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:154-154",
+    "text": "Domain Source Input unit #Cases Primary task Evidence / Strict scoring Localization scoring Radiology LUMIERE [ 54 ] BASELINE/FOLLOWUP brain MRI 139"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names source datasets, input units, and case counts, which gives partial traceability. The packet does not report dataset versions or snapshot dates and does not provide a route from each benchmark task to its original source record."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:229-240",
+    "text": "MedFlow-Bench uses existing open-source software, public research datasets, and public baseline models only under their published licenses and terms of use."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper documents origins through named public datasets and gives license or terms for the main assets. It does not document collection method plus consent, IRB status, or an explicit not-required statement."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet reports task families and case counts but no patient-feature representativeness analysis, target-population comparison, descriptive demographics, or sampling design."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet describes safety restrictions on tool execution, but not dedicated unsafe-output tests or bias tests."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "with deterministic rules using withheld ground-truth masks, annotations, or labels."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a developer-side control: withheld ground-truth masks, annotations, or labels used for scoring. The packet does not report a measured contamination or overlap check, canary, encryption, or gated-access check."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "using withheld ground-truth masks, annotations, or labels."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states ground truth is withheld, supporting partial isolation. It does not state the agent cannot reach ground truth at run time or name a runtime mechanism such as no mount, no credential, no network path, or non-public labels."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not pin data snapshots, software versions, simulator versions, judge versions, repo commit, or state that evaluation has no live external calls beyond the tested model."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "models can navigate medical viewers, inspect complete volumetric or whole-slide cases, and solve nontrivial study-level tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The reported model results provide agent-based evidence that the benchmark tasks are solvable to some degree. There is no scripted oracle or reference solution run through the grader with reported results."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. Tasks change viewer state and create artifacts, so NA does not apply, but the packet does not say the grader checks irrelevant unchanged state or out-of-scope side effects."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:40-44",
+    "text": "Evidence gates are deterministic and may use key-slice offsets, source-series provenance, lesion-status fields, RAS points, or WSI coordinates"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The deterministic evidence-gate design is a stated design argument that trivial outputs are unlikely to receive Strict credit. The paper does not report an empirical random or trivial-agent rate or explicit chance rate per metric."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet reports model baselines and runtime-agnostic alternatives, but no do-nothing or random agent scores."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet says scoring is deterministic, but does not report evaluator validation, tests, reference-solution evidence, agreement figures, or error figures."
+ },
+ {
+  "item": "C13",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The paper discusses repeated-run instability but does not state seeds, temperature zero, or a repeated-run policy for the harness."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The reported tables contain point estimates and changes, but no confidence intervals, significance tests, standard deviations, or ranges for headline comparisons."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:193-196",
+    "text": "Final segmentation outputs from 10 repeated runs of the same case."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports repeated-run counts for selected instability cases, satisfying the run-count element at least partially. It does not state seed or sampling policy, nor whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not provide CIs or SEs, does not state a resampling or variance unit, and does not address clustering within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:190-192",
+    "text": "only 3 of 10 runs complete this functional sequence."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports action-sequence reliability over repeated identical runs, including the run count. It also reports differing final visual states across runs, but not a pass^k metric."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:133-139",
+    "text": "Google DeepMind (2026) Gemini 3.1 Pro model card"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names evaluated model identifiers and cites release/model-card years or access dates for several models. It does not report decoding parameters or a harness tag or commit matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:220-225",
+    "text": "The released schemas contain the exact JSON definitions used at runtime."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a tool interface and reports released exact JSON definitions, satisfying the schema element. Tool descriptions give purposes, but the packet does not document side effects per tool or error and failure return semantics; no S5 chunks are provided."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The benchmark has a tool interface, so NA does not apply, but the packet does not report tool conformance tests, simulated or no-op behavior disclosure, or S5 disclosure."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:25-26",
+    "text": "Analysis Operators invoke functions that create derived study state, such as segmentation, registration, resampling, quantitative analysis, or automated expert-model outputs."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Some actions mutate environment state by creating derived study state and artifacts, so NA does not apply. The paper identifies such write-like actions, but does not state whether writes are executed, simulated, or sandboxed, and does not report penalties for unsafe or unnecessary writes."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:225-230",
+    "text": "stores the instantiated prompt, image attachments, tool-call arguments, tool outputs, viewer states, screenshots, generated artifacts, and final answer"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet names grader-relevant inputs such as final answers, evidence fields, masks, annotations, and logged state. It does not provide a rationale for any non-state grading choice or validation on injected or labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:10-11",
+    "text": "deterministic rules using withheld ground-truth masks, annotations, or labels."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports withheld ground-truth masks, annotations, or labels, which supports a held-out/private-label element. It does not report controls on leakage through tools, retrieval, web access, prompts, examples, or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:156-158",
+    "text": "The reported case counts correspond to the benchmark-eligible units used for evaluation."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports results per named task family and provides case counts for those slices. It does not report results by patient subgroup, and no statement makes demographic subgroup reporting inapplicable."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2603.24649v2.html:229-240",
+    "text": "UCSF-PDGM | Dataset | CC BY 4.0 via TCIA; subject to TCIA Data Usage Policy and Restrictions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the benchmark uses public research datasets and lists dataset-specific terms separately from software licenses. It also states TCIA data usage restrictions and identifies de-identified public research data for at least one dataset."
+ }
+]

@@ -1,0 +1,457 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:218-230",
+    "text": "openemr | EHR | OpenEMR v7.0.2 (Docker) | Inpatient EHR and CPOE"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:230-242",
+    "text": "Table C.1: Clinical reference systems for each of the 18 MedCUA scenarios."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Sources are named per scenario (Table C.1) and OpenEMR carries a version, but there are no snapshot dates or manual versions, the OHIF version and DICOM study source are not given, and the route runs only from scenario to reference system, not from task to source record."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:36-39",
+    "text": "built from product manuals and clinical workflow descriptions"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "the OpenEMR and OHIF tiers use the original open-source applications under their respective licenses"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "MedCUA-Bench contains no real patient information"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (synthetic reconstructions, demonstration patients, public DICOM), construction method, licence terms and a no-real-patient-data / no-PHI statement are all given. No explicit IRB 'not required' wording, so the consent element rests on the no-PHI statement."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:241-245",
+    "text": "The cohort is intentionally diverse in age, sex and comorbidity profile to surface allergy-conflict, renal-safety and multi-medication tasks."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Descriptive demographics and comorbidities of the five OpenEMR demonstration patients (Table C.2) with a stated design rationale. There is no comparison against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:10-16",
+    "text": "Evaluation is deterministic and covers five safety dimensions: patient identity, data accuracy, information fidelity, record integrity, and workflow safety"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A dedicated unsafe-action checker with five dimensions and severity weights is reported. No bias or fairness test across patient groups appears anywhere in the packet."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (paper and appendices A-O, Ethical Considerations, Limitations), S2, S3, S4, S5 (S2-S5 have no chunks). No gating, canary, held-out split or overlap check is reported; the tasks, seeds and checker are to be released openly."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "These traces are hidden from the agent and are consulted only by the deterministic checker"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Isolation is stated only for the request and navigation traces. The agent sees screenshot, goal, action history and error message, and DOM and HTML access is disabled, but the paper never states that expected values or ground truth are unreachable at run time, and it names no explicit mechanism for that."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:353-357",
+    "text": "All seventeen open-source models are served locally with vLLM v0.20.2"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:353-357",
+    "text": "The browser is Chromium 124 launched via Playwright in headed mode"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "OpenEMR v7.0.2 in Docker with seeded patients, fixed seeds, vLLM and Chromium versions and a deterministic (non-LLM) checker are pinned. The OHIF version and the DICOMweb endpoint are not pinned or described as frozen, and closed models are queried through live APIs without snapshot IDs, so the freeze is partial."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:385-390",
+    "text": "The operator solved 20/24 tasks"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Only manual solvability evidence: a single human operator solved 20 of 24 sampled runs through the same checker, and agents solved 148 distinct tasks. No scripted reference solution is run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "consulted only by the deterministic checker, which uses them to audit what has actually been written into the clinical system"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:313-335",
+    "text": "Duplicate POST to the submission endpoint for the same record."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tasks write state (vitals, orders, records). The checker audits request traces for wrong-patient, duplicate and extra writes, which gives partial detection of side effects. The paper does not say that unrelated or unchanged state is checked across all tasks."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "A clean completion receives +1 and an episode with no accepted progress receives 0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Design argument only: strict completion against expected values, with inaction scoring 0. No random-agent or chance rate is reported as such; models that emitted no actions scored 0.0% incidentally."
+ },
+ {
+  "item": "C11",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:155-164",
+    "text": "GLM-4.1V-9B halts before issuing any browser action on every task (average 0 steps)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "No designed do-nothing or random baseline is reported. Several models that halt with zero actions (GLM-4.1V-9B, Fara-7B, UI-TARS-7B-DPO) score 0.0% in Table A.1, which is incidental floor evidence rather than an intended trivial agent."
+ },
+ {
+  "item": "C12",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Sections 3.4, 4, Appendices K, L, O), S2-S5 (no chunks). The checker is deterministic but no tests, reference-solution runs or agreement or error figures for it are reported; Appendix L tests weight sensitivity only, and the human pilot addresses solvability."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:38-44",
+    "text": "Task seeds control the episode-specific clinical content while keeping the interface and checker fixed"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "Each model runs all 432 task instances once"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Partial safeguards: fixed environment seeds per task, fresh browser context per task, and a stated single-run policy. Model decoding uses default sampling rather than seeds or temperature 0, and there is no repeated-run policy."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:385-390",
+    "text": "The operator solved 20/24 tasks ( 83.3\\% , 95\\% Wilson CI [64.1,93.3] )"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A Wilson CI is given only for the human pilot. The headline agent comparisons (54.2% vs 52.6%, closed vs open) have no CI or test, and the gap to the human is not tested."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "Each model runs all 432 task instances once"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:350-353",
+    "text": "queried through its official endpoint with vision input enabled, default sampling parameters"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. One run per task is stated, and the sampling policy is stated as defaults plus per-task environment seeds, with no explicit seed or decoding values for the model. Independence of runs is not addressed."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Section 4, Limitations, Appendices A, L, O), S2-S5 (no chunks). 0/3. No CI or SE is reported on headline agent scores, no resampling unit is named, and clustering of tasks within scenarios or templates is not addressed; the only CI is on the human pilot."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Limitations, Section 4.1, Appendix N), S2-S5 (no chunks). 0/3. The paper states single-run point estimates and no run-to-run variability, with no pass^k or action- or state-level agreement across reruns."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:353-357",
+    "text": "All seventeen open-source models are served locally with vLLM v0.20.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "1/3, partial. Only dependency pins (vLLM v0.20.2, Chromium 124) are given. Models appear by versioned name only, with no snapshot IDs or dates beyond citation years, no decoding values (only default sampling), and no AgentLab or harness version or commit tied to the results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "restricted to low-level operations: integer-coordinate mouse clicks, pointer movements, scrolling, keyboard typing, and keyboard shortcuts"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "the error message returned for the previous action, when one is raised"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. A text-command pixel action space (BrowserGym/AgentLab action schema with parseable actions) and an error-return behaviour are described. Read versus write side effects per action are not documented, and no S5 chunks are in the packet, so S5 reach cannot be told."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:36-39",
+    "text": "Fifteen scenarios are shadow GUIs: synthetic HTML reconstructions of common clinical workstations"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "1/3. The simulated nature of 15 of 18 environments is disclosed in S1. No tests or conformance checks of the tools are reported, and no S5 chunks exist, so whether the disclosure reaches the agent cannot be told."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "audit what has actually been written into the clinical system"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:10-16",
+    "text": "with severity-weighted violations that can assign negative rewards for harmful task completion"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. Writes are executed in sandboxed environments (Docker OpenEMR, fresh browser context, synthetic HTML) and unsafe writes are penalised by severity. The paper gives no systematic list of which actions mutate state or are irreversible, only example violations; S5 reach cannot be told."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:48-53",
+    "text": "At episode end, the checker compares the final page state"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "consulted only by the deterministic checker, which uses them to audit what has actually been written into the clinical system"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. The grader reads the final page state plus final message and request or navigation traces, with the trace use justified as auditing writes. There is no validation on labelled correct and incorrect outcomes with error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:43-46",
+    "text": "These traces are hidden from the agent and are consulted only by the deterministic checker"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:51-61",
+    "text": "DOM, accessibility tree, HTML, and set-of-marks overlays are disabled."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "1/3. Run-time channel restrictions (traces hidden, screenshot-only, DOM and HTML disabled) are stated, with no mention of web access or memory controls. There is no held-out or private split, since everything is to be released, and no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:93-94",
+    "text": "Figure 4 groups tasks into synthetic clinical screens, the real OpenEMR EHR, and the OHIF imaging viewer."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:250-254",
+    "text": "The final 216 base tasks split into 67 easy, 76 medium, and 73 hard."
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:213-218",
+    "text": "Each scenario contributes 12 base tasks split across easy/medium/hard difficulty bands"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. Results are reported by fidelity tier, difficulty band, goal granularity and domain, with slice sizes given. Demographic fields exist (sex, DOB in Table C.2) but no per-patient-subgroup results are reported."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "the OpenEMR tier is seeded with five synthetic demonstration patients"
+   },
+   {
+    "chunk_id": "S1:arxiv/2606.03203v1.html:115-117",
+    "text": "the OHIF tier uses publicly redistributable DICOM studies"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "2/3. The seed state is stated as synthetic (demonstration patients, seed-generated identifiers), and OHIF data redistribution is stated separately from code. The generator is not named in detail, and no governance (IRB, DUA, de-identification method) is described for real data."
+ }
+]

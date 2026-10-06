@@ -1,0 +1,413 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:13-14",
+    "text": "DiagBench integrates data from four distinct sources: MIMIC-IV [ 18 ] , PMC-OA case reports [ 19 ]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The four source datasets are named with citations and access links, and PMC-OA cases are bounded by a publication date. No MIMIC-IV version or snapshot is given and no route from a benchmark case back to its source record is documented, so 1."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:279-285",
+    "text": "The data source for this work is MIMIC-IV. Due to licensing restrictions, we are unable to directly open-source the dataset."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (MIMIC-IV, PMC-OA, MTSamples, DDXPlus), construction pipeline and a licensing restriction are stated. Consent or IRB status, or an explicit not-required statement, is absent, so 1."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:260-261",
+    "text": "we perform stratified random sampling across all four data sources in DiagBench, selecting 100 clinical cases from each center"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A sampling design (stratified by source, disease-wise sampling) and descriptive case counts are given. The paper only notes possible ED/ICU bias and does not compare against a named target population, so 1."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (paper, results, limitations, appendix), S2 (README), S3 (none), S4 and S5 (eval code and prompts). No dedicated unsafe-output test or bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:246-252",
+    "text": "To rigorously prevent data leakage and assess generalization on unseen data, we strictly selected case reports published after January 2025."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A developer-side control exists: a temporal cutoff for PMC-OA cases plus a train/test split for MIMIC-IV. No measured overlap or contamination check is reported, so 1."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:23-26",
+    "text": "unlike \\mathcal{B} in the environment model, contains no information about the final diagnosis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the agent state (initial inquiry plus examination history) excludes the final diagnosis, which only the simulator profile holds. No run-time isolation mechanism (no mount, no credential, no network path) is named, so 1."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:49-51",
+    "text": "LLM-as-a-judge (GPT-4o, version gpt-4o-2024-08-06)"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:49-51",
+    "text": "LLM-as-a-judge (GPT-4o, version gpt-4o-2024-08-06)"
+   },
+   {
+    "chunk_id": "S4:DiagAgent/eval/single_turn/metric_accuracy.py:1-54",
+    "text": "def workflow(messages, model=\"gpt-4o\", temperature=0.0, max_tokens=1024):"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The judge snapshot, simulator model release and software versions (vllm==0.8.3) are partly pinned, but evaluation depends on a live GPT-4o API judge and a served simulator, and the DiagBench data version is not pinned. The eval code defaults to the unpinned alias gpt-4o, which is a candidate contradiction with the pinned snapshot in the paper."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:253-256",
+    "text": "To ensure clinical validity, each case undergoes a rigorous review by a physician."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Only manual evidence is given: a physician reviews each case and its reference trajectory. No scripted reference solution is run through the grader and the result reported, so 1."
+ },
+ {
+  "item": "C9",
+  "score": "NA",
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (problem formulation, evaluation settings), S2, S4/S5 (inference code). Tasks are diagnostic information gathering and a final diagnosis; simulated examination results only extend the history, and no task changes environment state that a grader could check for side effects."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (results, ablations, appendix tables), S2 (README results), S3 (none), S4/S5. No random or trivial-agent rate, chance rate per metric, or design argument against trivial success is given. Zero-shot LLM baselines are not a trivial agent."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (all results tables), S2 (README tables), S3 (none), S4/S5. No do-nothing or random agent score is reported for any task."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:383-387",
+    "text": "the LLM achieved near-perfect alignment with the human consensus (e.g., 100.00% for Diagnosis Accuracy and 96.00% for Rubric Hit Ratio)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its own GPT-4o judge against three-physician consensus on 100 sampled instances per metric, with agreement percentages and an MAE for counting. Supplementary Table 1 reports figures, including a low 62% agreement for one physician on the rubric metric."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:98-138",
+    "text": "def __init__(self, model_name_or_path, max_tokens=8192, temperature=0.0) -> None:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Temperature 0 appears in the README example, and judge calls use temperature 0 in README/code (seed=42 in the RL README). No repeated-run policy is stated and the DiagGym simulator is sampled at temperature 1.0, so safeguards are partial."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:110-114",
+    "text": "Error bars show 95% confidence intervals. Significance levels relative to the DiagAgent-14B are marked as:"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tables carry 95% CIs and the figures mark significance levels (p<0.05, 0.01, 0.001) relative to DiagAgent-14B for the headline comparison with baselines. The specific test is not named."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:98-138",
+    "text": "max_tokens=8192, temperature=0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding controls (temperature 0.0, max_tokens) are shown in the README example. The number of runs per task behind each headline score and run independence are not stated."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:150-164",
+    "text": "All metrics are reported with 95% Confidence Intervals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "95% CIs are given on headline results. The resampling unit (case versus turn, single-turn expands 750 cases to 4,485 turns) is not named and clustering of turns within cases is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (results, appendix), S2 (README), S3 (none), S4/S5. No repeat-run, action-level, state-level or pass^k reliability information is reported."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:98-138",
+    "text": "max_tokens=8192, temperature=0.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding parameters appear in README usage code. Element (i) counts as absent: the paper pins gpt-4o-2024-08-06 but the eval code uses the alias gpt-4o, and Claude is given as claude-sonnet-4 with release years that differ between paper and README. No harness tag or commit is tied to the reported numbers; only a vllm==0.8.3 dependency pin."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:719-730",
+    "text": "The available information is sufficient to make a diagnosis. Diagnosis: [Diagnosis result] Reason: [Diagnosis reason]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The agent uses a text-command protocol (not NA) with a fixed response format given in Prompt 5. Side effects per action are not documented and the simulator's return semantics, including failures, are not specified; only the format element is present."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:106-107",
+    "text": "While the assessment necessarily relies on the external diagnostics world model to simulate examination results"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses that examination results are simulated by DiagGym. No conformance tests of the action or return protocol are reported, and the agent-visible prompt does not say results are simulated."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:12-12",
+    "text": "allowing the diagnostic agents to order tests and immediately observe their consequences"
+   },
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:107-109",
+    "text": "and computing precision, recall, and F1-score to measure recommendation quality"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Examination recommendations are simulated clinical orders, so the item applies. Simulation of results is disclosed and unneeded orders lower precision, F1 and a turn-based reward. The paper does not say which actions write or are irreversible, and the simulation status is not in the agent prompt."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:103-105",
+    "text": "To avoid issues with synonyms and the inclusion relationships between examinations, we utilize GPT-4o to judge"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Grader inputs are named (answer strings and the trajectory judged by GPT-4o against rubrics) and a rationale is given for LLM judging. The human validation reports overall agreement on 100 instances per metric but no per-class error rates, so element (iii) is not met."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:223-227",
+    "text": "prevent leakage of the final diagnosis into the initial inquiry, we applied a two-stage filtering process"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Leakage into the agent-visible initial inquiry is filtered. Benchmark cases and rubrics are publicly released, so no held-out private labels exist, and no canary or provenance marker is reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2510.24654v2.html:91-100",
+    "text": "In-Domain | MIMIC-IV [ 18 ] | [Link] | Critical Care and Emergency Medicine | 750 | 973"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported per data source, per in-domain versus out-of-domain split and per evaluation setting, with case counts per slice. No results per patient subgroup are given although the source records hold demographic fields."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:267-290",
+    "text": "Due to licensing restrictions, we are unable to directly open-source the processed dataset."
+   },
+   {
+    "chunk_id": "S2:README.md:23-36",
+    "text": "which will be made publicly available on PhysioNet upon approval"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated to derive from MIMIC-IV EHRs, with DDXPlus labelled synthesized (generator not named). Credentialing is stated (CITI certification, PhysioNet approval), and data terms are given apart from the code. De-identification method and IRB status are not stated."
+ }
+]

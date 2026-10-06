@@ -1,0 +1,391 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:184-187",
+    "text": "Source clinical scenarios are drawn from de-identified electronic health records (EHR) in the STARR"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source dataset and platform are named as STARR and e-consult/EHR records, but no version or snapshot date is reported. A route from a task to its source record is not documented on S1-S3."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:52-54",
+    "text": "derived from real clinical records in the STAnford Research Repository (STARR)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The origin and collection/source context are reported. Licence/terms and consent or IRB status are not reported in the packet."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:136-176",
+    "text": "Table A2: Clinical-area coverage across 21 subspecialties."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive coverage statistics by subspecialty and task type. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:191-197",
+    "text": "Patient safety. Whether any recommended action could cause patient harm."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "There is a dedicated patient-safety review dimension in the validation checklist. No dedicated bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report developer-side contamination controls such as gating, canaries, overlap checks, encryption, held-out controls, or a measured contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The public reporting does not state that the agent is isolated from ground-truth results at run time or name an isolation mechanism."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:64-66",
+    "text": "Each task ships as a self-contained Docker image bundling a HAPI FHIR JPA server"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The environment data are packaged in self-contained Docker images and the README names an image archive. However, evaluator/judge model pinning and complete no-live-dependency pinning are not reported."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:52-54",
+    "text": "a reference solution summary and review checklist supporting structured physician validation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports reference solution summaries and physician validation, which is manual solvability evidence. It does not report that a scripted reference solution is run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. Tasks do change state through EHR writes, so NA does not apply. The packet does not report checks that irrelevant or unchanged state remains unchanged."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:32-34",
+    "text": "it cannot observe the full EHR state but must actively query relevant resources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark provides a design argument that trivial success is unlikely because tasks require active querying under partial observability and structured checkpoint completion. No empirical random/trivial-agent rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet reports model results but no do-nothing or random-agent score."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:54-58",
+    "text": "every task undergoes multi-round review by a panel of 11 human physicians"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports physician validation of tasks, checkpoints, and clinical fidelity. It does not report evaluator agreement or error figures on its own outputs."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:61-63",
+    "text": "use the provider’s default temperature"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "S1-S3 report repeated trials and default temperature, but not seed control or temperature 0. Code shows deterministic helper LLM calls at temperature 0 for judge helpers, so safeguards cover only part of the harness."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:66-69",
+    "text": "GPT-5.5 46.3 \\pm 1.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The headline table reports plus/minus uncertainty values. No statistical significance test or CI for the headline model comparison is reported."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:61-63",
+    "text": "run 3 independent trials to compute the reliability metrics"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the number of runs and that they are independent. It also reports the sampling policy via provider default temperature and reasoning effort high."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The table reports plus/minus values, but the packet does not identify them as CI or SE. It also does not state a resampling or variance unit or address clustering."
+ },
+ {
+  "item": "A3",
+  "score": 2,
+  "elements": [
+   false,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:64-66",
+    "text": "Pass^3 ( Yao et al., 2025 ) =c^{k}/n^{k}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a pass^3 all-runs reliability metric and states k=3 independent runs. It does not report action-sequence or final-state agreement across reruns."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:61-63",
+    "text": "reasoning-effort parameter, we set it to high"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Decoding parameters are reported, including default temperature and reasoning effort. The model names do not include exact provider snapshot IDs or release dates, and no harness tag or commit for reported results is stated."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:37-37",
+    "text": "write tools return the created resource or a file-write confirmation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper and appendix document structured tool schemas, read/write side effects, and return semantics. S5 also exposes read and create tool descriptions to the agent."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:46-50",
+    "text": "code graders query the FHIR server to verify that the agent created the expected resources"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark reports conformance-style checks through graders that verify created resources. It does not disclose simulated, stubbed, or no-op tool behavior on S1-S3, and no such disclosure reaches S5."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:35-36",
+    "text": "Each task instance runs in an isolated Docker container"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper identifies write actions, states that they execute in isolated task-local containers, and reports scoring of action execution and documentation safety. The sandbox/executed nature also reaches S5 through create tool descriptions for medication orders, service requests, appointments, communications, and files."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:46-50",
+    "text": "hybrid graders combine deterministic ground-truth computation from FHIR data with LLM-assisted extraction"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names grader inputs, including FHIR end state, agent free-text output, and LLM-judge rubrics. It gives rationale for hybrid and LLM-judge use, but does not validate graders on labelled correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tool descriptions. The packet does not report controls on answer leakage through tools, retrieval, web access, cross-task memory, or agent-visible prompts. It also does not report held-out/private splits or canaries/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2605.02240v1.html:70-72",
+    "text": "Table 3 reports pass@1 broken down by clinical specialty."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by named benchmark axes such as specialty and task type. No results are reported by patient demographic subgroup, and slice sizes are not shown with the slice-result tables."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:17-66",
+    "text": "distributed as a Docker image archive on Stanford Redivis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source of environment records is stated as real de-identified clinical records, and de-identification methods are described. Separate data redistribution/access terms are indicated through Stanford Redivis distribution rather than only the code licence."
+ }
+]

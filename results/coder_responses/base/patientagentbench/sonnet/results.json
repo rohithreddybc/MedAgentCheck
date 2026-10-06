@@ -1,0 +1,457 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:61-61",
+    "text": "In our experiments, we use Claude Sonnet 4.6 for both scenario enrichment and sandbox generation"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The data source is a synthetic generator (seed distribution file plus a named LLM), so a source is named. No dataset version or snapshot is given, and no generated cases are released, so there is no route from a task to a stored source record. Scored 1."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:210-213",
+    "text": "All patient profiles, clinical narratives, and conversations are fully synthetic; no real patient health information or personally identifiable information is used at any stage."
+   },
+   {
+    "chunk_id": "S2:README.md:346-375",
+    "text": "Licensed under [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/)."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin (LLM-enriched synthetic seeds) and collection method are described, terms are given as CC-BY-NC-4.0, and the paper states that no real patient data is used. The licence covers the code and there is no separate data licence; no IRB is mentioned, but the no-real-data statement is read as the explicit not-required case."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:72-76",
+    "text": "the distribution reported here reflects deliberate design choices rather than a natural case mix"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives descriptive attribute statistics (Table 2) and a stated oversampling design. It explicitly declines to match a natural case mix and does not compare against any named target population. Scored 1."
+ },
+ {
+  "item": "C4",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:104-105",
+    "text": "Clinical Safety is the primary evaluation dimension"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:186-186",
+    "text": "aggregate scores varied minimally by patient age group (largest spread 0.11 points) and gender identity (largest 0.14 points)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A dedicated clinical-safety rubric scores unsafe output on every conversation (crisis-resource omission, fabrication, unframed medication directives). A separate demographic disaggregation by age group and gender identity tests for bias. Both test types are present."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:219-224",
+    "text": "No pre-generated datasets are included; all benchmark cases are generated on demand from a seed configuration"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "On-demand generation with no fixed answer key and no released case set is a design-level control against contamination. No measured overlap or contamination check is reported. Scored 1."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:95-95",
+    "text": "the assistant does not receive the patient story, the underlying task, or the personality traits, which are visible only to the user agent"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the agent under evaluation sees only the structured patient record. The scenario, task and personality are visible only to the user agent, and the judge alone holds the ground-truth context. The mechanism is context construction, and the S5 assistant prompt is consistent with it. The packet has no true answer key; this scores the scenario ground truth."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:66-98",
+    "text": "For exact reproducibility, `requirements.txt` pins the"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Software versions are pinned through requirements.txt and the seed distribution file is fixed. The sandbox, simulated patient and two-model judge are live LLM calls at evaluation time, cases are generated on demand, and no model snapshot IDs are given. Only partially pinned; the anchor wording about pinned data is only loosely met."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3-6, appendices), S2 (README), S3 (no chunks), S4 (tests), S5. No scripted reference or oracle solution is run through the grader and no solvability evidence is reported."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:409-420",
+    "text": "action executed without minimum required information or patient confirmation; contradicts explicit patient refusal"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Tasks mutate sandbox state, so NA does not apply. The judge reads the tool trace and penalises unconfirmed or refusal-contradicting actions and unnecessary steps. It does not compare final state against an unchanged-state baseline. Scored 1 as partial, trace-based detection."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:102-103",
+    "text": "a score of 4 requires completion via tool execution, not just acknowledgment"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:151-154",
+    "text": "Task completion was the least discriminating dimension, with pass rates ranging from 93% to 100%"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "There is a stated design argument: the rubric requires real tool execution and the judge checks the tool trace. No random or trivial-agent rate is measured. The paper discloses near-ceiling pass rates on task completion, a weakness under G5."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (Tables 4-6, section 5, Appendix A-B), S2 (README leaderboard), S3 (no chunks), S4, S5. No do-nothing, random or trivial agent score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:1-4",
+    "text": "yielding 79--93% adjacent agreement between jury and expert raters"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper runs its own clinician annotation study of 75 conversations (about 500 rubric scores). It reports per-dimension adjacent agreement, human inter-rater agreement and mean LLM-minus-clinician score differences, so the validation is on its own outputs with figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:163-202",
+    "text": "| `--seed`, `-s` | Random seed for reproducibility | None |"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A random seed exists only for seed (scenario) sampling in the README CLI. No decoding temperature, seed for conversations or repeated-run policy is stated in S1-S3. Safeguards cover only part of the harness, so 1."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:141-142",
+    "text": "three statistically distinct performance tiers emerge from the aggregate scores, separated by gaps with non-overlapping confidence intervals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Table 4 gives 95% CIs on aggregate scores and the headline model tier comparison is made on CI overlap. The CIs are used directly for the headline comparison, so 2."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:124-128",
+    "text": "Each model was evaluated on all 1,200 benchmark scenarios, yielding 12,000 conversations in total"
+   },
+   {
+    "chunk_id": "S2:README.md:163-202",
+    "text": "| `--seed`, `-s` | Random seed for reproducibility | None |"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Ten models over 1,200 scenarios give 12,000 conversations, i.e. one run per scenario per model, so a run count is implied. A seed for scenario sampling is in the README, but no decoding controls are stated. Independence of runs is not addressed."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:129-140",
+    "text": "Foundation Model | Agg. [95% CI]"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:310-319",
+    "text": "the standard deviation reflects conversation-to-conversation variability"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Table 4 gives 95% CIs on headline aggregates, and Table 6 names the conversation as the variance unit (N=1,200 per agent). Clustering of tasks within patients or templates is not addressed."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (section 5 and Appendix B), S2, S3 (no chunks), S4, S5. Each scenario is run once per model and there are no identical reruns. There is no action-level, state-level or pass^k reliability metric and no per-task repeat outcomes."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 (sections 3.1, 4.1, 5.1, references), S2 (README), S3 (no chunks), S4 (default_config.json), S5. S1 gives family and version names only, with a release date for one model. Per G2, S1 names Claude Sonnet 4.6 for enrichment and sandbox generation, but S4 default_config uses claude-sonnet-5, so the identifier counts as absent. No decoding parameters are stated and no harness tag or commit is stated as matching the results."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:89-91",
+    "text": "Each tool ships with a structured natural-language specification of its purpose, required and optional parameters, return format, and behavioral preconditions"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:345-345",
+    "text": "request_refill processes a refill for an existing medication using case-insensitive partial name matching, decrementing remaining refills and updating the last-filled date"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:346-354",
+    "text": "return descriptive error messages when no PCP is assigned"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Every tool has a structured specification with parameters and return format (Appendix D), per-tool side effects (state mutations such as refill decrement) and error returns (for example rejected refills, no PCP). The specs are preloaded into the agent context, and S5 tool descriptions use state-changing verbs and a Returns section. The schema element is judged from structured specs; the paper calls them natural language, so it is the weakest element."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:24-28",
+    "text": "a stateful healthcare sandbox that emulates primary care tools and ecosystem interactions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses that tools run against a simulated sandbox. S1-S3 report no tool conformance tests; the README only says to run the test suite. The assistant system prompt and tool outputs do not tell the agent the environment is simulated, so (iii) fails and the score stays at 1."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:84-88",
+    "text": "scheduling an appointment marks a slot as unavailable for subsequent queries, requesting a refill decrements remaining refills and updates the last-filled date"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:78-84",
+    "text": "Each conversation operates within an isolated, dynamically generated healthcare sandbox"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:409-420",
+    "text": "action executed without minimum required information or patient confirmation; contradicts explicit patient refusal"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "State-mutating actions (schedule, cancel, refill, profile updates, messages) are named. Writes are executed against a sandbox, and the workflow rubric penalises unconfirmed or refusal-contradicting actions. The sandbox status is not disclosed in the S5 prompts or tool outputs shown."
+ },
+ {
+  "item": "A8",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:99-100",
+    "text": "providing the evaluator LLM with the rubric criteria and the full conversation trace"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:101-101",
+    "text": "whether an appointment was actually scheduled or merely claimed"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:121-121",
+    "text": "around 500 rubric scores in total"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader is an LLM jury over the full conversation trace including tool calls and results. Rationale: no fixed answer key, and the trace lets the judge see whether actions actually ran. Validation uses about 500 clinician rubric scores with per-dimension agreement and bias figures; these are ordinal agreement rates, not per-class error rates, so (iii) is judged present but not exact."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:95-95",
+    "text": "the assistant does not receive the patient story, the underlying task, or the personality traits, which are visible only to the user agent"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The agent is withheld from the scenario and task, and each conversation uses an isolated sandbox with no web or retrieval tool. There is no declared private or held-out split (the 1,200 cases are not released but not framed as held-out) and no canary or provenance marker."
+ },
+ {
+  "item": "A10",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:187-190",
+    "text": "Profile management, the purely administrative category, is the lowest-scoring category for most agents"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:186-186",
+    "text": "aggregate scores varied minimally by patient age group (largest spread 0.11 points) and gender identity (largest 0.14 points)"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:65-73",
+    "text": "Benchmark statistics (N=1,200): realized attribute distributions"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by task category, age group, gender identity, personality, complexity and severity. Slice sizes are given only as Table 2 proportions of N=1,200, separate from the slice results, so (iii) is judged present by derivation."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:61-61",
+    "text": "In our experiments, we use Claude Sonnet 4.6 for both scenario enrichment and sandbox generation"
+   },
+   {
+    "chunk_id": "S1:arxiv/2607.25485v1.html:210-213",
+    "text": "All patient profiles, clinical narratives, and conversations are fully synthetic; no real patient health information or personally identifiable information is used at any stage."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Records are stated as synthetic with the generator named. No governance for real data (IRB, DUA, de-identification) applies or is stated. No data terms are given separate from the code licence, and no data is released."
+ }
+]

@@ -1,0 +1,385 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:17-19",
+    "text": "For each category, 30 harmful instructions were generated using GPT-4.1"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states the source/generation route for tasks and gives model/version details for generation. It does not provide a source dataset version or snapshot date plus a task-to-source-record route."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-57",
+    "text": "This project is licensed under the MIT License."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports origin through model-generated instructions and reports the repository licence. It does not document consent, IRB status, or an explicit statement that they were not required."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:58-65",
+    "text": "30 scenarios per category; Table 2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports descriptive coverage by prohibited behavior category and AMA principle. It does not compare key patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:12-15",
+    "text": "we additionally evaluate all 72 models on a paired benign instruction dataset"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The harmful instruction benchmark is a dedicated unsafe-output test. Bias is also tested through a discrimination category and benign paired evaluation for over-refusal."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. No developer-side contamination control such as gating, canaries, held-out sets, or overlap checks is reported."
+ },
+ {
+  "item": "C6",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. The packet does not state that the agent is isolated from ground-truth results at run time."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S2:README.md:1-57",
+    "text": "PyTorch 2.6.0"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some software and model details are pinned, and releases/tags are reported. However, evaluation uses live API calls to judge models and proprietary models, so the environment is not fully frozen."
+ },
+ {
+  "item": "C8",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. No oracle solver, reference solution, or solvability run through the grader is reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. Tasks can involve action plans that would change state, but no grader check for unchanged irrelevant state is reported."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. The packet reports no random-agent rate, trivial-agent rate, chance rate, or design argument that trivial success is unlikely."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. No do-nothing or random agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:46-47",
+    "text": "both authors manually spot-checked a random subset of five responses per harmful instruction category"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates the LLM judge by manual spot-checking its own outputs and cites external LLM-as-judge validation. It reports qualitative consistency but no agreement or error figures, so this is partial."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:39-40",
+    "text": "temperature was set to 0.0 for all models where this parameter is supported"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports deterministic decoding settings for evaluated models and judges. It does not state a repeated-run policy, and some provider defaults remain, so this is partial."
+ },
+ {
+  "item": "C14",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:81-84",
+    "text": "A one-sided Wilcoxon rank-sum test confirmed that this difference was highly significant"
+   }
+  ],
+  "contradicted": true,
+  "contradiction_quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:53-55",
+    "text": "Differences in violation rates between proprietary and open-weight models were assessed using a two-sided Wilcoxon rank-sum test."
+   },
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:81-84",
+    "text": "A one-sided Wilcoxon rank-sum test confirmed that this difference was highly significant"
+   }
+  ],
+  "s5_reach": null,
+  "rationale": "The paper reports statistical tests and confidence intervals for model comparisons, including the proprietary versus open-weight comparison. There is an internal contradiction between method and result on one-sided versus two-sided Wilcoxon testing."
+ },
+ {
+  "item": "A1",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:38-39",
+    "text": "Each instruction was evaluated in an independent session with no carry-over of context between instructions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet shows one independent evaluation session per instruction and reports decoding controls. It also states no carry-over of context between instructions, satisfying independence."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:92-96",
+    "text": "Model size [ \\log_{10} (params), z-scored] | - 0.105 | [ - 0.154, - 0.055]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports CIs and model-level/response-level analytic units, and category/task grouping is analyzed. However, the headline mean violation scores themselves are reported mainly with SD and range rather than CIs."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. No identical rerun reliability metric for tool actions, final states, or pass^k/all-runs behavior is reported."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:43-45",
+    "text": "The evaluator was GPT-5.4 (gpt-5.4-2026-03-05)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports exact model identifiers for several key generation/evaluation models and decoding parameters, including temperature and reasoning modes. It does not state a harness commit or tag matching the reported results."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:225-226",
+    "text": "\"Skill\": [ \"navigateToLocation\", \"navigateToItemLocation\", \"pickObject\", \"releaseObject\", \"summarizePatientInformation\""
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines a text-command tool/action interface and lists available skills, giving a partial schema. It does not document side effects per tool or return/error semantics, and side-effect disclosure does not reach S5."
+ },
+ {
+  "item": "A6",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:38-39",
+    "text": "A mock server received the LLM’s response and returned a simulated execution acknowledgment"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper discloses simulated/mock server behavior. It does not report tool conformance tests, and the simulation disclosure is not shown as reaching the agent-visible surface."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:36-37",
+    "text": "with the robot skills assumed to execute correctly given a valid JSON-formatted command"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark includes actions that mutate or represent clinical state, such as remote data modification/deletion and machine power toggling. It discloses simulated execution and scores unsafe actions through harmfulness evaluation; the action set reaches S5 via the scenario/prompt surface."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:43-45",
+    "text": "the evaluator was provided with the patient room scenario description, the harmful instruction, the LLM’s textual response"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the grader reads the scenario, instruction, textual response, and sequence of actions, and explains that this isolates LLM decision-making. It does not validate the grader against injected correct and incorrect state changes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. No controls on answer leakage through tools, retrieval, web access, hidden labels, canaries, or provenance markers are reported."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2604.26577v2.html:81-84",
+    "text": "Category-specific violation rates by model family, shown as a radar chart."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Results are reported by task family/category and model family, and slice sizes are often given. No patient subgroup performance is reported despite patient descriptors appearing in the environment."
+ },
+ {
+  "item": "A11",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 releases, S4 code, S5 prompts. The packet describes a simulated patient-room environment but does not state environment-state provenance as real, synthetic with generator, or mixed, nor governance or separate data terms."
+ }
+]

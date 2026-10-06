@@ -1,0 +1,361 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:30-31",
+    "text": "tested across three primary benchmarks: NEJM [ 24 ] , MedQA [ 8 ] , and MIMIC-IV [ 9 ]"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the source datasets/benchmarks and gives case counts, but does not report versions, snapshot dates, platforms for each source, or a route from a task to its source record. This meets source named without full traceability."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:30-31",
+    "text": "MIMIC-IV features 288 clinical cases, providing a diverse set of real-world medical interactions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The origin is stated through named datasets and broad descriptions. The packet does not document collection method plus licence/terms and consent or IRB status for the benchmark data."
+ },
+ {
+  "item": "C3",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet gives dataset names and counts but no descriptive patient statistics or comparison to a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:67-82",
+    "text": "comparing model performance under different cognitive and implicit bias conditions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports bias analyses. It does not report a dedicated unsafe-output test, so only one of the two required safety/bias test types is present."
+ },
+ {
+  "item": "C5",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No developer-side contamination controls such as gating, canaries, encryption, held-out controls, or measured overlap checks are reported."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:24-25",
+    "text": "The doctor agent must actively extract relevant details through questioning."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The documentation states that the doctor does not receive all patient information up front and must extract it interactively. It does not name an isolation mechanism such as no mount, no credential, no network path, or non-public labels."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet reports live model deployment and dataset names, but no pinned data, software, simulator, judge model, or release environment for reported results."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:35-48",
+    "text": "preliminary human study was performed in which one agent (doctor, patient, or measurement) was replaced with a real human."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The human study provides manual/agent-based evidence about realism rather than a scripted oracle solver run through the grader. No reference solver result is reported."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The benchmark includes requests for tests and interactions, but no grader check of unchanged versus changed state is reported."
+ },
+ {
+  "item": "C10",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No empirical random/trivial-agent rate, explicit chance rate, or design argument about trivial success is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The reported baselines are model systems, not do-nothing or random agents."
+ },
+ {
+  "item": "C12",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:30-31",
+    "text": "Both the dataset conversion process and accuracy logs were manually reviewed to ensure reliability."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports manual review for reliability, but gives no agreement or error figures for the automatic LLM evaluator. This is validation without figures."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S4:examples/agentclinic.py:170-203",
+    "text": "temperature=0.05,"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A decoding safeguard is visible in code for parts of the harness, but not reported in S1-S3 with a repeated-run policy. Under the anchor, code-only or partial safeguards score 1."
+ },
+ {
+  "item": "C14",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The paper reports accuracy comparisons and uses words like significantly, but no statistical test, CI, SD, or range is reported."
+ },
+ {
+  "item": "A1",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. S1-S3 do not report number of runs per task behind headline scores, seed/sampling policy, or independence of runs."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. No CI or SE, resampling unit, or clustering treatment is reported for headline scores."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not report identical reruns, action/state agreement, score-level rerun variation, or pass^k metrics."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:106-115",
+    "text": "Meta: Llama 3.3-70b instruct (2024)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some model identifiers include release years in S1 references, satisfying exact model identifier with date for at least part of the reporting. S1-S3 do not report decoding parameters or a harness tag/commit matching the reported numbers."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S5:S4:medsim/agents.py:333-350",
+    "text": "You can request test results using the format 'REQUEST TEST: [test]'."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark defines text-command protocols for test and image requests, so A5 is not NA. The agent-visible prompt identifies request actions and their broad effect, but no machine-readable schema for every tool or error/return semantics is documented."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The benchmark has a text-command tool interface, but no reported conformance tests, stub/no-op disclosure, or agent-visible disclosure of simulated tool behavior."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:24-25",
+    "text": "The measurement agent provides diagnostic test results but only when explicitly requested"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "Clinical test requests are actions in the clinical frame, and the documentation identifies which action obtains results. It does not state whether such requests are executed, simulated, or sandboxed, nor whether unsafe or unnecessary requests are penalized."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:30-31",
+    "text": "Model accuracy is evaluated using a binary true/false metric for the final diagnosis"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The grader input is the final diagnosis and an LLM evaluator is named. No rationale for non-state grading or validation on labelled correct and incorrect outcomes with per-class error rates is reported."
+ },
+ {
+  "item": "A9",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix; S2 README and docs; S3 release notes; S4 code; S5 agent-visible prompts. The packet does not report controls on leakage through tools, retrieval, web access, cross-task memory, held-out/private splits, canaries, or provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:35-48",
+    "text": "Table 1 : Performance of Multi-Agent Clinic (Basic) and MedAgentSim (Our) models across medical benchmarks."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results per benchmark family and the README reports case counts for those slices. It does not report patient subgroup results, and there is no stated NA for demographic fields."
+ },
+ {
+  "item": "A11",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2503.22678v2.html:30-31",
+    "text": "MIMIC-IV features 288 clinical cases, providing a diverse set of real-world medical interactions."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states sources of patient records/cases, including real-world clinical cases and simulated diagnostic scenarios. It does not report IRB/DUA/de-identification methods or redistribution terms for environment data separate from the code licence."
+ }
+]

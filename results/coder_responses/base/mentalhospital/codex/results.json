@@ -1,0 +1,386 @@
+[
+ {
+  "item": "C1",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:24-28",
+    "text": "1,193 de-identified psychiatric EHR cases obtained through an approved collaborative data-use partnership"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names the source type and reports multi-center provenance, but it does not provide a dataset version or snapshot date. It gives a route from task cases to EHR-derived records only generally, not with source-record traceability at the required level."
+ },
+ {
+  "item": "C2",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:260-264",
+    "text": "the requirement for individual informed consent was waived by the relevant ethics boards"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper documents origin, collection through collaborating clinical centers, de-identification, governance, and consent waiver/ethics approval. It also documents controlled access terms for sensitive data, satisfying licence or terms in the benchmark-data sense."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:237-240",
+    "text": "The age distribution of single-diagnosis and comorbid cases is shown in Figure 6"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive statistics and distributions for age and disorders. It does not compare those features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The paper explicitly says systematic fairness, bias, and adversarial safety evaluation are not yet provided, so no dedicated unsafe-output or bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:132-134",
+    "text": "These cases were strictly excluded from all MentalEval training data."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a held-out test set for MentalEval validation, which is a developer-side control. It does not report a measured overlap, canary, or leakage check for benchmark contamination."
+ },
+ {
+  "item": "C6",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:32-36",
+    "text": "The doctor agent cannot directly access \\mathcal{K}^{\\mathrm{pat}}_{c} , \\mathcal{K}^{\\mathrm{exam}}_{c} , or \\mathcal{Y}^{*}_{c}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the doctor agent cannot directly access patient evidence, examination evidence, or gold targets. It does not name a concrete isolation mechanism such as no mount, credential, or network path."
+ },
+ {
+  "item": "C7",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet reports model names and planned resources but no pinned release, commit, frozen simulator, or judge-model version sufficient for a reproducible frozen environment."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:100-102",
+    "text": "The expert group consists of 5 licensed psychiatrists and 3 psychology experts."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Human experts are run as a comparison group and score highly, which is manual solvability evidence. There is no scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The benchmark includes staged outputs and records requested examinations, notes, diagnoses, and treatment plans, but does not report grader checks for unchanged irrelevant state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:96-100",
+    "text": "We use a conservative semantic similarity threshold of \\tau=0.85 for high-precision automatic matching"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper gives design arguments that grading requires semantic coverage, exact candidate names, and conservative matching. It does not report empirical random or trivial-agent success rates."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. No do-nothing or random-agent baseline score is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:132-134",
+    "text": "Expert-guided DPO further improves agreement, reaching an average QWK of 0.944, accuracy of 0.790, and MAE of 0.210."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its automatic evaluator on MentalHospital outputs and reports agreement and error figures against expert ratings. The validation includes held-out expert-labeled cases."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:436-436",
+    "text": "The matching process is repeated three times, and the averaged results are used to reduce stochastic judgment variance."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "A repeated-run policy is stated for the patient-ablation Multi-LLM Jury matching. The safeguard covers only part of the harness, and no seeds or temperature-zero policy are reported for the full benchmark."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:135-139",
+    "text": "overall mean score of 3.88/5 (95% bootstrap CI: [3.78, 3.98])"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports bootstrap confidence intervals for clinical-fidelity survey results. It does not report a CI or significance test for the headline model comparison between LLMs and clinicians."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:324-331",
+    "text": "run each model three times on each case"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports a three-run policy for MentalEval training source episodes. It does not state seeds or decoding controls, and independence of runs is not stated."
+ },
+ {
+  "item": "A2",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:443-444",
+    "text": "95% bootstrap confidence intervals"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports CIs for questionnaire scores and names the unit as collected ratings. It does not address clustering of tasks within patients, templates, or task groups."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report action-sequence agreement, final-state agreement, pass^k, or score-level variation across identical reruns for the benchmarked agents."
+ },
+ {
+  "item": "A4",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. Model family names are reported, but not exact provider snapshot IDs or release dates for reported runs; decoding parameters and harness commit are absent."
+ },
+ {
+  "item": "A5",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:269-271",
+    "text": "the output to be a JSON array enclosed by explicit markers"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The benchmark defines text-command protocols and constrained JSON formats for stages and examination retrieval, plus some return behavior. It does not document side effects per tool, and no S5 prompt chunks are present."
+ },
+ {
+  "item": "A6",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 prompts/tools. The packet does not report tool conformance tests, nor a clear disclosure of simulated, stubbed, or no-op tool behavior reaching the agent-visible surface."
+ },
+ {
+  "item": "A7",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:42-48",
+    "text": "records the doctor–patient trajectory \\tau_{c} , collects examination requests"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": false,
+  "rationale": "The paper identifies state-like outputs such as examination requests, clinical notes, diagnoses, and treatment plans, and describes the environment as controlled evaluation rather than direct deployment. It does not report whether unsafe or unnecessary writes are scored or penalized, and no S5 chunks show disclosure to the agent."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:96-100",
+    "text": "k\\preceq y_{c} indicates that checkpoint k is semantically entailed by the generated output y_{c}"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names grader inputs such as dialogue trajectories, generated notes, diagnoses, treatment plans, and LLM-assisted semantic matching. It gives a rationale for transcript/output grading as measuring EHR-derived evidence coverage, but does not validate against injected correct and incorrect outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:213-217",
+    "text": "De-identified benchmark cases and derived evaluation checkpoints will be provided only through controlled research access"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports controlled access for cases and checkpoints, supporting hidden or non-public labels. It does not report controls on leakage through agent-visible tools, retrieval, web access, cross-task memory, or canaries."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:107-121",
+    "text": "Coverage by clinical component."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by benchmark task partitions such as interview phase, note phase, chief complaint, and mental status. Although demographic fields exist, it does not report performance by patient demographic subgroup or slice sizes with those slice results."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2607.08257v1.html:213-217",
+    "text": "De-identified benchmark cases and derived evaluation checkpoints will be provided only through controlled research access"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The source records are stated as real de-identified psychiatric EHRs. The paper reports IRB/ethics approval, de-identification methods, and controlled access terms for data separately from code release."
+ }
+]

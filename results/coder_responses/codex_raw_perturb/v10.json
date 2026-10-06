@@ -1,0 +1,491 @@
+[
+  {
+    "item": "C1",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:757-777",
+        "text": "MIMIC-IV version 2.2 (snapshot released in January 2023, hosted on PhysioNet)"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:757-777",
+        "text": "every task record stores the identifier of its source patient record"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper names the dataset, version/snapshot date, and platform. It also reports a route from each task to its source patient record."
+  },
+  {
+    "item": "C2",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:447-463",
+        "text": "de-identified hospital database collected during routine care between 2008 and 2019"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:447-463",
+        "text": "credentialed-access data use agreement, and the source institution's review board determined that the study qualified for a waiver of consent"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet documents origin and collection method. It also states access terms and IRB/consent status."
+  },
+  {
+    "item": "C3",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:377-392",
+        "text": "compared the age, sex and race distribution of the benchmark patients against the U.S. adult inpatient population"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a comparison of key demographic features against a named target population. That satisfies the full anchor."
+  },
+  {
+    "item": "C4",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:508-538",
+        "text": "a safety test suite that measures unsafe outputs such as contraindicated medication orders, and a separate bias test"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports both an unsafe-output safety test and a separate bias test. This meets the full anchor."
+  },
+  {
+    "item": "C5",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:230-248",
+        "text": "Contamination mitigation includes gating access to the test split."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:230-248",
+        "text": "zero exact matches between test tasks and public sources"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports a developer-side access control and an overlap measurement. Together these satisfy the full anchor."
+  },
+  {
+    "item": "C6",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:245-267",
+        "text": "labels reside in an independent evaluation service disconnected from the agent sandbox with no network route"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper states that the agent is isolated from labels at run time. It names the mechanism: an independent service with no network route."
+  },
+  {
+    "item": "C7",
+    "score": 1,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:757-777",
+        "text": "MIMIC-IV version 2.2 (snapshot released in January 2023, hosted on PhysioNet)"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "all reported numbers correspond to harness release v1.2.0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet pins data and harness release. However, another paper excerpt says the evaluator uses a language model, so the evidence does not clearly establish no live external dependence beyond the model under test."
+  },
+  {
+    "item": "C8",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. The packet describes custom evaluation functions but does not report a scripted oracle/reference solution run through the grader."
+  },
+  {
+    "item": "C9",
+    "score": 0,
+    "elements": [],
+    "quotes": [],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts. Some tasks change state, but the packet does not report that the grader checks unchanged irrelevant state as well as changed state."
+  },
+  {
+    "item": "C10",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:30-47",
+        "text": "a random agent scores 2.5% on the same tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports an empirical random-agent success rate. That satisfies the full anchor."
+  },
+  {
+    "item": "C11",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:30-47",
+        "text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports a do-nothing agent result for all stated tasks in that evaluation. This meets the full anchor."
+  },
+  {
+    "item": "C12",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "validated the grader on 150 injected correct and incorrect outcomes"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "false-accept rate of 1% and a false-reject rate of 2%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The benchmark reports its own grader validation on injected outcomes. It includes error figures."
+  },
+  {
+    "item": "C13",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "All runs use temperature 0 and a fixed random seed, and each task is run three times"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports temperature 0, a fixed seed, and a repeated-run policy. That satisfies the full anchor."
+  },
+  {
+    "item": "C14",
+    "score": 2,
+    "elements": [],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "report 95% bootstrap confidence intervals for all model scores"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "test the difference between the two best models with a paired permutation test"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports confidence intervals and a paired permutation test for a model comparison. This meets the full anchor."
+  },
+  {
+    "item": "A1",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:586-650",
+        "text": "five independent runs per task employed separate random seeds at temperature 0.7"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet states the run count per task, sampling policy, and independence. All three elements are present."
+  },
+  {
+    "item": "A2",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "We report 95% bootstrap confidence intervals for all model scores"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "S1 reports confidence intervals. The resampling unit and clustering treatment appear only in S4 code comments, which do not count as reporting for this item."
+  },
+  {
+    "item": "A3",
+    "score": 2,
+    "elements": [
+      false,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "ran each task eight times and report pass^8"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "agreement of the final environment state across the eight runs"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports an all-runs pass^8 reliability metric and final environment-state agreement. It includes the run count."
+  },
+  {
+    "item": "A4",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "snapshot identifiers gpt-4o-2024-08-06 and claude-3-5-sonnet-20241022"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "temperature 0 and a maximum of 2,048 output tokens"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "all reported numbers correspond to harness release v1.2.0"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports exact model snapshot identifiers, decoding parameters, and the harness release corresponding to reported numbers. All three elements are present."
+  },
+  {
+    "item": "A5",
+    "score": 1,
+    "elements": [
+      true,
+      true,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:119-135",
+        "text": "These tools abstracted away low-level HTTP details and enforced correct formatting."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-82",
+        "text": "A table enumerates write actions affecting patient state: orders, notes, and messages."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": false,
+    "rationale": "The packet reports structured/enforced tool formatting and documents write-side effects. It does not report return semantics including error and failure returns, and no S5 chunk shows side-effect disclosure."
+  },
+  {
+    "item": "A6",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:412-429",
+        "text": "Conformance testing confirms tool behavior matches documentation."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:412-429",
+        "text": "Two tools consist of simulated stubs providing fixed placeholder responses."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:412-429",
+        "text": "disclosed both in the paper and in the tool descriptions visible to the agent"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The paper reports conformance testing, simulated stub behavior, and disclosure to the agent-visible tool descriptions. All three elements are present."
+  },
+  {
+    "item": "A7",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-82",
+        "text": "A table enumerates write actions affecting patient state: orders, notes, and messages."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-82",
+        "text": "These execute on a sandboxed record copy."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:66-82",
+        "text": "Scores penalize unnecessary or unsafe writes. The agent prompt discloses sandboxing."
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": true,
+    "rationale": "The packet identifies state-mutating clinical actions, states that writes are sandboxed, and reports scoring penalties for unsafe or unnecessary writes. It also reports that sandboxing reaches the agent prompt."
+  },
+  {
+    "item": "A8",
+    "score": 2,
+    "elements": [
+      true,
+      false,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "The grader takes the final environment state as its input."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "validated the grader on 150 injected correct and incorrect outcomes"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:778-783",
+        "text": "false-accept rate of 1% and a false-reject rate of 2%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet names the grader input as final environment state and reports validation on injected outcomes with per-class error rates. No non-state rationale is needed because the reported input is state."
+  },
+  {
+    "item": "A9",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:245-267",
+        "text": "labels reside in an independent evaluation service disconnected from the agent sandbox with no network route"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:230-248",
+        "text": "Contamination mitigation includes gating access to the test split."
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:757-777",
+        "text": "every task record stores the identifier of its source patient record"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet reports controls preventing label leakage to the agent and gated access to the test split. It also reports a provenance marker on task records via source patient identifiers."
+  },
+  {
+    "item": "A10",
+    "score": 1,
+    "elements": [
+      true,
+      false,
+      false
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:266-289",
+        "text": "For tasks requiring three or more tool calls (Tasks 5, 6, 9, and 10), success rate rose to 96.67%"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The paper reports some results by task partition. It does not report results by patient demographic subgroup or slice sizes with the slice results."
+  },
+  {
+    "item": "A11",
+    "score": 2,
+    "elements": [
+      true,
+      true,
+      true
+    ],
+    "quotes": [
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:691-758",
+        "text": "genuine, de-identified entries sourced from a hospital database"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:691-758",
+        "text": "authorized via a data use agreement that mandated credentialed access and de-identification compliant with the safe harbour method"
+      },
+      {
+        "chunk_id": "S1:extra/psb26-chen-medagentbench-v2:691-758",
+        "text": "distributed under terms distinct from the MIT code licence"
+      }
+    ],
+    "contradicted": false,
+    "contradiction_quotes": [],
+    "s5_reach": null,
+    "rationale": "The packet states that the records are real and de-identified. It reports governance and de-identification details, plus data terms separate from the code licence."
+  }
+]

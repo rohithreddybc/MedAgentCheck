@@ -1,0 +1,406 @@
+[
+ {
+  "item": "C1",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:231-239",
+    "text": "All patient data originate from Beth Israel Deaconess Medical Center (BIDMC), Boston, MA, USA, collected approximately 2008–2019."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names MIMIC-IV/BIDMC, gives the collection timeframe and platform/source institution, and describes per-subject records and subject_id-linked sessions. It also reports task/session files with patient-derived records and tool-call trajectories."
+ },
+ {
+  "item": "C2",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:205-212",
+    "text": "PhysAssistBench is built on MIMIC-IV Johnson et al. (2023) , released on PhysioNet under the PhysioNet Credentialed Health Data Licence 1.5.0 ."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Origin and licence/terms are documented, including credentialed PhysioNet access and DUA requirements. The packet does not report consent or IRB status, nor an explicit not-required determination."
+ },
+ {
+  "item": "C3",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:415-420",
+    "text": "The sessions are evenly distributed across four clinical scenarios, with 81 sessions per scenario, and three data richness tiers, with 108 sessions per tier."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports descriptive benchmark composition and sampling balance across scenarios and data-richness tiers. It does not compare patient features against a named target population."
+ },
+ {
+  "item": "C4",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:438-466",
+    "text": "An LLM judge audits the gold answer for hallucination, numerical inconsistency with the tool observations, clinical safety, and completeness."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Unsafe-output or safety checking is reported in the generation quality gates. Bias is discussed as a limitation, but no dedicated bias test is reported."
+ },
+ {
+  "item": "C5",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:213-224",
+    "text": "Benchmark sessions must not be used as training data for evaluated models, to prevent leaderboard contamination."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports a developer-side contamination-related restriction and credentialed/gated data access. It does not report a measured overlap, canary, or contamination check."
+ },
+ {
+  "item": "C6",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:61-64",
+    "text": "S_ehr is the MIMIC-IV patient snapshot frozen at t_anchor and hidden from the agent"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that the EHR state is hidden from the agent and names the mechanism: access is through actions/tool calls rather than direct state visibility. Gold answers and tool calls are paired with sessions for evaluation, but runtime agent access is described as hidden-state POMDP interaction."
+ },
+ {
+  "item": "C7",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:322-330",
+    "text": "During evaluation, each tool call returns the corresponding fixed response through deterministic replay; the patient LLM is not invoked online."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Data and patient responses are frozen or deterministically replayed, and the benchmark uses fixed session files. However, the LLM judge/model services are still live external calls and the harness commit is not pinned in S1-S3."
+ },
+ {
+  "item": "C8",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:59-62",
+    "text": "eight trained annotators verified and corrected all turn-level annotated fields, including the implicitness labels, rubric items, and gold tool calls"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The packet reports manual and physician validation of gold tool calls, rubrics, and sessions, which is solvability/correctness evidence. It does not report a scripted oracle solution run through the grader."
+ },
+ {
+  "item": "C9",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:372-376",
+    "text": "Calls MedicationRequest.create (no other write)"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "Some write/update rubrics check that only the intended write is made, which partially detects out-of-scope write side effects. The packet does not show a general end-state unchanged-state check across all mutable state."
+ },
+ {
+  "item": "C10",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:438-466",
+    "text": "Rule-based structural checks verify tool cardinality (Table H2 ) and parameter completeness."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark design includes exact tool-cardinality, parameter, factual, and rubric checks, making trivial success unlikely by design. No random/trivial-agent or explicit chance rate is reported."
+ },
+ {
+  "item": "C11",
+  "score": 0,
+  "elements": [],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. No do-nothing or random-agent result is reported."
+ },
+ {
+  "item": "C12",
+  "score": 2,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:273-286",
+    "text": "The judge and trained-annotator labels agree on 3,685 items, yielding 95.37% agreement."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark validates its own GPT-5.4-mini judge on benchmark outputs with trained-annotator labels and reports agreement figures and confidence interval details."
+ },
+ {
+  "item": "C13",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:78-86",
+    "text": "All models run with reasoning (“thinking”) mode enabled ( reasoning_effort=high for the GPT-5 series), temperature=0.2"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports decoding controls for evaluated models, including temperature and reasoning effort. It does not state seeds or a repeated-run policy in S1-S3."
+ },
+ {
+  "item": "C14",
+  "score": 1,
+  "elements": [],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:109-110",
+    "text": "whose narrow cross-model standard deviation (5.6–7.6) indicates that multi-tool composition resists model scale."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports standard deviations and one CI for judge agreement, but does not provide a CI or significance test for a headline model comparison."
+ },
+ {
+  "item": "A1",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:78-86",
+    "text": "temperature=0.2 , and a maximum of 16 tool calls per turn"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "S1-S3 report decoding and tool-call-budget policy. They do not state a number of independent runs per task behind each headline score or whether runs are independent."
+ },
+ {
+  "item": "A2",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. No CI or SE is reported for headline model scores, and no resampling unit or clustering treatment is stated."
+ },
+ {
+  "item": "A3",
+  "score": 0,
+  "elements": [
+   false,
+   false,
+   false
+  ],
+  "quotes": [],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "searched: S1 paper and appendix, S2 README/docs, S3 release notes, S4 code, S5 agent-visible prompts/tool descriptions. No identical-rerun action agreement, state agreement, pass^k, or score-level rerun variance is reported."
+ },
+ {
+  "item": "A4",
+  "score": 1,
+  "elements": [
+   false,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:78-86",
+    "text": "reasoning_effort=high for the GPT-5 series), temperature=0.2 , and a maximum of 16 tool calls per turn"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports decoding parameters and reasoning effort. Exact provider snapshot IDs or dates for all evaluated model identifiers are not provided in S1-S3, and no harness commit/tag matching reported results is stated."
+ },
+ {
+  "item": "A5",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:298-306",
+    "text": "All tools require subject_id ; most accept an optional hadm_id to scope results to a single hospital admission."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "Tool schemas, required parameters, read/write distinctions, and return behavior are documented in S1 and S5. The side-effect distinction reaches agent-visible tool descriptions, including read tools and create/write tools."
+ },
+ {
+  "item": "A6",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:438-466",
+    "text": "A deterministic checker verifies that key EHR tool calls returned non-empty results"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The paper reports tool plan validation, observation validation, and deterministic checks. Simulated or replayed behavior is disclosed for patient tools and write tools, and S5 exposes simulation language in agent-visible tool schemas."
+ },
+ {
+  "item": "A7",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:313-321",
+    "text": "these 3 tools simulate EHR write operations and are used primarily in Write/Update turns"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": true,
+  "rationale": "The benchmark identifies medication orders, referrals, and flags as write operations, says they are simulated, and scores write parameters including unsafe or incorrect values. S5 write-tool descriptions also disclose that these tools simulate EHR write operations."
+ },
+ {
+  "item": "A8",
+  "score": 1,
+  "elements": [
+   true,
+   true,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:72-75",
+    "text": "Tool invocation is evaluated implicitly through rubric-based scoring"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper names grader inputs and explains why rubric/answer grading is used instead of procedural tool-trajectory grading. Judge validation is reported, but not as injected correct/incorrect state-change outcomes with per-class error rates."
+ },
+ {
+  "item": "A9",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   false
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:213-224",
+    "text": "Benchmark sessions must not be used as training data for evaluated models, to prevent leaderboard contamination."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The benchmark reports contamination-related usage restrictions and credentialed access controls. It does not report a held-out/private split in the required sense or canary/provenance markers."
+ },
+ {
+  "item": "A10",
+  "score": 1,
+  "elements": [
+   true,
+   false,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:481-500",
+    "text": "Table I1: Rubric score (%) per clinical scenario, English and Chinese separately."
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper reports results by benchmark task/scenario axes and gives slice sizes for scenario/data-richness distributions. It does not report model results by patient demographic subgroup despite demographic fields existing in the source data."
+ },
+ {
+  "item": "A11",
+  "score": 2,
+  "elements": [
+   true,
+   true,
+   true
+  ],
+  "quotes": [
+   {
+    "chunk_id": "S1:arxiv/2606.18613v4.html:224-231",
+    "text": "MIMIC-IV is de-identified by the MIT Laboratory for Computational Physiology following HIPAA Safe Harbor standards"
+   }
+  ],
+  "contradicted": false,
+  "contradiction_quotes": [],
+  "s5_reach": null,
+  "rationale": "The paper states that environment records are derived from real de-identified MIMIC-IV data, describes de-identification and credentialed DUA governance, and separates PhysioNet data terms from the Apache 2.0 code licence."
+ }
+]

@@ -1,0 +1,414 @@
+[
+{
+"item": "C1",
+"score": 1,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+"text": "All patient records originate from a de-identified hospital database collected during routine care between 2008 and 2019."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The source and collection time frame are stated, but there is no dataset name, version or route from a task to its source record. This meets the partial anchor."
+},
+{
+"item": "C2",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:181-191",
+"text": "The data are released under a credentialed-access data use agreement, and the source institution's review board determined that the study qualified for a waiver of ...",
+"truncated": true,
+"full_words": 26,
+"full_sha256": "cddb0e2f098585f6e456deaa3461e90f2754b7e7fc476b05fa623097e8dfb2ae"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet reports real de-identified hospital records, routine-care collection, credentialed-access terms, and IRB waiver of consent. That satisfies origin, collection, terms, and consent/IRB status."
+},
+{
+"item": "C3",
+"score": 1,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+"text": "The patient cases were chosen to cover a diverse range of conditions."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The benchmark states a sampling design aimed at diverse conditions. It does not compare key patient features against a named target population."
+},
+{
+"item": "C4",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:139-147",
+"text": "Safety testing identifies unsafe outputs like contraindicated medications; bias testing compares accuracy across different patient demographics."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports both unsafe-output and bias testing. This meets the full anchor."
+},
+{
+"item": "C5",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+"text": "A private held-out test split with concealed labels is excluded from all public surfaces."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 reports developer-side controls including a held-out split and canary, plus S4 reports measured overlap checks. The combination satisfies a control plus measured check."
+},
+{
+"item": "C6",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+"text": "Web access is blocked during runs; retrieval is confined to the task environment, preventing answer leakage through search."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports isolation from leakage and names the mechanism: web access blocked and retrieval confined to the task environment. It also reports concealed labels for the held-out split."
+},
+{
+"item": "C7",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:105-111",
+"text": "During evaluation, only the model under test is called; no other external services are involved."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 states that database snapshot, software image, and patient-simulation LLM are version-pinned, and that only the model under test is called during evaluation. This meets the full frozen-environment anchor."
+},
+{
+"item": "C8",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+"text": "all 120 reference solutions were graded correct."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper states that scripted reference solutions were run through the grader and reports the result. This satisfies the oracle solver full anchor."
+},
+{
+"item": "C9",
+"score": 0,
+"elements": [],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1-S5. The packet says some tasks modify server state and that irrelevant resources are seeded, but it does not report that the grader checks unchanged state or out-of-scope side effects."
+},
+{
+"item": "C10",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+"text": "a random agent scores 2.5% on the same tasks."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports empirical trivial and random-agent rates for all tasks. This satisfies the full anchor."
+},
+{
+"item": "C11",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:144-166",
+"text": "A do-nothing agent that issues no actions scores 0.0% on all 120 tasks"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The benchmark reports a do-nothing agent score for all 120 tasks. This meets the full anchor."
+},
+{
+"item": "C12",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+"text": "yielding 1% false acceptance and 2% false rejection rates."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 reports validation of grader outputs using injected correct and incorrect outcomes with false acceptance and rejection rates. It also reports physician-labelled evaluator validation."
+},
+{
+"item": "C13",
+"score": 2,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+"text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The paper reports a repeated-run policy and independent random seeds, plus temperature. This satisfies the non-determinism safeguard anchor."
+},
+{
+"item": "C14",
+"score": 1,
+"elements": [],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:89-94",
+"text": "Error bars represent standard deviation over three independent runs."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The benchmark reports standard deviations, but no CI or statistical test for headline model comparisons. This meets the partial anchor."
+},
+{
+"item": "A1",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+"text": "Each task was run five times per model with independent random seeds; the temperature was set to 0.7"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 gives the number of runs per task, decoding control, and independence of random seeds. All three elements are present."
+},
+{
+"item": "A2",
+"score": 0,
+"elements": [
+false,
+false,
+false
+],
+"quotes": [],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "searched: S1-S5. S1 reports standard deviations, but the A2 element requires CI or SE, a resampling or variance unit, and clustering addressed. None of those required elements is reported."
+},
+{
+"item": "A3",
+"score": 1,
+"elements": [
+false,
+false,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:127-130",
+"text": "Same-prompt CV (blue violins) captures consistency across reruns of identical task descriptions."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The benchmark reports score or token-usage consistency across identical reruns, but not action-sequence agreement, final-state agreement, or pass^k. This fits score-level repeat-run information only."
+},
+{
+"item": "A4",
+"score": 1,
+"elements": [
+false,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:75-87",
+"text": "the temperature was set to 0.7"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 reports model family names but not exact snapshot identifiers, and S4 gives different exact identifiers, so the model identifier element is absent under the item rule. S1 reports decoding temperature but no harness tag or commit for reported results."
+},
+{
+"item": "A5",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+"text": "Each tool is defined by a JSON schema listing its name, arguments and argument types."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": true,
+"rationale": "The appendix reports JSON schemas, side effects, and return/error semantics for every tool. It also states that these tool descriptions are included in the agent prompt, so S5 reach for side effects is true."
+},
+{
+"item": "A6",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:46-53",
+"text": "Two tools are simulated stubs that return fixed placeholder responses"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": true,
+"rationale": "S1 reports conformance tests, discloses two simulated stubs, and says that disclosure is also in the tool descriptions shown to the agent. All three elements are present."
+},
+{
+"item": "A7",
+"score": 1,
+"elements": [
+true,
+true,
+false
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+"text": "tasks involving creation or modification (23 out of 43 tasks) additionally verify server-side resource state"
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": false,
+"rationale": "The benchmark reports create/update actions that mutate the sandbox server state and identifies the sandboxed resettable FHIR server. It does not report whether unsafe or unnecessary writes are scored or penalized, and S5 reach for sandbox/execution status is not shown."
+},
+{
+"item": "A8",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:100-104",
+"text": "Grading operates on the final environment state."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 states the grader uses final environment state, so a non-state-grader rationale is not needed but the element is satisfied. It also reports validation on injected correct and incorrect outcomes with error rates."
+},
+{
+"item": "A9",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:41-46",
+"text": "Released tasks include a canary string."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "S1 reports web access blocked and retrieval confined to the task environment, a private held-out split with concealed labels, and canary strings on released tasks. All three elements are present."
+},
+{
+"item": "A10",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:190-205",
+"text": "per patient subgroup by sex and race, and each table lists the number of cases in every slice."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The appendix reports accuracy per task family and per demographic patient subgroup, with slice sizes. All three elements are present."
+},
+{
+"item": "A11",
+"score": 2,
+"elements": [
+true,
+true,
+true
+],
+"quotes": [
+{
+"chunk_id": "S1:extra/pmc12919212-fhir-agenteval:1-17",
+"text": "The patient records utilized are genuine, de-identified entries sourced from a hospital database."
+}
+],
+"contradicted": false,
+"contradiction_quotes": [],
+"s5_reach": null,
+"rationale": "The packet states that patient records are genuine de-identified hospital data, governed by a DUA with safe-harbour de-identification, and distributed under terms distinct from the MIT code licence. All three elements are present."
+}
+]

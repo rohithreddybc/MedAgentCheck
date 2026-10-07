@@ -8,6 +8,8 @@ An agent-specific validity and reliability checklist for benchmarks of action-ta
 
 Authors: Rohith Reddy Bellibatlu (rohithreddybc@gmail.com) and Manpreet Singh.
 
+Paper: *MedAgentCheck: Agreement Is Not Validity When LLM Judges Audit Medical AI Agent Benchmarks* (manuscript in preparation; see `CITATION.cff`).
+
 ## Status of this repository
 
 Status: audit run 2026-10-05/06; results in `results/`. The protocol was frozen at commit 713d078 before any item was coded. The scorer at 713d078 is frozen: the files listed in `FREEZE_MANIFEST.json` are unchanged and `agentaudit freeze --verify .` still passes. Later commits touch only this README, the citation metadata and new folders, and those folders are post-freeze outputs, not part of the method:

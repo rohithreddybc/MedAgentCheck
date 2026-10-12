@@ -1,0 +1,8 @@
+# Post-freeze reproduction tools (repro/). Versions are those the reference run used (CPython 3.11.7, Windows 11);
+# any Python >= 3.10 works. Statistics (alpha, kappa, Wilson, benchmark bootstrap) come from the frozen
+# agentaudit/stats.py in this checkout, which needs only the standard library; items.yaml needs PyYAML.
+# pandas, matplotlib and the agentaudit package's own dependencies (requests, PyMuPDF, beautifulsoup4, rank-bm25)
+# are NOT needed for repro/reproduce_*.py.
+numpy==2.4.6
+scipy==1.15.3
+PyYAML==6.0.3

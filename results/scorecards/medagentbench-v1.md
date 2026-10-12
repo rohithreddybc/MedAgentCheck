@@ -3,7 +3,7 @@
 Pinned: arXiv 2501.14654v2; repo https://github.com/stanfordmlgroup/MedAgentBench at 99260117137b09f04837a8c18d18a1107efa55ae; accessed 2026-10-05T06:10:57Z; packet sha256 7cb4fa0e85a3b620.
 Cells: 25; not established (fallback to 0): 2; mean final level: 0.52.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

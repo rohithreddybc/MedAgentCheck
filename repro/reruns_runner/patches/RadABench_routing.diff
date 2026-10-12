@@ -1,0 +1,23 @@
+diff --git a/EvalPlat/Configs/models.yaml b/EvalPlat/Configs/models.yaml
+index 90b8816..28dd206 100644
+--- a/EvalPlat/Configs/models.yaml
++++ b/EvalPlat/Configs/models.yaml
+@@ -139,3 +139,18 @@ models:
+     model_path: Qwen/Qwen2.5-72B-Instruct
+     model_path_env: QWEN_PATH
+     paper_ref: [arxiv-v1]
++
++  # ---- executed-scoring routing patch (research/executed/patches) ----
++  groq-gpt-oss-20b:
++    backend: openai_compatible
++    model_id: openai/gpt-oss-20b
++    base_url: https://api.groq.com/openai/v1
++    api_key_env: GROQ_API_KEY
++    paper_ref: []
++
++  groq-qwen3.8-27b:
++    backend: openai_compatible
++    model_id: qwen/qwen3.8-27b
++    base_url: https://api.groq.com/openai/v1
++    api_key_env: GROQ_API_KEY
++    paper_ref: []

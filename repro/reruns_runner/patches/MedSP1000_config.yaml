@@ -1,0 +1,26 @@
+# Routing-only config for MedSP1000 smoke test (derived from configs/config.example.yaml).
+# Model strings are "<backend>:<model id>@<temperature>" (see patches/MedSP1000_routing.diff).
+api:
+  base_url: "https://api.groq.com/openai/v1"
+  api_key: "${GROQ_API_KEY}"
+  model: "groq:openai/gpt-oss-20b@0"
+  timeout_seconds: 300
+proxy:
+  url: ""
+num_parallel: 1
+version: "v6_P"
+simulation:
+  output_root: "./runs"
+  max_total_turns: 12
+  console_progress: true
+  debug: false
+agents:
+  default_model: null
+  examinee:
+    model: "groq:openai/gpt-oss-20b@0"
+  sp:
+    model: "ollama:gpt-oss-20b-ctx16k@0"
+  environment:
+    model: "ollama:gpt-oss-20b-ctx16k@0"
+  evaluator:
+    model: "groq:openai/gpt-oss-120b@0"

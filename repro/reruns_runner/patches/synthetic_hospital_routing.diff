@@ -1,0 +1,6 @@
+# Synthetic Hospital: no repository file was patched.
+# The model-routing registry (eval/config.py) belongs to the paper harness eval/agents, which README
+# says leaks the patient_diagnosis problem list. The runner drives the /env endpoints with its own
+# Groq tool-calling loop instead (runners/synthetic_hospital_runner.py).
+# Windows checkout note: the repo was cloned with core.autocrlf=false (clone-local) because the default
+# CRLF conversion breaks docker/entrypoint.sh in the Linux image ("exec ... no such file or directory").

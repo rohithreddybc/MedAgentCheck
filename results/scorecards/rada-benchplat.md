@@ -3,7 +3,7 @@
 Pinned: arXiv 2412.09529v4; repo https://github.com/MAGIC-AI4Med/RadABench at ee45eb2ffa65541b5deb013135caf825e471ac53; accessed 2026-10-05T06:13:30Z; packet sha256 d5c075a54c280669.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.72.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

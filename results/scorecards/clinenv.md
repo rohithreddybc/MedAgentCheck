@@ -3,7 +3,7 @@
 Pinned: arXiv 2606.02568v1; repo https://github.com/ylin766/ClinEnv at c033d74ed776a852ae185b80a987798586f4caf7; accessed 2026-10-05T06:07:49Z; packet sha256 12bec17ff6d47336.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.71.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

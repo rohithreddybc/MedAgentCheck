@@ -1,0 +1,6 @@
+# CP_ENV: no repository file was patched.
+# Routing is supplied through the same arguments inference.py accepts (patient_*/doctor_* base_url,
+# api_key, model name) and evaluation.py (--model/--base_url/--api_key), set by runners/CP_ENV_runner.py.
+# Temperature injection (simulator 0, doctor = condition) is a runner-level hook on
+# openai.resources.chat.completions.Completions.create. inference.py keeps its data.select(range(1))
+# debug limit; the runner bypasses inference.py main and calls pipeline.run_pipeline directly.

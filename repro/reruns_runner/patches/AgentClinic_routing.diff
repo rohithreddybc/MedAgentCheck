@@ -1,0 +1,54 @@
+diff --git a/agentclinic.py b/agentclinic.py
+index f41e1c7..79bb93c 100644
+--- a/agentclinic.py
++++ b/agentclinic.py
+@@ -17,12 +17,48 @@ def inference_huggingface(prompt, pipe):
+     return response
+ 
+ 
++# --- PATCH (model routing only): model_str of the form "<backend>|<model id>|<temperature>" is routed
++# to an OpenAI-compatible endpoint. Backends: groq (env GROQ_API_KEY), ollama (local, no key).
++# Optional env: AC_CALL_LOG=<jsonl path> logs every request/response with token usage.
++_ROUTES = {
++    "groq": ("https://api.groq.com/openai/v1", "GROQ_API_KEY"),
++    "ollama": ("http://localhost:11434/v1", None),
++}
++
++def _routed_query(model_str, prompt, system_prompt):
++    backend, model_id, temp = model_str.split("|")
++    base, key_env = _ROUTES[backend]
++    api_key = os.environ[key_env] if key_env else "ollama"
++    messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": prompt}]
++    t0 = time.time()
++    try:
++        response = openai.ChatCompletion.create(
++            api_base=base, api_key=api_key, model=model_id, messages=messages,
++            temperature=float(temp), max_tokens=1500,
++            **({"reasoning_effort": "low"} if (backend == "groq" or "gpt-oss" in model_id) else {}))
++    except Exception as e:
++        if os.environ.get("AC_CALL_LOG"):
++            with open(os.environ["AC_CALL_LOG"], "a", encoding="utf-8") as f:
++                f.write(json.dumps({"ts": t0, "error": repr(e)[:500], "backend": backend, "model": model_id}) + chr(10))
++        raise
++    answer = re.sub(r"\s+", " ", response["choices"][0]["message"]["content"] or "")
++    log_path = os.environ.get("AC_CALL_LOG")
++    if log_path:
++        with open(log_path, "a", encoding="utf-8") as f:
++            f.write(json.dumps({"ts": t0, "latency_s": time.time() - t0, "backend": backend, "model": model_id,
++                                "temperature": float(temp), "system_fingerprint": response.get("system_fingerprint"),
++                                "usage": response.get("usage"), "messages": messages, "response": response["choices"][0]["message"]["content"]}) + chr(10))
++    return answer
++
++
+ def query_model(model_str, prompt, system_prompt, tries=30, timeout=20.0, image_requested=False, scene=None, max_prompt_len=2**14, clip_prompt=False):
+-    if model_str not in ["gpt4", "gpt3.5", "gpt4o", 'llama-2-70b-chat', "mixtral-8x7b", "gpt-4o-mini", "llama-3-70b-instruct", "gpt4v", "claude3.5sonnet", "o1-preview"] and "_HF" not in model_str:
++    if "|" not in model_str and model_str not in ["gpt4", "gpt3.5", "gpt4o", 'llama-2-70b-chat', "mixtral-8x7b", "gpt-4o-mini", "llama-3-70b-instruct", "gpt4v", "claude3.5sonnet", "o1-preview"] and "_HF" not in model_str:
+         raise Exception("No model by the name {}".format(model_str))
+     for _ in range(tries):
+         if clip_prompt: prompt = prompt[:max_prompt_len]
+         try:
++            if "|" in model_str:
++                return _routed_query(model_str, prompt, system_prompt)
+             if image_requested:
+                 messages = [
+                     {"role": "system", "content": system_prompt},

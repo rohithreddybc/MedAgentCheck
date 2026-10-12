@@ -3,7 +3,7 @@
 Pinned: arXiv 2605.09679v1; repo https://github.com/Schuture/DeepTumorVQA at 1df7460db6b95a4fc550bf34d75571057e1d4c4b; accessed 2026-10-05T06:08:38Z; packet sha256 f35ba6d8c25741cf.
 Cells: 25; not established (fallback to 0): 1; mean final level: 1.17.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

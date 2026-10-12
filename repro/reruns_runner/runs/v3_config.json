@@ -1,0 +1,27 @@
+{
+  "_doc": "Run design v3 (plan-v1.md). One file serves both runner config formats: AgentClinic reads backends/roles/benchmark_default_agent_temperature via --config; RadABench and synthetic_hospital read profiles/digests via --roles-config (profile 'local'). Agent = qwen3-4b-ctx16k; simulator and judge = llama3.1-8b-ctx16k at temperature 0. Derived tags = pinned base weights + num_ctx 16384. v2 configs are untouched.",
+  "backends": {
+    "ollama": {"base_url": "http://localhost:11434/v1", "api_key_env": null}
+  },
+  "roles": {
+    "agent":     {"backend": "ollama", "model": "qwen3-4b-ctx16k", "base": "qwen3:4b-instruct-2507-q8_0", "base_digest": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374", "temperature": null},
+    "simulator": {"backend": "ollama", "model": "llama3.1-8b-ctx16k", "base": "llama3.1:8b-instruct-q4_K_M", "base_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e", "temperature": 0},
+    "judge":     {"backend": "ollama", "model": "llama3.1-8b-ctx16k", "base": "llama3.1:8b-instruct-q4_K_M", "base_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e", "temperature": 0}
+  },
+  "replication_agent": {"backend": "ollama", "model": "qwen3-4b-ctx16k", "base": "qwen3:4b-instruct-2507-q8_0", "base_digest": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374"},
+  "benchmark_default_agent_temperature": {"AgentClinic": 0.05, "RadABench": 0.0, "synthetic_hospital": 0.0},
+  "profiles": {
+    "local": {
+      "agent":             {"base_url": "http://localhost:11434/v1", "model": "qwen3-4b-ctx16k",    "api_key_env": null},
+      "agent_replication": {"base_url": "http://localhost:11434/v1", "model": "qwen3-4b-ctx16k",    "api_key_env": null},
+      "simulator":         {"base_url": "http://localhost:11434/v1", "model": "llama3.1-8b-ctx16k", "api_key_env": null},
+      "judge":             {"base_url": "http://localhost:11434/v1", "model": "llama3.1-8b-ctx16k", "api_key_env": null}
+    }
+  },
+  "digests": {
+    "qwen3:4b-instruct-2507-q8_0": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374",
+    "llama3.1:8b-instruct-q4_K_M": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen3-4b-ctx16k": "175cbe4a2b73ba55a2d3b8f59c0eaf2a4537145d9071836b5495dcf754975f22",
+    "llama3.1-8b-ctx16k": "2b175d2e041c7108fcead7b5fe3a202d88ed24e8912c390dcc2f8a60f28b80ae"
+  }
+}

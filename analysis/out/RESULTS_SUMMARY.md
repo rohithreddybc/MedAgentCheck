@@ -961,3 +961,34 @@ The text of section V-A named A7 among the items REPORTED by at least 90% and C1
 | C8 | 0.49 [0.16, 0.75] | 44 | 56.8% | 0.0% |
 
 Items with alpha below 0.5 (7): C3, C7, C8, C10, C11, A7, A10. Items at 0.8 or above (7): C4, C5, C12, C14, A3, A4, A11. The other high-share items are C2 (90.9%, alpha 0.59) and A8 (93.2%, alpha 0.56), which also lie below 0.8; A7 (96.8%, alpha 0.02) and C11 (0.0%, alpha 0.00) are the two extremes of the share ranking and have the two lowest alphas, so neither is a ranked extreme.
+
+## 9. Co-author review analyses (response round 1; added 2026-10-12)
+
+### 9.1 Paired temperature contrasts for the executed reruns (co-author point 4b)
+
+Command (project root): `python analysis/revision_coauthor.py --write-summary`. Source: `rq3_groups.csv` (60 task groups = 30 (benchmark, task) pairs observed under condition A, the benchmark's own temperature, and condition B, T = 0.7; every group has 5 successful episodes). Per task, d = B - A of pass^1 (c/5), pass^5 (1 if c = 5, else 0; the unbiased estimator C(c,5)/C(5,5)), action divergence (more than one canonical action sequence) and verdict instability (more than one verdict). Mean paired difference with a 95% percentile paired bootstrap interval over tasks (2,000 resamples, seed 20261004; one resample serves all statistics; the pooled row resamples tasks within benchmark) and an exact two-sided binomial sign test on the tasks with a non-zero difference. Condition means reproduce `rq3_passk.csv` (asserted). Files: `coauthor_paired_contrasts.csv/.json`, `paper/tables/coauthor_paired.tex`.
+
+| Benchmark | Statistic | Tasks | Mean A | Mean B | B - A | 95% interval | B higher / lower / tied | Sign test p |
+|---|---|---|---|---|---|---|---|---|
+| AgentClinic | pass1 | 10 | 0.460 | 0.300 | -0.160 | [-0.260, -0.080] | 0 / 6 / 4 | 0.031 |
+| AgentClinic | pass5 | 10 | 0.200 | 0.000 | -0.200 | [-0.500, +0.000] | 0 / 2 / 8 | 0.500 |
+| AgentClinic | divergence | 10 | 1.000 | 1.000 | +0.000 | [+0.000, +0.000] | 0 / 0 / 10 | 1.000 |
+| AgentClinic | instability | 10 | 0.500 | 0.600 | +0.100 | [-0.200, +0.400] | 2 / 1 / 7 | 1.000 |
+| RadA-BenchPlat | pass1 | 10 | 0.160 | 0.200 | +0.040 | [+0.000, +0.100] | 2 / 0 / 8 | 0.500 |
+| RadA-BenchPlat | pass5 | 10 | 0.100 | 0.100 | +0.000 | [+0.000, +0.000] | 0 / 0 / 10 | 1.000 |
+| RadA-BenchPlat | divergence | 10 | 0.900 | 1.000 | +0.100 | [+0.000, +0.300] | 1 / 0 / 9 | 1.000 |
+| RadA-BenchPlat | instability | 10 | 0.100 | 0.200 | +0.100 | [+0.000, +0.300] | 1 / 0 / 9 | 1.000 |
+| Synthetic Hospital | pass1 | 10 | 0.380 | 0.220 | -0.160 | [-0.320, -0.040] | 0 / 4 / 6 | 0.125 |
+| Synthetic Hospital | pass5 | 10 | 0.300 | 0.000 | -0.300 | [-0.600, +0.000] | 0 / 3 / 7 | 0.250 |
+| Synthetic Hospital | divergence | 10 | 0.500 | 1.000 | +0.500 | [+0.200, +0.800] | 5 / 0 / 5 | 0.062 |
+| Synthetic Hospital | instability | 10 | 0.100 | 0.400 | +0.300 | [+0.000, +0.600] | 3 / 0 / 7 | 0.250 |
+| All three | pass1 | 30 | 0.333 | 0.240 | -0.093 | [-0.147, -0.033] | 2 / 10 / 18 | 0.039 |
+| All three | pass5 | 30 | 0.200 | 0.033 | -0.167 | [-0.300, -0.033] | 0 / 5 / 25 | 0.062 |
+| All three | divergence | 30 | 0.800 | 1.000 | +0.200 | [+0.100, +0.300] | 6 / 0 / 24 | 0.031 |
+| All three | instability | 30 | 0.233 | 0.400 | +0.167 | [+0.000, +0.333] | 6 / 1 / 23 | 0.125 |
+
+Intervals that include 0: 10 of 16.
+
+### 9.2 Grader recomputation split (co-author point 1)
+
+From `rq3_grader_state.csv`: Synthetic Hospital, 88 episodes with a submission = 69 exact recomputations (35 in A + 34 in B; reward within 1e-6 of the benchmark's own scorer) + 19 conditional checks (10 + 9; the scorer needs the chart-neutral category count, which is not in the episode record, so the reward was rebuilt with the grader-reported neutral count). 0 disagreements in both groups; 12 episodes with no submission. The 19 are a secondary check, not an independent verification of the neutral count.

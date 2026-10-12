@@ -3,7 +3,7 @@
 Pinned: arXiv 2509.19319v2; repo https://github.com/glee4810/FHIR-AgentBench at bbb42909a5a7eb907d1cd91f72a560729e7037ea; accessed 2026-10-05T06:09:36Z; packet sha256 06ee1488a43a7ba7.
 Cells: 25; not established (fallback to 0): 0; mean final level: 0.74.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

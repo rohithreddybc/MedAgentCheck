@@ -1,0 +1,105 @@
+diff --git a/src/simulate/api.py b/src/simulate/api.py
+index 718d548..a9f2609 100644
+--- a/src/simulate/api.py
++++ b/src/simulate/api.py
+@@ -86,6 +86,30 @@ def extract_json_object(text: str) -> dict[str, Any]:
+     return json.loads(payload)
+ 
+ 
++# --- PATCH (model routing only) -------------------------------------------------------------
++# A model string "<backend>:<model id>[@<temperature>]" is routed to an OpenAI-compatible endpoint:
++#   groq   -> https://api.groq.com/openai/v1  (key from env GROQ_API_KEY)
++#   ollama -> http://localhost:11434/v1       (no key)
++# Optional env MEDSP_CALL_LOG=<jsonl path>: every request/response/usage is appended there.
++_ROUTES = {
++    "groq": ("https://api.groq.com/openai/v1", "GROQ_API_KEY"),
++    "ollama": ("http://localhost:11434/v1", None),
++}
++
++
++def _parse_route(model: str | None):
++    if not model or ":" not in model:
++        return None
++    backend, rest = model.split(":", 1)
++    if backend not in _ROUTES:
++        return None
++    temp = None
++    if "@" in rest:
++        rest, t = rest.rsplit("@", 1)
++        temp = float(t)
++    return backend, rest, temp
++
++
+ class LLMClient:
+     def __init__(self, config: dict[str, Any]):
+         try:
+@@ -171,6 +195,20 @@ class LLMClient:
+             self._medgemma_client = None
+             self._medgemma_base_url = None
+         self._add_medgemma_to_no_proxy()
++        self._routed_clients: dict = {}
++        self._timeout = timeout
++
++    def _routed_client(self, backend: str):
++        if backend not in self._routed_clients:
++            from openai import OpenAI  # type: ignore
++            base, key_env = _ROUTES[backend]
++            self._routed_clients[backend] = OpenAI(
++                base_url=base,
++                api_key=os.environ[key_env] if key_env else "ollama",
++                timeout=self._timeout,
++                max_retries=8,
++            )
++        return self._routed_clients[backend]
+ 
+     def _select_client(self, model: str | None):
+         resolved = model or self.default_model or ""
+@@ -271,11 +309,19 @@ class LLMClient:
+                 f"{label} last message preview: {preview_text(str(last_message.get('content', '')), limit=200)}"
+             )
+         try:
+-            active_client = self._select_client(model)
++            route = _parse_route(model or self.default_model)
++            if route:
++                active_client = self._routed_client(route[0])
++                wire_model = route[1]
++            else:
++                active_client = self._select_client(model)
++                wire_model = model or self.default_model
+             create_kwargs: dict[str, Any] = {
+-                "model": model or self.default_model,
++                "model": wire_model,
+                 "messages": payload_messages,
+             }
++            if route and (route[0] == "groq" or "gpt-oss" in route[1]):
++                create_kwargs["reasoning_effort"] = "low"
+             extra_body = self._no_thinking_extra_body(model)
+             # guided_json 只对 vLLM 服务端有效（当前只 medgemma 走 vLLM）；其它供应商收到会报错
+             resolved_model = (model or self.default_model or "").lower()
+@@ -288,6 +334,8 @@ class LLMClient:
+             resolved_temperature = (
+                 temperature if temperature is not None else self.default_temperature
+             )
++            if resolved_temperature is None and route and route[2] is not None:
++                resolved_temperature = route[2]
+             if resolved_temperature is not None:
+                 create_kwargs["temperature"] = resolved_temperature
+             completion = active_client.chat.completions.create(**create_kwargs)
+@@ -298,6 +346,17 @@ class LLMClient:
+             )
+             raise
+         content = _extract_content(completion.choices[0].message.content)
++        _log_path = os.environ.get("MEDSP_CALL_LOG")
++        if _log_path:
++            with open(_log_path, "a", encoding="utf-8") as _f:
++                _f.write(json.dumps({
++                    "ts": time.time(), "label": label, "model": model or self.default_model,
++                    "wire_model": create_kwargs["model"], "temperature": create_kwargs.get("temperature"),
++                    "system_fingerprint": getattr(completion, "system_fingerprint", None),
++                    "usage": completion.usage.model_dump() if getattr(completion, "usage", None) else None,
++                    "finish_reason": completion.choices[0].finish_reason,
++                    "messages": payload_messages, "response": content,
++                }, ensure_ascii=False) + chr(10))
+         elapsed = time.perf_counter() - started_at
+         self.console.info(
+             f"{label} <- API response received after {elapsed:.2f}s (output_chars={len(content)})"

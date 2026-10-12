@@ -1,0 +1,26 @@
+{
+  "_doc": "Per-role routing shared by the three runners. Select with --profile. Roles: agent (primary), agent_replication, simulator, judge. api_key_env null = no key needed (ollama; a dummy key is sent). Simulator and judge always run at temperature 0; the agent temperature is the condition (--temperature). Local model names are ollama tags derived with `ollama create` from the pinned base tag with PARAMETER num_ctx 32768 (same weights blob; see ../ollama_modelfiles). Digests of both base and derived tags are in `digests`.",
+  "profiles": {
+    "local": {
+      "agent":             {"base_url": "http://localhost:11434/v1", "model": "gpt-oss-20b-ctx32k",              "api_key_env": null},
+      "agent_replication": {"base_url": "http://localhost:11434/v1", "model": "qwen3-4b-instruct-2507-q8-ctx32k", "api_key_env": null},
+      "simulator":         {"base_url": "http://localhost:11434/v1", "model": "llama3.1-8b-q4km-ctx32k",         "api_key_env": null},
+      "judge":             {"base_url": "http://localhost:11434/v1", "model": "llama3.1-8b-q4km-ctx32k",         "api_key_env": null}
+    },
+    "groq": {
+      "agent":             {"base_url": "https://api.groq.com/openai/v1", "model": "openai/gpt-oss-20b",  "api_key_env": "GROQ_API_KEY"},
+      "agent_replication": {"base_url": "https://api.groq.com/openai/v1", "model": "qwen/qwen3.8-27b",    "api_key_env": "GROQ_API_KEY"},
+      "simulator":         {"base_url": "http://localhost:11434/v1",      "model": "gpt-oss-20b-ctx16k",  "api_key_env": null},
+      "judge":             {"base_url": "https://api.groq.com/openai/v1", "model": "openai/gpt-oss-120b", "api_key_env": "GROQ_API_KEY"}
+    }
+  },
+  "digests": {
+    "gpt-oss:20b": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "qwen3:4b-instruct-2507-q8_0": "aa7252f68dda4d25dfffa65b3760af6d2c3231a140c0060c78d444686d98a374",
+    "llama3.1:8b-instruct-q4_K_M": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "gpt-oss-20b-ctx32k": "008d7d4ae02995dbd6a79f3dbeae84090cb07d40c8576734f22150118591aad0",
+    "qwen3-4b-instruct-2507-q8-ctx32k": "baf761a4ef4a20a8db6d237ae2c40a45ac986a5e728949bb3350ca3a6941c03e",
+    "llama3.1-8b-q4km-ctx32k": "b8ebc6e446eea2f9b02b9e5a9298b280fb255b08054fdd00e63c13884b201164",
+    "gpt-oss-20b-ctx16k": "5269c7fda101bb76612a7db5be7b39b35295e3874d5c017df54ddf5e6e45b0b9"
+  }
+}

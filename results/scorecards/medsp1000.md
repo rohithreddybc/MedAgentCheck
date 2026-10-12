@@ -3,7 +3,7 @@
 Pinned: arXiv 2606.05112v1; repo https://github.com/MAGIC-AI4Med/MedSP1000 at 2806984cb331d6fedc2c0555e3c1c4a54171c77a; accessed 2026-10-05T06:12:24Z; packet sha256 59396e28124f6efa.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.84.
 
-A documentary 0 means the property is absent from every surface checked; it never means the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
+A level of 0 (NOT REPORTED) means only that the pipeline did not establish reporting from the evidence packet as built: both coders found no verified evidence, the coders disagreed, a quotation failed verification, or the evidence was in code removed by the size cap. The Status column separates an established 0 (both coders gave 0) from a cell that was not established. A 0 never shows that the benchmark lacks the practice. Contradiction flags are candidates only until verified against the benchmark's own documentation and offered for right of reply. Quotes are at most 25 words, copied from the cited source for verification; they remain the work of its authors.
 
 | Item | Final | Status | Majority | Coders (raw/effective) | Evidence |
 |---|---|---|---|---|---|

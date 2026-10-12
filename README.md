@@ -8,7 +8,7 @@ An agent-specific validity and reliability checklist for benchmarks of action-ta
 
 Authors: Rohith Reddy Bellibatlu (rohithreddybc@gmail.com) and Manpreet Singh.
 
-Paper: *MedAgentCheck: Agreement Is Not Validity When LLM Judges Audit Medical AI Agent Benchmarks* (manuscript in preparation; see `CITATION.cff`).
+Paper: *MedAgentCheck: LLM Judges for Auditing Medical AI Agent Benchmarks and the Limits of Their Agreement* (manuscript in preparation; see `CITATION.cff`).
 
 ## Status of this repository
 

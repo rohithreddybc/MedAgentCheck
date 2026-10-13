@@ -58,14 +58,22 @@ Reproduces (each value is asserted equal to the authors' output file or to the p
 - RQ2: cross-family Krippendorff alpha overall and per item, and within the capped and uncapped strata; perturbation sensitivity and specificity per coder and resolved, with packet-cluster and item-cluster bootstrap intervals; test-retest agreement; the like-for-like gold comparison (coder-pair kappa, each coder and resolved versus expert, paired bootstrap, BCa and Bayesian intervals, the exact swap test, the sign test, over- and under-credit counts); the resolution-rule ablation against both gold sets (agreement, paired difference to the best single coder); PABAK, Gwet AC1 and AC2 with intervals and confusion matrices; quote-verification counts per coder and the cells changed by the family requirement, on the 1,100 audit cells.
 - RQ3: action divergence, verdict instability, same-verdict-different-actions, pass^k (k = 1 to 5) with cluster-bootstrap, Bayesian-bootstrap and exact intervals, CI width of 1 versus 5 runs, design effect, the Synthetic Hospital cut-off sensitivity, and the paired temperature contrasts of Table S19 (RESULTS_SUMMARY 9.1), with both the default and the `--exclude-episode-errors` episode rule where the authors report both.
 
-Needs materials that are not redistributed (not in `repro/`):
+Does not reproduce from the release. The supporting analyses below are not reproduced or asserted by `repro/`. Each either needs working files that are not redistributed (not in `repro/`) or has no script in `repro/`; where the authors computed a value, it is in `results/analysis_out/` and `analysis/out/RESULTS_SUMMARY.md`, and the authors' scripts (`analysis/revision_rq3.py`, `analysis/revision_rq12.py`, `analysis/revision_round2.py`, `analysis/token_totals.py`, `analysis/make_scorecards.py`) compute it from the authors' working tree.
 
-- The grader-versus-recomputation check (Synthetic Hospital: 88 episodes with a submission, 69 exact recomputations and 19 conditional checks; `rq3_grader_state*.csv`, RESULTS_SUMMARY 9.2) needs the final environment states of the episodes.
-- The judge-only rerun (100 AgentClinic transcripts, three re-judgements each; `rq3_judge_rerun*`) needs the transcripts.
-- Transcripts, final states and submissions contain benchmark task content (case text, patient records, reference answers), which we do not redistribute. The episode records in `reruns/` hold hashes, tool names, verdicts and rewards only.
-- The episode-validity flags of `analysis/revision_rq3.py` (they read Synthetic Hospital traces); per-item gold agreement (`rq2_gold_by_item.csv`; item-level labels); the quote-verification and family-requirement counts on the gold cells (they need the coders' raw scores on the withheld expert-scored items); re-scoring the audit itself (new coder calls give different levels because the coders are hosted models without temperature control; see the repository README).
+1. The grader-versus-recomputation check (Synthetic Hospital: 88 episodes with a submission, 69 exact recomputations and 19 conditional checks; `rq3_grader_state*.csv`, RESULTS_SUMMARY 9.2) needs the final environment states of the episodes.
+2. The judge-only rerun (100 AgentClinic transcripts, three re-judgements each; `rq3_judge_rerun*`) needs the transcripts.
+3. The misclassification (Rogan-Gladen) correction of the resolved shares (RESULTS_SUMMARY 6.5; not ported).
+4. The pilot-exclusion analysis (RESULTS_SUMMARY 6.6; not ported).
+5. The token totals (RESULTS_SUMMARY section 4; `analysis/token_totals.py`; not ported).
+6. The episode-validity flags of `analysis/revision_rq3.py` (paper Table S10; they read Synthetic Hospital traces).
+7. Per-item gold agreement (`rq2_gold_by_item.csv`; item-level labels).
+8. The quote-verification and family-requirement counts on the gold cells (they need the coders' raw scores on the withheld expert-scored items).
+9. The threshold table (RESULTS_SUMMARY 6.4; not ported).
+10. The A3 and A8 side-by-side table (RESULTS_SUMMARY 8.4; paper Tables S14 and S17; not ported).
+11. The score cards (`analysis/make_scorecards.py` is not ported; the cards themselves are released in `results/scorecards/`).
+Re-scoring the audit itself is not a reproduction either: new coder calls give different levels because the coders are hosted models without temperature control (see the repository README).
 
-Not ported to `repro/`: the threshold table (RESULTS_SUMMARY 6.4), the Rogan-Gladen sensitivity analysis (6.5), the pilot-exclusion analysis (6.6), the A3 and A8 side-by-side table (8.4), the token totals (section 4) and the score cards. Their values are in `results/analysis_out/` and `analysis/out/RESULTS_SUMMARY.md` and are not asserted by `repro/`; the authors' scripts (`analysis/revision_rq12.py`, `analysis/revision_round2.py`, `analysis/token_totals.py`, `analysis/make_scorecards.py`) compute them from the authors' working tree.
+Transcripts, final states and submissions contain benchmark task content (case text, patient records, reference answers), which we do not redistribute. The episode records in `reruns/` hold hashes, tool names, verdicts and rewards only.
 
 ## Credentials
 

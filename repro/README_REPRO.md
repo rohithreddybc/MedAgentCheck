@@ -72,6 +72,7 @@ Does not reproduce from the release. The supporting analyses below are not repro
 10. The A3 and A8 side-by-side table (RESULTS_SUMMARY 8.4; paper Tables S14 and S17; not ported).
 11. The score cards (`analysis/make_scorecards.py` is not ported; the cards themselves are released in `results/scorecards/`).
 12. The ablation re-scored on the cells common to all rules, and the paired effect of quote verification (`analysis/ablation_common_mask.py`, RESULTS_SUMMARY 10; output `results/analysis_out/ablation_common_mask.json`); they need the withheld per-cell scores on the expert-labelled items.
+13. The known-groups and adjacent-construct checks of the agent items (`analysis/known_groups.py`, design in `protocol/addendum-known-groups.md`, RESULTS_SUMMARY 11; output `results/analysis_out/known_groups.json`); they need the coders' scores on the expert-scored benchmarks and the withheld expert labels.
 Re-scoring the audit itself is not a reproduction either: new coder calls give different levels because the coders are hosted models without temperature control (see the repository README).
 
 Transcripts, final states and submissions contain benchmark task content (case text, patient records, reference answers), which we do not redistribute. The episode records in `reruns/` hold hashes, tool names, verdicts and rewards only.

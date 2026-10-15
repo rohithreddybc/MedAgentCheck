@@ -540,8 +540,8 @@ def write_tables(res: dict) -> None:
         encoding="utf-8", newline="\n")
     # Table: perturbation cluster intervals (all three coder rows)
     hdr = ["Coder", "Rate", "Cells", "Percent", "Wilson", "Variant clusters", "Item clusters"]
-    names = {"sensitivity": "Sensitivity", "inject": "Inject", "buried": "Buried", "paraphrase": "Paraphrase",
-             "specificity": "Frozen specificity", "deletion": "Deletion", "decoy": "Decoy"}
+    names = {"sensitivity": "Planted-text recovery", "inject": "Inject", "buried": "Buried", "paraphrase": "Paraphrase",
+             "specificity": "Deletion and decoy (frozen)", "deletion": "Deletion", "decoy": "Decoy"}
     labels = {"codex": "OpenAI (gpt-5.5)", "sonnet": "Claude Sonnet", "RESOLVED": "Resolved"}
     rows = []
     pc = lambda c: f"[{100 * c[0]:.0f}, {100 * c[1]:.0f}]"

@@ -35,8 +35,34 @@ def main() -> None:
         d = {b: {it: c for it, c in cells.items() if it != "A11"} for b, cells in d.items()}
         rows = {r["module"]: r for r in R.module_summary(d, "final", R.N_BOOT)}
         out[rule] = rows["agent"]
+    # Same summary on the benchmarks that remain after excluding the rule-affected ones (the 30 of
+    # paper/tables/rq1_modules_ruleexcl.tex; same exclusion as rq1_rq2.py --exclude-rule-affected).
+    # Release note: the exclusion needs research/eligibility/overrides_final.csv (the first-pass versus final eligibility
+    # decisions), which is not redistributed; frozen_list_v1.csv alone gives 37 benchmarks, not 30. Without it the key
+    # is skipped (and the output then lacks "rule_excluded"); the released JSON has it from the authors' run.
+    if not R.OVERRIDES.exists():
+        print(f"SKIPPED rule_excluded: {R.OVERRIDES} is not in this checkout (not redistributed); "
+              "the output lacks that key, every other value is unchanged.")
+    else:
+        hit, _ = R.rule_affected_benches(sorted(resolved))
+        keep = sorted(b for b in resolved if b not in hit)
+        assert len(keep) == 30, len(keep)
+        rx = {"excluded_benchmarks": sorted(hit), "n_benchmarks_kept": len(keep)}
+        for rule in ("current", "union"):
+            d = V.as_resolved(levels[rule])
+            d = {b: {it: c for it, c in d[b].items() if it != "A11"} for b in keep}
+            rows = {r["module"]: r for r in R.module_summary(d, "final", R.N_BOOT)}
+            rx[rule] = rows["agent"]
+        out["rule_excluded"] = rx
     (OUT / "agent_without_a11.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     for rule, r in out.items():
+        if rule == "rule_excluded":
+            for rr in ("current", "union"):
+                x = r[rr]
+                print("rule_excluded", rr, x["n_benchmarks"], x["n_applicable_cells"], round(x["share_reported"], 4),
+                      x["reported_boot_lo"], x["reported_boot_hi"], round(x["share_full"], 4), x["full_boot_lo"],
+                      x["full_boot_hi"], round(x["mean_bench_fraction_of_max"], 3))
+            continue
         print(rule, r["n_applicable_cells"], round(r["share_reported"], 4), r["reported_boot_lo"], r["reported_boot_hi"],
               round(r["share_full"], 4), r["full_boot_lo"], r["full_boot_hi"], round(r["mean_bench_fraction_of_max"], 3))
 

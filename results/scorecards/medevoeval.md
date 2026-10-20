@@ -1,5 +1,7 @@
 # Score card: medevoeval
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.28900v1; repo - at -; accessed 2026-10-05T06:11:45Z; packet sha256 9e114ef54b5f64b6.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.71.
 

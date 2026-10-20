@@ -1,5 +1,7 @@
 # Score card: physicianbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2605.02240v1; repo https://github.com/HealthRex/PhysicianBench at c7efa8fd5b1e4744ada50668efe4b7e84023cbb0; accessed 2026-10-05T06:13:20Z; packet sha256 c3459bab5321c5be.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.76.
 

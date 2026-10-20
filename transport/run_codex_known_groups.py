@@ -143,10 +143,17 @@ def main() -> int:
     ap.add_argument("--limit", type=int, help="send at most N unanswered benches in this invocation")
     ap.add_argument("--workers", type=int, default=1)
     ap.add_argument("--force", action="store_true", help="resend benches that already have a current response")
+    ap.add_argument("--model", default="gpt-5.5",
+                    help="model id; anything other than gpt-5.5 is a disclosed substitute written to its own directory")
+    ap.add_argument("--codex-dir", default=CODEX_DIR, help="directory holding the codex executable")
     a = ap.parse_args()
-    os.environ["PATH"] = CODEX_DIR + os.pathsep + os.environ.get("PATH", "")
+    global OUT
+    os.environ["PATH"] = a.codex_dir + os.pathsep + os.environ.get("PATH", "")
     spec = load_coders(str(CODERS_FILE))["codex"]
     assert spec["backend"] == "codex" and spec["model"] == "gpt-5.5", spec
+    if a.model != "gpt-5.5":
+        spec = {**spec, "model": a.model}
+        OUT = HERE / f"responses_known_groups_codex_{a.model}"
     benches = sorted(p.name for p in PROMPTS.iterdir() if (p / "meta.json").exists())
     if a.bench:
         benches = [b for b in benches if b in a.bench]

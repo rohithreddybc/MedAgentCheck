@@ -1,5 +1,7 @@
 # Score card: medcua-bench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.03203v1; repo - at -; accessed 2026-10-05T06:11:38Z; packet sha256 a7d1d7f8ba599d12.
 Cells: 25; not established (fallback to 0): 7; mean final level: 0.64.
 

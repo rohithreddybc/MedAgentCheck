@@ -1,5 +1,7 @@
 # Score card: fhir-agenteval
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv -; repo - at -; accessed 2026-10-05T06:09:42Z; packet sha256 9627012f96999ec1.
 Cells: 25; not established (fallback to 0): 7; mean final level: 0.48.
 

@@ -1,5 +1,7 @@
 # Score card: art
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2601.08988v1; repo - at -; accessed 2026-10-05T06:07:35Z; packet sha256 736152b09a23dc3f.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.44.
 

@@ -1,5 +1,7 @@
 # Score card: agentclinic
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2405.07960v5; repo https://github.com/SamuelSchmidgall/AgentClinic at b6fbe22300e99a267a7ac94eaa465ab552eef741; accessed 2026-10-05T06:07:28Z; packet sha256 9317b34007eed926.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.68.
 

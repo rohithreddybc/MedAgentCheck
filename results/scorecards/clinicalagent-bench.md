@@ -1,5 +1,7 @@
 # Score card: clinicalagent-bench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2410.17657v3; repo https://github.com/BlueZeros/ReflecTool at e89ef65ec34b189276e69f59b22f1e9dc9069984; accessed 2026-10-05T06:07:58Z; packet sha256 8e0b5e40ad7ac119.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.30.
 

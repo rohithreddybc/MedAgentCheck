@@ -1,5 +1,7 @@
 # Score card: medagentbench-v1
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2501.14654v2; repo https://github.com/stanfordmlgroup/MedAgentBench at 99260117137b09f04837a8c18d18a1107efa55ae; accessed 2026-10-05T06:10:57Z; packet sha256 7cb4fa0e85a3b620.
 Cells: 25; not established (fallback to 0): 2; mean final level: 0.52.
 

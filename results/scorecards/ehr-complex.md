@@ -1,5 +1,7 @@
 # Score card: ehr-complex
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.23301v1; repo - at -; accessed 2026-10-05T06:09:10Z; packet sha256 68a3819a1643d574.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.87.
 

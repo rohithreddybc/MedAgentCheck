@@ -1,5 +1,7 @@
 # Score card: clinenv
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.02568v1; repo https://github.com/ylin766/ClinEnv at c033d74ed776a852ae185b80a987798586f4caf7; accessed 2026-10-05T06:07:49Z; packet sha256 12bec17ff6d47336.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.71.
 

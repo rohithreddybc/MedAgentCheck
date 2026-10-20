@@ -1,5 +1,7 @@
 # Score card: medagentsim
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2503.22678v2; repo https://github.com/MAXNORM8650/MedAgentSim at 6d1409724ca247dc50be1827818f2132a277e68b; accessed 2026-10-05T06:11:22Z; packet sha256 17b97ffe98722300.
 Cells: 25; not established (fallback to 0): 6; mean final level: 0.36.
 

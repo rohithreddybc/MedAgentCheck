@@ -1,5 +1,7 @@
 # Score card: vivabench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2510.10278v1; repo - at -; accessed 2026-10-05T06:13:57Z; packet sha256 8febce06cdd40fe2.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.83.
 

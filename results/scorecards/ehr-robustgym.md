@@ -1,5 +1,7 @@
 # Score card: ehr-robustgym
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2609.39371v1; repo - at -; accessed 2026-10-05T06:09:17Z; packet sha256 11dd50d5fbbdaa47.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.74.
 

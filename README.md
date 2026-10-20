@@ -1,6 +1,14 @@
 # MedAgentCheck
 
-An agent-specific validity and reliability checklist for benchmarks of action-taking medical and clinical AI agents, plus `agentaudit`, a quote-verified automated scorer. MedAgentCheck extends MedCheck ("Beyond the Leaderboard: Rethinking Medical Benchmarks for Large Language Models", ACL 2026; arXiv 2508.04325) to agentic benchmarks; it is an independent project, not affiliated with the MedCheck authors.
+An exploratory, agent-specific validity and reliability checklist for benchmarks of action-taking medical and clinical AI agents, plus `agentaudit`, a quote-verified automated scorer. MedAgentCheck extends MedCheck ("Beyond the Leaderboard: Rethinking Medical Benchmarks for Large Language Models", ACL 2026; arXiv 2508.04325) to agentic benchmarks; it is an independent project, not affiliated with the MedCheck authors.
+
+## Status and caveats
+
+MedAgentCheck is an exploratory checklist and scorer. Its utility for screening benchmarks has not been established, and its specificity on real benchmark documentation is untested. The score cards (`results/scorecards/`) describe what a benchmark's documentation reports. They are not quality ratings and must not be used for certification or procurement. A level of 0 means that reporting was not established from the evidence packet as built, not that the benchmark lacks the practice.
+
+Item A11 (environment-state provenance) was credited mostly on dataset provenance rather than environment-state provenance (`results/analysis_out/a11_quote_classes.csv`, `revision_c1.json`). The agent-module summaries therefore use A1 to A10 (`results/analysis_out/agent_without_a11.json`).
+
+The OpenAI coder of the main audit (gpt-5.5) has not been served to the project's Codex account since 14 October 2026. The post hoc known-groups check (`protocol/addendum-known-groups.md`, `results/analysis_out/known_groups.json`) used gpt-6.1-sol as a disclosed substitute coder. Its results are not comparable with the main audit, and the check rests on the cells coded by both coders (30 benchmarks).
 
 ## agentaudit
 

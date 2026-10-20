@@ -1,5 +1,7 @@
 # Score card: abra
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2605.11224v1; repo https://github.com/Luab/ABRA at 688814615dc368a66276798cb864fe9a587d7e6c; accessed 2026-10-05T06:07:20Z; packet sha256 68dfd19d753310d2.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.68.
 

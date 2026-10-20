@@ -1,5 +1,7 @@
 # Score card: klinikebench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2609.38480v1; repo https://github.com/Zehui127/klinikebench-train at 311b2191cb8a5dc19ed55ef1f811c056aea72531; accessed 2026-10-05T06:10:41Z; packet sha256 028c401b43a37f71.
 Cells: 25; not established (fallback to 0): 2; mean final level: 0.84.
 

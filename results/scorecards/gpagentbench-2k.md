@@ -1,5 +1,7 @@
 # Score card: gpagentbench-2k
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2608.30188v2; repo https://github.com/jianing-lab/GPAgentBench at 7f8f67e5f2983fab9c272400a54666cfe9e2a497; accessed 2026-10-05T06:09:51Z; packet sha256 2d2de582cb51f02c.
 Cells: 25; not established (fallback to 0): 6; mean final level: 0.76.
 

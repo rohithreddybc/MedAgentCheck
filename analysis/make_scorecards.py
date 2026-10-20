@@ -31,6 +31,10 @@ DISCLAIMER = ("A level of 0 (NOT REPORTED) means only that the pipeline did not 
               "from the cited source for verification; they remain the work of its authors.")
 
 
+NOTICE = ("Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. "
+          "A11 credits mostly reflect dataset provenance.")
+
+
 def load(bench: str) -> tuple[dict, dict]:
     res = json.loads((RES / "resolved" / f"{bench}.json").read_text(encoding="utf-8"))
     pm = RES / "packet_manifests" / f"{bench}.json"
@@ -55,7 +59,7 @@ def main() -> None:
     for b in benches:
         res, man = load(b)
         cells = res["cells"]
-        L = [f"# Score card: {b}", ""]
+        L = [f"# Score card: {b}", "", NOTICE, ""]
         ax, rp = man.get("arxiv") or {}, man.get("repo") or {}
         L.append(f"Pinned: arXiv {ax.get('id', '-')}{ax.get('version', '')}; repo {rp.get('url', '-')} at "
                  f"{rp.get('commit', '-')}; accessed {rp.get('access_date_utc', man.get('built_utc', '-'))}; "

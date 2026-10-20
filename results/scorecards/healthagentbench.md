@@ -1,5 +1,7 @@
 # Score card: healthagentbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.31179v1; repo https://github.com/microsoft/HealthAgentBench at bcbb8085fd549469e2dc7455f4bfd68a1b98895a; accessed 2026-10-05T06:10:09Z; packet sha256 465ef5ac32aec57a.
 Cells: 25; not established (fallback to 0): 2; mean final level: 1.00.
 

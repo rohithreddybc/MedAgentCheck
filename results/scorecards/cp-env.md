@@ -1,5 +1,7 @@
 # Score card: cp-env
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2512.10206v2; repo https://github.com/SPIRAL-MED/CP_ENV at 6c33121d96baf610c9c5b15bf3429129555e5acb; accessed 2026-10-05T06:08:27Z; packet sha256 5a6cfe49aa484156.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.32.
 

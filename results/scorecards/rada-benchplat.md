@@ -1,5 +1,7 @@
 # Score card: rada-benchplat
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2412.09529v4; repo https://github.com/MAGIC-AI4Med/RadABench at ee45eb2ffa65541b5deb013135caf825e471ac53; accessed 2026-10-05T06:13:30Z; packet sha256 d5c075a54c280669.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.72.
 

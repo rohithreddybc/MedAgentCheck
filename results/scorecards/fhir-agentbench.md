@@ -1,5 +1,7 @@
 # Score card: fhir-agentbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2509.19319v2; repo https://github.com/glee4810/FHIR-AgentBench at bbb42909a5a7eb907d1cd91f72a560729e7037ea; accessed 2026-10-05T06:09:36Z; packet sha256 06ee1488a43a7ba7.
 Cells: 25; not established (fallback to 0): 0; mean final level: 0.74.
 

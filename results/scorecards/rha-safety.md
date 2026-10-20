@@ -1,5 +1,7 @@
 # Score card: rha-safety
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2604.26577v2; repo https://github.com/kztakemoto/RHASafety at 69391da398f091814b33b70c0ac39531f3a33259; accessed 2026-10-05T06:13:38Z; packet sha256 191cad38f696793c.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.64.
 

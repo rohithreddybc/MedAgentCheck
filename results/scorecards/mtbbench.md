@@ -1,5 +1,7 @@
 # Score card: mtbbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2511.20490v1; repo https://github.com/bunnelab/mtbbench at ac8151bc7c659a291610f14204e5f67f0bd7b908; accessed 2026-10-05T06:12:44Z; packet sha256 4a2a6814d11a76f1.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.52.
 

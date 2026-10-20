@@ -1,5 +1,7 @@
 # Score card: clinicare-bench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2608.07796v1; repo - at -; accessed 2026-10-05T06:08:04Z; packet sha256 3fb808d1ce2a3f60.
 Cells: 25; not established (fallback to 0): 3; mean final level: 1.04.
 

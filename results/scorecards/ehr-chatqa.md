@@ -1,5 +1,7 @@
 # Score card: ehr-chatqa
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2509.23415v2; repo https://github.com/glee4810/EHR-ChatQA at 8b97b9a303ce601690224435c3aa54dab19c4d00; accessed 2026-10-05T06:09:04Z; packet sha256 c72bfae2d27b4c2d.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.65.
 

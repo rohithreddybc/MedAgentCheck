@@ -1,5 +1,7 @@
 # Score card: med-inquire
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2601.22964v1; repo https://github.com/yf-he/EvoClinician at d9bd3f4b70d77cac7336049a2f1f0a135f1410cc; accessed 2026-10-05T06:10:49Z; packet sha256 591cd95ce169ed2e.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.46.
 

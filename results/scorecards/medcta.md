@@ -1,5 +1,7 @@
 # Score card: medcta
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.11702v1; repo https://github.com/IVUL-KAUST/MedCTA at eb7d1dc0adc6da4c31d9c5ebef3a8059a620022c; accessed 2026-10-05T06:11:31Z; packet sha256 8d78dbd8c5266b65.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.78.
 

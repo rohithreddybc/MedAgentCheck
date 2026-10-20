@@ -1,5 +1,7 @@
 # Score card: codeclinic
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2605.09675v1; repo https://github.com/tossowski/CodeClinic at 784f1203945e946b9d6c836a49c50a63822e7280; accessed 2026-10-05T06:08:18Z; packet sha256 43774935fb924d5c.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.74.
 

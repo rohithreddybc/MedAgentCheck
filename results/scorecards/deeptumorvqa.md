@@ -1,5 +1,7 @@
 # Score card: deeptumorvqa
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2605.09679v1; repo https://github.com/Schuture/DeepTumorVQA at 1df7460db6b95a4fc550bf34d75571057e1d4c4b; accessed 2026-10-05T06:08:38Z; packet sha256 f35ba6d8c25741cf.
 Cells: 25; not established (fallback to 0): 1; mean final level: 1.17.
 

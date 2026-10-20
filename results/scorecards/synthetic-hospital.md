@@ -1,5 +1,7 @@
 # Score card: synthetic-hospital
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2609.30027v1; repo https://github.com/sparkcpark/synthetic_hospital at 911f34c4ac65a508543c4b3b90c373a0cd16534d; accessed 2026-10-05T06:13:51Z; packet sha256 9efcd297336dac19.
 Cells: 25; not established (fallback to 0): 3; mean final level: 0.83.
 

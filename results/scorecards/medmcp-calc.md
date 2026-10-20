@@ -1,5 +1,7 @@
 # Score card: medmcp-calc
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2601.23049v2; repo https://github.com/SPIRAL-MED/MedMCP-Calc at 26304c5b02bfca22ecd0cdef69bcf5bff8e71891; accessed 2026-10-05T06:12:15Z; packet sha256 d6e2383d626eb77d.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.52.
 

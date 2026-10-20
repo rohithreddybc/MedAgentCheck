@@ -1,5 +1,7 @@
 # Score card: medimageedu
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2604.14656v1; repo - at -; accessed 2026-10-05T06:11:59Z; packet sha256 4cd2f18bf06b4ceb.
 Cells: 25; not established (fallback to 0): 1; mean final level: 0.52.
 

@@ -38,10 +38,13 @@ from agentaudit.util import read_json, write_json  # noqa: E402
 RESP = {"sonnet": HERE / "responses_known_groups", "codex": HERE / "responses_known_groups_codex"}
 CODERS_FILE = AUDIT / "coders_codex55.yaml"
 CODEX_TRANSPORT = "codex exec (frozen CodexHeadlessBackend, identical prompt)"
+CODEX_MODEL = "gpt-5.5"  # --codex-model sets a disclosed substitute (its responses live in their own directory)
 
 
 def spec_for(coder: str) -> dict:
-    return load_coders()[CODER] if coder == "sonnet" else load_coders(str(CODERS_FILE))["codex"]
+    if coder == "sonnet":
+        return load_coders()[CODER]
+    return {**load_coders(str(CODERS_FILE))["codex"], "model": CODEX_MODEL}
 
 
 def exported(prompts: Path) -> list[str]:
@@ -88,7 +91,7 @@ def import_one(run: Path, prompts: Path, bench: str, coder: str, force: bool) ->
         transport, rel = SONNET_TRANSPORT, f"transport/responses_known_groups/{bench}.json"
     else:
         backend = MetaReplayBackend({meta["prompt_sha256"]: (text, cm)})
-        transport, rel = CODEX_TRANSPORT, f"transport/responses_known_groups_codex/{bench}.json"
+        transport, rel = CODEX_TRANSPORT, f"transport/{RESP['codex'].name}/{bench}.json"
     s = score_packet(run, bench, coder, spec_for(coder), backend, groups=GROUPS, force=force, log=lambda *_: None)
     s["import_status"] = st
     stamp(scoring_dir(run, bench, coder) / "group1.json", transport, rel, meta["sha256_full_prompt"])
@@ -115,7 +118,12 @@ def main() -> int:
     ap.add_argument("--force", action="store_true", help="rescore an existing ok group1.json")
     ap.add_argument("--no-resolve", action="store_true")
     ap.add_argument("--dry-run", action="store_true", help="list which benches have responses; score nothing")
+    ap.add_argument("--codex-model", default="gpt-5.5", help="substitute OpenAI model whose responses to import")
     a = ap.parse_args()
+    global CODEX_MODEL
+    if a.codex_model != "gpt-5.5":
+        CODEX_MODEL = a.codex_model
+        RESP["codex"] = HERE / f"responses_known_groups_codex_{a.codex_model}"
     run, prompts = Path(a.run), Path(a.prompts)
     benches = [b for b in exported(prompts) if not a.bench or b in a.bench]
     coders = a.coder or list(RESP)

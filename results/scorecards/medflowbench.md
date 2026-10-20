@@ -1,5 +1,7 @@
 # Score card: medflowbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2603.24649v2; repo - at -; accessed 2026-10-05T06:11:52Z; packet sha256 d1573ac7731b511d.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.52.
 

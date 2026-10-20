@@ -1,5 +1,7 @@
 # Score card: diaggym-diagbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2510.24654v2; repo https://github.com/MAGIC-AI4Med/DiagGym at bc497195e57690bd73381d6114b3a307108a8c91; accessed 2026-10-05T06:08:47Z; packet sha256 44841e200e698b35.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.80.
 

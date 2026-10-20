@@ -1,5 +1,7 @@
 # Score card: medsp1000
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.05112v1; repo https://github.com/MAGIC-AI4Med/MedSP1000 at 2806984cb331d6fedc2c0555e3c1c4a54171c77a; accessed 2026-10-05T06:12:24Z; packet sha256 59396e28124f6efa.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.84.
 

@@ -1,5 +1,7 @@
 # Score card: healthcare-ai-gym
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2605.02943v1; repo https://github.com/minstar/Healthcare_GYM at 92e9613d02036b97c8de6a7bd9db77cf1803ce41; accessed 2026-10-05T06:10:19Z; packet sha256 e28a4aeaf9b0b06b.
 Cells: 25; not established (fallback to 0): 6; mean final level: 0.56.
 

@@ -1,5 +1,7 @@
 # Score card: ecg-scroll
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2609.33117v1; repo https://github.com/CuCl-2/ECG-Scroll at 4db14ef59d8ee78de785c12a7d4644c9c8e3dc0f; accessed 2026-10-05T06:08:56Z; packet sha256 88cd0481361ba2ae.
 Cells: 25; not established (fallback to 0): 4; mean final level: 0.54.
 

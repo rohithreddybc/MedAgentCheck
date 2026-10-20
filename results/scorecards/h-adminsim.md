@@ -1,5 +1,7 @@
 # Score card: h-adminsim
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2602.05407v3; repo https://github.com/ljm565/H-AdminSim at 693210cdba425e559c379e078527fbda163b4124; accessed 2026-10-05T06:10:00Z; packet sha256 75f24bb162116818.
 Cells: 25; not established (fallback to 0): 5; mean final level: 0.44.
 

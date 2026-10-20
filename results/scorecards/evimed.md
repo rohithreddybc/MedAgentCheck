@@ -1,5 +1,7 @@
 # Score card: evimed
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2601.19773v1; repo https://github.com/nanshine/EID-Benchmark at 7b6da74dfdcffc4f87e3e7ff37a09e33b821cb57; accessed 2026-10-05T06:09:27Z; packet sha256 47bebd2e375feae6.
 Cells: 25; not established (fallback to 0): 6; mean final level: 0.42.
 

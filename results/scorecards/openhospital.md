@@ -1,5 +1,7 @@
 # Score card: openhospital
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2603.14771v3; repo https://github.com/ZJU-LLMs/Agent-Kernel at c14b6e59ab6df517238ae64e9a9b0ac1a7bb3be7; accessed 2026-10-05T06:12:53Z; packet sha256 f8eaa7721851f03d.
 Cells: 25; not established (fallback to 0): 8; mean final level: 0.44.
 

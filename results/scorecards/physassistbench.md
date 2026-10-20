@@ -1,5 +1,7 @@
 # Score card: physassistbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2606.18613v4; repo https://github.com/HINTLab/PhysAssistBench at 12aa0eccf102f65f7715bbc4a3264bd4f31f7bd0; accessed 2026-10-05T06:13:11Z; packet sha256 3bb96a2ded3f098f.
 Cells: 25; not established (fallback to 0): 6; mean final level: 0.72.
 

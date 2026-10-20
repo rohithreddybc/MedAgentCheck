@@ -1,0 +1,5450 @@
+{
+ "seed": 20261004,
+ "n_boot": 2000,
+ "pair": {
+  "abc": {
+   "levels": [
+    0,
+    1
+   ],
+   "n_cells": 198,
+   "n_benchmarks": 9,
+   "pairs": {
+    "coder_pair": {
+     "n": 198,
+     "raw_agreement": 0.8585858585858586,
+     "cohen_kappa": 0.7079953650057936,
+     "pabak": 0.7171717171717171,
+     "gwet_ac1": 0.7262222222222222,
+     "ci": {
+      "pabak": [
+       0.6262626262626263,
+       0.797979797979798
+      ],
+      "gwet_ac1": [
+       0.6530346444386559,
+       0.8025134649910234
+      ]
+     }
+    },
+    "claude_vs_expert": {
+     "n": 198,
+     "raw_agreement": 0.6565656565656566,
+     "cohen_kappa": 0.28874801901743263,
+     "pabak": 0.31313131313131315,
+     "gwet_ac1": 0.337531981893328,
+     "ci": {
+      "pabak": [
+       0.14141414141414144,
+       0.4747474747474747
+      ],
+      "gwet_ac1": [
+       0.17477215094529105,
+       0.5182481751824817
+      ]
+     }
+    },
+    "openai_vs_expert": {
+     "n": 198,
+     "raw_agreement": 0.6464646464646465,
+     "cohen_kappa": 0.2526690391459076,
+     "pabak": 0.29292929292929304,
+     "gwet_ac1": 0.3291384317521782,
+     "ci": {
+      "pabak": [
+       0.19191919191919182,
+       0.41414141414141414
+      ],
+      "gwet_ac1": [
+       0.22994652406417104,
+       0.4457458563535912
+      ]
+     }
+    }
+   }
+  },
+  "betterbench": {
+   "levels": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "n_cells": 423,
+   "n_benchmarks": 22,
+   "pairs": {
+    "coder_pair": {
+     "n": 423,
+     "raw_agreement": 0.6950354609929078,
+     "cohen_kappa": 0.5790200510727593,
+     "pabak": 0.5933806146572104,
+     "gwet_ac1": 0.5982782758709542,
+     "pabak_weighted": 0.7361702127659575,
+     "gwet_ac2": 0.7590804732229982,
+     "ci": {
+      "pabak": [
+       0.5377358490566038,
+       0.6434108527131782
+      ],
+      "gwet_ac1": [
+       0.5431910827157633,
+       0.6478722124660204
+      ],
+      "pabak_weighted": [
+       0.65947242206235,
+       0.801869158878505
+      ],
+      "gwet_ac2": [
+       0.6950550513059035,
+       0.8175084572690835
+      ]
+     },
+     "weighted_agreement": 0.9267139479905437
+    },
+    "claude_vs_expert": {
+     "n": 423,
+     "raw_agreement": 0.524822695035461,
+     "cohen_kappa": 0.32302755726831905,
+     "pabak": 0.3664302600472813,
+     "gwet_ac1": 0.38244661726769025,
+     "pabak_weighted": 0.41938534278959794,
+     "gwet_ac2": 0.5170777965093215,
+     "ci": {
+      "pabak": [
+       0.30793650793650795,
+       0.4249605055292259
+      ],
+      "gwet_ac1": [
+       0.32497055911753886,
+       0.4415272087970411
+      ],
+      "pabak_weighted": [
+       0.32278177458033575,
+       0.5066974595842959
+      ],
+      "gwet_ac2": [
+       0.43071937633019824,
+       0.5991757909620853
+      ]
+     },
+     "weighted_agreement": 0.8387181507748883
+    },
+    "openai_vs_expert": {
+     "n": 423,
+     "raw_agreement": 0.5106382978723404,
+     "cohen_kappa": 0.2996632727330896,
+     "pabak": 0.34751773049645385,
+     "gwet_ac1": 0.3647826954350625,
+     "pabak_weighted": 0.30307328605200917,
+     "gwet_ac2": 0.42497845021045605,
+     "ci": {
+      "pabak": [
+       0.2895148669796557,
+       0.4042553191489362
+      ],
+      "gwet_ac1": [
+       0.3064252952293519,
+       0.4222558800610232
+      ],
+      "pabak_weighted": [
+       0.22080378250591015,
+       0.39482352941176463
+      ],
+      "gwet_ac2": [
+       0.35683951532718783,
+       0.5014698173138532
+      ]
+     },
+     "weighted_agreement": 0.8064092461255581
+    }
+   }
+  },
+  "_check": "ABC coder-vs-expert PABAK, AC1 and intervals reproduce rev_pabak.csv (claude, openai rows)"
+ },
+ "a11": {
+  "n_benchmarks": 44,
+  "bench_class_counts": {
+   "D": 37,
+   "E": 0,
+   "B": 4,
+   "N": 3
+  },
+  "quote_class_counts": {
+   "D": 123,
+   "E": 5
+  },
+  "n_quotes": 128,
+  "bench_class_counts_borderline_all_D": {
+   "D": 39,
+   "E": 0,
+   "B": 2,
+   "N": 3
+  },
+  "bench_class_counts_borderline_all_E": {
+   "D": 33,
+   "E": 0,
+   "B": 8,
+   "N": 3
+  },
+  "bench_by_class": {
+   "D": [
+    "abra",
+    "agentclinic",
+    "art",
+    "clindef",
+    "clinenv",
+    "clinicalagent-bench",
+    "clinicare-bench",
+    "codeclinic",
+    "cp-env",
+    "deeptumorvqa",
+    "diaggym-diagbench",
+    "ecg-scroll",
+    "ehr-chatqa",
+    "ehr-complex",
+    "ehr-robustgym",
+    "evimed",
+    "fhir-agentbench",
+    "gpagentbench-2k",
+    "h-adminsim",
+    "healthagentbench",
+    "healthcare-ai-gym",
+    "med-inquire",
+    "medagentbench-v1",
+    "medagentsim",
+    "medcta",
+    "medevoeval",
+    "medflowbench",
+    "medimageedu",
+    "medmcp-calc",
+    "medsp1000",
+    "mentalhospital",
+    "mtbbench",
+    "openhospital",
+    "physassistbench",
+    "rada-benchplat",
+    "synthetic-hospital",
+    "vivabench"
+   ],
+   "E": [],
+   "B": [
+    "klinikebench",
+    "medcua-bench",
+    "patientagentbench",
+    "physicianbench"
+   ],
+   "N": [
+    "fhir-agenteval",
+    "medagentbench-v2",
+    "rha-safety"
+   ]
+  },
+  "benchmarks_with_any_credit": 41,
+  "resolved_final_ge1": 37,
+  "note": "Class assigned by reading each stored verified quote; E only where the quote concerns the state of the environment the agent acts in. Borderline = plausible alternative reading; the *_borderline_all_D / _E counts give both bounds."
+ },
+ "not_established": {
+  "definition": "fallback cells = resolve_cell status 'not_established' (no level reaches two cross-family verified supporters and no cross-family pair of raw 0s) plus 'na_rejected_as_zero' (an NA that lacks a cross-family second NA). Both coders raw 0 is 'established_zero' and is NOT in the set. Both coders NA is 'na_accepted' and is NOT in the set.",
+  "status_counts": {
+   "resolved": 613,
+   "established_zero": 262,
+   "not_established": 183,
+   "na_rejected_as_zero": 7,
+   "na_accepted": 35
+  },
+  "fallback_cells": 190,
+  "fallback_share": 0.17272727272727273,
+  "all_25": {
+   "cells": 1100,
+   "not_established": 190,
+   "share_of_cells": 0.17272727272727273,
+   "by_category": {
+    "verified_credit_vs_zero": 113,
+    "verified_credit_vs_removed": 53,
+    "removed_vs_zero": 9,
+    "both_removed": 8,
+    "one_sided_na": 7
+   },
+   "by_category_share": {
+    "verified_credit_vs_zero": 0.5947368421052631,
+    "verified_credit_vs_removed": 0.2789473684210526,
+    "removed_vs_zero": 0.04736842105263158,
+    "both_removed": 0.042105263157894736,
+    "one_sided_na": 0.03684210526315789
+   }
+  },
+  "core_C1_C14": {
+   "cells": 616,
+   "not_established": 115,
+   "share_of_cells": 0.18668831168831168,
+   "by_category": {
+    "verified_credit_vs_zero": 76,
+    "verified_credit_vs_removed": 25,
+    "removed_vs_zero": 4,
+    "both_removed": 4,
+    "one_sided_na": 6
+   },
+   "by_category_share": {
+    "verified_credit_vs_zero": 0.6608695652173913,
+    "verified_credit_vs_removed": 0.21739130434782608,
+    "removed_vs_zero": 0.034782608695652174,
+    "both_removed": 0.034782608695652174,
+    "one_sided_na": 0.05217391304347826
+   }
+  },
+  "agent_A1_A10": {
+   "cells": 440,
+   "not_established": 71,
+   "share_of_cells": 0.16136363636363638,
+   "by_category": {
+    "verified_credit_vs_zero": 37,
+    "verified_credit_vs_removed": 24,
+    "removed_vs_zero": 5,
+    "both_removed": 4,
+    "one_sided_na": 1
+   },
+   "by_category_share": {
+    "verified_credit_vs_zero": 0.5211267605633803,
+    "verified_credit_vs_removed": 0.3380281690140845,
+    "removed_vs_zero": 0.07042253521126761,
+    "both_removed": 0.056338028169014086,
+    "one_sided_na": 0.014084507042253521
+   }
+  },
+  "agent_A11": {
+   "cells": 44,
+   "not_established": 4,
+   "share_of_cells": 0.09090909090909091,
+   "by_category": {
+    "verified_credit_vs_zero": 0,
+    "verified_credit_vs_removed": 4,
+    "removed_vs_zero": 0,
+    "both_removed": 0,
+    "one_sided_na": 0
+   },
+   "by_category_share": {
+    "verified_credit_vs_zero": 0.0,
+    "verified_credit_vs_removed": 1.0,
+    "removed_vs_zero": 0.0,
+    "both_removed": 0.0,
+    "one_sided_na": 0.0
+   }
+  },
+  "by_item": {
+   "C1": {
+    "cells": 44,
+    "not_established": 4,
+    "share_of_cells": 0.09090909090909091,
+    "by_category": {
+     "verified_credit_vs_zero": 2,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.5,
+     "verified_credit_vs_removed": 0.5,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C2": {
+    "cells": 44,
+    "not_established": 4,
+    "share_of_cells": 0.09090909090909091,
+    "by_category": {
+     "verified_credit_vs_zero": 2,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.5,
+     "verified_credit_vs_removed": 0.5,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C3": {
+    "cells": 44,
+    "not_established": 6,
+    "share_of_cells": 0.13636363636363635,
+    "by_category": {
+     "verified_credit_vs_zero": 5,
+     "verified_credit_vs_removed": 1,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.8333333333333334,
+     "verified_credit_vs_removed": 0.16666666666666666,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C4": {
+    "cells": 44,
+    "not_established": 4,
+    "share_of_cells": 0.09090909090909091,
+    "by_category": {
+     "verified_credit_vs_zero": 4,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 1.0,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C5": {
+    "cells": 44,
+    "not_established": 5,
+    "share_of_cells": 0.11363636363636363,
+    "by_category": {
+     "verified_credit_vs_zero": 5,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 1.0,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C6": {
+    "cells": 44,
+    "not_established": 6,
+    "share_of_cells": 0.13636363636363635,
+    "by_category": {
+     "verified_credit_vs_zero": 4,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.6666666666666666,
+     "verified_credit_vs_removed": 0.3333333333333333,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C7": {
+    "cells": 44,
+    "not_established": 14,
+    "share_of_cells": 0.3181818181818182,
+    "by_category": {
+     "verified_credit_vs_zero": 12,
+     "verified_credit_vs_removed": 1,
+     "removed_vs_zero": 1,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.8571428571428571,
+     "verified_credit_vs_removed": 0.07142857142857142,
+     "removed_vs_zero": 0.07142857142857142,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C8": {
+    "cells": 44,
+    "not_established": 12,
+    "share_of_cells": 0.2727272727272727,
+    "by_category": {
+     "verified_credit_vs_zero": 10,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.8333333333333334,
+     "verified_credit_vs_removed": 0.16666666666666666,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C9": {
+    "cells": 44,
+    "not_established": 11,
+    "share_of_cells": 0.25,
+    "by_category": {
+     "verified_credit_vs_zero": 4,
+     "verified_credit_vs_removed": 1,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 6
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.36363636363636365,
+     "verified_credit_vs_removed": 0.09090909090909091,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.5454545454545454
+    }
+   },
+   "C10": {
+    "cells": 44,
+    "not_established": 17,
+    "share_of_cells": 0.38636363636363635,
+    "by_category": {
+     "verified_credit_vs_zero": 15,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 2,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.8823529411764706,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.11764705882352941,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C11": {
+    "cells": 44,
+    "not_established": 1,
+    "share_of_cells": 0.022727272727272728,
+    "by_category": {
+     "verified_credit_vs_zero": 1,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 1.0,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C12": {
+    "cells": 44,
+    "not_established": 6,
+    "share_of_cells": 0.13636363636363635,
+    "by_category": {
+     "verified_credit_vs_zero": 3,
+     "verified_credit_vs_removed": 3,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.5,
+     "verified_credit_vs_removed": 0.5,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "C13": {
+    "cells": 44,
+    "not_established": 16,
+    "share_of_cells": 0.36363636363636365,
+    "by_category": {
+     "verified_credit_vs_zero": 6,
+     "verified_credit_vs_removed": 5,
+     "removed_vs_zero": 1,
+     "both_removed": 4,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.375,
+     "verified_credit_vs_removed": 0.3125,
+     "removed_vs_zero": 0.0625,
+     "both_removed": 0.25,
+     "one_sided_na": 0.0
+    }
+   },
+   "C14": {
+    "cells": 44,
+    "not_established": 9,
+    "share_of_cells": 0.20454545454545456,
+    "by_category": {
+     "verified_credit_vs_zero": 3,
+     "verified_credit_vs_removed": 6,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.3333333333333333,
+     "verified_credit_vs_removed": 0.6666666666666666,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A1": {
+    "cells": 44,
+    "not_established": 11,
+    "share_of_cells": 0.25,
+    "by_category": {
+     "verified_credit_vs_zero": 6,
+     "verified_credit_vs_removed": 4,
+     "removed_vs_zero": 1,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.5454545454545454,
+     "verified_credit_vs_removed": 0.36363636363636365,
+     "removed_vs_zero": 0.09090909090909091,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A2": {
+    "cells": 44,
+    "not_established": 7,
+    "share_of_cells": 0.1590909090909091,
+    "by_category": {
+     "verified_credit_vs_zero": 5,
+     "verified_credit_vs_removed": 1,
+     "removed_vs_zero": 1,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.7142857142857143,
+     "verified_credit_vs_removed": 0.14285714285714285,
+     "removed_vs_zero": 0.14285714285714285,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A3": {
+    "cells": 44,
+    "not_established": 3,
+    "share_of_cells": 0.06818181818181818,
+    "by_category": {
+     "verified_credit_vs_zero": 1,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.3333333333333333,
+     "verified_credit_vs_removed": 0.6666666666666666,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A4": {
+    "cells": 44,
+    "not_established": 9,
+    "share_of_cells": 0.20454545454545456,
+    "by_category": {
+     "verified_credit_vs_zero": 4,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 3,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.4444444444444444,
+     "verified_credit_vs_removed": 0.2222222222222222,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.3333333333333333,
+     "one_sided_na": 0.0
+    }
+   },
+   "A5": {
+    "cells": 44,
+    "not_established": 10,
+    "share_of_cells": 0.22727272727272727,
+    "by_category": {
+     "verified_credit_vs_zero": 3,
+     "verified_credit_vs_removed": 5,
+     "removed_vs_zero": 1,
+     "both_removed": 1,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.3,
+     "verified_credit_vs_removed": 0.5,
+     "removed_vs_zero": 0.1,
+     "both_removed": 0.1,
+     "one_sided_na": 0.0
+    }
+   },
+   "A6": {
+    "cells": 44,
+    "not_established": 13,
+    "share_of_cells": 0.29545454545454547,
+    "by_category": {
+     "verified_credit_vs_zero": 7,
+     "verified_credit_vs_removed": 5,
+     "removed_vs_zero": 1,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.5384615384615384,
+     "verified_credit_vs_removed": 0.38461538461538464,
+     "removed_vs_zero": 0.07692307692307693,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A7": {
+    "cells": 44,
+    "not_established": 1,
+    "share_of_cells": 0.022727272727272728,
+    "by_category": {
+     "verified_credit_vs_zero": 0,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 1
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.0,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 1.0
+    }
+   },
+   "A8": {
+    "cells": 44,
+    "not_established": 2,
+    "share_of_cells": 0.045454545454545456,
+    "by_category": {
+     "verified_credit_vs_zero": 0,
+     "verified_credit_vs_removed": 2,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.0,
+     "verified_credit_vs_removed": 1.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A9": {
+    "cells": 44,
+    "not_established": 9,
+    "share_of_cells": 0.20454545454545456,
+    "by_category": {
+     "verified_credit_vs_zero": 9,
+     "verified_credit_vs_removed": 0,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 1.0,
+     "verified_credit_vs_removed": 0.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A10": {
+    "cells": 44,
+    "not_established": 6,
+    "share_of_cells": 0.13636363636363635,
+    "by_category": {
+     "verified_credit_vs_zero": 2,
+     "verified_credit_vs_removed": 3,
+     "removed_vs_zero": 1,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.3333333333333333,
+     "verified_credit_vs_removed": 0.5,
+     "removed_vs_zero": 0.16666666666666666,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   },
+   "A11": {
+    "cells": 44,
+    "not_established": 4,
+    "share_of_cells": 0.09090909090909091,
+    "by_category": {
+     "verified_credit_vs_zero": 0,
+     "verified_credit_vs_removed": 4,
+     "removed_vs_zero": 0,
+     "both_removed": 0,
+     "one_sided_na": 0
+    },
+    "by_category_share": {
+     "verified_credit_vs_zero": 0.0,
+     "verified_credit_vs_removed": 1.0,
+     "removed_vs_zero": 0.0,
+     "both_removed": 0.0,
+     "one_sided_na": 0.0
+    }
+   }
+  },
+  "verified_credit_vs_zero_detail": {
+   "claude_credits_openai_zero": 54,
+   "openai_credits_claude_zero": 59,
+   "credit_level_1": 112,
+   "credit_level_2": 1
+  },
+  "verified_credit_vs_removed_detail": {
+   "claude_holds_credit": 49,
+   "openai_holds_credit": 4,
+   "removed_quote_reasons": {
+    "quote_too_short": 34,
+    "not_a_substring": 33,
+    "chunk_not_in_retrieval_set": 11
+   }
+  },
+  "one_sided_na_detail": {
+   "NA_vs_zero": 5,
+   "NA_vs_verified_credit": 2
+  },
+  "cells_with_a_verified_credit": 168,
+  "cells_with_no_verified_credit": 22,
+  "reported_zero": {
+   "all_25": {
+    "reported_zero_cells": 452,
+    "both_verified_zero": 279,
+    "both_raw_zero": 262
+   },
+   "core_C1_C14": {
+    "reported_zero_cells": 276,
+    "both_verified_zero": 169,
+    "both_raw_zero": 161
+   },
+   "agent_A1_A10": {
+    "reported_zero_cells": 169,
+    "both_verified_zero": 107,
+    "both_raw_zero": 98
+   },
+   "agent_A11": {
+    "reported_zero_cells": 7,
+    "both_verified_zero": 3,
+    "both_raw_zero": 3
+   },
+   "note": "REPORTED = 0 means resolved final level 0 (NA cells are not applicable and leave the denominator). 'both verified zero' = effective 0 for both coders, which includes cells where a raw credit was removed by quote verification."
+  }
+ },
+ "not_established_cells": [
+  {
+   "bench": "abra",
+   "item": "C14",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "abra",
+   "item": "A2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "abra",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "agentclinic",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "agentclinic",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NZ",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "agentclinic",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "agentclinic",
+   "item": "C13",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "agentclinic",
+   "item": "A3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "art",
+   "item": "C5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "art",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "art",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "art",
+   "item": "C12",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "art",
+   "item": "A5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C3",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "C13",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "A1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "A3",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clindef",
+   "item": "A10",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clinenv",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clinenv",
+   "item": "A5",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinenv",
+   "item": "A6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicalagent-bench",
+   "item": "C1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicalagent-bench",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicalagent-bench",
+   "item": "C13",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicalagent-bench",
+   "item": "A5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "clinicare-bench",
+   "item": "C4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicare-bench",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "clinicare-bench",
+   "item": "A4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "codeclinic",
+   "item": "C13",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "codeclinic",
+   "item": "A1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "codeclinic",
+   "item": "A4",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "codeclinic",
+   "item": "A5",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "cp-env",
+   "item": "C13",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "cp-env",
+   "item": "C14",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "cp-env",
+   "item": "A6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "cp-env",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "cp-env",
+   "item": "A10",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "deeptumorvqa",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "diaggym-diagbench",
+   "item": "C6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "diaggym-diagbench",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "diaggym-diagbench",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NV",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "diaggym-diagbench",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "diaggym-diagbench",
+   "item": "A8",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ecg-scroll",
+   "item": "C2",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ecg-scroll",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ecg-scroll",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ecg-scroll",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ehr-chatqa",
+   "item": "C3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ehr-chatqa",
+   "item": "C6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ehr-chatqa",
+   "item": "C12",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "ehr-chatqa",
+   "item": "A3",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "ehr-chatqa",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "ehr-complex",
+   "item": "C10",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-complex",
+   "item": "C12",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "ehr-complex",
+   "item": "A2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-complex",
+   "item": "A6",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-robustgym",
+   "item": "C12",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 2,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     2,
+     2
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-robustgym",
+   "item": "A2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-robustgym",
+   "item": "A4",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "ehr-robustgym",
+   "item": "A5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "C5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "A5",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "A7",
+   "cat": "one_sided_na",
+   "key": "NV",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     "NA",
+     "NA"
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "evimed",
+   "item": "A11",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "fhir-agenteval",
+   "item": "A1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "C5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NZ",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "A4",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "gpagentbench-2k",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "h-adminsim",
+   "item": "C7",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "h-adminsim",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "h-adminsim",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "h-adminsim",
+   "item": "C13",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "not_a_substring",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "h-adminsim",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "healthagentbench",
+   "item": "C8",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "healthagentbench",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "C4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "C13",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "A4",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "healthcare-ai-gym",
+   "item": "A6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "klinikebench",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "klinikebench",
+   "item": "A10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "med-inquire",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "med-inquire",
+   "item": "A1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "med-inquire",
+   "item": "A6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v1",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v1",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "C2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "C3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "C4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "C12",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medagentbench-v2",
+   "item": "A1",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "C3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NZ",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "C13",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "A5",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medagentsim",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcta",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcta",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcta",
+   "item": "A11",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "C9",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "C11",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "C13",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "A2",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medcua-bench",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medevoeval",
+   "item": "C3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medevoeval",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medevoeval",
+   "item": "C10",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medevoeval",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "medevoeval",
+   "item": "A10",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medflowbench",
+   "item": "C2",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medflowbench",
+   "item": "C3",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medflowbench",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medflowbench",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medflowbench",
+   "item": "A4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medimageedu",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medmcp-calc",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medmcp-calc",
+   "item": "C14",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medmcp-calc",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medmcp-calc",
+   "item": "A4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medsp1000",
+   "item": "C5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medsp1000",
+   "item": "C9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medsp1000",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "medsp1000",
+   "item": "A5",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "medsp1000",
+   "item": "A6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "mentalhospital",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "mentalhospital",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NZ",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "mentalhospital",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "mentalhospital",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "mentalhospital",
+   "item": "A10",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "mtbbench",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "mtbbench",
+   "item": "C13",
+   "cat": "both_removed",
+   "key": "RR",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "quote_too_short",
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "mtbbench",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "C4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "C5",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "C8",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "C9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "A5",
+   "cat": "removed_vs_zero",
+   "key": "RZ",
+   "status": "not_established",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [
+    "chunk_not_in_retrieval_set"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "openhospital",
+   "item": "A10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "patientagentbench",
+   "item": "C1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "patientagentbench",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "patientagentbench",
+   "item": "C9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "patientagentbench",
+   "item": "A11",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "C1",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "C6",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "C13",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "A4",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "A5",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physassistbench",
+   "item": "A11",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "physicianbench",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "physicianbench",
+   "item": "C14",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physicianbench",
+   "item": "A2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "physicianbench",
+   "item": "A6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "physicianbench",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rada-benchplat",
+   "item": "C12",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rada-benchplat",
+   "item": "A1",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "rada-benchplat",
+   "item": "A8",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rha-safety",
+   "item": "C7",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "quote_too_short"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rha-safety",
+   "item": "C9",
+   "cat": "one_sided_na",
+   "key": "NZ",
+   "status": "na_rejected_as_zero",
+   "credit_coder": "",
+   "credit_level": 0,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     "NA",
+     "NA"
+    ]
+   }
+  },
+  {
+   "bench": "rha-safety",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rha-safety",
+   "item": "A2",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     1,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "rha-safety",
+   "item": "A9",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "synthetic-hospital",
+   "item": "C8",
+   "cat": "verified_credit_vs_removed",
+   "key": "RV",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 2,
+   "removed_reasons": [
+    "not_a_substring"
+   ],
+   "votes": {
+    "codex": [
+     2,
+     0
+    ],
+    "sonnet": [
+     2,
+     2
+    ]
+   }
+  },
+  {
+   "bench": "synthetic-hospital",
+   "item": "A2",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "synthetic-hospital",
+   "item": "A4",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "bench": "vivabench",
+   "item": "C6",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "vivabench",
+   "item": "C7",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "sonnet",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     0,
+     0
+    ],
+    "sonnet": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "bench": "vivabench",
+   "item": "C10",
+   "cat": "verified_credit_vs_zero",
+   "key": "VZ",
+   "status": "not_established",
+   "credit_coder": "codex",
+   "credit_level": 1,
+   "removed_reasons": [],
+   "votes": {
+    "codex": [
+     1,
+     1
+    ],
+    "sonnet": [
+     0,
+     0
+    ]
+   }
+  }
+ ],
+ "item_association": {
+  "seed": 20261004,
+  "n_boot": 2000,
+  "scope": "Items are the ABC items and the BetterBench criteria on exactly the 'common' cells of the coder-pair kappas (expert, Claude and OpenAI all scored; effective scores; ABC binary, BetterBench 0-3 exact match). Per item: raw agreement of the coder pair, raw agreement of each coder with the expert, and their mean (coder-expert). Spearman rho across items between coder-pair and coder-expert agreement; benchmark bootstrap (2,000 resamples, seed 20261004, percentile 95% CI) recomputes every item statistic in each resample; an item absent from a resample is dropped for that resample. Pooled = the ABC and BetterBench items together; benchmarks are resampled separately within each instrument (the two benchmark sets differ), so the pooled ranking mixes two scales and is secondary.",
+  "n_cells": {
+   "abc": 198,
+   "betterbench": 423
+  },
+  "n_benchmarks": {
+   "abc": 9,
+   "betterbench": 22
+  },
+  "instruments": {
+   "abc": {
+    "n_items": 22,
+    "rho": 0.19058956533842594,
+    "share_pair_gt_expert": 0.7272727272727273,
+    "share_pair_ge_expert": 0.8181818181818182,
+    "n_pair_ge_0.9": 5,
+    "expert_agr_range_pair_ge_0.9": [
+     0.1111111111111111,
+     1.0
+    ],
+    "median_expert_agr_pair_ge_0.9": 0.6666666666666666,
+    "rho_p_value_asymptotic": 0.3955527089172098,
+    "rho_ci95": [
+     -0.0950612866474208,
+     0.4190319061453056
+    ],
+    "rho_boot_valid_resamples": 2000,
+    "share_pair_gt_expert_ci95": [
+     0.45454545454545453,
+     0.7727272727272727
+    ],
+    "mean_pair_agr": 0.8585858585858586,
+    "mean_coder_expert_agr": 0.6515151515151515
+   },
+   "betterbench": {
+    "n_items": 20,
+    "rho": 0.6871445317743915,
+    "share_pair_gt_expert": 0.85,
+    "share_pair_ge_expert": 0.9,
+    "n_pair_ge_0.9": 2,
+    "expert_agr_range_pair_ge_0.9": [
+     0.7727272727272727,
+     0.7727272727272727
+    ],
+    "median_expert_agr_pair_ge_0.9": 0.7727272727272727,
+    "rho_p_value_asymptotic": 0.0008164145170674837,
+    "rho_ci95": [
+     0.23789773811581488,
+     0.7163347331821331
+    ],
+    "rho_boot_valid_resamples": 2000,
+    "share_pair_gt_expert_ci95": [
+     0.7,
+     0.95
+    ],
+    "mean_pair_agr": 0.6980678635090398,
+    "mean_coder_expert_agr": 0.5217118665648076
+   },
+   "pooled": {
+    "n_items": 42,
+    "rho": 0.4686012909056352,
+    "share_pair_gt_expert": 0.7857142857142857,
+    "share_pair_ge_expert": 0.8571428571428571,
+    "n_pair_ge_0.9": 7,
+    "expert_agr_range_pair_ge_0.9": [
+     0.1111111111111111,
+     1.0
+    ],
+    "median_expert_agr_pair_ge_0.9": 0.7727272727272727,
+    "rho_p_value_asymptotic": 0.001748285771299046,
+    "rho_ci95": [
+     0.2242733466880054,
+     0.5364269061739471
+    ],
+    "rho_boot_valid_resamples": 2000,
+    "share_pair_gt_expert_ci95": [
+     0.6190476190476191,
+     0.8333333333333334
+    ],
+    "mean_pair_agr": 0.7821487180730877,
+    "mean_coder_expert_agr": 0.5897040634435593
+   }
+  },
+  "items": {
+   "abc": {
+    "R.1": {
+     "n": 9,
+     "pair_agr": 1.0,
+     "claude_expert_agr": 1.0,
+     "openai_expert_agr": 1.0,
+     "coder_expert_agr": 1.0,
+     "pair_kappa": null,
+     "claude_expert_kappa": null,
+     "openai_expert_kappa": null
+    },
+    "R.10": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.8888888888888888,
+     "coder_expert_agr": 0.8333333333333333,
+     "pair_kappa": 0.7272727272727272,
+     "claude_expert_kappa": 0.4000000000000002,
+     "openai_expert_kappa": 0.608695652173913
+    },
+    "R.11": {
+     "n": 9,
+     "pair_agr": 0.7777777777777778,
+     "claude_expert_agr": 0.4444444444444444,
+     "openai_expert_agr": 0.4444444444444444,
+     "coder_expert_agr": 0.4444444444444444,
+     "pair_kappa": 0.5,
+     "claude_expert_kappa": 0.1176470588235294,
+     "openai_expert_kappa": 0.1176470588235294
+    },
+    "R.12": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.8888888888888888,
+     "coder_expert_agr": 0.8333333333333333,
+     "pair_kappa": 0.7272727272727272,
+     "claude_expert_kappa": 0.5263157894736842,
+     "openai_expert_kappa": 0.7692307692307692
+    },
+    "R.13": {
+     "n": 9,
+     "pair_agr": 0.7777777777777778,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.7777777777777778,
+     "coder_expert_agr": 0.7777777777777778,
+     "pair_kappa": -0.125,
+     "claude_expert_kappa": -0.125,
+     "openai_expert_kappa": -0.125
+    },
+    "R.2": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 1.0,
+     "openai_expert_agr": 0.8888888888888888,
+     "coder_expert_agr": 0.9444444444444444,
+     "pair_kappa": 0.608695652173913,
+     "claude_expert_kappa": 1.0,
+     "openai_expert_kappa": 0.608695652173913
+    },
+    "R.3": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.6666666666666666,
+     "coder_expert_agr": 0.7222222222222222,
+     "pair_kappa": 0.7804878048780487,
+     "claude_expert_kappa": 0.5714285714285714,
+     "openai_expert_kappa": 0.30769230769230765
+    },
+    "R.4": {
+     "n": 9,
+     "pair_agr": 0.7777777777777778,
+     "claude_expert_agr": 0.5555555555555556,
+     "openai_expert_agr": 0.3333333333333333,
+     "coder_expert_agr": 0.4444444444444444,
+     "pair_kappa": 0.5263157894736842,
+     "claude_expert_kappa": 0.18181818181818193,
+     "openai_expert_kappa": 0.0689655172413793
+    },
+    "R.5": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.8888888888888888,
+     "openai_expert_agr": 1.0,
+     "coder_expert_agr": 0.9444444444444444,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": null
+    },
+    "R.6": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 1.0,
+     "openai_expert_agr": 0.8888888888888888,
+     "coder_expert_agr": 0.9444444444444444,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": null,
+     "openai_expert_kappa": 0.0
+    },
+    "R.7": {
+     "n": 9,
+     "pair_agr": 1.0,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.7777777777777778,
+     "coder_expert_agr": 0.7777777777777778,
+     "pair_kappa": null,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": 0.0
+    },
+    "R.8": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.5555555555555556,
+     "coder_expert_agr": 0.6111111111111112,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.27027027027027023,
+     "openai_expert_kappa": 0.0
+    },
+    "R.9": {
+     "n": 9,
+     "pair_agr": 0.5555555555555556,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.2222222222222222,
+     "coder_expert_agr": 0.4444444444444444,
+     "pair_kappa": 0.05263157894736842,
+     "claude_expert_kappa": 0.3720930232558139,
+     "openai_expert_kappa": -0.18867924528301885
+    },
+    "T.1": {
+     "n": 9,
+     "pair_agr": 0.7777777777777778,
+     "claude_expert_agr": 0.3333333333333333,
+     "openai_expert_agr": 0.5555555555555556,
+     "coder_expert_agr": 0.4444444444444444,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": 0.2500000000000001
+    },
+    "T.2": {
+     "n": 9,
+     "pair_agr": 1.0,
+     "claude_expert_agr": 0.3333333333333333,
+     "openai_expert_agr": 0.3333333333333333,
+     "coder_expert_agr": 0.3333333333333333,
+     "pair_kappa": 1.0,
+     "claude_expert_kappa": 0.0689655172413793,
+     "openai_expert_kappa": 0.0689655172413793
+    },
+    "T.3": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.2222222222222222,
+     "openai_expert_agr": 0.3333333333333333,
+     "coder_expert_agr": 0.2777777777777778,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": 0.0689655172413793
+    },
+    "T.4": {
+     "n": 9,
+     "pair_agr": 0.7777777777777778,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.4444444444444444,
+     "coder_expert_agr": 0.5555555555555556,
+     "pair_kappa": 0.5714285714285714,
+     "claude_expert_kappa": 0.27027027027027023,
+     "openai_expert_kappa": 0.1176470588235294
+    },
+    "T.5": {
+     "n": 9,
+     "pair_agr": 0.5555555555555556,
+     "claude_expert_agr": 0.5555555555555556,
+     "openai_expert_agr": 0.7777777777777778,
+     "coder_expert_agr": 0.6666666666666667,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.05263157894736842,
+     "openai_expert_kappa": 0.0
+    },
+    "T.6": {
+     "n": 9,
+     "pair_agr": 1.0,
+     "claude_expert_agr": 0.1111111111111111,
+     "openai_expert_agr": 0.1111111111111111,
+     "coder_expert_agr": 0.1111111111111111,
+     "pair_kappa": null,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": 0.0
+    },
+    "T.7": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.7777777777777778,
+     "coder_expert_agr": 0.7222222222222222,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": -0.17391304347826084,
+     "openai_expert_kappa": 0.0
+    },
+    "T.8": {
+     "n": 9,
+     "pair_agr": 1.0,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.6666666666666666,
+     "coder_expert_agr": 0.6666666666666666,
+     "pair_kappa": 1.0,
+     "claude_expert_kappa": -0.17391304347826084,
+     "openai_expert_kappa": -0.17391304347826084
+    },
+    "T.9": {
+     "n": 9,
+     "pair_agr": 0.8888888888888888,
+     "claude_expert_agr": 0.7777777777777778,
+     "openai_expert_agr": 0.8888888888888888,
+     "coder_expert_agr": 0.8333333333333333,
+     "pair_kappa": 0.7692307692307692,
+     "claude_expert_kappa": 0.5714285714285714,
+     "openai_expert_kappa": 0.7804878048780487
+    }
+   },
+   "betterbench": {
+    "J.1-1": {
+     "n": 22,
+     "pair_agr": 0.7727272727272727,
+     "claude_expert_agr": 0.8636363636363636,
+     "openai_expert_agr": 0.7727272727272727,
+     "coder_expert_agr": 0.8181818181818181,
+     "pair_kappa": 0.11290322580645128,
+     "claude_expert_kappa": 0.554054054054054,
+     "openai_expert_kappa": 0.09836065573770461
+    },
+    "J.1-12": {
+     "n": 22,
+     "pair_agr": 0.6363636363636364,
+     "claude_expert_agr": 0.5454545454545454,
+     "openai_expert_agr": 0.5454545454545454,
+     "coder_expert_agr": 0.5454545454545454,
+     "pair_kappa": 0.401360544217687,
+     "claude_expert_kappa": 0.3081761006289308,
+     "openai_expert_kappa": 0.33333333333333326
+    },
+    "J.1-5": {
+     "n": 22,
+     "pair_agr": 0.6818181818181818,
+     "claude_expert_agr": 0.3181818181818182,
+     "openai_expert_agr": 0.3181818181818182,
+     "coder_expert_agr": 0.3181818181818182,
+     "pair_kappa": 0.5304878048780487,
+     "claude_expert_kappa": 0.17085427135678388,
+     "openai_expert_kappa": 0.15816326530612243
+    },
+    "J.1-6": {
+     "n": 22,
+     "pair_agr": 0.7727272727272727,
+     "claude_expert_agr": 0.5909090909090909,
+     "openai_expert_agr": 0.5454545454545454,
+     "coder_expert_agr": 0.5681818181818181,
+     "pair_kappa": 0.0,
+     "claude_expert_kappa": 0.0,
+     "openai_expert_kappa": 0.08333333333333327
+    },
+    "J.1-9": {
+     "n": 22,
+     "pair_agr": 0.6363636363636364,
+     "claude_expert_agr": 0.4090909090909091,
+     "openai_expert_agr": 0.3181818181818182,
+     "coder_expert_agr": 0.36363636363636365,
+     "pair_kappa": 0.39726027397260283,
+     "claude_expert_kappa": 0.21428571428571433,
+     "openai_expert_kappa": 0.13157894736842107
+    },
+    "J.2-1": {
+     "n": 22,
+     "pair_agr": 0.9090909090909091,
+     "claude_expert_agr": 0.7727272727272727,
+     "openai_expert_agr": 0.7727272727272727,
+     "coder_expert_agr": 0.7727272727272727,
+     "pair_kappa": 0.7647058823529411,
+     "claude_expert_kappa": 0.4054054054054054,
+     "openai_expert_kappa": 0.40860215053763443
+    },
+    "J.2-2": {
+     "n": 22,
+     "pair_agr": 0.7272727272727273,
+     "claude_expert_agr": 0.22727272727272727,
+     "openai_expert_agr": 0.2727272727272727,
+     "coder_expert_agr": 0.25,
+     "pair_kappa": 0.30526315789473696,
+     "claude_expert_kappa": 0.07881773399014778,
+     "openai_expert_kappa": 0.027624309392265175
+    },
+    "J.2-4": {
+     "n": 12,
+     "pair_agr": 0.75,
+     "claude_expert_agr": 0.6666666666666666,
+     "openai_expert_agr": 0.5,
+     "coder_expert_agr": 0.5833333333333333,
+     "pair_kappa": 0.5443037974683543,
+     "claude_expert_kappa": 0.4666666666666666,
+     "openai_expert_kappa": 0.2173913043478261
+    },
+    "J.2-5": {
+     "n": 22,
+     "pair_agr": 0.7727272727272727,
+     "claude_expert_agr": 0.5454545454545454,
+     "openai_expert_agr": 0.5,
+     "coder_expert_agr": 0.5227272727272727,
+     "pair_kappa": 0.6219931271477663,
+     "claude_expert_kappa": 0.09465020576131679,
+     "openai_expert_kappa": 0.06563706563706562
+    },
+    "J.2-7": {
+     "n": 17,
+     "pair_agr": 0.8823529411764706,
+     "claude_expert_agr": 0.7058823529411765,
+     "openai_expert_agr": 0.7058823529411765,
+     "coder_expert_agr": 0.7058823529411765,
+     "pair_kappa": 0.6792452830188678,
+     "claude_expert_kappa": 0.14141414141414163,
+     "openai_expert_kappa": -0.164383561643835
+    },
+    "J.2-8": {
+     "n": 22,
+     "pair_agr": 0.5454545454545454,
+     "claude_expert_agr": 0.5454545454545454,
+     "openai_expert_agr": 0.4090909090909091,
+     "coder_expert_agr": 0.4772727272727273,
+     "pair_kappa": 0.4005449591280653,
+     "claude_expert_kappa": 0.2642140468227423,
+     "openai_expert_kappa": 0.2033426183844011
+    },
+    "J.2-9": {
+     "n": 22,
+     "pair_agr": 0.5909090909090909,
+     "claude_expert_agr": 0.3181818181818182,
+     "openai_expert_agr": 0.4090909090909091,
+     "coder_expert_agr": 0.36363636363636365,
+     "pair_kappa": 0.4210526315789474,
+     "claude_expert_kappa": 0.04069767441860467,
+     "openai_expert_kappa": 0.11180124223602489
+    },
+    "J.3-11": {
+     "n": 21,
+     "pair_agr": 0.7619047619047619,
+     "claude_expert_agr": 0.7142857142857143,
+     "openai_expert_agr": 0.7142857142857143,
+     "coder_expert_agr": 0.7142857142857143,
+     "pair_kappa": 0.45312499999999994,
+     "claude_expert_kappa": 0.25,
+     "openai_expert_kappa": 0.2758620689655173
+    },
+    "J.3-12": {
+     "n": 21,
+     "pair_agr": 0.47619047619047616,
+     "claude_expert_agr": 0.47619047619047616,
+     "openai_expert_agr": 0.47619047619047616,
+     "coder_expert_agr": 0.47619047619047616,
+     "pair_kappa": 0.26666666666666666,
+     "claude_expert_kappa": 0.2712933753943218,
+     "openai_expert_kappa": 0.31044776119402984
+    },
+    "J.3-16": {
+     "n": 22,
+     "pair_agr": 0.9090909090909091,
+     "claude_expert_agr": 0.7272727272727273,
+     "openai_expert_agr": 0.8181818181818182,
+     "coder_expert_agr": 0.7727272727272727,
+     "pair_kappa": 0.6206896551724135,
+     "claude_expert_kappa": -0.13793103448275917,
+     "openai_expert_kappa": -0.09999999999999892
+    },
+    "J.3-17": {
+     "n": 22,
+     "pair_agr": 0.5,
+     "claude_expert_agr": 0.2727272727272727,
+     "openai_expert_agr": 0.22727272727272727,
+     "coder_expert_agr": 0.25,
+     "pair_kappa": 0.34594594594594597,
+     "claude_expert_kappa": 0.10432569974554706,
+     "openai_expert_kappa": -0.0190735694822888
+    },
+    "J.3-19": {
+     "n": 22,
+     "pair_agr": 0.7272727272727273,
+     "claude_expert_agr": 0.36363636363636365,
+     "openai_expert_agr": 0.36363636363636365,
+     "coder_expert_agr": 0.36363636363636365,
+     "pair_kappa": 0.6,
+     "claude_expert_kappa": -0.006535947712418279,
+     "openai_expert_kappa": -0.06944444444444449
+    },
+    "J.3-4": {
+     "n": 22,
+     "pair_agr": 0.6818181818181818,
+     "claude_expert_agr": 0.5909090909090909,
+     "openai_expert_agr": 0.36363636363636365,
+     "coder_expert_agr": 0.4772727272727273,
+     "pair_kappa": 0.49342105263157887,
+     "claude_expert_kappa": 0.3850931677018634,
+     "openai_expert_kappa": 0.04938271604938272
+    },
+    "J.3-8": {
+     "n": 22,
+     "pair_agr": 0.5,
+     "claude_expert_agr": 0.5,
+     "openai_expert_agr": 0.5909090909090909,
+     "coder_expert_agr": 0.5454545454545454,
+     "pair_kappa": 0.07279693486590025,
+     "claude_expert_kappa": -0.09009009009009003,
+     "openai_expert_kappa": 0.17500000000000007
+    },
+    "J.4-1": {
+     "n": 22,
+     "pair_agr": 0.7272727272727273,
+     "claude_expert_agr": 0.45454545454545453,
+     "openai_expert_agr": 0.6363636363636364,
+     "coder_expert_agr": 0.5454545454545454,
+     "pair_kappa": 0.41071428571428575,
+     "claude_expert_kappa": 0.175,
+     "openai_expert_kappa": 0.3124999999999999
+    }
+   }
+  },
+  "hi_agreement_items": {
+   "abc": [
+    [
+     "T.6",
+     1.0,
+     0.111
+    ],
+    [
+     "T.2",
+     1.0,
+     0.333
+    ],
+    [
+     "T.8",
+     1.0,
+     0.667
+    ],
+    [
+     "R.7",
+     1.0,
+     0.778
+    ],
+    [
+     "R.1",
+     1.0,
+     1.0
+    ]
+   ],
+   "betterbench": [
+    [
+     "J.2-1",
+     0.909,
+     0.773
+    ],
+    [
+     "J.3-16",
+     0.909,
+     0.773
+    ]
+   ]
+  }
+ },
+ "ablation_agent_without_a11": {
+  "definition": "Agent columns of paper/tables/rev_ablation.tex recomputed on A1-A10 (A11 dropped) for every rule row of that table, with the same code path (revision_rq12.audit_levels -> rq1_rq2.module_summary, 2,000 benchmark bootstrap resamples, percentile 95% intervals, seed 20261004). The table prints rounded point percentages only; intervals are given here.",
+  "rules": {
+   "claude": {
+    "label": "Claude only (Sonnet), verified",
+    "n_applicable_cells": 425,
+    "share_reported": 0.7011764705882353,
+    "reported_boot_ci": [
+     0.6455399061032864,
+     0.7540603248259861
+    ],
+    "share_full": 0.08235294117647059,
+    "full_boot_ci": [
+     0.05411764705882353,
+     0.11347517730496454
+    ],
+    "with_a11_share_reported": 0.720682302771855,
+    "with_a11_share_full": 0.10660980810234541,
+    "with_a11_cells": 469
+   },
+   "openai": {
+    "label": "OpenAI only (gpt-5.5), verified",
+    "n_applicable_cells": 424,
+    "share_reported": 0.6509433962264151,
+    "reported_boot_ci": [
+     0.6009389671361502,
+     0.6985981308411215
+    ],
+    "share_full": 0.09198113207547169,
+    "full_boot_ci": [
+     0.06526806526806526,
+     0.12
+    ],
+    "with_a11_share_reported": 0.6709401709401709,
+    "with_a11_share_full": 0.11538461538461539,
+    "with_a11_cells": 468
+   },
+   "union": {
+    "label": "Union: max of the two verified scores",
+    "n_applicable_cells": 425,
+    "share_reported": 0.7482352941176471,
+    "reported_boot_ci": [
+     0.6968973747016707,
+     0.7957244655581948
+    ],
+    "share_full": 0.1223529411764706,
+    "full_boot_ci": [
+     0.0924170616113744,
+     0.15566037735849056
+    ],
+    "with_a11_share_reported": 0.7654584221748401,
+    "with_a11_share_full": 0.14712153518123666,
+    "with_a11_cells": 469
+   },
+   "current": {
+    "label": "Resolved rule (verified, both coders)",
+    "n_applicable_cells": 425,
+    "share_reported": 0.6023529411764705,
+    "reported_boot_ci": [
+     0.5513126491646778,
+     0.6503496503496503
+    ],
+    "share_full": 0.05176470588235294,
+    "full_boot_ci": [
+     0.03058823529411765,
+     0.07710280373831775
+    ],
+    "with_a11_share_reported": 0.6247334754797441,
+    "with_a11_share_full": 0.07462686567164178,
+    "with_a11_cells": 469
+   },
+   "raw": {
+    "label": "Resolved rule on raw scores (no quote verification)",
+    "n_applicable_cells": 425,
+    "share_reported": 0.668235294117647,
+    "reported_boot_ci": [
+     0.6126760563380281,
+     0.7189695550351288
+    ],
+    "share_full": 0.05647058823529412,
+    "full_boot_ci": [
+     0.03496503496503497,
+     0.08215962441314555
+    ],
+    "with_a11_share_reported": 0.6929637526652452,
+    "with_a11_share_full": 0.08102345415778252,
+    "with_a11_cells": 469
+   }
+  },
+  "_check": "resolved and union rows equal agent_without_a11.json (60.2/5.2 and 74.8/12.2)"
+ }
+}

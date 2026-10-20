@@ -1,5 +1,7 @@
 # Score card: patientagentbench
 
+Describes reporting only; not a quality rating. Exploratory checklist; see README Status and caveats. A11 credits mostly reflect dataset provenance.
+
 Pinned: arXiv 2607.25485v1; repo https://github.com/amazon-science/PatientAgentBench at c9bfa1b57253d731582cb64da4e9dfe6fe633f15; accessed 2026-10-05T06:13:02Z; packet sha256 85c030b8af76f81a.
 Cells: 25; not established (fallback to 0): 4; mean final level: 1.00.
 
